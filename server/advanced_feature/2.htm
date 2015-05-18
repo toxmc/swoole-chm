@@ -1,0 +1,68 @@
+<html>
+
+<head>
+  <title>回调函数中的from_id和fd</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>回调函数中的from_id和fd</h1>
+                        <p>回调函数中经常看到它。</p>
+
+<ul>
+<li>from_id是来自于哪个reactor线程</li>
+<li>fd是tcp连接的文件描述符</li>
+</ul>
+
+<p>调用swoole_server->send/swoole_server->close函数需要传入$fd参数才能被正确的处理。如果业务中需要发送广播，需要用apc/redis/memcache/swoole_table将fd的值保存起来。</p>
+
+<blockquote>
+  <p>1.6.0以上版本不再需要from_id参数，swoole本身提供了ConnectionList可以查询到当前所有的fd和对应from_id<br />
+  1.7.10以上版本，fd不再是文件描述符。fd是一个自增数字，范围是 1 ～ 1600万</p>
+</blockquote>
+
+<pre><code class="php" data-language="php">function my_onReceive($serv, $fd, $from_id, $data)  {
+    //向Connection发送数据
+    $serv-&gt;send($fd, 'Swoole: '.$data); 
+
+    //关闭Connection
+    $serv-&gt;close($fd); 
+}
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<html>
+
+<head>
+  <title>swoole_process->push</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_process->push</h1>
+                        <p>投递数据到消息队列中。</p>
+
+<pre><code class="php" data-language="php">bool swoole_process-&gt;push(string $data);
+</code></pre>
+
+<ul>
+<li>$data要投递的数据，长度受限与操作系统内核参数的限制。默认为8192，最大不超过65536</li>
+<li>操作失败会返回false，成功返回true</li>
+</ul>
+
+<p>示例</p>
+
+<pre><code class="php" data-language="php">$workers = [];
+$worker_num = 2;
+
+for($i = 0; $i &lt; $worker_num; $i++)
+{
+    $process = new swoole_process('callback_function', false, false);
+    $process-&gt;useQueue();
+    $pid = $process-&gt;start();
+    $workers[$pid] = $process;
+    //echo "Master: new worker, PID=".$pid."\n";
+}
+
+function callback_function(swoole_process $worker)
+{
+    //echo "Worker: start. PID=".$worker-&gt;pid."\n";
+    //recv data from master
+    $recv = $worker-&gt;pop();
+
+    echo "From Master: $recv\n";
+
+    sleep(2);
+    $worker-&gt;exit(0);
+}
+
+foreach($workers as $pid =&gt; $process)
+{
+    $process-&gt;push("hello worker[$pid]\n");
+}
+
+for($i = 0; $i &lt; $worker_num; $i++)
+{
+    $ret = swoole_process::wait();
+    $pid = $ret['pid'];
+    unset($workers[$pid]);
+    echo "Worker Exit, PID=".$pid.PHP_EOL;
+}
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

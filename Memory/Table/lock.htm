@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <title>swoole_table->lock</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_table->lock</h1>
+                        <p>锁定整个表</p>
+
+<pre><code class="php" data-language="php">function swoole_table-&gt;lock()
+</code></pre>
+
+<p>当多个进程同时要操作一个事务性操作时，一定要加锁，将整个表锁定。操作完成后释放锁。</p>
+
+<ul>
+<li>lock() 是互斥锁，所以只能保护lock/unlock中间的代码是安全的。lock/unlock之外的操作是不能保护的</li>
+<li>set/get/del操作不使用互斥锁，所以lock之后无法阻止其他进程调用这些函数  </li>
+</ul>
+
+<blockquote>
+  <p>lock/unlock必须成对出现，否则会发生死锁，这里务必要小心<br />
+  lock/unlock之间不应该加入太多操作，避免锁的粒度太大影响程序性能<br />
+  lock/unlock之间的代码，应当try/catch避免抛出异常导致跳过unlock发生死锁</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

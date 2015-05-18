@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <title>swoole_server->addListener</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_server->addListener</h1>
+                        <p>Swoole提供了swoole_server::addListener来增加监听的端口。业务代码中可以通过调用swoole_server::connection_info来获取某个连接来自于哪个端口。</p>
+
+<p>函数原型：</p>
+
+<pre><code class="php" data-language="php">void swoole_server-&gt;addListener(string $host, int $port, $type = SWOOLE_SOCK_TCP);
+</code></pre>
+
+<h2>swoole支持的Socket类型</h2>
+
+<ul>
+<li><strong>SWOOLE_TCP</strong>/<strong>SWOOLE_SOCK_TCP</strong>  tcp ipv4 socket </li>
+<li><strong>SWOOLE_TCP6</strong>/<strong>SWOOLE_SOCK_TCP6</strong>  tcp ipv6 socket</li>
+<li><strong>SWOOLE_UDP</strong>/<strong>SWOOLE_SOCK_UDP</strong>  udp ipv4 socket</li>
+<li><strong>SWOOLE_UDP6</strong>/<strong>SWOOLE_SOCK_UDP6</strong>  udp ipv6 socket  </li>
+<li><strong>SWOOLE_UNIX_DGRAM</strong> unix socket dgram</li>
+<li><strong>SWOOLE_UNIX_STREAM</strong> unix socket stream</li>
+</ul>
+
+<blockquote>
+  <p>Unix Socket仅在1.7.1+后可用，此模式下$host参数必须填写可访问的文件路径，$port参数忽略<br />
+  Unix Socket模式下，客户端$fd将不再是数字，而是一个文件路径的字符串<br />
+  SWOOLE_TCP等是1.7.0+后提供的简写方式，与1.7.0前的SWOOLE_SOCK_TCP是等同的</p>
+</blockquote>
+
+<p>您可以混合使用UDP/TCP，同时监听内网和外网端口。
+示例：</p>
+
+<pre><code class="php" data-language="php">$serv-&gt;addlistener("127.0.0.1", 9502, SWOOLE_SOCK_TCP);
+$serv-&gt;addlistener("192.168.1.100", 9503, SWOOLE_SOCK_TCP);
+$serv-&gt;addlistener("0.0.0.0", 9504, SWOOLE_SOCK_UDP);
+$serv-&gt;addlistener("/var/run/myserv.sock", 0, SWOOLE_UNIX_STREAM);
+</code></pre>
+
+<h2>IPv4与IPv6</h2>
+
+<ul>
+<li>IPv4使用 127.0.0.1表示监听本机，0.0.0.0表示监听所有地址</li>
+<li>IPv6使用::1表示监听本机，:: (0:0:0:0:0:0:0:0) 表示监听所有地址</li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

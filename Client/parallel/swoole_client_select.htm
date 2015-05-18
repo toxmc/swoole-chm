@@ -1,0 +1,62 @@
+<html>
+
+<head>
+  <title>swoole_client_select</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_client_select</h1>
+                        <p>swoole_client的并行处理中用了select来做IO事件循环。</p>
+
+<p>函数原型：</p>
+
+<pre><code class="php" data-language="php">int swoole_client_select(array &amp;$read, array &amp;$write, array &amp;$error, float $timeout);
+</code></pre>
+
+<p>swoole_client_select接受4个参数，$read,$write,$error分别是可读/可写/错误的文件描述符。<br />
+这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。<br />
+$timeout参数是select的超时时间，单位为秒，接受浮点数。</p>
+
+<p>调用成功后，会返回事件的数量，并修改$read/$write/$error数组。使用foreach遍历数组，然后执行$item->recv/$item->send来收发数据。或者调用$item->close()或unset($item)来关闭socket。</p>
+
+<blockquote>
+  <p>此函数适用于Apache/PHP-fpm环境</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

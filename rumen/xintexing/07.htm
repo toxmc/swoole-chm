@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <title>1.7.5 swoole_client支持sendfile接口</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>1.7.5 swoole_client支持sendfile接口</h1>
+                        <p>1.7.5增加了swoole_client->sendfile接口，在客户端中也可以直接发送一个文件到服务器。使用方法</p>
+
+<pre><code class="php" data-language="php">$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_SYNC); //同步阻塞
+if (!$client-&gt;connect('127.0.0.1', 9501, -1))
+{
+    exit("connect failed. Error: {$client-&gt;errCode}\n");
+}
+if ($client-&gt;sendfile(__DIR__.'/test.txt') === false)
+{
+    echo "send failed. Error: {$client-&gt;errCode}\n";
+    break;
+}
+$data = $client-&gt;recv(7000);
+if ($data === false)
+{
+    echo "recv failed. Error: {$client-&gt;errCode}\n";
+    break;
+}
+var_dump($data);
+$client-&gt;close();
+</code></pre>
+
+<p>sendfile只需要传入文件名即可发送到服务器。当文件不存在时会返回false。</p>
+
+        </article>
+
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

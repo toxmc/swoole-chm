@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <title>1.7.16 使用迭代器遍历Server所有连接</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>1.7.16 使用迭代器遍历Server所有连接</h1>
+                        <p>swoole-1.7.16版本增加了客户端连接迭代器接口，可以非常轻松实现遍历当前服务器的所有连接。</p>
+
+<h2>遍历连接并广播</h2>
+
+<pre><code class="php" data-language="php">foreach($server-&gt;connections as $fd)
+{
+    $server-&gt;send($fd, "hello world\n");
+}
+</code></pre>
+
+<h2>获取连接总数</h2>
+
+<pre><code class="php" data-language="php">echo count($server-&gt;connections);
+</code></pre>
+
+        </article>
+
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

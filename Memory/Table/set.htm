@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <title>swoole_table->set</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_table->set</h1>
+                        <p>设置行的数据，swoole_table使用key-value的方式来访问数据。</p>
+
+<pre><code class="php" data-language="php">swoole_table-&gt;set(string $key, array $array)
+</code></pre>
+
+<ul>
+<li>$key，数据的key，相同的$key对应同一行数据，如果set同一个key，会覆盖上一次的数据</li>
+<li>$value，必须是一个数组，必须与字段定义的$name完全相同</li>
+</ul>
+
+<blockquote>
+  <p>swoole_table->set() 可以设置全部字段的值，也可以只修改部分字段<br />
+  swoole_table->set() 未设置前，该行数据的所有字段均为空<br />
+  set/get/del 是自带行锁，所以不需要调用lock加锁</p>
+</blockquote>
+
+<pre><code class="php" data-language="php">$table-&gt;set('tianfenghan@qq.com', array('id' =&gt; 145, 'name' =&gt; 'rango', 'num' =&gt; 3.1415));
+$table-&gt;set('350749960@qq.com', array('id' =&gt; 358, 'name' =&gt; "Rango1234", 'num' =&gt; 3.1415));
+$table-&gt;set('hello@qq.com', array('id' =&gt; 189, 'name' =&gt; 'rango3', 'num' =&gt; 3.1415));
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

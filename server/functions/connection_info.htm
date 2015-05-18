@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <title>swoole_server->connection_info</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_server->connection_info</h1>
+                        <p>swoole_server->connection_info 函数用来获取连接的信息</p>
+
+<blockquote>
+  <p>需要swoole-1.5.8以上版本<br />
+  connect_time, last_time 在v1.6.10+可用<br />
+  connection_info可用于UDP服务器，但需要传入from_id参数</p>
+</blockquote>
+
+<ul>
+<li>如果传入的fd存在，将会返回一个数组</li>
+<li>连接不存在或已关闭，返回false</li>
+</ul>
+
+<pre><code class="php" data-language="php">$fdinfo = $serv-&gt;connection_info($fd);
+var_dump($fdinfo);
+array(5) {
+  ["from_id"]=&gt;
+  int(3)
+  ["server_fd"]=&gt;
+  int(14)
+  ["server_port"]=&gt;
+  int(9501)
+  ["remote_port"]=&gt;
+  int(19889)
+  ["remote_ip"]=&gt;
+  string(9) "127.0.0.1"
+  ["connect_time"]=&gt;
+  int(1390212495)
+  ["last_time"]=&gt;
+  int(1390212760)
+}
+
+$udp_client = $serv-&gt;connection_info($fd, $from_id);
+var_dump($udp_client);
+</code></pre>
+
+<ul>
+<li><strong>from_id</strong> 来自哪个reactor线程</li>
+<li><strong>server_fd</strong> 来自哪个server socket  这里不是客户端连接的fd</li>
+<li><strong>server_port</strong> 来自哪个Server端口</li>
+<li><strong>remote_port</strong> 客户端连接的端口</li>
+<li><strong>remote_ip</strong> 客户端连接的ip</li>
+<li><strong>connect_time</strong> 连接到Server的时间，单位秒</li>
+<li><strong>last_time</strong> 最后一次发送数据的时间，单位秒</li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

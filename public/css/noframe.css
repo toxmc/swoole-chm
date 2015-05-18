@@ -1,0 +1,49 @@
+.wiki_main {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 1200px;
+}
+.wiki_tree {
+    width: 320px;
+    margin: 12px;
+    float: left;
+    border: 1px solid #eee;
+    background-color: #eee;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: rgba(100,100,100,1) 0px 0px 6px;
+}
+.wiki_tree li a{
+    padding: 5px;
+    color: #333;
+}
+.wiki_tree li a:hover, .wiki_tree li a:focus {
+    color: #693;
+    border-bottom-color:#693;
+}
+
+#wiki_node_active a {
+    color: #693;
+    border-bottom-color:#693;
+}
+
+.wiki_content {
+    width: 855px;
+    margin-top: 13px;
+    padding: 25px;
+    float: left;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    box-shadow: rgba(100,100,100,1) 0px 0px 6px;
+}
+.li3 {
+    margin-left: 16px;
+    list-style-type: disc;
+}
+.li_active {
+    background-color: #ddd;
+}
+.li2 {
+    margin-left: 16px;
+    list-style: inherit;
+}

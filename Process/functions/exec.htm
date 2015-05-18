@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <title>swoole_process->exec</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_process->exec</h1>
+                        <p>执行一个外部程序，此函数是exec系统调用的封装。</p>
+
+<pre><code class="php" data-language="php">bool swoole_process-&gt;exec(string $execfile, array $args)
+</code></pre>
+
+<ul>
+<li>$execfile指定可执行文件的路径，如 "/usr/bin/python"</li>
+<li>$args是一个数组，是exec的参数列表，如 array('test.py', 123)，相当与python test.py 123</li>
+</ul>
+
+<p>执行成功后，当前进程的代码段将会被新程序替换。子进程脱变成另外一套程序。父进程与当前进程仍然是父子进程关系。</p>
+
+<p>父进程与新进程之间可以通过可以通过标准输入输出进行通信，必须启用标准输入输出重定向。</p>
+
+<blockquote>
+  <p>由于exec系统调用会使用指定的程序覆盖当前程序，子进程需要读写标准输出与父进程进行通信<br />
+  如果未指定redirect_stdin_stdout = true，执行exec后子进程与父进程无法通信</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

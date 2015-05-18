@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <title>如何在回调函数中访问外部的变量</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>如何在回调函数中访问外部的变量</h1>
+                        <p>在swoole_server/swoole_client的事件回调函数中，需要读取调用外部的变量和对象，可以通过下面的几种方法实现。</p>
+
+<h2>一、事件回调函数改用对象+属性</h2>
+
+<pre><code class="php" data-language="php">class Server
+{
+    public $buffer;
+    public $serv;
+
+    function onReceive($serv, $fd, $from_id, $data)
+    {
+        //在这里可以读取到EventCallback对象上的属性和方法
+        $this-&gt;buffer[$fd] = $data;
+        $this-&gt;hello();
+    }
+
+    function hello()
+    {
+
+    }
+
+    function run()
+    {
+        $serv = new swoole_server('127.0.0.1', 9501);
+        $this-&gt;serv  = $serv;
+        $serv-&gt;on('receive', array($this, 'onReceive'));
+        $serv-&gt;start();
+    }
+}
+
+$server= new Server;
+$server-&gt;run();
+</code></pre>
+
+<h2>二、使用全局变量</h2>
+
+<pre><code class="php" data-language="php">$buffer = array();
+$serv-&gt;on('receive', function($serv, $fd, $from_id, $data) {
+    global $buffer;
+    $buffer[$fd] = $data;
+});
+</code></pre>
+
+<h2>三、使用类静态变量</h2>
+
+<pre><code class="php" data-language="php">class Test
+{
+    static $buffer;
+}
+
+$serv-&gt;on('receive', function($serv, $fd, $from_id, $data) {
+    Test::$buffer[$fd] = $data;
+});
+</code></pre>
+
+<h2>四、匿名函数中使用use语法</h2>
+
+<pre><code class="php" data-language="php">$buffer = array();
+$serv-&gt;on('receive', function($serv, $fd, $from_id, $data) use ($buffer) {
+    $buffer[$fd] = $data;
+});
+</code></pre>
+
+<blockquote>
+  <p>需要PHP5.4或更高的版本<br />
+  多个参数可以用逗号隔开，如use ($buffer, $users, $config)</p>
+</blockquote>
+
+<h2>五、直接保存在swoole_server/swoole_client对象上</h2>
+
+<pre><code class="php" data-language="php">$serv-&gt;buffer = array();
+$serv-&gt;on('receive', function($serv, $fd, $from_id, $data) use ($buffer) {
+    $serv-&gt;buffer[$fd] = $data;
+});
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

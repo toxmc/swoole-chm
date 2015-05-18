@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <title>swoole_server->tick</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_server->tick</h1>
+                        <p>tick定时器，可以自定义回调函数。此函数是<a href="../../AsyncIO/Asyn_millisecond_timer/swoole_timer_tick.htm">swoole_timer_tick</a>的别名。</p>
+
+<blockquote>
+  <p>worker进程结束运行后，所有定时器都会自动销毁</p>
+</blockquote>
+
+<p>使用示例：</p>
+
+<pre><code class="php" data-language="php">function onReceive($server, $fd, $from_id, $data) {
+    $server-&gt;tick(1000, function() use ($server, $fd) {
+        $server-&gt;send($fd, "hello world");
+    });
+}
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

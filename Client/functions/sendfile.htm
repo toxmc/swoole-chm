@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <title>swoole_client->sendfile</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_client->sendfile</h1>
+                        <p>发送文件到服务器，本函数是基于sendfile操作系统调用的。在swoole-1.7.5以上版本可用。</p>
+
+<pre><code class="php" data-language="php">bool swoole_client-&gt;sendfile(string $filename)
+</code></pre>
+
+<ul>
+<li>$filename指定要发送文件的路径</li>
+<li>如果传入的文件不存在，将返回false</li>
+</ul>
+
+<blockquote>
+  <p>如果是同步client，sendfile会一直阻塞直到整个文件发送完毕或者发生致命错误<br />
+  如果是异步client，sendfile会异步发送，当发生致命错误时会回调onError</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

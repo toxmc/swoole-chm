@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <title>swoole_timer_tick</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_timer_tick</h1>
+                        <p>设置一个间隔时钟定时器，与after定时器不同的是tick定时器会持续触发，直到调用swoole_timer_clear清除。与swoole_timer_add不同的是tick定时器可以存在多个相同间隔时间的定时器。</p>
+
+<pre><code class="php" data-language="php">int swoole_timer_tick(int $ms, mixed $callback, mixed $param = null);
+</code></pre>
+
+<ul>
+<li>$ms 指定时间，单位为毫秒</li>
+<li>$callback_function 时间到期后所执行的函数，必须是可以调用的。callback函数不接受任何参数</li>
+<li>$param 回调参数</li>
+</ul>
+
+<blockquote>
+  <p>$ms 最大不得超过 86400000<br />
+  tick定时器在1.7.14以上版本可用<br />
+  tick定时器即将要取代swoole_timer_add</p>
+</blockquote>
+
+<h2>回调函数</h2>
+
+<p>定时器触发的回调函数接受2个参数。</p>
+
+<pre><code class="php" data-language="php">function onTimer(int $timer_id, mixed $params = null);
+</code></pre>
+
+<ul>
+<li>$timer_id 定时器的ID，可用于swoole_timer_clear清除此定时器</li>
+<li>$params 由swoole_timer_tick传入的用户参数</li>
+</ul>
+
+<h2>使用示例</h2>
+
+<pre><code class="php" data-language="php">swoole_timer_tick(1000, function(){
+    echo "timeout\n";
+});
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

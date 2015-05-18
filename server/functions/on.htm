@@ -1,0 +1,74 @@
+<html>
+
+<head>
+  <title>swoole_server->on</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_server->on</h1>
+                        <p>注册Server的事件回调函数。</p>
+
+<pre><code class="php" data-language="php">bool swoole_server-&gt;on(string $event, mixed $callback);
+</code></pre>
+
+<ul>
+<li>第1个参数是回调的名称, 大小写不敏感，具体内容参考回调函数列表</li>
+<li>第2个函数是回调的PHP函数，可以是函数名的字符串，类静态方法，对象方法数组，匿名函数。</li>
+</ul>
+
+<p>此方法与swoole_server->handler功能相同，作用是与swoole_client风格保持一致。<br />
+swoole_server->on中事件名称字符串不要加on。</p>
+
+<pre><code class="php" data-language="php">$serv = new swoole_server("127.0.0.1", 9501);
+$serv-&gt;on('connect', function ($serv, $fd){
+    echo "Client:Connect.\n";
+});
+$serv-&gt;on('receive', function ($serv, $fd, $from_id, $data) {
+    $serv-&gt;send($fd, 'Swoole: '.$data);
+    $serv-&gt;close($fd);
+});
+$serv-&gt;on('close', function ($serv, $fd) {
+    echo "Client: Close.\n";
+});
+$serv-&gt;start();
+</code></pre>
+
+<p>这里的<strong>$serv->on('receive', $function);</strong>等同于<strong>swoole_server_handler($serv, 'onReceive', $function);</strong></p>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

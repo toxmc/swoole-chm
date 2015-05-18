@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <title>onShutdown</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>onShutdown</h1>
+                        <p>此事件在Server结束时发生，，函数原型</p>
+
+<pre><code class="php" data-language="php">void onShutdown(resource $server);
+</code></pre>
+
+<p>在此之前Swoole Server已进行了如下操作</p>
+
+<ul>
+<li>已关闭所有线程</li>
+<li>已关闭所有worker进程</li>
+<li>已close所有TCP/UDP监听端口</li>
+<li>已关闭主Rector</li>
+</ul>
+
+<blockquote>
+  <p>强制kill进程不会回调onShutdown，如kill -9<br />
+  需要使用kill -15来发送SIGTREM信号到主进程才能按照正常的流程终止</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

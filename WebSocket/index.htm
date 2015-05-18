@@ -1,0 +1,67 @@
+<html>
+
+<head>
+  <title>Swoole-WebSocket</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>WebSocket</h1>
+                        <p>swoole-1.7.9 增加了内置的websocket服务器支持，通过几行PHP代码就可以写出一个异步非阻塞多进程的WebSocket服务器。</p>
+
+<p>swoole_websocket_server 继承自 swoole_http_server，如果设置了onRequest回调，websocket服务器也可以同时作为http服务器。</p>
+
+<pre><code class="php" data-language="php">$server = new swoole_websocket_server("0.0.0.0", 9501);
+
+$server-&gt;on('open', function (swoole_websocket_server $server, $request) {
+    echo "server: handshake success with fd{$request-&gt;fd}\n";
+});
+
+$server-&gt;on('message', function (swoole_websocket_server $server, $frame) {
+    echo "receive from {$frame-&gt;fd}:{$frame-&gt;data},opcode:{$frame-&gt;opcode},fin:{$frame-&gt;finish}\n";
+    $server-&gt;push($frame-&gt;fd, "this is server");
+});
+
+$server-&gt;on('close', function ($ser, $fd) {
+    echo "client {$fd} closed\n";
+});
+
+$server-&gt;start();
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

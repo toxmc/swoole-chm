@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <title>TCP/UDP压测工具</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>TCP/UDP压测工具</h1>
+                        <p>swoole提供了一套TCP/UDP压测工具，代码在examples/bench/run.php中，基于swoole_client实现。与ab，http_bench等工具不同，bench.php是基于多进程实现并发测试的。
+使用方法：</p>
+
+<pre><code class="shell" data-language="shell">php bench.php -c 100 -n 10000 -s tcp://127.0.0.1:9501 -f long_tcp
+</code></pre>
+
+<ul>
+<li>-c 参数，并发的数量，会启动对应数量的进程用于测试</li>
+<li>-n 参数，请求的总数量，-n 10000, -c 100，平均到每个子进程的数量为100</li>
+<li>-s 参数，Server的IP:PORT</li>
+<li>-f 参数，测试单元的名称，目前提供了long_tcp/short_tcp/udp3种，可以自行实现单元测试函数</li>
+</ul>
+
+<p>测试完成后，打印的结果为：</p>
+
+<pre><code class="shell" data-language="shell">concurrency:    100 //并发数量
+request num:    10000 //请求总数
+lost num:   0 //失败次数
+success num:    10000 //成功次数
+total time: 0.157 //总耗时
+req per second: 63558 //qps，每秒处理的请求数
+one req use(ms):    0.015  //单个请求的平均时长，此结果目前不准确，请勿作为参考
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

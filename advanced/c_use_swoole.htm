@@ -1,0 +1,80 @@
+<html>
+
+<head>
+  <title>C/C++开发者如何使用Swoole</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>C/C++开发者如何使用Swoole</h1>
+                        <p>swoole使用cmake来做编译配置，示例程序在examples/server.c中。
+您可以在此基础上进行代码开发。
+如果需要修改编译细节的选项，请直接修改CMakeLists.txt</p>
+
+<h2>Build &amp; Install</h2>
+
+<pre><code class="bash" data-language="bash">cmake .
+make
+make install
+</code></pre>
+
+<h2>Example</h2>
+
+<p>示例代码：examples/server.c
+在C/C++代码中只需要引入swoole头即可。</p>
+
+<pre><code class="c" data-language="c">#include &lt;swoole/Server.h&gt;
+#include &lt;swoole/Client.h&gt;
+
+int main() 
+{
+    swServer serv;
+    swServer_create(&amp;serv);
+    serv.onStart = my_onStart;    
+    ...
+    swServer_start(&amp;serv);
+}
+</code></pre>
+
+<p>编译运行</p>
+
+<pre><code data-language="">gcc -o server server.c -lswoole
+./server
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <title>swoole服务器如何做到无人值守100%可用</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole服务器如何做到无人值守100%可用</h1>
+                        <p>在某些情况下，如系统负载过大swoole无法申请到内存而挂掉、swoole底层发生段错误、Server占用内存过大被内核Kill，或者被某些程序误杀。那swoole-server将无法提供服务，导致业务中断，公司收入出现损失。</p>
+
+<p>有一个非常有效并且在BAT等大型公司常用的方案是crontab重启监控。<br />
+原理是每1分钟执行一次shell脚本，检测server的master进程是否存活，如果存在则跳过。如果发现主进程已经挂掉，则执行restart逻辑，先kill掉所有残留的子进程，然后重新启动Server。</p>
+
+<p>如果在系统的crontab中加入：</p>
+
+<pre><code class="shell" data-language="shell">*/1 * * * * /data/script/check_server.sh
+</code></pre>
+
+<p>/data/script/check_server.sh：</p>
+
+<pre><code class="shell" data-language="shell">count=`ps -fe |grep "server.php" | grep -v "grep" | grep "master" | wc -l`
+
+echo $count
+if [ $count -lt 1 ]; then
+ps -eaf |grep "server.php" | grep -v "grep"| awk '{print $2}'|xargs kill -9
+sleep 2
+ulimit -c unlimited
+/usr/local/bin/php /data/webroot/server.php
+echo "restart";
+echo $(date +%Y-%m-%d_%H:%M:%S) &gt;/data/log/restart.log
+fi
+</code></pre>
+
+<h2>可以改进的地方</h2>
+
+<ul>
+<li>可以通过netstat -lnp 检测端口是否在监听，如果未在监听，则执行restart</li>
+<li>通过一个check.php发送一段带有逻辑的请求，试探服务器是否可以正常工作，如果无法工作，执行restart</li>
+<li>使用supervisor监控进程的工具</li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

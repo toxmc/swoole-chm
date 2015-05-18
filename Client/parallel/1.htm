@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <title>TCP客户端异步连接</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>TCP客户端异步连接</h1>
+                        <p>通过使用on方法注册异步回调函数。多个swoole_client可以嵌套回调。异步模式仅可用于cli模式，如在swoole_process或swoole_server中。</p>
+
+<p>示例：</p>
+
+<pre><code class="php" data-language="php">&lt;?php
+$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC); //异步非阻塞
+
+$client-&gt;on("connect", function($cli) {
+    echo "connected\n";
+    $cli-&gt;send("hello world\n");
+});
+
+$client-&gt;on("receive", function($cli, $data) {
+    if(empty($data)){
+        $cli-&gt;close();
+        echo "closed\n";
+    } else {
+        echo "received: $data\n";
+        sleep(1);
+        $cli-&gt;send("hello\n");
+    }
+});
+
+$client-&gt;on("error", function($cli){
+    exit("error\n");
+});
+
+
+$client-&gt;connect('127.0.0.1', 9501, 0.5);
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

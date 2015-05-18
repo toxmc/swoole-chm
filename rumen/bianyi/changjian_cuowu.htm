@@ -1,0 +1,95 @@
+<html>
+
+<head>
+  <title>常见错误</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>常见错误</h1>
+                        <h2>make或make install无法执行或编译错误</h2>
+
+<p>NOTICE: PHP message: PHP Warning:  PHP Startup: swoole: Unable to initialize module<br />
+Module compiled with module API=20090626<br />
+PHP    compiled with module API=20121212<br />
+These options need to match<br />
+ in Unknown on line 0</p>
+
+<p>php版本和编译时使用的phpize和php-config不对应，需要使用绝对路径来进行编译。使用绝对路径执行PHP。</p>
+
+<pre><code class="shell" data-language="shell">/usr/local/php-5.4.17/bin/phpize
+./configure --with-php-config=/usr/local/php-5.4.17/bin/php-config
+/usr/local/php-5.4.17/bin/php server.php
+</code></pre>
+
+<h2>缺少mysql头文件</h2>
+
+<p>php_mysqli_structs.h:64:23: fatal error: my_global.h: No such file or directory
+没有找到mysqlclient的头文件，需要安装mysqlclient-dev</p>
+
+<h2>Cannot find autoconf</h2>
+
+<p>phpize命令需要autoconf工具，请先安装它。</p>
+
+<h2>make install失败</h2>
+
+<p>make install需要root权限，如果不是以root用户登录的，请用sudo或su，再进行安装。</p>
+
+<h2>修改了php.ini后，php -m或phpinfo中没有swoole</h2>
+
+<pre><code class="shell" data-language="shell">php -i|grep php.ini
+</code></pre>
+
+<p>查看加载的php.ini路径，确认加载了正确的php.ini。</p>
+
+<p>修改php.ini，打开错误显示，查看是否存在启动时错误。</p>
+
+<pre><code data-language="">display_errors =&gt; On  
+display_startup_errors =&gt; On
+</code></pre>
+
+<h2>error: too many arguments to function 'zend_exception_error'</h2>
+
+<p>你的PHP版本低于PHP-5.3.10，请升级PHP版本。</p>
+
+<h2>如果还是编译失败了怎么办？</h2>
+
+<p>不要气馁，加入我们的开发组QQ群，你的问题会在24小时内被解决。</p>
+
+        </article>
+
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

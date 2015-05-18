@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <title>swoole_server->start</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_server->start</h1>
+                        <p>启动server，监听所有TCP/UDP端口，函数原型：</p>
+
+<pre><code class="php" data-language="php">bool swoole_server-&gt;start()
+</code></pre>
+
+<p>启动成功后会创建worker_num+2个进程。主进程+Manager进程+worker_num个Worker进程。</p>
+
+<blockquote>
+  <p>启用task_worker会增加相应数量的子进程<br />
+  函数列表中start之前的方法仅可在start调用前使用，在start之后的方法仅可在start调用后使用</p>
+</blockquote>
+
+<h3>主进程</h3>
+
+<p>主进程内有多个Reactor线程，基于epoll/kqueue进行网络事件轮询。收到数据后转发到worker进程去处理</p>
+
+<h3>Manager进程</h3>
+
+<p>对所有worker进程进行管理，worker进程生命周期结束或者发生异常时自动回收，并创建新的worker进程</p>
+
+<h3>worker进程</h3>
+
+<p>对收到的数据进行处理，包括协议解析和响应请求。</p>
+
+<hr />
+
+<p>启动失败扩展内会抛出致命错误，请检查php error_log的相关信息。errno={number}是标准的Linux Errno，可参考相关文档。<br />
+如果开启了log_file设置，信息会打印到指定的Log文件中。</p>
+
+<p>如果想要在开机启动时，自动运行你的Server，可以在/etc/rc.local文件中加入</p>
+
+<pre><code data-language="">/usr/bin/php /data/webroot/www.swoole.com/server.php
+</code></pre>
+
+<h2>常见的错误有：</h2>
+
+<ul>
+<li>bind端口失败,原因是其他进程已占用了此端口</li>
+<li>未设置必选回调函数，启动失败</li>
+<li>php有代码致命错误，请检查php的错误信息php_err.log</li>
+<li>执行ulimit -c unlimited，打开core dump，查看是否有段错误</li>
+<li>关闭daemonize，关闭log，使错误信息可以打印到屏幕</li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

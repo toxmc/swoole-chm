@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <title>在php-fpm或apache中使用swoole</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>在php-fpm或apache中使用swoole</h1>
+                        <p>swoole扩展中swoole_server只能在cli模式下使用，在其他模式下会抛出致命错误。
+而swoole_client和swoole_event是可以用在php-fpm或apache+mod_php5中的。</p>
+
+<p>需要注意的是使用swoole_client异步和swoole_event，在所有数据收到并处理完后，一定要执行$client->close()、swoole_event_del或swoole_event_exit，否则swoole无法得知什么时候要停止epoll wait。</p>
+
+<h2>同步swoole_client</h2>
+
+<pre><code class="php" data-language="php">$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_SYNC); //同步阻塞
+$client-&gt;connect('127.0.0.1', 9501) or die("connect failed\n");
+
+$client-&gt;send(str_repeat("A", 600));
+$data = $client-&gt;recv(700, 0) or die("recv failed\n);;
+echo "recv: ",$data,"\n";
+</code></pre>
+
+<h2>异步swoole_client</h2>
+
+<pre><code class="php" data-language="php">&lt;?php
+$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC); //异步非阻塞
+
+$client-&gt;on("connect", function(swoole_client $cli) {
+    $cli-&gt;send("GET / HTTP/1.1\r\n\r\n");
+});
+
+$client-&gt;on("receive", function(swoole_client $cli, $data){
+    echo "Received: $data";
+    $cli-&gt;close();
+});
+
+$client-&gt;on("error", function(swoole_client $cli){
+    exit("error\n");
+});
+
+$client-&gt;on("close", function(swoole_client $cli){
+    echo "Connection close";
+});
+
+$client-&gt;connect('127.0.0.1', 9501, 0.5);
+
+echo "connect to 127.0.0.1:9501";
+//for PHP5.3-
+//swoole_event_wait();
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<html>
+
+<head>
+  <title>message_queue_key</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>message_queue_key</h1>
+                        <p>设置消息队列的KEY，仅在ipc_mode = 2或task_ipc_mode = 2时使用。设置的Key仅作为队列的基数。此参数的默认值为ftok($php_script_file, 1)。实际使用的消息队列KEY为：</p>
+
+<ul>
+<li>recv数据消息队列KEY为 message_queue_key</li>
+<li>send数据消息队列KEY为 message_queue_key + 1</li>
+<li>task数据消息队列KEY为 message_queue_key + 2</li>
+</ul>
+
+<p>recv/send数据队列在server结束后，会自动销毁。task队列在server结束后不会销毁，重新启动程序后，task进程仍然会接着处理队列中的任务。</p>
+
+<blockquote>
+  <p>1.7.8以前的版本，KEY会+serv->master_pid。增加pid是为了防止服务器程序重启，导致复用上一次的消息队列数据，读取到错误的数据</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

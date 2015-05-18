@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <title>v1.7.8</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>1.7.8</h1>
+                        <ul>
+<li>修复swoole_http_server::on未执行父类方法的问题</li>
+<li>修复swoole_http_server中COOKIE无法读取的问题</li>
+<li>增加swoole_http_server对POST RawContent的支持</li>
+<li>after接口可以传入一个用户参数</li>
+<li>swoole_client->recv和onReceive的data变量修改为零拷贝</li>
+<li>swoole_client->onReceive改为ET模式</li>
+<li>修复swoole_table->set无法设置超过64K字符串的问题</li>
+<li>重构swoole_table，解决foreach可能存在的数据同步问题</li>
+<li>增加在php.ini中的配置项swoole.display_errors，用于关闭错误信息</li>
+<li>swoole_timer_after/swoole_server->after接口增加一个可选参数，可以将一个自定义变量传递到回调函数中 </li>
+<li>修复open_length_check连接内存缓冲区未重置的BUG</li>
+<li>增加dispatch_mode=4，按照客户端IP取摸分配worker进程</li>
+<li>事件回调函数中不或到异常错误等级由E_WARNING调整为E_ERROR</li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

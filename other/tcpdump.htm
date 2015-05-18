@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <title>附录：tcpdump抓包工具的使用</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>附录：tcpdump抓包工具的使用</h1>
+                        <p>在调试网络通信程序是tcpdump是必备工具。tcpdump很强大，可以看到网络通信的每个细节。如TCP，可以看到3次握手，PUSH/ACT数据推送，close4次挥手，全部细节。包括每一次网络收包的字节数，时间等。</p>
+
+<h2>最简单的一个使用示例：</h2>
+
+<pre><code class="shell" data-language="shell">sudo tcpdump -i any tcp port 9501
+</code></pre>
+
+<ul>
+<li>-i 参数制定了网卡，any表示所有网卡</li>
+<li>tcp 指定仅监听TCP协议</li>
+<li>port 制定监听的端口</li>
+</ul>
+
+<blockquote>
+  <p>tcpdump需要root权限<br />
+  需要要看通信的数据内容，可以加  -Xnlps0 参数，其他更多参数请参见网上的文章</p>
+</blockquote>
+
+<p>运行结果</p>
+
+<pre><code data-language="">13:29:07.788802 IP localhost.42333 &gt; localhost.9501: Flags [S], seq 828582357, win 43690, options [mss 65495,sackOK,TS val 2207513 ecr 0,nop,wscale 7], length 0
+13:29:07.788815 IP localhost.9501 &gt; localhost.42333: Flags [S.], seq 1242884615, ack 828582358, win 43690, options [mss 65495,sackOK,TS val 2207513 ecr 2207513,nop,wscale 7], length 0
+13:29:07.788830 IP localhost.42333 &gt; localhost.9501: Flags [.], ack 1, win 342, options [nop,nop,TS val 2207513 ecr 2207513], length 0
+13:29:10.298686 IP localhost.42333 &gt; localhost.9501: Flags [P.], seq 1:5, ack 1, win 342, options [nop,nop,TS val 2208141 ecr 2207513], length 4
+13:29:10.298708 IP localhost.9501 &gt; localhost.42333: Flags [.], ack 5, win 342, options [nop,nop,TS val 2208141 ecr 2208141], length 0
+13:29:10.298795 IP localhost.9501 &gt; localhost.42333: Flags [P.], seq 1:13, ack 5, win 342, options [nop,nop,TS val 2208141 ecr 2208141], length 12
+13:29:10.298803 IP localhost.42333 &gt; localhost.9501: Flags [.], ack 13, win 342, options [nop,nop,TS val 2208141 ecr 2208141], length 0
+13:29:11.563361 IP localhost.42333 &gt; localhost.9501: Flags [F.], seq 5, ack 13, win 342, options [nop,nop,TS val 2208457 ecr 2208141], length 0
+13:29:11.563450 IP localhost.9501 &gt; localhost.42333: Flags [F.], seq 13, ack 6, win 342, options [nop,nop,TS val 2208457 ecr 2208457], length 0
+13:29:11.563473 IP localhost.42333 &gt; localhost.9501: Flags [.], ack 14, win 342, options [nop,nop,TS val 2208457 ecr 2208457], length 0
+</code></pre>
+
+<ul>
+<li>13:29:11.563473 时间带有精确到微妙</li>
+<li>localhost.42333 > localhost.9501 表示通信的流向，42333是客户端，9501是服务器端</li>
+<li>[S] 表示这是一个SYN请求</li>
+<li>[.] 表示这是一个ACT确认包，(client)SYN->(server)SYN->(client)ACT 就是3次握手过程</li>
+<li>[P] 表示这个是一个数据推送，可以是从服务器端向客户端推送，也可以从客户端向服务器端推</li>
+<li>[F] 表示这是一个FIN包，是关闭连接操作，client/server都有可能发起</li>
+<li>[R] 表示这是一个RST包，与F包作用相同，但RST表示连接关闭时，仍然有数据未被处理。可以理解为是强制切断连接</li>
+<li>win 342是指滑动窗口大小</li>
+<li>length 12指数据包的大小</li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

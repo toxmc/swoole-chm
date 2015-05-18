@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <title>swoole_http_request->$files</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_http_request->$files</h1>
+                        <p>文件上传信息。类型为以form名称为key的二维数组。与PHP的$_FILES相同。</p>
+
+<pre><code class="php" data-language="php">Array
+(
+    [name] =&gt; facepalm.jpg
+    [type] =&gt; image/jpeg
+    [tmp_name] =&gt; /tmp/phpn3FmFr
+    [error] =&gt; 0
+    [size] =&gt; 15476
+)
+</code></pre>
+
+<ul>
+<li>name 浏览器上传时传入的文件名称</li>
+<li>type MIME类型</li>
+<li>tmp_name 上传的临时文件</li>
+<li>size 文件尺寸</li>
+</ul>
+
+<p>swoole_http_server上传的文件不能使用move_uploaded_file函数进行移动。请使用rename函数将文件转移到持久存储目录。</p>
+
+<p>如果要丢弃上传文件，请使用unlink函数删除掉上传的文件，否则会导致文件泄漏。</p>
+
+<blockquote>
+  <p>在1.7.16以上版本可用</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

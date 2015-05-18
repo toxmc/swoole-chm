@@ -1,0 +1,85 @@
+<html>
+
+<head>
+  <title>swoole_server->connection_list</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_server->connection_list</h1>
+                        <p>用来遍历当前Server所有的客户端连接，connection_list方法是基于共享内存的，不存在IOWait，遍历的速度很快。另外connection_list会返回所有TCP连接，而不仅仅是当前worker进程的TCP连接。</p>
+
+<blockquote>
+  <p>需要swoole-1.5.8以上版本<br />
+  connection_list仅可用于TCP，UDP服务器需要自行保存客户端信息</p>
+</blockquote>
+
+<p>函数原型：</p>
+
+<pre><code class="php" data-language="php">swoole_server::connection_list(int $start_fd = 0, int $pagesize = 10);
+</code></pre>
+
+<p>此函数接受2个参数，第1个参数是起始fd，第2个参数是每页取多少条，最大不得超过100.</p>
+
+<ul>
+<li>调用成功将返回一个数字索引数组，元素是取到的$fd。数组会按从小到大排序。最后一个$fd作为新的start_fd再次尝试获取</li>
+<li>调用失败返回false</li>
+</ul>
+
+<p>示例：</p>
+
+<pre><code class="php" data-language="php">$start_fd = 0;
+while(true)
+{
+    $conn_list = $serv-&gt;connection_list($start_fd, 10);
+    if($conn_list===false or count($conn_list) === 0)
+    {
+        echo "finish\n";
+        break;
+    }
+    $start_fd = end($conn_list);
+    var_dump($conn_list);
+    foreach($conn_list as $fd)
+    {
+        $serv-&gt;send($fd, "broadcast");
+    }
+}
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <title>swoole_server->sendMessage</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_server->sendMessage</h1>
+                        <p>此函数可以向任意worker进程或者task进程发送消息。在非主进程和管理进程中可调用。收到消息的进程会触发onPipeMessage事件。</p>
+
+<pre><code class="php" data-language="php">bool swoole_server-&gt;sendMessage(string $message, int $dst_worker_id);
+</code></pre>
+
+<ul>
+<li>$message为发送的消息数据内容</li>
+<li>$dst_worker_id为目标进程的ID，范围是0 ~ (worker_num + task_worker_num - 1) </li>
+</ul>
+
+<blockquote>
+  <p>sendMessage接口在swoole-1.7.9以上版本可用<br />
+  使用sendMessage必须注册onPipeMessage事件回调函数</p>
+</blockquote>
+
+<h2>实例</h2>
+
+<pre><code class="php" data-language="php">$serv = new swoole_server("0.0.0.0", 9501);
+$serv-&gt;set(array(
+    'worker_num' =&gt; 2,
+    'task_worker_num' =&gt; 2,
+));
+$serv-&gt;on('pipeMessage', function($serv, $src_worker_id, $data) {
+    echo "#{$serv-&gt;worker_id} message from #$src_worker_id: $data\n";
+});
+$serv-&gt;on('task', function ($serv, $task_id, $from_id, $data){
+    var_dump($task_id, $from_id, $data);
+});
+$serv-&gt;on('finish', function ($serv, $fd, $from_id){
+
+});
+$serv-&gt;on('receive', function (swoole_server $serv, $fd, $from_id, $data) {
+    if (trim($data) == 'task')
+    {
+        $serv-&gt;task("async task coming");
+    }
+    else
+    {
+        $worker_id = 1 - $serv-&gt;worker_id;
+        $serv-&gt;sendMessage("hello task process", $worker_id);
+    }
+});
+
+$serv-&gt;start();
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

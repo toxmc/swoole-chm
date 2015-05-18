@@ -1,0 +1,97 @@
+<html>
+
+<head>
+  <title>编译安装</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>编译安装</h1>
+                        <p>Swoole扩展是按照php标准扩展构建的。使用phpize来生成php编译配置，./configure来做编译配置检测，make进行编译，make install进行安装。</p>
+
+<ul>
+<li>请下载releases版本的swoole，直接从github主干上拉取最新代码可能会编译不过  </li>
+<li>如果当前用户不是root，可能没有php目录的写权限，安装时需要sudo或者su  </li>
+<li>如果是在git分支上直接git pull更新代码，重新编译前务必要执行make clean  </li>
+</ul>
+
+<h2>安装准备</h2>
+
+<p>安装swoole前必须保证系统已经安装了下列软件</p>
+
+<pre><code data-language="">php-5.3.10 或更高版本
+gcc-4.4 或更高版本
+make
+autoconf
+</code></pre>
+
+<h2>下载地址</h2>
+
+<ul>
+<li><a href="https://github.com/swoole/swoole-src/releases">https://github.com/swoole/swoole-src/releases</a></li>
+<li><a href="http://pecl.php.net/package/swoole">http://pecl.php.net/package/swoole</a></li>
+<li><a href="http://git.oschina.net/matyhtf/swoole">http://git.oschina.net/matyhtf/swoole</a></li>
+</ul>
+
+<p>下载源代码包后，在终端进入源码目录，执行下面的命令进行编译和安装</p>
+
+<pre><code class="shell" data-language="shell">cd swoole
+phpize
+./configure
+make 
+sudo make install
+</code></pre>
+
+<h2>PECL</h2>
+
+<p>swoole项目已收录到PHP官方扩展库，除了手工下载编译外，还可以通过PHP官方提供的pecl命令，一键下载安装swoole</p>
+
+<pre><code class="shell" data-language="shell">pecl install swoole
+</code></pre>
+
+<h2>配置php.ini</h2>
+
+<p>编译安装成功后，修改php.ini加入</p>
+
+<pre><code class="shell" data-language="shell">extension=swoole.so
+</code></pre>
+
+<p>通过php -m或phpinfo()来查看是否成功加载了swoole，如果没有可能是php.ini的路径不对，可以使用php -i |grep php.ini 来定位到php.ini的绝对路径。</p>
+
+        </article>
+
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

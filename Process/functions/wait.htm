@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <title>swoole_process::wait</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_process::wait</h1>
+                        <p>回收结束运行的子进程。</p>
+
+<pre><code class="php" data-language="php">array swoole_process::wait(bool $blocking = true);
+</code></pre>
+
+<ul>
+<li>$blocking 参数可以指定是否阻塞等待，默认为阻塞</li>
+<li>操作成功会返回返回一个数组包含子进程的PID和退出状态码，如array('code' => 0, 'pid' => 15001)，失败返回false</li>
+</ul>
+
+<blockquote>
+  <p>子进程结束必须要执行wait进行回收，否则子进程会变成僵尸进程<br />
+  $blocking 仅在1.7.10以上版本可用</p>
+</blockquote>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

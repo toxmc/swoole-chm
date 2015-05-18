@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <title>提交错误报告</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+ <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>提交错误报告</h1>
+                        <p>当使用swoole发生段错误时，请及时向开发组报告。可以使用gdb工具来得到一份bt信息。</p>
+
+<p>打开core dump</p>
+
+<pre><code class="shell" data-language="shell">ulimit -c unlimited
+</code></pre>
+
+<p>使用gdb来查看core dump信息。core文件一般在当前目录，如果操作系统做了处理，将core dump文件放置到其他目录，请替换为相应的路径</p>
+
+<pre><code data-language="">gdb php core 
+gdb php /tmp/core.4596
+</code></pre>
+
+<p>在gdb下输入bt查看调用栈信息</p>
+
+<pre><code data-language="">(gdb)bt
+Program terminated with signal 11, Segmentation fault.
+#0  0x00007f1cdbe205e0 in swServer_onTimer (reactor=&lt;value optimized out&gt;, event=...)  
+    at /usr/local/php/swoole-swoole-1.5.9b/src/network/Server.c:92
+92                              serv-&gt;onTimer(serv, timer_node-&gt;interval);
+Missing separate debuginfos, use: debuginfo-install php-cli-5.3.3-22.el6.x86_64
+</code></pre>
+
+<p>在gdb中使用f指令查看代码段</p>
+
+<pre><code data-language="">(gdb)f 1
+(gdb)f 0
+</code></pre>
+
+<p>请将上面的得到的信息，发送邮件给 <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;:&#x74;&#x65;&#x61;&#109;&#64;&#115;w&#x6f;&#x6f;&#x6c;&#101;&#46;&#99;o&#x6d;">&#x74;&#x65;&#x61;&#109;&#64;&#115;w&#x6f;&#x6f;&#x6c;&#101;&#46;&#99;o&#x6d;</a> . Swoole开发组会很快解决.<br />
+您也可以通过GibHub平台<a href="https://github.com/matyhtf/swoole/issues/new">提交bug</a>给我们.</p>
+
+        </article>
+
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<html>
+
+<head>
+  <title>swoole_client->set</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>swoole_client->set</h1>
+                        <p>设置客户端参数，必须在connect前执行。swoole-1.7.17为客户端提供了类似swoole_server的自动协议处理功能。通过设置一个参数即可完成TCP的自动分包。</p>
+
+<h2>结束符检测</h2>
+
+<pre><code class="php" data-language="php">$client-&gt;set(array(
+    'open_length_check' =&gt; true,
+    'package_eof' =&gt; "\r\n\r\n",
+    'package_max_length' =&gt; 1024 * 1024 * 2,
+))
+</code></pre>
+
+<h2>长度检测</h2>
+
+<pre><code class="php" data-language="php">$client-&gt;set(array(
+    'open_length_check'     =&gt; 1,
+    'package_length_type'   =&gt; 'N',
+    'package_length_offset' =&gt; 0,       //第N个字节是包长度的值
+    'package_body_offset'   =&gt; 4,       //第几个字节开始计算长度
+    'package_max_length'    =&gt; 2000000,  //协议最大长度
+));
+</code></pre>
+
+<h2>使用说明</h2>
+
+<ul>
+<li>目前支持open_length_check和open_eof_check2种自动协议处理功能，参考swoole_server中的配置选项  </li>
+<li>启用了自动协议后，同步阻塞客户端recv方法将不接受长度参数，每次必然返回一个完整的数据包  </li>
+<li>启用了自动协议后，异步非阻塞客户端onReceive每次必然返回一个完整的数据包  </li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

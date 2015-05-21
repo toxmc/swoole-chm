@@ -24,6 +24,7 @@ $task_id = $serv-&gt;task("some data");
 </code></pre>
 
 <ul>
+<li>$task_id在全局不唯一，在调用task的event进程中唯一，task id范围 0 - 42亿</li>
 <li>$data要投递的任务数据，可以为除资源类型之外的任意PHP变量</li>
 <li>$dst_worker_id可以制定要给投递给哪个task进程，传入ID即可，范围是0 - serv->task_worker_num  </li>
 <li>返回值为整数($task_id)，表示此任务的ID。如果有finish回应，onFinish回调中会携带$task_id参数</li>
@@ -46,7 +47,7 @@ $task_id = $serv-&gt;task("some data");
 <h2>注意事项</h2>
 
 <ul>
-<li>使用swoole_server_task必须为Server设置onTask和onFinish回调，否则swoole_server->start会失败</li>
+<li>使用swoole_server_task必须为Server设置onTask回调，否则swoole_server->start会失败,onFinish回调可选，task任务完成后调用onFinish回调</li>
 <li>task操作的次数必须小于onTask处理速度，如果投递容量超过处理能力，task会塞满缓存区，导致worker进程发生阻塞。worker进程将无法接收新的请求</li>
 </ul>
 

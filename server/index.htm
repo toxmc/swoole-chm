@@ -56,8 +56,57 @@ $serv-&gt;master_pid;  //Ö÷½ø³ÌµÄPID£¬Í¨¹ıÏòÖ÷½ø³Ì·¢ËÍSIGTERMĞÅºÅ¿É°²È«¹Ø±Õ·şÎñÆ
 <ul>
 <li>²»ÒªÔÚ´úÂëÖĞÖ´ĞĞsleep£¬ÕâÑù»áµ¼ÖÂÕû¸ö½ø³Ì×èÈû</li>
 <li>exit/dieÊÇÎ£ÏÕµÄ£¬»áµ¼ÖÂworker½ø³ÌÍË³ö</li>
-<li>¿ÉÍ¨¹ıregister_shutdown_functionÀ´²¶»ñÖÂÃü´íÎó£¬ÔÚ½ø³ÌÒì³£ÍË³öÊ±×öÒ»Ğ©ÇëÇó¹¤×÷£¬¾ßÌå²Î¿´<a href="/wiki/page/305.html">/wiki/page/305.html</a></li>
+<li>¿ÉÍ¨¹ıregister_shutdown_functionÀ´²¶»ñÖÂÃü´íÎó£¬ÔÚ½ø³ÌÒì³£ÍË³öÊ±×öÒ»Ğ©ÇëÇó¹¤×÷£¬¾ßÌåÈçÏÂ</li>
 </ul>
+<pre><code class="php" data-language="php">register_shutdown_function('handleFatal');
+function handleFatal()
+{
+    $error = error_get_last();
+    if (isset($error['type']))
+    {
+        switch ($error['type'])
+        {
+            case E_ERROR :
+            case E_PARSE :
+            case E_DEPRECATED:
+            case E_CORE_ERROR :
+            case E_COMPILE_ERROR :
+                $message = $error['message'];
+                $file = $error['file'];
+                $line = $error['line'];
+                $log = "$message ($file:$line)\nStack trace:\n";
+                $trace = debug_backtrace();
+                foreach ($trace as $i =&gt; $t)
+                {
+                    if (!isset($t['file']))
+                    {
+                        $t['file'] = 'unknown';
+                    }
+                    if (!isset($t['line']))
+                    {
+                        $t['line'] = 0;
+                    }
+                    if (!isset($t['function']))
+                    {
+                        $t['function'] = 'unknown';
+                    }
+                    $log .= "#$i {$t['file']}({$t['line']}): ";
+                    if (isset($t['object']) &amp;&amp; is_object($t['object']))
+                    {
+                        $log .= get_class($t['object']) . '-&gt;';
+                    }
+                    $log .= "{$t['function']}()\n";
+                }
+                if (isset($_SERVER['REQUEST_URI']))
+                {
+                    $log .= '[QUERY] ' . $_SERVER['REQUEST_URI'];
+                }
+                error_log($log);
+                $serv-&gt;send($this-&gt;currentFd, $log);
+        }
+    }
+}
+</code></pre>
 
         </article>
 <hr>

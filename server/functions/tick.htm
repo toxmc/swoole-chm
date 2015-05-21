@@ -23,7 +23,7 @@
   <p>worker进程结束运行后，所有定时器都会自动销毁</p>
 </blockquote>
 
-<p>使用示例：</p>
+<p>在onReceive使用tick示例：</p>
 
 <pre><code class="php" data-language="php">function onReceive($server, $fd, $from_id, $data) {
     $server-&gt;tick(1000, function() use ($server, $fd) {
@@ -32,6 +32,27 @@
 }
 </code></pre>
 
+
+<ul>
+<li>tick不能用于task进程否则会报 Fatal error: swoole_server::tick(): cannot use async-io in task process. </li>
+</ul>
+
+<p>tick示例：</p>
+<pre><code class="php" data-language="php">swoole_timer_tick(2000, function($id) {
+    echo "tick-1 2000ms\n";
+    var_dump($id);
+});
+</code></pre>
+
+<pre><code class="php" data-language="php">swoole_timer_tick(2000, function($id, $params) {
+    echo "tick-2 2000ms\n";
+    var_dump($id, $params);
+    swoole_timer_clear($id);
+}, "i am params");
+</code></pre>
+<ul>
+<li>展示通过参数传值</li>
+</ul>
         </article>
 <hr>
 <div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">

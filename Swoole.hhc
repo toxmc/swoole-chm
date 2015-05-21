@@ -386,7 +386,7 @@
                       <param name="Local" value="server\config_options\max_conn.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="SwooleÁ÷³Ì - Swoole">
+                      <param name="Name" value="task_worker_num">
                       <param name="Local" value="server\config_options\task_worker_num.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
@@ -656,6 +656,10 @@
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_client::__construct">
                       <param name="Local" value="Client\functions\construct.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_client::set">
+                      <param name="Local" value="Client\functions\set.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_client::on">

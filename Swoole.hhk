@@ -110,10 +110,6 @@
           <param name="Local" value="rumen\luxian.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="提交错误报告">
-          <param name="Local" value="rumen\tijiao_bug.htm">
-        </OBJECT>
-        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="内核参数调整">
           <param name="Local" value="rumen\neihe_canshu.htm">
         </OBJECT>
@@ -164,6 +160,10 @@
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="my_global.h: No such file or directory">
           <param name="Local" value="rumen\changjian_wenti\10.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="提交错误报告">
+          <param name="Local" value="rumen\tijiao_bug.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Server">
@@ -624,6 +624,10 @@
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="swoole_client::__construct">
           <param name="Local" value="Client\functions\construct.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole_client->set">
+          <param name="Local" value="Client\functions\set.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="swoole_client->on">

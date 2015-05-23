@@ -14,10 +14,34 @@
 <body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>Memory</h1>
-                      <p>示例：</p>
-   <pre><code class="php" data-language="php">$buffer = new swoole_buffer;
+<article class="markdown-body entry-content" itemprop="mainContentOfPage">
+<h1>Memory</h1>
+                        
+<p>Lock示例：</p>
+<pre><code class="php" data-language="php">$lock = new swoole_lock(SWOOLE_MUTEX);
+echo "[Master]create lock\n";
+$lock->lock();
+if(pcntl_fork() > 0) 
+{
+	sleep(1);
+	$lock->unlock();
+} 
+else
+{
+	echo "[Child] Wait Lock\n";
+	$lock->lock();
+	echo "[Child] Get Lock\n";
+	$lock->unlock();
+	exit("[Child] exit\n");
+}
+echo "[Master]release lock\n";
+unset($lock);
+sleep(1);
+echo "[Master]exit\n";
+</code></pre>     
+
+<p>Buffer示例：</p>
+<pre><code class="php" data-language="php">$buffer = new swoole_buffer;
 $buffer->append(str_repeat("A", 10));
 $buffer->append(str_repeat("B", 20));
 $buffer->append(str_repeat("C", 30));
@@ -32,7 +56,40 @@ echo $buffer->substr(0, 10, true)."\n";
 var_dump($buffer);
 sleep(1);
 </code></pre>                   
-                      
+              
+<p>Table示例：</p>
+<pre><code class="php" data-language="php">$table = new swoole_table(1024);
+$table->column('name', swoole_table::TYPE_STRING, 64);
+$table->column('id', swoole_table::TYPE_INT, 4);       //1,2,4,8
+$table->column('num', swoole_table::TYPE_FLOAT);
+$table->create();
+
+
+$table->set('swoole@qq.com', array('id' => 145, 'name' => 'swoole1', 'num' => 3.1415));
+$table->set('123456@qq.com', array('id' => 358, 'name' => "swoole2", 'num' => 3.1415));
+$table->set('hello@qq.com', array('id' => 189, 'name' => 'swoole3', 'num' => 3.1415));
+
+foreach($table as $value)
+{
+    var_dump($value);
+}
+
+echo "======================= Total Elements: {$table->count()} ============================\n";
+$table->del('123456@qq.com'); // delete a exist element
+foreach($table as $value)
+{
+    var_dump($value);
+}
+echo "======================= Total Elements: {$table->count()} ============================\n";
+
+$ret = $table->del('a invalid key'); // delete a invalid element
+var_dump($ret);
+foreach($table as $value)
+{
+    var_dump($value);
+}
+echo "======================= Total Elements: {$table->count()} ============================\n";
+</code></pre>            
 
         </article>
 <hr>

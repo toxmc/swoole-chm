@@ -30,7 +30,7 @@
   <p>swoole_table使用行锁，而不是全局锁，仅当2个进程在同一CPU时间，并发读取同一条数据才会进行发生抢锁</p>
 </blockquote>
 
-<pre><code data-language="">swoole_table模块目前为实验性质，不建议在生产环境使用。请使用Redis/Apc/Yac作为数据共享层。
+<pre><code data-language="">swoole_table模块在版本1.7.16已能稳定运行，建议在生产环境中可以尝试使用。也可使用成熟的方案Redis/Apc/Yac作为数据共享层。
 </code></pre>
 
 <blockquote>

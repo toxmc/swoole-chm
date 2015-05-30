@@ -1217,6 +1217,170 @@
           <param name="Name" value="v1.7.11">
           <param name="Local" value="History\v1-7-11.htm">
         </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Swoole-framework">
+          <param name="Local" value="framework\index.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-¿ª·¢Ö¸ÄÏ">
+          <param name="Local" value="framework\development_guide\index.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-°²×°Swoole¿ò¼ÜºÍÀ©Õ¹">
+          <param name="Local" value="framework\development_guide\install-swoole.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Êý¾Ý¿âModelÀà">
+          <param name="Local" value="framework\development_guide\model\index.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->get">
+          <param name="Local" value="framework\development_guide\model\get.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->set">
+          <param name="Local" value="framework\development_guide\model\set.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->del">
+          <param name="Local" value="framework\development_guide\model\del.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->put">
+          <param name="Local" value="framework\development_guide\model\put.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->gets">
+          <param name="Local" value="framework\development_guide\model\gets.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->sets">
+          <param name="Local" value="framework\development_guide\model\sets.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->dels">
+          <param name="Local" value="framework\development_guide\model\dels.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->all">
+          <param name="Local" value="framework\development_guide\model\all.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->count">
+          <param name="Local" value="framework\development_guide\model\count.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model->exists">
+          <param name="Local" value="framework\development_guide\model\exists.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-model($model_name)">
+          <param name="Local" value="framework\development_guide\model\model.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-table($table_name)">
+          <param name="Local" value="framework\development_guide\model\table.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Êý¾Ý¿âORM½Ó¿Ú">
+          <param name="Local" value="framework\development_guide\orm.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-SocketÍøÂç¿ª·¢">
+          <param name="Local" value="framework\development_guide\socket\index.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-TCP·þÎñÆ÷">
+          <param name="Local" value="framework\development_guide\socket\tcp-server.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Web·þÎñÆ÷">
+          <param name="Local" value="framework\development_guide\socket\web-server.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-WebSocket">
+          <param name="Local" value="framework\development_guide\socket\websocket.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Nginx+Swoole·þÎñÆ÷ÅäÖÃ">
+          <param name="Local" value="framework\development_guide\socket\nginx_swoole.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Apache+Swoole·þÎñÆ÷ÅäÖÃ">
+          <param name="Local" value="framework\development_guide\socket\apache+swoole.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-¿ØÖÆÆ÷Controller">
+          <param name="Local" value="framework\development_guide\controller.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-ÃüÃû¿Õ¼ä">
+          <param name="Local" value="framework\development_guide\namespace.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-ÎÄ¼þÉÏ´«×é¼þ">
+          <param name="Local" value="framework\development_guide\file_upload.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Redis">
+          <param name="Local" value="framework\development_guide\redis.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Database">
+          <param name="Local" value="framework\development_guide\database.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Swoole\Database->insert">
+          <param name="Local" value="framework\development_guide\database_insert.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-¿ò¼Ü¹æ·¶">
+          <param name="Local" value="framework\specification\index.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Ä¿Â¼¹æ·¶">
+          <param name="Local" value="framework\specification\dir.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-×Ô¶¨ÒåÂ·ÓÉ">
+          <param name="Local" value="framework\specification\router.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-URLÓ³Éä¹æÔò">
+          <param name="Local" value="framework\specification\url.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-Ê¾Àý³ÌÐò">
+          <param name="Local" value="framework\example\index.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-·þÎñÆ÷¶Ë³ÌÐò(Server)">
+          <param name="Local" value="framework\example\server\index.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-http_server">
+          <param name="Local" value="framework\example\server\http_server.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-app_server">
+          <param name="Local" value="framework\example\server\app_server.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-soa_server">
+          <param name="Local" value="framework\example\server\soa_server.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-websocket_server">
+          <param name="Local" value="framework\example\server\websocket_server.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-comet_server">
+          <param name="Local" value="framework\example\server\comet_server.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="swoole¿ò¼Ü-ÅäÖÃÎÄ¼þ">
+          <param name="Local" value="framework\example\server\config.htm">
+        </OBJECT>
     </UL>
 </BODY>
 </HTML>

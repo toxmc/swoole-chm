@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <title>swoole框架-数据库ORM接口</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>数据库ORM接口</h1>
+                        <p>可以使用createModel('ModelName')->get($id)和createModel('ModelName')->all来生成数据的ORM封装对象。</p>
+
+<pre><code class="php" data-language="php">$content = $model-&gt;get(1);   //这里返回的是一个Record对象
+$content-&gt;title = 'hello world';  //Update操作
+$content-&gt;save();                 //保存操作，这时会执行SQL语句
+echo $content-&gt;addtime;           //输入值
+$content-&gt;delete();                 //删除此条数据
+
+$all = $model-&gt;all();        //这里返回一个RecordSet对象
+$all-&gt;filter('userid=2');    //增加一些限定条件，避免读取全部的数据库内容
+
+//遍历符合条件的所有数据库记录
+foreach($all as $obj)
+{
+    $obj-&gt;title = 'hello';
+    echo $obj-&gt;content;
+}
+</code></pre>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

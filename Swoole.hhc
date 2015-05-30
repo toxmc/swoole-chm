@@ -1300,6 +1300,186 @@
                 </OBJECT>
             </UL>
         </UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Swoole-framework">
+          <param name="Local" value="framework\index.htm">
+        </OBJECT>
+        <UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="开发指南">
+              <param name="Local" value="framework\development_guide\index.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="安装Swoole框架和扩展">
+                  <param name="Local" value="framework\development_guide\install-swoole.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="数据库Model类">
+                  <param name="Local" value="framework\development_guide\model\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::get">
+                      <param name="Local" value="framework\development_guide\model\get.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::set">
+                      <param name="Local" value="framework\development_guide\model\set.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::del">
+                      <param name="Local" value="framework\development_guide\model\del.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::put">
+                      <param name="Local" value="framework\development_guide\model\put.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::gets">
+                      <param name="Local" value="framework\development_guide\model\gets.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::sets">
+                      <param name="Local" value="framework\development_guide\model\sets.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::dels">
+                      <param name="Local" value="framework\development_guide\model\dels.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::all">
+                      <param name="Local" value="framework\development_guide\model\all.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::count">
+                      <param name="Local" value="framework\development_guide\model\count.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model::exists">
+                      <param name="Local" value="framework\development_guide\model\exists.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="model($model_name)">
+                      <param name="Local" value="framework\development_guide\model\model.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="table($table_name)">
+                      <param name="Local" value="framework\development_guide\model\table.htm">
+                    </OBJECT>
+                </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="数据库ORM接口">
+                  <param name="Local" value="framework\development_guide\orm.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Socket网络开发">
+                  <param name="Local" value="framework\development_guide\socket\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="TCP服务器">
+                      <param name="Local" value="framework\development_guide\socket\tcp-server.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Web服务器">
+                      <param name="Local" value="framework\development_guide\socket\web-server.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="WebSocket">
+                      <param name="Local" value="framework\development_guide\socket\websocket.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Nginx+Swoole服务器配置">
+                      <param name="Local" value="framework\development_guide\socket\nginx_swoole.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Apache+Swoole服务器配置">
+                      <param name="Local" value="framework\development_guide\socket\apache+swoole.htm">
+                    </OBJECT>
+                </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="控制器Controller">
+                  <param name="Local" value="framework\development_guide\controller.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="命名空间">
+                  <param name="Local" value="framework\development_guide\namespace.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="文件上传组件">
+                  <param name="Local" value="framework\development_guide\file_upload.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Redis">
+                  <param name="Local" value="framework\development_guide\redis.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Database">
+                  <param name="Local" value="framework\development_guide\database.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Swoole\Database::insert">
+                      <param name="Local" value="framework\development_guide\database_insert.htm">
+                    </OBJECT>
+                </UL>
+            </UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="框架规范">
+              <param name="Local" value="framework\specification\index.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="目录规范">
+                  <param name="Local" value="framework\specification\dir.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="自定义路由">
+                  <param name="Local" value="framework\specification\router.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="URL映射规则">
+                  <param name="Local" value="framework\specification\url.htm">
+                </OBJECT>
+            </UL>
+            <LI><OBJECT type="text/sitemap">
+              <param name="Name" value="示例程序">
+              <param name="Local" value="framework\example\index.htm">
+            </OBJECT>
+            <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="服务器端程序(Server)">
+                  <param name="Local" value="framework\example\server\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="http_server">
+                      <param name="Local" value="framework\example\server\http_server.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="app_server">
+                      <param name="Local" value="framework\example\server\app_server.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="soa_server">
+                      <param name="Local" value="framework\example\server\soa_server.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="websocket_server">
+                      <param name="Local" value="framework\example\server\websocket_server.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="comet_server">
+                      <param name="Local" value="framework\example\server\comet_server.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="配置文件">
+                      <param name="Local" value="framework\example\server\config.htm">
+                    </OBJECT>
+                </UL>
+            </UL>
+        </UL>
     </UL>
 </BODY>
 </HTML>

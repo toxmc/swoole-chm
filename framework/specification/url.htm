@@ -1,0 +1,78 @@
+<html>
+
+<head>
+  <title>swoole框架-URL映射规则</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+                        <h1>URL映射规则</h1>
+                        <p>swoole框架使用强规则来做URL映射。如下面的URL</p>
+
+<pre><code data-language="">http://127.0.0.1/hello/index/
+</code></pre>
+
+<p>将会映射到 apps/controllers/Hello.php 中的 Hello::index 方法。</p>
+
+<h2>自定义URL</h2>
+
+<p>修改 <code>apps/configs/rewrite.php</code> ，增加正则配置。具体使用方法请看示例。</p>
+
+<pre><code class="php" data-language="php">$rewrite[] = array(
+    'regx' =&gt; '^/content/([a-z]+)\.html$',
+    'mvc'  =&gt; array('controller' =&gt; 'content', 'view' =&gt; 'getlist'),
+    'get'  =&gt; 'app',
+);
+</code></pre>
+
+<ul>
+<li>$regx需要传入一个正则表达式，符合该正则表达式就会进入此条URL路由</li>
+<li>$mvc指定对应的controller, view名称</li>
+<li>$get可以将正则表达式中的子表达式（括号中的表达式）赋值到$_GET参数中</li>
+</ul>
+
+<h2>魔法参数</h2>
+
+<p>swoole提供了自动参数处理规则。</p>
+
+<ul>
+<li>/hello/index/100 ，自动赋值给 $_GET['id'] = 100</li>
+<li>/hello/index/cid-1-name-rango ，自动赋值到 $_GET['cid'] = 1， $_GET['name'] = 'rango'</li>
+</ul>
+
+        </article>
+<hr>
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
+<script type="text/javascript">
+</div>
+</div>
+
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td class="moHeader">&nbsp;Swoole流程</td>
+    </tr>
+  </table>
+  
+  <p></p>
+
+<div class=Section1 style='layout-grid:15.6pt'>
+
+
+<p class=MsoNormal><span lang=EN-US><img width=572 height=468
+src="temp.files/image001.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -2,72 +2,59 @@
 
 <head>
   <title> Swoole-wiki</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
 
 
 <div class="wiki_content blob instapaper_body">
-<article class="markdown-body entry-content" itemprop="mainContentOfPage">
-<h1>Swoole��չ�ֲ�v1.0</h1>
-<p>PHP���Եĸ���������ͨ�ſ�ܣ��ṩ��PHP���Ե��첽���̷߳��������첽TCP/UDP����ͻ��ˣ��첽MySQL�����ݿ����ӳأ�AsyncTask����Ϣ���У����붨ʱ�����첽�ļ���д���첽DNS��ѯ��</p>
-<p>Swoole���Թ㷺Ӧ���ڻ��������ƶ�ͨ�š���ҵ������������Ϸ���������������������ܼ�ͥ������ ʹ��PHP+Swoole��Ϊ����ͨ�ſ�ܣ�����ʹ��ҵIT�з��Ŷӵ�Ч�ʴ������������רע�ڿ������²�Ʒ��</p>
-<p>Swoole�ײ��������첽�����������̵߳�����IO��������PHP����Ա���账���¼��ص����ɣ�������ĵײ㡣��Nginx/Tornado/Node.js��ȫ�첽�Ŀ�ܲ�ͬ��Swoole��֧��ȫ�첽��Ҳ֧��ͬ����</p>
-<p>Swoole�ǿ�Դ��ѵ�������������ȨЭ����Apache2.0����ҵ�Ϳ����߾������ʹ��Swoole�Ĵ��룬������Swoole֮���������޸Ŀ�������ҵ��Ʒ�����迪Դ��</p>
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+<h1>Swoole扩展手册v1.1</h1>
+<p>PHP语言的高性能网络通信框架，提供了PHP语言的异步多线程服务器，异步TCP/UDP网络客户端，异步MySQL，数据库连接池，AsyncTask，消息队列，毫秒定时器，异步文件读写，异步DNS查询。</p>
+<p>Swoole可以广泛应用于互联网、移动通信、企业软件、网络游戏、物联网、车联网、智能家庭等领域。 使用PHP+Swoole作为网络通信框架，可以使企业IT研发团队的效率大大提升，更加专注于开发创新产品。</p>
+<p>Swoole底层内置了异步非阻塞、多线程的网络IO服务器。PHP程序员仅需处理事件回调即可，无需关心底层。与Nginx/Tornado/Node.js等全异步的框架不同，Swoole既支持全异步，也支持同步。</p>
+<p>Swoole是开源免费的自由软件，授权协议是Apache2.0。企业和开发者均可免费使用Swoole的代码，并且在Swoole之上所作的修改可用于商业产品，无需开源。</p>
 <ul>
-<li>
-����Git����
-<a href="http://git.oschina.net/matyhtf/swoole.git" target="_blank">http://git.oschina.net/matyhtf/swoole.git</a>
-</li>
-<li>
-�������Ž̳̣�
-<a href="https://github.com/LinkedDestiny/swoole-doc" target="_blank">https://github.com/LinkedDestiny/swoole-doc</a>
-</li>
-<li>
-IDE�Զ���ʾ���ߣ�
-<a href="https://github.com/eaglewu/swoole-ide-helper" target="_blank">https://github.com/eaglewu/swoole-ide-helper</a>
+<li>国内Git镜像：<a href="http://git.oschina.net/matyhtf/swoole.git" target="_blank">http://git.oschina.net/matyhtf/swoole.git</a></li>
+<li>新手入门教程：<a href="https://github.com/LinkedDestiny/swoole-doc" target="_blank">https://github.com/LinkedDestiny/swoole-doc</a></li>
+<li>IDE自动提示工具：<a href="https://github.com/eaglewu/swoole-ide-helper" target="_blank">https://github.com/eaglewu/swoole-ide-helper</a>
+<li>下载离线CHM文档： <a href="https://github.com/smalleyes/swoole-chm">https://github.com/smalleyes/swoole-chm</a> </li>
 </li>
 </ul>
-<h2>������Դ</h2>
+<h2>社区资源</h2>
 <ul>
-<li>
-<a href="http://segmentfault.com/t/swoole" target="_blank">SegmentFault��վSwooleר��</a>
-</li>
-<li>
-<a href="http://www.oschina.net/question/tag/swoole-server" target="_blank">OSC����Swoole�ʴ���</a>
-</li>
-<li>Swoole������QQȺ��364153814��321637118������������swoole��ʹ���ߺͿ����߽��н���</li>
-<li>
-<a href="http://group.swoole.com/" target="_blank">Swoole�ٷ���վ�ʴ�����</a>
-</li>
+<li><a href="http://segmentfault.com/t/swoole" target="_blank">SegmentFault网站Swoole专区</a></li>
+<li><a href="http://www.oschina.net/question/tag/swoole-server" target="_blank">OSC社区Swoole问答板块</a></li>
+<li>Swoole开发组QQ群：364153814，321637118（已满），与swoole的使用者和开发者进行交流</li>
+<li><a href="http://group.swoole.com/" target="_blank">Swoole官方网站问答社区</a></li>
 </ul>
-<h2>����Swoole��Դ��Ŀ</h2>
-<p>���ľ����Ƕ�Swoole��Ŀ���������Ĺ�����֧�֡����ǻ��ֿ���ά����ȥ�� ���ľ����������ڣ�</p>
+<h2>捐赠Swoole开源项目</h2>
+<p>您的捐赠是对Swoole项目开发组最大的鼓励和支持。我们会坚持开发维护下去。 您的捐赠将被用于：</p>
 <ul>
-<li>����������Ŀ���</li>
-<li>�ĵ��������Ľ����ά��</li>
+<li>持续和深入的开发</li>
+<li>文档和社区的建设和维护</li>
 </ul>
-<h2>����</h2>
-<p>Ϊ�˴�Ҹ��õ�ѧϰswoole���Լ������ϲ�û��һ��������swoole.chm�ֲᣬ���ǵ����ˡ���<a href="https://wiki.swoole.com" target="_blank">wiki.swoole.com</a>�в�����wiki.swoole.comΪ׼��
-��λҲ���԰�һЩ�õ���������ӣ��Լ�һЩ���������⼰����������뵽���ֲ��У�����swoole���õ�Ϊ��ҷ���
+<h2>关于</h2>
+<p>为了大家更好的学习swoole，以及网络上并没有一份完整的swoole.chm手册，于是诞生了。与<a href="https://wiki.swoole.com" target="_blank">wiki.swoole.com</a>有差别的以wiki.swoole.com为准。
+各位也可以把一些好的优秀的例子，以及一些遇到的问题及解决方案加入到该手册中，方便swoole更好的为大家服务。
 </p>
 <ul>
-<li>github��ַ��<a href="https://github.com/smalleyes/swoole-chm" target="_blank">swoole.chm</a></li>
-<li>�����ߣ�Сeyes</li>
-<li>QQ��125039632</li>
-<li>���䣺smalleyes@live.cn</li>
-<li>�汾��1.0</li>
+<li>github地址：<a href="https://github.com/smalleyes/swoole-chm" target="_blank">swoole.chm</a></li>
+<li>整理者：小eyes</li>
+<li>QQ：125039632</li>
+<li>邮箱：smalleyes@live.cn</li>
+<li>版本：1.1</li>
 </ul>
 </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -81,7 +68,7 @@ IDE�Զ���ʾ���ߣ�
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

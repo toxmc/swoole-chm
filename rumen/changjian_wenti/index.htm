@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swoole���밲װ-��������</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>swoole编译安装-常见问题</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,28 +11,28 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>��������</h1>
-                        <h2>swoole��phpdaemon/react�кβ�ͬ</h2>
+                        <h1>常见问题</h1>
+                        <h2>swoole与phpdaemon/react有何不同</h2>
 
-<p>swoole����ȫʹ��C���Ա�д�����߳�epoll����ΪPHP��չ���еġ�
-phpdaemon/react���ǻ���libevent��չʹ��php�������Խű���ʽִ�С�
-swoole���ṩ�Ķ��߳�Reactor���첽MySQL�����붨ʱ�����첽�ļ���д���첽DNS��ѯ����PHP��̬Ȧ���Ƕ�һ�޶��ġ�</p>
+<p>swoole是完全使用C语言编写，多线程epoll，作为PHP扩展运行的。
+phpdaemon/react都是基于libevent扩展使用php开发，以脚本方式执行。
+swoole中提供的多线程Reactor，异步MySQL，毫秒定时器，异步文件读写、异步DNS查询，在PHP生态圈中是独一无二的。</p>
 
-<h2>Linux�ں�����</h2>
+<h2>Linux内核问题</h2>
 
-<p>swoole����ʹ��Linux2.6.32+�����ڴ˰汾��ϵͳ�кܶ����Ի᲻֧�֡�swoole�����ü��ݵĴ�����ʵ�����ԣ����ܽϲ����ȱ��ά�������ܻ�������⣬��������ʹ�á�</p>
+<p>swoole建议使用Linux2.6.32+，低于此版本的系统有很多特性会不支持。swoole会启用兼容的代码来实现特性，性能较差，而且缺少维护。可能会产生问题，仅供开发使用。</p>
 
-<h2>Swoole���������</h2>
+<h2>Swoole的性能如何</h2>
 
-<p>swooleʹC���Կ��������ܽӽ�nginx��������һ��echo server�Ĳ��ԡ�������Ϊ�ο���<a href="../../server/stress_test/1.htm">Nginx/Golang/Swoole/Node.js�����ܶԱ�</a></p>
+<p>swoole使C语言开发，性能接近nginx。这里有一个echo server的测试。可以作为参考：<a href="../../server/stress_test/1.htm">Nginx/Golang/Swoole/Node.js的性能对比</a></p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -40,7 +40,7 @@ swoole���ṩ�Ķ��߳�Reactor���첽MySQL�����붨ʱ�����첽�ļ���д���첽DNS��ѯ���
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

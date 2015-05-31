@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_http_server->setGlobal</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,28 +11,28 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
  <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_http_server->setGlobal</h1>
-                        <p>���ô�ѡ��󣬷��������Զ��������GET��POST��COOKIE���������õ�PHP��$_GET/$_POST/$_COOKIE�ȳ�ȫ�ֱ����С�</p>
+                        <p>设置此选项后，服务器会自动将请求的GET、POST、COOKIE等数据设置到PHP的$_GET/$_POST/$_COOKIE等超全局变量中。</p>
 
 <pre><code class="php" data-language="php">swoole_http_server-&gt;setGlobal(int $flags = HTTP_GLOBAL_ALL, int $flags = HTTP_GLOBAL_GET | HTTP_GLOBAL_POST);
 </code></pre>
 
 <ul>
-<li>Ĭ��ΪHTTP_GLOBAL_ALL��ʾ�������еĳ�ȫ�ֱ���</li>
+<li>默认为HTTP_GLOBAL_ALL表示设置所有的超全局变量</li>
 </ul>
 
 <blockquote>
-  <p>�˷�����Ϊ�˼���ԭ�еĴ��룬ʹ�ó�ȫ�ֱ����ǲ����õı���淶�����Ƽ�ʹ��<br />
-  ʹ�ó�ȫ�ֱ������첽��������ģʽ�¿��ܴ��ڲ�����������</p>
+  <p>此方法是为了兼容原有的代码，使用超全局变量是不良好的编码规范，不推荐使用<br />
+  使用超全局变量在异步非阻塞的模式下可能存在不可重入问题</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -40,7 +40,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

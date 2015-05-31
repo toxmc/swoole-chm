@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>Nginx/Golang/Swoole/Node.js�����ܶԱ�</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>Nginx/Golang/Swoole/Node.js的性能对比</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>Nginx/Golang/Swoole/Node.js�����ܶԱ�</h1>
-                        <p>ͨ��ab���߷ֱ�ѹ��nginx swoole node.js golang��http server�����۲�����
-web server�������һ��It work!
-Ӳ��������һ̨8G/4�˿��I5CPU�ıʼǱ����ԣ��ͺ���Thinkpad T430.</p>
+                        <h1>Nginx/Golang/Swoole/Node.js的性能对比</h1>
+                        <p>通过ab工具分别压测nginx swoole node.js golang的http server，并观察结果。
+web server都是输出一行It work!
+硬件环境是一台8G/4核酷睿I5CPU的笔记本电脑，型号是Thinkpad T430.</p>
 
 <pre><code data-language="">Nginx   ab -c 100 -n 100000 http://localhost/index.html
 Swoole  ab -c 100 -n 100000 http://127.0.0.1:8848/
@@ -26,7 +26,7 @@ Node.js ab -c 100 -n 100000 http://127.0.0.1:8080/
 Golang  ab -c 100 -n 100000 http://127.0.0.1:8080/
 </code></pre>
 
-<p>���β���ʹ�õ������汾���£�</p>
+<p>本次测试使用的软件版本如下：</p>
 
 <pre><code data-language="">nginx version: nginx/1.2.6 (Ubuntu)
 go version go1.1.1 linux/amd64
@@ -34,9 +34,9 @@ swoole-1.5.4
 node.js-0.11.3-pre
 </code></pre>
 
-<p>������./codeĿ¼�С�</p>
+<p>代码在./code目录中。</p>
 
-<h2>QPS�Ա�</h2>
+<h2>QPS对比</h2>
 
 <pre><code data-language="">Nginx:      Requests per second:    23770.74 [#/sec] (mean)
 Golang:     Requests per second:    21807.00 [#/sec] (mean)
@@ -44,35 +44,35 @@ Swoole:     Requests per second:    19711.22 [#/sec] (mean)
 Node.js:    Requests per second:    6680.53 [#/sec] (mean)
 </code></pre>
 
-<h2>�ڴ�ռ�öԱ�</h2>
+<h2>内存占用对比</h2>
 
-<p>Golang ���ж��ѹ����ڴ��2920K������5580K���ټ���ѹ�ⲻ������</p>
+<p>Golang 运行多次压测后内存从2920K上升至5580K，再继续压测不会上升</p>
 
-<p>Node.js���ж�κ��ڴ�һֱ���ǣ���������΢�ڴ�й¶���ӿ�ʼ���е�5930K��������6060K��</p>
+<p>Node.js运行多次后内存一直在涨，怀疑有轻微内存泄露。从开始运行的5930K，到最后的6060K。</p>
 
-<p>Nginx��4��worker���̣��ڴ�ռ��һֱ�ȶ���820K��</p>
+<p>Nginx的4个worker进程，内存占用一直稳定在820K。</p>
 
-<p>Swoole���������ڴ�ռ��һֱ�ȶ���3200K�����ѹ���ڴ�ռ��û���κ����ӡ�Worker���̵��ڴ���С�����ӡ�</p>
+<p>Swoole的主进程内存占用一直稳定在3200K，多次压测内存占用没有任何增加。Worker进程的内存有小幅增加。</p>
 
-<p>ͨ������Swoole��max_request������worker���̵����������ǿ��Կ��Ƶģ��������ڽ�������Զ����������ڴ棬������΢���ڴ�й¶����Ҳ����</p>
+<p>通过设置Swoole的max_request参数，worker进程的生命周期是可以控制的，生命周期结束后会自动回收所有内存，所以轻微的内存泄露问题也不大。</p>
 
-<h2>TCP�����ӵ�ά������</h2>
+<h2>TCP长连接的维持能力</h2>
 
-<p>Nginx��Golang��Swoole��node.js����ʹ��epoll/kqueue��Ϊ�¼���ѯ���Ƶġ�ά�ֶ��ٳ������������뱾��û���κι�ϵ��ȡ���ڲ���ϵͳ���ڴ��С��</p>
+<p>Nginx、Golang、Swoole、node.js都是使用epoll/kqueue作为事件轮询机制的。维持多少长连接与程序代码本身没有任何关系，取决于操作系统的内存大小。</p>
 
-<h2>�������</h2>
+<h2>结果评价</h2>
 
-<p>Nginx��Golang��Swoole���Ƕ��߳�Reactor�ģ����Գ�����ö�ˣ����Գɼ���node.js��������
-Swoole�е�PHP������Ҫ����Ϊopcode��ִ�У�ÿ��opcode����һ�κ������á����Ե�ִ��Ч��Ч�ʱ�C���ԣ�Nginx��,Golang���ֱ����͵����Բ�һЩ��
-Node.js��httpģ�鲻�Ƕ��̵߳ģ��޷����ö�ˣ���������ﲢ����˵node.js�����ܲʹ�õ�������node��չclusterҲ����ʹnode.js��ɶ���̡�</p>
+<p>Nginx、Golang、Swoole都是多线程Reactor的，可以充分利用多核，所以成绩是node.js的数倍。
+Swoole中的PHP代码需要编译为opcode来执行，每条opcode都是一次函数调用。语言的执行效率效率比C语言（Nginx）,Golang这种编译型的语言差一些。
+Node.js的http模块不是多线程的，无法利用多核，结果最差。这里并不是说node.js的性能差，使用第三方的node扩展cluster也可以使node.js变成多进程。</p>
 
 <blockquote>
-  <p>�����µ�swoole-1.7.6+�汾�У���׼ѹ������swoole�����Ƕ����ӻ��ǳ����ӣ����ѳ�����Golang������һ���汾�����󣬽������·������ܲ��Ա��档</p>
+  <p>在最新的swoole-1.7.6+版本中，基准压力测试swoole无论是短连接还是长连接，均已超过了Golang。在下一个版本发布后，将会重新发布性能测试报告。</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -80,7 +80,7 @@ Node.js��httpģ�鲻�Ƕ��̵߳ģ��޷����ö�ˣ���������ﲢ����˵node.js������
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

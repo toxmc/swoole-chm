@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_table->column</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,31 +11,31 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_table->column</h1>
-                        <p>�ڴ������һ��</p>
+                        <p>内存表增加一列</p>
 
 <pre><code class="php" data-language="php">bool swoole_table-&gt;column(string $name, int $type, $size);
 </code></pre>
 
 <ul>
-<li>$nameָ���ֶε�����</li>
-<li>$typeָ���ֶ����ͣ�֧��3�����ͣ�swoole_table::TYPE_INT, swoole_table::TYPE_FLOAT, swoole_table::TYPE_STRING</li>
-<li>swoole_table::TYPE_STRING���ַ������ͣ�����Ҫָ����󳤶�</li>
+<li>$name指定字段的名称</li>
+<li>$type指定字段类型，支持3种类型，swoole_table::TYPE_INT, swoole_table::TYPE_FLOAT, swoole_table::TYPE_STRING</li>
+<li>swoole_table::TYPE_STRING，字符串类型，必须要指定最大长度</li>
 </ul>
 
 <blockquote>
-  <p>swoole_table::TYPE_INTĬ��Ϊ4���ֽڣ���������1��2��4��8һ��4�ֳ���<br />
-  swoole_table::TYPE_STRING���ú�set�����������õ�ֵ���ܳ����˳���<br />
-  swoole_table::TYPE_FLOAT��ռ��8���ֽڵ��ڴ�</p>
+  <p>swoole_table::TYPE_INT默认为4个字节，可以设置1，2，4，8一共4种长度<br />
+  swoole_table::TYPE_STRING设置后，set操作不能设置的值不能超过此长度<br />
+  swoole_table::TYPE_FLOAT会占用8个字节的内存</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -43,7 +43,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

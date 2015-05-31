@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->sendMessage</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,28 +11,28 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
 
        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_server->sendMessage</h1>
-                        <p>´Ëº¯Êı¿ÉÒÔÏòÈÎÒâworker½ø³Ì»òÕßtask½ø³Ì·¢ËÍÏûÏ¢¡£ÔÚ·ÇÖ÷½ø³ÌºÍ¹ÜÀí½ø³ÌÖĞ¿Éµ÷ÓÃ¡£ÊÕµ½ÏûÏ¢µÄ½ø³Ì»á´¥·¢onPipeMessageÊÂ¼ş¡£</p>
+                        <p>æ­¤å‡½æ•°å¯ä»¥å‘ä»»æ„workerè¿›ç¨‹æˆ–è€…taskè¿›ç¨‹å‘é€æ¶ˆæ¯ã€‚åœ¨éä¸»è¿›ç¨‹å’Œç®¡ç†è¿›ç¨‹ä¸­å¯è°ƒç”¨ã€‚æ”¶åˆ°æ¶ˆæ¯çš„è¿›ç¨‹ä¼šè§¦å‘onPipeMessageäº‹ä»¶ã€‚</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;sendMessage(string $message, int $dst_worker_id);
 </code></pre>
 
 <ul>
-<li>$messageÎª·¢ËÍµÄÏûÏ¢Êı¾İÄÚÈİ</li>
-<li>$dst_worker_idÎªÄ¿±ê½ø³ÌµÄID£¬·¶Î§ÊÇ0 ~ (worker_num + task_worker_num - 1) </li>
+<li>$messageä¸ºå‘é€çš„æ¶ˆæ¯æ•°æ®å†…å®¹</li>
+<li>$dst_worker_idä¸ºç›®æ ‡è¿›ç¨‹çš„IDï¼ŒèŒƒå›´æ˜¯0 ~ (worker_num + task_worker_num - 1) </li>
 </ul>
 
 <blockquote>
-  <p>sendMessage½Ó¿ÚÔÚswoole-1.7.9ÒÔÉÏ°æ±¾¿ÉÓÃ<br />
-  Ê¹ÓÃsendMessage±ØĞë×¢²áonPipeMessageÊÂ¼ş»Øµ÷º¯Êı</p>
+  <p>sendMessageæ¥å£åœ¨swoole-1.7.9ä»¥ä¸Šç‰ˆæœ¬å¯ç”¨<br />
+  ä½¿ç”¨sendMessageå¿…é¡»æ³¨å†ŒonPipeMessageäº‹ä»¶å›è°ƒå‡½æ•°</p>
 </blockquote>
 
-<h2>ÊµÀı</h2>
+<h2>å®ä¾‹</h2>
 
 <pre><code class="php" data-language="php">$serv = new swoole_server("0.0.0.0", 9501);
 $serv-&gt;set(array(
@@ -65,7 +65,7 @@ $serv-&gt;start();
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -73,7 +73,7 @@ $serv-&gt;start();
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

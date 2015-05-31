@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->tick</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,19 +11,19 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
 
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_server->tick</h1>
-                        <p>tick¶¨Ê±Æ÷£¬¿ÉÒÔ×Ô¶¨Òå»Øµ÷º¯Êı¡£´Ëº¯ÊıÊÇ<a href="../../AsyncIO/Asyn_millisecond_timer/swoole_timer_tick.htm">swoole_timer_tick</a>µÄ±ğÃû¡£</p>
+                        <p>tickå®šæ—¶å™¨ï¼Œå¯ä»¥è‡ªå®šä¹‰å›è°ƒå‡½æ•°ã€‚æ­¤å‡½æ•°æ˜¯<a href="../../AsyncIO/Asyn_millisecond_timer/swoole_timer_tick.htm">swoole_timer_tick</a>çš„åˆ«åã€‚</p>
 
 <blockquote>
-  <p>worker½ø³Ì½áÊøÔËĞĞºó£¬ËùÓĞ¶¨Ê±Æ÷¶¼»á×Ô¶¯Ïú»Ù</p>
+  <p>workerè¿›ç¨‹ç»“æŸè¿è¡Œåï¼Œæ‰€æœ‰å®šæ—¶å™¨éƒ½ä¼šè‡ªåŠ¨é”€æ¯</p>
 </blockquote>
 
-<p>ÔÚonReceiveÊ¹ÓÃtickÊ¾Àı£º</p>
+<p>åœ¨onReceiveä½¿ç”¨tickç¤ºä¾‹ï¼š</p>
 
 <pre><code class="php" data-language="php">function onReceive($server, $fd, $from_id, $data) {
     $server-&gt;tick(1000, function() use ($server, $fd) {
@@ -34,10 +34,10 @@
 
 
 <ul>
-<li>tick²»ÄÜÓÃÓÚtask½ø³Ì·ñÔò»á±¨ Fatal error: swoole_server::tick(): cannot use async-io in task process. </li>
+<li>tickä¸èƒ½ç”¨äºtaskè¿›ç¨‹å¦åˆ™ä¼šæŠ¥ Fatal error: swoole_server::tick(): cannot use async-io in task process. </li>
 </ul>
 
-<p>tickÊ¾Àı£º</p>
+<p>tickç¤ºä¾‹ï¼š</p>
 <pre><code class="php" data-language="php">swoole_timer_tick(2000, function($id) {
     echo "tick-1 2000ms\n";
     var_dump($id);
@@ -51,11 +51,11 @@
 }, "i am params");
 </code></pre>
 <ul>
-<li>Õ¹Ê¾Í¨¹ı²ÎÊı´«Öµ</li>
+<li>å±•ç¤ºé€šè¿‡å‚æ•°ä¼ å€¼</li>
 </ul>
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -63,7 +63,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

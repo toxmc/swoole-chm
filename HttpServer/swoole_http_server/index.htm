@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_http_server</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,20 +11,20 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_http_server</h1>
-                        <p>swoole_http_server¼Ì³Ğ×Ôswoole_server£¬ÊÇÒ»¸öÍêÕûµÄhttp·şÎñÆ÷ÊµÏÖ¡£swoole_http_serverÖ§³ÖÍ¬²½ºÍÒì²½2ÖÖÄ£Ê½¡£</p>
+                        <p>swoole_http_serverç»§æ‰¿è‡ªswoole_serverï¼Œæ˜¯ä¸€ä¸ªå®Œæ•´çš„httpæœåŠ¡å™¨å®ç°ã€‚swoole_http_serveræ”¯æŒåŒæ­¥å’Œå¼‚æ­¥2ç§æ¨¡å¼ã€‚</p>
 
 <blockquote>
-  <p>http/websocket·şÎñÆ÷¶¼ÊÇ¼Ì³Ğ×Ôswoole_server£¬ËùÒÔswoole_serverÌá¹©µÄAPI£¬Èçtask/finish/tickµÈ¶¼Ê¹ÓÃ</p>
+  <p>http/websocketæœåŠ¡å™¨éƒ½æ˜¯ç»§æ‰¿è‡ªswoole_serverï¼Œæ‰€ä»¥swoole_serveræä¾›çš„APIï¼Œå¦‚task/finish/tickç­‰éƒ½ä½¿ç”¨</p>
 </blockquote>
 
-<p>ÎŞÂÛÊÇÍ¬²½Ä£Ê½»¹ÊÇÒì²½Ä£Ê½£¬swoole_http_server¶¼¿ÉÒÔÎ¬³Ö´óÁ¿TCP¿Í»§¶ËÁ¬½Ó¡£Í¬²½/Òì²½½ö½öÌåÏÖÔÚ¶ÔÇëÇóµÄ´¦Àí·½Ê½ÉÏ¡£</p>
+<p>æ— è®ºæ˜¯åŒæ­¥æ¨¡å¼è¿˜æ˜¯å¼‚æ­¥æ¨¡å¼ï¼Œswoole_http_serveréƒ½å¯ä»¥ç»´æŒå¤§é‡TCPå®¢æˆ·ç«¯è¿æ¥ã€‚åŒæ­¥/å¼‚æ­¥ä»…ä»…ä½“ç°åœ¨å¯¹è¯·æ±‚çš„å¤„ç†æ–¹å¼ä¸Šã€‚</p>
 
-<p>Ê¾Àı£º</p>
+<p>ç¤ºä¾‹ï¼š</p>
 
 <pre><code class="php" data-language="php">$http = new swoole_http_server("127.0.0.1", 9501);
 $http-&gt;on('request', function ($request, $response) {
@@ -33,19 +33,19 @@ $http-&gt;on('request', function ($request, $response) {
 $http-&gt;start();
 </code></pre>
 
-<h2>Í¬²½Ä£Ê½</h2>
+<h2>åŒæ­¥æ¨¡å¼</h2>
 
-<p>ÕâÖÖÄ£Ê½µÈÍ¬ÓÚnginx+php-fpm/apache£¬ËüĞèÒªÉèÖÃ´óÁ¿worker½ø³ÌÀ´Íê³É²¢·¢ÇëÇó´¦Àí¡£Worker½ø³ÌÄÚ¿ÉÒÔÊ¹ÓÃÍ¬²½×èÈûIO£¬±à³Ì·½Ê½ÓëÆÕÍ¨PHP Web³ÌĞòÍêÈ«Ò»ÖÂ¡£</p>
+<p>è¿™ç§æ¨¡å¼ç­‰åŒäºnginx+php-fpm/apacheï¼Œå®ƒéœ€è¦è®¾ç½®å¤§é‡workerè¿›ç¨‹æ¥å®Œæˆå¹¶å‘è¯·æ±‚å¤„ç†ã€‚Workerè¿›ç¨‹å†…å¯ä»¥ä½¿ç”¨åŒæ­¥é˜»å¡IOï¼Œç¼–ç¨‹æ–¹å¼ä¸æ™®é€šPHP Webç¨‹åºå®Œå…¨ä¸€è‡´ã€‚</p>
 
-<p>Óëphp-fpm/apache²»Í¬µÄÊÇ£¬¿Í»§¶ËÁ¬½Ó²¢²»»á¶ÀÕ¼½ø³Ì£¬·şÎñÆ÷ÒÀÈ»¿ÉÒÔÓ¦¶Ô´óÁ¿²¢·¢Á¬½Ó¡£</p>
+<p>ä¸php-fpm/apacheä¸åŒçš„æ˜¯ï¼Œå®¢æˆ·ç«¯è¿æ¥å¹¶ä¸ä¼šç‹¬å è¿›ç¨‹ï¼ŒæœåŠ¡å™¨ä¾ç„¶å¯ä»¥åº”å¯¹å¤§é‡å¹¶å‘è¿æ¥ã€‚</p>
 
-<h2>Òì²½Ä£Ê½</h2>
+<h2>å¼‚æ­¥æ¨¡å¼</h2>
 
-<p>ÕâÖÖÄ£Ê½ÏÂÕû¸ö·şÎñÆ÷ÊÇÒì²½·Ç×èÈûµÄ£¬·şÎñÆ÷¿ÉÒÔÓ¦¶Ô´ó¹æÄ£µÄ²¢·¢Á¬½ÓºÍ²¢·¢ÇëÇó¡£µ«±à³Ì·½Ê½ĞèÒªÍêÈ«Ê¹ÓÃÒì²½API£¬ÈçMySQL¡¢redis¡¢http_client¡¢file_get_contents¡¢sleepµÈ×èÈûIO²Ù×÷±ØĞëÇĞ»»ÎªÒì²½µÄ·½Ê½£¬ÈçÒì²½swoole_client£¬swoole_event_add£¬swoole_timer£¬swoole_get_mysqli_sockµÈAPI¡£</p>
+<p>è¿™ç§æ¨¡å¼ä¸‹æ•´ä¸ªæœåŠ¡å™¨æ˜¯å¼‚æ­¥éé˜»å¡çš„ï¼ŒæœåŠ¡å™¨å¯ä»¥åº”å¯¹å¤§è§„æ¨¡çš„å¹¶å‘è¿æ¥å’Œå¹¶å‘è¯·æ±‚ã€‚ä½†ç¼–ç¨‹æ–¹å¼éœ€è¦å®Œå…¨ä½¿ç”¨å¼‚æ­¥APIï¼Œå¦‚MySQLã€redisã€http_clientã€file_get_contentsã€sleepç­‰é˜»å¡IOæ“ä½œå¿…é¡»åˆ‡æ¢ä¸ºå¼‚æ­¥çš„æ–¹å¼ï¼Œå¦‚å¼‚æ­¥swoole_clientï¼Œswoole_event_addï¼Œswoole_timerï¼Œswoole_get_mysqli_sockç­‰APIã€‚</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -53,7 +53,7 @@ $http-&gt;start();
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

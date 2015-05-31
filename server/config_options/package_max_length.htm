@@ -2,7 +2,7 @@
 
 <head>
   <title>package_max_length</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,24 +11,24 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>package_max_length</h1>
-                        <p>����������ݰ��ߴ磬����open_length_check/open_eof_check/open_http_protocol��Э�������swoole�ײ��������ݰ�ƴ�ӡ���ʱ�����ݰ�δ��ȡ����ʱ���������ݶ��Ǳ������ڴ��еġ�</p>
+                        <p>设置最大数据包尺寸，开启open_length_check/open_eof_check/open_http_protocol等协议解析后。swoole底层会进行数据包拼接。这时在数据包未收取完整时，所有数据都是保存在内存中的。</p>
 
-<p>������Ҫ�趨package_max_length��һ�����ݰ��������ռ�õ��ڴ�ߴ硣���ͬʱ��1���TCP�����ڷ������ݣ�ÿ�����ݰ�2M����ô��޵�����£��ͻ�ռ��20G���ڴ�ռ䡣</p>
+<p>所以需要设定package_max_length，一个数据包最大允许占用的内存尺寸。如果同时有1万个TCP连接在发送数据，每个数据包2M，那么最极限的情况下，就会占用20G的内存空间。</p>
 
 <ul>
-<li>open_length_check�������ְ����ȳ���package_max_length����ֱ�Ӷ��������ݣ����ر����ӣ�����ռ���κ��ڴ档</li>
-<li>open_eof_check����Ϊ�޷����ȵ�֪���ݰ����ȣ������յ������ݻ��ǻᱣ�浽�ڴ��У������������������ڴ�ռ���ѳ���package_max_lengthʱ����ֱ�Ӷ��������ݣ����ر�����</li>
-<li>open_http_protocol��GET�����������8K�������޷��޸����á�POST�������Content-Length�����Content-Length����package_max_length����ֱ�Ӷ��������ݣ�����http 400���󣬲��ر�����</li>
+<li>open_length_check，当发现包长度超过package_max_length，将直接丢弃此数据，并关闭连接，不会占用任何内存。</li>
+<li>open_eof_check，因为无法事先得知数据包长度，所以收到的数据还是会保存到内存中，持续增长。当发现内存占用已超过package_max_length时，将直接丢弃此数据，并关闭连接</li>
+<li>open_http_protocol，GET请求最大允许8K，而且无法修改配置。POST请求会检测Content-Length，如果Content-Length超过package_max_length，将直接丢弃此数据，发送http 400错误，并关闭连接</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -36,7 +36,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

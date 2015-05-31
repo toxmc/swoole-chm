@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_timer_add</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_timer_add</h1>
-                        <p>���Ӷ�ʱ��������fpm/apache/cli�����¡�</p>
+                        <p>增加定时器，用于fpm/apache/cli环境下。</p>
 
 <pre><code class="php" data-language="php">swoole_timer_add($interval, $callback);
 
@@ -26,19 +26,19 @@ swoole_timer_add(3000, function($interval) {
 </code></pre>
 
 <ul>
-<li>$intervalΪ��ʱ���������λ�Ǻ��룬���ܴ���ͬ��ʱ������2����ʱ��</li>
-<li>$callbackΪ��ʱ�����¼��ص�����</li>
+<li>$interval为定时器间隔，单位是毫秒，不能存在同样时间间隔的2个定时器</li>
+<li>$callback为定时器的事件回调函数</li>
 </ul>
 
 <blockquote>
-  <p>��Ҫswoole-1.6.12+<br />
-  swoole_server�в���ʹ��<br />
-  ��ʱ��������ȫ�첽ģʽ�²���ʹ�ã�ͬ�������Ĵ����в�Ҫʹ��</p>
+  <p>需要swoole-1.6.12+<br />
+  swoole_server中不可使用<br />
+  定时器必须在全异步模式下才能使用，同步阻塞的代码中不要使用</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -46,7 +46,7 @@ swoole_timer_add(3000, function($interval) {
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

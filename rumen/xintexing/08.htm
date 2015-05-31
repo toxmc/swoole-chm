@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>1.7.5 ÔÚServerÖĞÊ¹ÓÃswoole_table</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>1.7.5 åœ¨Serverä¸­ä½¿ç”¨swoole_table</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,21 +11,21 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>1.7.5 ÔÚServerÖĞÊ¹ÓÃswoole_table</h1>
-                        <p>1.7.5Ôö¼ÓÁËswoole_table¹²ÏíÄÚ´æ±í£¬swoole_table¿ÉÒÔÓëswoole_server½áºÏÊ¹ÓÃ¡£Ê¹ÓÃ·½·¨Ò²ºÜ¼òµ¥</p>
+                        <h1>1.7.5 åœ¨Serverä¸­ä½¿ç”¨swoole_table</h1>
+                        <p>1.7.5å¢åŠ äº†swoole_tableå…±äº«å†…å­˜è¡¨ï¼Œswoole_tableå¯ä»¥ä¸swoole_serverç»“åˆä½¿ç”¨ã€‚ä½¿ç”¨æ–¹æ³•ä¹Ÿå¾ˆç®€å•</p>
 
 <ul>
-<li>ÔÚswoole_server->start()Ö®Ç°´´½¨swoole_table¶ÔÏó¡£²¢´æÈëÈ«¾Ö±äÁ¿»òÕßÀà¾²Ì¬±äÁ¿/¶ÔÏóÊôĞÔÖĞ¡£</li>
-<li>ÔÚworker/task½ø³ÌÖĞ»ñÈ¡table¶ÔÏó£¬²¢Ê¹ÓÃ</li>
+<li>åœ¨swoole_server->start()ä¹‹å‰åˆ›å»ºswoole_tableå¯¹è±¡ã€‚å¹¶å­˜å…¥å…¨å±€å˜é‡æˆ–è€…ç±»é™æ€å˜é‡/å¯¹è±¡å±æ€§ä¸­ã€‚</li>
+<li>åœ¨worker/taskè¿›ç¨‹ä¸­è·å–tableå¯¹è±¡ï¼Œå¹¶ä½¿ç”¨</li>
 </ul>
 
 <blockquote>
-  <p>Ö»ÓĞÔÚswoole_server->start()Ö®Ç°´´½¨µÄtable¶ÔÏó²ÅÄÜÔÚ×Ó½ø³ÌÖĞÊ¹ÓÃ<br />
-  swoole_table¹¹Ôì·½·¨ÖĞÖ¸¶¨ÁË×î´óÈİÁ¿£¬Ò»µ©³¬¹ı´ËÊı¾İÈİÁ¿½«ÎŞ·¨·ÖÅäÄÚ´æµ¼ÖÂset²Ù×÷Ê§°Ü¡£ËùÒÔÊ¹ÓÃswoole_tableÖ®Ç°Ò»¶¨Òª¹æ»®ºÃÊı¾İÈİÁ¿</p>
+  <p>åªæœ‰åœ¨swoole_server->start()ä¹‹å‰åˆ›å»ºçš„tableå¯¹è±¡æ‰èƒ½åœ¨å­è¿›ç¨‹ä¸­ä½¿ç”¨<br />
+  swoole_tableæ„é€ æ–¹æ³•ä¸­æŒ‡å®šäº†æœ€å¤§å®¹é‡ï¼Œä¸€æ—¦è¶…è¿‡æ­¤æ•°æ®å®¹é‡å°†æ— æ³•åˆ†é…å†…å­˜å¯¼è‡´setæ“ä½œå¤±è´¥ã€‚æ‰€ä»¥ä½¿ç”¨swoole_tableä¹‹å‰ä¸€å®šè¦è§„åˆ’å¥½æ•°æ®å®¹é‡</p>
 </blockquote>
 
 <pre><code class="php" data-language="php">$table = new swoole_table(1024);
@@ -35,7 +35,7 @@ $table-&gt;column('data', swoole_table::TYPE_STRING, 64);
 $table-&gt;create();
 
 $serv = new swoole_server('127.0.0.1', 9501);
-//½«table±£´æÔÚserv¶ÔÏóÉÏ
+//å°†tableä¿å­˜åœ¨servå¯¹è±¡ä¸Š
 $serv-&gt;table = $table;
 
 $serv-&gt;on('receive', function ($serv, $fd, $from_id, $data) {
@@ -48,7 +48,7 @@ $serv-&gt;start();
         </article>
 
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -56,7 +56,7 @@ $serv-&gt;start();
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

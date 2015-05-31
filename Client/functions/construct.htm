@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_client::__construct</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,42 +11,42 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_client::__construct</h1>
-                        <p>º¯ÊıÔ­ĞÍ£º</p>
+                        <p>å‡½æ•°åŸå‹ï¼š</p>
 
 <pre><code class="php" data-language="php">swoole_client-&gt;__construct(int $sock_type, int $is_sync = SWOOLE_SOCK_SYNC, string $key);
 </code></pre>
 
-<p>¿ÉÒÔÊ¹ÓÃswooleÌá¹©µÄºêÀ´Ö®Ö¸¶¨ÀàĞÍ£¬Çë²Î¿¼ <a href="../../server/constants.htm">swoole³£Á¿¶¨Òå</a></p>
+<p>å¯ä»¥ä½¿ç”¨swooleæä¾›çš„å®æ¥ä¹‹æŒ‡å®šç±»å‹ï¼Œè¯·å‚è€ƒ <a href="../../server/constants.htm">swooleå¸¸é‡å®šä¹‰</a></p>
 
 <ul>
-<li>$sock_type±íÊ¾socketµÄÀàĞÍ£¬ÈçTCP/UDP</li>
-<li>$is_sync±íÊ¾Í¬²½×èÈû»¹ÊÇÒì²½·Ç×èÈû£¬Ä¬ÈÏÎªÍ¬²½×èÈû</li>
-<li>$keyÓÃÓÚ³¤Á¬½ÓµÄKey£¬Ä¬ÈÏÊ¹ÓÃIP:PORT×÷Îªkey¡£ÏàÍ¬keyµÄÁ¬½Ó»á±»¸´ÓÃ</li>
+<li>$sock_typeè¡¨ç¤ºsocketçš„ç±»å‹ï¼Œå¦‚TCP/UDP</li>
+<li>$is_syncè¡¨ç¤ºåŒæ­¥é˜»å¡è¿˜æ˜¯å¼‚æ­¥éé˜»å¡ï¼Œé»˜è®¤ä¸ºåŒæ­¥é˜»å¡</li>
+<li>$keyç”¨äºé•¿è¿æ¥çš„Keyï¼Œé»˜è®¤ä½¿ç”¨IP:PORTä½œä¸ºkeyã€‚ç›¸åŒkeyçš„è¿æ¥ä¼šè¢«å¤ç”¨</li>
 </ul>
 
-<p><strong>ÔÚphp-fpm/apacheÖĞ´´½¨³¤Á¬½Ó£º</strong></p>
+<p><strong>åœ¨php-fpm/apacheä¸­åˆ›å»ºé•¿è¿æ¥ï¼š</strong></p>
 
 <pre><code class="php" data-language="php">$cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
 </code></pre>
 
-<p>¼ÓÈëSWOOLE_KEEP±êÖ¾ºó£¬´´½¨µÄTCPÁ¬½ÓÔÚPHPÇëÇó½áÊø»òÕßµ÷ÓÃ$cli->closeÊ±²¢²»»á¹Ø±Õ¡£ÏÂÒ»´ÎÖ´ĞĞconnectµ÷ÓÃÊ±»á¸´ÓÃÉÏÒ»´Î´´½¨µÄÁ¬½Ó¡£³¤Á¬½Ó±£´æµÄ·½Ê½Ä¬ÈÏÊÇÒÔServerHost:ServerPortÎªkeyµÄ¡£¿ÉÒÔÔÙµÚ3¸ö²ÎÊıÄÚÖ¸¶¨key¡£</p>
+<p>åŠ å…¥SWOOLE_KEEPæ ‡å¿—åï¼Œåˆ›å»ºçš„TCPè¿æ¥åœ¨PHPè¯·æ±‚ç»“æŸæˆ–è€…è°ƒç”¨$cli->closeæ—¶å¹¶ä¸ä¼šå…³é—­ã€‚ä¸‹ä¸€æ¬¡æ‰§è¡Œconnectè°ƒç”¨æ—¶ä¼šå¤ç”¨ä¸Šä¸€æ¬¡åˆ›å»ºçš„è¿æ¥ã€‚é•¿è¿æ¥ä¿å­˜çš„æ–¹å¼é»˜è®¤æ˜¯ä»¥ServerHost:ServerPortä¸ºkeyçš„ã€‚å¯ä»¥å†ç¬¬3ä¸ªå‚æ•°å†…æŒ‡å®škeyã€‚</p>
 
 <blockquote>
-  <p>swoole_clientÔÚunsetÊ±»á×Ô¶¯µ÷ÓÃclose·½·¨¹Ø±Õsocket<br />
-  Òì²½Ä£Ê½unsetÊ±»á×Ô¶¯¹Ø±Õsocket²¢´ÓepollÊÂ¼şÂÖÑ¯ÖĞÒÆ³ı<br />
-  SWOOLE_KEEP³¤Á¬½ÓÄ£Ê½ÔÚ1.6.12ºó¿ÉÓÃ£¬³¤Á¬½ÓµÄ$key²ÎÊıÔÚ1.7.5ºóÔö¼Ó</p>
+  <p>swoole_clientåœ¨unsetæ—¶ä¼šè‡ªåŠ¨è°ƒç”¨closeæ–¹æ³•å…³é—­socket<br />
+  å¼‚æ­¥æ¨¡å¼unsetæ—¶ä¼šè‡ªåŠ¨å…³é—­socketå¹¶ä»epolläº‹ä»¶è½®è¯¢ä¸­ç§»é™¤<br />
+  SWOOLE_KEEPé•¿è¿æ¥æ¨¡å¼åœ¨1.6.12åå¯ç”¨ï¼Œé•¿è¿æ¥çš„$keyå‚æ•°åœ¨1.7.5åå¢åŠ </p>
 </blockquote>
 
-<p>swoole_server¿ÉÒÔÓÃÈÎºÎÓïÑÔ±àĞ´µÄ socket clientÀ´Á¬½Ó¡£Í¬Ñùswoole_clientÒ²¿ÉÒÔÈ¥Á¬½ÓÈÎºÎÓïÑÔ±àĞ´µÄsocket server¡£</p>
+<p>swoole_serverå¯ä»¥ç”¨ä»»ä½•è¯­è¨€ç¼–å†™çš„ socket clientæ¥è¿æ¥ã€‚åŒæ ·swoole_clientä¹Ÿå¯ä»¥å»è¿æ¥ä»»ä½•è¯­è¨€ç¼–å†™çš„socket serverã€‚</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -54,7 +54,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

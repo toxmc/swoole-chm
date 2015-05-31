@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_buffer::substr</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,30 +11,30 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_buffer::substr</h1>
-                        <p>�ӻ�������ȡ�����ݡ�</p>
+                        <p>从缓冲区中取出内容。</p>
 
 <pre><code class="php" data-language="php">string swoole_buffer-&gt;substr(int $offset, int $length = -1, bool $remove = false);
 </code></pre>
 
 <ul>
-<li>$offset��ʾƫ���������Ϊ��������ʾ��������ƫ����</li>
-<li>$length��ʾ��ȡ���ݵĳ��ȣ�Ĭ��Ϊ��$offset������������ĩβ</li>
-<li>$remove��ʾ�ӻ�������ͷ�����������Ƴ���ֻ��$offset = 0ʱ�˲�������Ч</li>
+<li>$offset表示偏移量，如果为负数，表示倒数计算偏移量</li>
+<li>$length表示读取数据的长度，默认为从$offset到整个缓存区末尾</li>
+<li>$remove表示从缓冲区的头部将此数据移除。只有$offset = 0时此参数才有效</li>
 </ul>
 
 <blockquote>
-  <p>substr�Ḵ��һ���ڴ�<br />
-  remove���ڴ沢û���ͷţ�ֻ�ǵײ������ָ��ƫ�ơ������ٴ˶���ʱ�Ż������ͷ��ڴ�</p>
+  <p>substr会复制一次内存<br />
+  remove后内存并没有释放，只是底层进行了指针偏移。当销毁此对象时才会真正释放内存</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -42,7 +42,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

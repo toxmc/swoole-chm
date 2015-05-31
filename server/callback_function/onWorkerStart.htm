@@ -2,7 +2,7 @@
 
 <head>
   <title>onWorkerStart</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,25 +11,25 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>onWorkerStart</h1>
-                        <p>´ËÊÂ¼şÔÚworker½ø³Ì/task½ø³ÌÆô¶¯Ê±·¢Éú¡£ÕâÀï´´½¨µÄ¶ÔÏó¿ÉÒÔÔÚ½ø³ÌÉúÃüÖÜÆÚÄÚÊ¹ÓÃ¡£Ô­ĞÍ£º</p>
+                        <p>æ­¤äº‹ä»¶åœ¨workerè¿›ç¨‹/taskè¿›ç¨‹å¯åŠ¨æ—¶å‘ç”Ÿã€‚è¿™é‡Œåˆ›å»ºçš„å¯¹è±¡å¯ä»¥åœ¨è¿›ç¨‹ç”Ÿå‘½å‘¨æœŸå†…ä½¿ç”¨ã€‚åŸå‹ï¼š</p>
 
 <pre><code class="php" data-language="php">void onWorkerStart(resource $server, int $worker_id);
 </code></pre>
 
 <blockquote>
-  <p>swoole1.6.11Ö®ºótask_workerÖĞÒ²»á´¥·¢onWorkerStart<br />
-  ·¢ÉúPHPÖÂÃü´íÎó»òÕß´úÂëÖĞÖ÷¶¯µ÷ÓÃexitÊ±£¬Worker/Task½ø³Ì»áÍË³ö£¬¹ÜÀí½ø³Ì»áÖØĞÂ´´½¨ĞÂµÄ½ø³Ì<br />
-  onWorkerStart/onStartÊÇ²¢·¢Ö´ĞĞµÄ£¬Ã»ÓĞÏÈºóË³Ğò</p>
+  <p>swoole1.6.11ä¹‹åtask_workerä¸­ä¹Ÿä¼šè§¦å‘onWorkerStart<br />
+  å‘ç”ŸPHPè‡´å‘½é”™è¯¯æˆ–è€…ä»£ç ä¸­ä¸»åŠ¨è°ƒç”¨exitæ—¶ï¼ŒWorker/Taskè¿›ç¨‹ä¼šé€€å‡ºï¼Œç®¡ç†è¿›ç¨‹ä¼šé‡æ–°åˆ›å»ºæ–°çš„è¿›ç¨‹<br />
+  onWorkerStart/onStartæ˜¯å¹¶å‘æ‰§è¡Œçš„ï¼Œæ²¡æœ‰å…ˆåé¡ºåº</p>
 </blockquote>
 
-<p>Í¨¹ı$worker_id²ÎÊıµÄÖµÀ´£¬ÅĞ¶ÏworkerÊÇÆÕÍ¨worker»¹ÊÇtask_worker¡£$worker_id>= $serv->setting['worker_num'] Ê±±íÊ¾Õâ¸ö½ø³ÌÊÇtask_worker¡£</p>
+<p>é€šè¿‡$worker_idå‚æ•°çš„å€¼æ¥ï¼Œåˆ¤æ–­workeræ˜¯æ™®é€šworkerè¿˜æ˜¯task_workerã€‚$worker_id>= $serv->setting['worker_num'] æ—¶è¡¨ç¤ºè¿™ä¸ªè¿›ç¨‹æ˜¯task_workerã€‚</p>
 
-<p>ÏÂÃæµÄÊ¾ÀıÓÃÓÚÎªtask_workerºÍworker½ø³ÌÖØÃüÃû¡£</p>
+<p>ä¸‹é¢çš„ç¤ºä¾‹ç”¨äºä¸ºtask_workerå’Œworkerè¿›ç¨‹é‡å‘½åã€‚</p>
 
 <pre><code class="php" data-language="php">$serv-&gt;on('WorkerStart', function ($serv, $worker_id){
     global $argv;
@@ -41,21 +41,21 @@
 });
 </code></pre>
 
-<p>Èç¹ûÏëÊ¹ÓÃswoole_server_reloadÊµÏÖ´úÂëÖØÔØÈë£¬±ØĞëÔÚworkerStartÖĞrequireÄãµÄÒµÎñÎÄ¼ş£¬¶ø²»ÊÇÔÚÎÄ¼şÍ·²¿¡£ÔÚonWorkerStartµ÷ÓÃÖ®Ç°ÒÑ°üº¬µÄÎÄ¼ş£¬²»»áÖØĞÂÔØÈë´úÂë¡£</p>
+<p>å¦‚æœæƒ³ä½¿ç”¨swoole_server_reloadå®ç°ä»£ç é‡è½½å…¥ï¼Œå¿…é¡»åœ¨workerStartä¸­requireä½ çš„ä¸šåŠ¡æ–‡ä»¶ï¼Œè€Œä¸æ˜¯åœ¨æ–‡ä»¶å¤´éƒ¨ã€‚åœ¨onWorkerStartè°ƒç”¨ä¹‹å‰å·²åŒ…å«çš„æ–‡ä»¶ï¼Œä¸ä¼šé‡æ–°è½½å…¥ä»£ç ã€‚</p>
 
 <blockquote>
-  <p>¿ÉÒÔ½«¹«ÓÃµÄ£¬²»Ò×±äµÄphpÎÄ¼ş·ÅÖÃµ½onWorkerStartÖ®Ç°¡£ÕâÑùËäÈ»²»ÄÜÖØÔØÈë´úÂë£¬µ«ËùÓĞworkerÊÇ¹²ÏíµÄ£¬²»ĞèÒª¶îÍâµÄÄÚ´æÀ´±£´æÕâĞ©Êı¾İ¡£<br />
-  onWorkerStartÖ®ºóµÄ´úÂëÃ¿¸öworker¶¼ĞèÒªÔÚÄÚ´æÖĞ±£´æÒ»·İ</p>
+  <p>å¯ä»¥å°†å…¬ç”¨çš„ï¼Œä¸æ˜“å˜çš„phpæ–‡ä»¶æ”¾ç½®åˆ°onWorkerStartä¹‹å‰ã€‚è¿™æ ·è™½ç„¶ä¸èƒ½é‡è½½å…¥ä»£ç ï¼Œä½†æ‰€æœ‰workeræ˜¯å…±äº«çš„ï¼Œä¸éœ€è¦é¢å¤–çš„å†…å­˜æ¥ä¿å­˜è¿™äº›æ•°æ®ã€‚<br />
+  onWorkerStartä¹‹åçš„ä»£ç æ¯ä¸ªworkeréƒ½éœ€è¦åœ¨å†…å­˜ä¸­ä¿å­˜ä¸€ä»½</p>
 </blockquote>
 
 <ul>
-<li>$worker_idÊÇÒ»¸ö´Ó0-$worker_numÖ®¼äµÄÊı×Ö£¬±íÊ¾Õâ¸öworker½ø³ÌµÄID</li>
-<li>$worker_idºÍ½ø³ÌPIDÃ»ÓĞÈÎºÎ¹ØÏµ</li>
+<li>$worker_idæ˜¯ä¸€ä¸ªä»0-$worker_numä¹‹é—´çš„æ•°å­—ï¼Œè¡¨ç¤ºè¿™ä¸ªworkerè¿›ç¨‹çš„ID</li>
+<li>$worker_idå’Œè¿›ç¨‹PIDæ²¡æœ‰ä»»ä½•å…³ç³»</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -63,7 +63,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

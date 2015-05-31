@@ -2,7 +2,7 @@
 
 <head>
   <title>open_eof_split</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,22 +11,22 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>open_eof_split</h1>
-                        <p>����EOF�Զ��ְ���������open_eof_check�󣬵ײ��������Ƿ����ض����ַ�����β���������ݻ��塣��Ĭ��ֻ��ȡ�յ����ݵ�ĩβ�������Աȡ���ʱ����ܻ�����������ݺϲ���һ�����ڡ�</p>
+                        <p>启用EOF自动分包。当设置open_eof_check后，底层检测数据是否以特定的字符串结尾来进行数据缓冲。但默认只截取收到数据的末尾部分做对比。这时候可能会产生多条数据合并在一个包内。</p>
 
-<p>����open_eof_split�����󣬵ײ������ݰ��м����EOF����������ݰ���onReceiveÿ�ν��յ�һ����EOF�ִ���β�����ݰ���</p>
+<p>启用open_eof_split参数后，底层会从数据包中间查找EOF，并拆分数据包。onReceive每次仅收到一个以EOF字串结尾的数据包。</p>
 
 <blockquote>
-  <p>open_eof_split��1.7.15���ϰ汾����</p>
+  <p>open_eof_split在1.7.15以上版本可用</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -34,7 +34,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

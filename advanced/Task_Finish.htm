@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>Task/Finish���Ե���;</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>Task/Finish特性的用途</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -11,27 +11,27 @@
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>Task/Finish���Ե���;</h1>
-                        <p>taskģ��������һЩ�첽���������񣬱���webim�з��㲥�������ʼ��ȡ�</p>
+                        <h1>Task/Finish特性的用途</h1>
+                        <p>task模块用来做一些异步的慢速任务，比如webim中发广播，发送邮件等。</p>
 
 <ul>
-<li>task���̱�����ͬ��������</li>
-<li>task����֧�ֶ�ʱ��</li>
+<li>task进程必须是同步阻塞的</li>
+<li>task进程支持定时器</li>
 </ul>
 
-<p>node.js ������10������ӣ�Ҫ���㲥ʱ���ǻ�ѭ��10��Σ���ʱ����������κ����飬���ܽ����µ����ӣ�Ҳ�����հ�������</p>
+<p>node.js 假如有10万个连接，要发广播时，那会循环10万次，这时候程序不能做任何事情，不能接受新的连接，也不能收包发包。</p>
 
-<p>��swoole��ͬ������task����֮��worker���̿��Լ��������µ���������������ɺ���첽��֪ͨworker���̸������������Ѿ���ɡ�</p>
+<p>而swoole不同，丢给task进程之后，worker进程可以继续处理新的数据请求。任务完成后会异步地通知worker进程告诉它此任务已经完成。</p>
 
-<p>��Ȼtaskģ������û�������ˣ�ʵ��PHP�����ݿ����ӳأ��첽���еȣ�����Ҫ��һ���ھ�</p>
+<p>当然task模块的作用还不仅如此，实现PHP的数据库连接池，异步队列等，还需要进一步挖掘。</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -39,7 +39,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

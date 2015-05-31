@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->set</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,20 +11,20 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_server->set</h1>
-                        <p>swoole_server->setº¯ÊýÓÃÓÚÉèÖÃswoole_serverÔËÐÐÊ±µÄ¸÷Ïî²ÎÊý¡£·þÎñÆ÷Æô¶¯ºóÍ¨¹ý$serv->settingÀ´·ÃÎÊsetº¯ÊýÉèÖÃµÄ²ÎÊýÊý×é¡£</p>
+                        <p>swoole_server->setå‡½æ•°ç”¨äºŽè®¾ç½®swoole_serverè¿è¡Œæ—¶çš„å„é¡¹å‚æ•°ã€‚æœåŠ¡å™¨å¯åŠ¨åŽé€šè¿‡$serv->settingæ¥è®¿é—®setå‡½æ•°è®¾ç½®çš„å‚æ•°æ•°ç»„ã€‚</p>
 
-<p>Ô­ÐÍ£º</p>
+<p>åŽŸåž‹ï¼š</p>
 
 <pre><code class="php" data-language="php">void swoole_server-&gt;set(array $setting);
 void swoole_server_set(swoole_server $server, array $setting);
 </code></pre>
 
-<p>Ê¾Àý£º</p>
+<p>ç¤ºä¾‹ï¼š</p>
 
 <pre><code class="php" data-language="php">$serv-&gt;set(array(
     'timeout' =&gt; 2.5,  //select and epoll_wait timeout. 
@@ -38,117 +38,117 @@ void swoole_server_set(swoole_server $server, array $setting);
 </code></pre>
 
 <blockquote>
-  <p>swoole_server::setÖ»ÄÜÔÚswoole_server::startÇ°µ÷ÓÃ</p>
+  <p>swoole_server::setåªèƒ½åœ¨swoole_server::startå‰è°ƒç”¨</p>
 </blockquote>
 
-<h2>×î´óÁ¬½Ó</h2>
+<h2>æœ€å¤§è¿žæŽ¥</h2>
 
-<p>max_conn => 10000, ´Ë²ÎÊýÓÃÀ´ÉèÖÃServer×î´óÔÊÐíÎ¬³Ö¶àÉÙ¸ötcpÁ¬½Ó¡£³¬¹ý´ËÊýÁ¿ºó£¬ÐÂ½øÈëµÄÁ¬½Ó½«±»¾Ü¾ø¡£</p>
+<p>max_conn => 10000, æ­¤å‚æ•°ç”¨æ¥è®¾ç½®Serveræœ€å¤§å…è®¸ç»´æŒå¤šå°‘ä¸ªtcpè¿žæŽ¥ã€‚è¶…è¿‡æ­¤æ•°é‡åŽï¼Œæ–°è¿›å…¥çš„è¿žæŽ¥å°†è¢«æ‹’ç»ã€‚</p>
 
 <blockquote>
-  <p>´Ë²ÎÊý²»Òªµ÷ÕûµÄ¹ý´ó£¬¸ù¾Ý»úÆ÷ÄÚ´æµÄÊµ¼ÊÇé¿öÀ´ÉèÖÃ¡£Swoole»á¸ù¾Ý´ËÊýÖµÒ»´ÎÐÔ·ÖÅäÒ»¿é´óÄÚ´æÀ´±£´æConnectionÐÅÏ¢</p>
+  <p>æ­¤å‚æ•°ä¸è¦è°ƒæ•´çš„è¿‡å¤§ï¼Œæ ¹æ®æœºå™¨å†…å­˜çš„å®žé™…æƒ…å†µæ¥è®¾ç½®ã€‚Swooleä¼šæ ¹æ®æ­¤æ•°å€¼ä¸€æ¬¡æ€§åˆ†é…ä¸€å—å¤§å†…å­˜æ¥ä¿å­˜Connectionä¿¡æ¯</p>
 </blockquote>
 
-<h2>ÊØ»¤½ø³Ì»¯</h2>
+<h2>å®ˆæŠ¤è¿›ç¨‹åŒ–</h2>
 
-<p>daemonize => 1£¬¼ÓÈë´Ë²ÎÊýºó£¬Ö´ÐÐphp server.php½«×ªÈëºóÌ¨×÷ÎªÊØ»¤½ø³ÌÔËÐÐ</p>
+<p>daemonize => 1ï¼ŒåŠ å…¥æ­¤å‚æ•°åŽï¼Œæ‰§è¡Œphp server.phpå°†è½¬å…¥åŽå°ä½œä¸ºå®ˆæŠ¤è¿›ç¨‹è¿è¡Œ</p>
 
-<h2>reactorÏß³ÌÊý</h2>
+<h2>reactorçº¿ç¨‹æ•°</h2>
 
-<p>reactor_num => 2£¬Í¨¹ý´Ë²ÎÊýÀ´µ÷½ÚpollÏß³ÌµÄÊýÁ¿£¬ÒÔ³ä·ÖÀûÓÃ¶àºË</p>
+<p>reactor_num => 2ï¼Œé€šè¿‡æ­¤å‚æ•°æ¥è°ƒèŠ‚pollçº¿ç¨‹çš„æ•°é‡ï¼Œä»¥å……åˆ†åˆ©ç”¨å¤šæ ¸</p>
 
 <blockquote>
-  <p>reactor_numºÍwriter_numÄ¬ÈÏÉèÖÃÎªCPUºËÊý<br />
-  1.6.9Ö®Ç°°æ±¾ÇëÊ¹ÓÃ poll_thread_num => 2À´ÉèÖÃ</p>
+  <p>reactor_numå’Œwriter_numé»˜è®¤è®¾ç½®ä¸ºCPUæ ¸æ•°<br />
+  1.6.9ä¹‹å‰ç‰ˆæœ¬è¯·ä½¿ç”¨ poll_thread_num => 2æ¥è®¾ç½®</p>
 </blockquote>
 
-<h2>WriterÏß³ÌÊý</h2>
+<h2>Writerçº¿ç¨‹æ•°</h2>
 
-<p>writer_num => 2£¬Í¨¹ý´Ë²ÎÊýÀ´µ÷½ÚWriteÏß³ÌµÄÊýÁ¿£¬ÒÔ³ä·ÖÀûÓÃ¶àºË¡£ÔÚSwooleÀï¶ÔSOCKETµÄ¶ÁÐ´ÊÇ·Ö¿ªµÄ£¬IO_ReadÔÚreactorÏß³ÌÖÐÍê³É£¬IO_WriteÔÚwriterÏß³ÌÖÐÍê³É</p>
+<p>writer_num => 2ï¼Œé€šè¿‡æ­¤å‚æ•°æ¥è°ƒèŠ‚Writeçº¿ç¨‹çš„æ•°é‡ï¼Œä»¥å……åˆ†åˆ©ç”¨å¤šæ ¸ã€‚åœ¨Swooleé‡Œå¯¹SOCKETçš„è¯»å†™æ˜¯åˆ†å¼€çš„ï¼ŒIO_Readåœ¨reactorçº¿ç¨‹ä¸­å®Œæˆï¼ŒIO_Writeåœ¨writerçº¿ç¨‹ä¸­å®Œæˆ</p>
 
 <blockquote>
-  <p>1.6.12+³·ÏúÁËWriterÏß³Ì£¬ÓëReactorÏß³Ì×öÁËºÏ²¢</p>
+  <p>1.6.12+æ’¤é”€äº†Writerçº¿ç¨‹ï¼Œä¸ŽReactorçº¿ç¨‹åšäº†åˆå¹¶</p>
 </blockquote>
 
-<h2>worker½ø³ÌÊý</h2>
+<h2>workerè¿›ç¨‹æ•°</h2>
 
-<p>worker_num => 4£¬ÉèÖÃÆô¶¯µÄworker½ø³ÌÊýÁ¿¡£swoole²ÉÓÃ¹Ì¶¨worker½ø³ÌµÄÄ£Ê½¡£<br />
-PHP´úÂëÖÐÊÇÈ«Òì²½·Ç×èÈû£¬worker_numÅäÖÃÎªCPUºËÊýµÄ1-4±¶¼´¿É¡£Èç¹ûÊÇÍ¬²½×èÈû£¬worker_numÅäÖÃÎª100»òÕß¸ü¸ß£¬¾ßÌåÒª¿´Ã¿´ÎÇëÇó´¦ÀíµÄºÄÊ±ºÍ²Ù×÷ÏµÍ³¸ºÔØ×´¿ö¡£</p>
+<p>worker_num => 4ï¼Œè®¾ç½®å¯åŠ¨çš„workerè¿›ç¨‹æ•°é‡ã€‚swooleé‡‡ç”¨å›ºå®šworkerè¿›ç¨‹çš„æ¨¡å¼ã€‚<br />
+PHPä»£ç ä¸­æ˜¯å…¨å¼‚æ­¥éžé˜»å¡žï¼Œworker_numé…ç½®ä¸ºCPUæ ¸æ•°çš„1-4å€å³å¯ã€‚å¦‚æžœæ˜¯åŒæ­¥é˜»å¡žï¼Œworker_numé…ç½®ä¸º100æˆ–è€…æ›´é«˜ï¼Œå…·ä½“è¦çœ‹æ¯æ¬¡è¯·æ±‚å¤„ç†çš„è€—æ—¶å’Œæ“ä½œç³»ç»Ÿè´Ÿè½½çŠ¶å†µã€‚</p>
 
 <blockquote>
-  <p>µ±Éè¶¨µÄworker½ø³ÌÊýÐ¡ÓÚreactorÏß³ÌÊýÊ±£¬»á×Ô¶¯µ÷µÍreactorÏß³ÌµÄÊýÁ¿</p>
+  <p>å½“è®¾å®šçš„workerè¿›ç¨‹æ•°å°äºŽreactorçº¿ç¨‹æ•°æ—¶ï¼Œä¼šè‡ªåŠ¨è°ƒä½Žreactorçº¿ç¨‹çš„æ•°é‡</p>
 </blockquote>
 
 <h2>max_request</h2>
 
-<p>max_request => 2000£¬´Ë²ÎÊý±íÊ¾worker½ø³ÌÔÚ´¦ÀíÍên´ÎÇëÇóºó½áÊøÔËÐÐ¡£manager»áÖØÐÂ´´½¨Ò»¸öworker½ø³Ì¡£´ËÑ¡ÏîÓÃÀ´·ÀÖ¹worker½ø³ÌÄÚ´æÒç³ö¡£</p>
+<p>max_request => 2000ï¼Œæ­¤å‚æ•°è¡¨ç¤ºworkerè¿›ç¨‹åœ¨å¤„ç†å®Œnæ¬¡è¯·æ±‚åŽç»“æŸè¿è¡Œã€‚managerä¼šé‡æ–°åˆ›å»ºä¸€ä¸ªworkerè¿›ç¨‹ã€‚æ­¤é€‰é¡¹ç”¨æ¥é˜²æ­¢workerè¿›ç¨‹å†…å­˜æº¢å‡ºã€‚</p>
 
 <blockquote>
-  <p>PHP´úÂëÒ²¿ÉÒÔÊ¹ÓÃmemory_get_usageÀ´¼ì²â½ø³ÌµÄÄÚ´æÕ¼ÓÃÇé¿ö£¬·¢ÏÖ½Ó½ümemory_limitÊ±£¬µ÷ÓÃexit()ÍË³ö½ø³Ì¡£manager½ø³Ì»á»ØÊÕ´Ë½ø³Ì£¬È»ºóÖØÐÂÆô¶¯Ò»¸öÐÂµÄWorker½ø³Ì¡£<br />
-  onConnect/onClose²»Ôö¼Ó¼ÆÊý</p>
+  <p>PHPä»£ç ä¹Ÿå¯ä»¥ä½¿ç”¨memory_get_usageæ¥æ£€æµ‹è¿›ç¨‹çš„å†…å­˜å ç”¨æƒ…å†µï¼Œå‘çŽ°æŽ¥è¿‘memory_limitæ—¶ï¼Œè°ƒç”¨exit()é€€å‡ºè¿›ç¨‹ã€‚managerè¿›ç¨‹ä¼šå›žæ”¶æ­¤è¿›ç¨‹ï¼Œç„¶åŽé‡æ–°å¯åŠ¨ä¸€ä¸ªæ–°çš„Workerè¿›ç¨‹ã€‚<br />
+  onConnect/onCloseä¸å¢žåŠ è®¡æ•°</p>
 </blockquote>
 
 <pre><code class="shell" data-language="shell">max_request =&gt; 0
 </code></pre>
 
-<p>ÉèÖÃÎª0±íÊ¾²»×Ô¶¯ÖØÆô¡£ÔÚWorker½ø³ÌÖÐÐèÒª±£´æÁ¬½ÓÐÅÏ¢µÄ·þÎñ£¬ÐèÒªÉèÖÃÎª0.</p>
+<p>è®¾ç½®ä¸º0è¡¨ç¤ºä¸è‡ªåŠ¨é‡å¯ã€‚åœ¨Workerè¿›ç¨‹ä¸­éœ€è¦ä¿å­˜è¿žæŽ¥ä¿¡æ¯çš„æœåŠ¡ï¼Œéœ€è¦è®¾ç½®ä¸º0.</p>
 
-<h2>Listen¶ÓÁÐ³¤¶È</h2>
+<h2>Listené˜Ÿåˆ—é•¿åº¦</h2>
 
-<p>backlog => 128£¬´Ë²ÎÊý½«¾ö¶¨×î¶àÍ¬Ê±ÓÐ¶àÉÙ¸ö´ýacceptµÄÁ¬½Ó£¬swoole±¾ÉíacceptÐ§ÂÊÊÇºÜ¸ßµÄ£¬»ù±¾ÉÏ²»»á³öÏÖ´óÁ¿ÅÅ¶ÓÇé¿ö¡£</p>
+<p>backlog => 128ï¼Œæ­¤å‚æ•°å°†å†³å®šæœ€å¤šåŒæ—¶æœ‰å¤šå°‘ä¸ªå¾…acceptçš„è¿žæŽ¥ï¼Œswooleæœ¬èº«acceptæ•ˆçŽ‡æ˜¯å¾ˆé«˜çš„ï¼ŒåŸºæœ¬ä¸Šä¸ä¼šå‡ºçŽ°å¤§é‡æŽ’é˜Ÿæƒ…å†µã€‚</p>
 
-<h2>CPUÇ×ºÍÉèÖÃ</h2>
+<h2>CPUäº²å’Œè®¾ç½®</h2>
 
-<p>open_cpu_affinity => 1 ,ÆôÓÃCPUÇ×ºÍÉèÖÃ</p>
+<p>open_cpu_affinity => 1 ,å¯ç”¨CPUäº²å’Œè®¾ç½®</p>
 
-<h2>TCP_NoDelayÆôÓÃ</h2>
+<h2>TCP_NoDelayå¯ç”¨</h2>
 
-<p>open_tcp_nodelay => 1 ,ÆôÓÃtcp_nodelay</p>
+<p>open_tcp_nodelay => 1 ,å¯ç”¨tcp_nodelay</p>
 
 <h2>TCP_DEFER_ACCEPT</h2>
 
-<p>tcp_defer_accept => 5£¬´Ë²ÎÊýÉè¶¨Ò»¸öÃëÊý£¬µ±¿Í»§¶ËÁ¬½ÓÁ¬½Óµ½·þÎñÆ÷Ê±£¬ÔÚÔ¼¶¨ÃëÊýÄÚ²¢²»»á´¥·¢accept£¬Ö±µ½ÓÐÊý¾Ý·¢ËÍ£¬»òÕß³¬Ê±Ê±²Å»á´¥·¢¡£</p>
+<p>tcp_defer_accept => 5ï¼Œæ­¤å‚æ•°è®¾å®šä¸€ä¸ªç§’æ•°ï¼Œå½“å®¢æˆ·ç«¯è¿žæŽ¥è¿žæŽ¥åˆ°æœåŠ¡å™¨æ—¶ï¼Œåœ¨çº¦å®šç§’æ•°å†…å¹¶ä¸ä¼šè§¦å‘acceptï¼Œç›´åˆ°æœ‰æ•°æ®å‘é€ï¼Œæˆ–è€…è¶…æ—¶æ—¶æ‰ä¼šè§¦å‘ã€‚</p>
 
-<h2>ÈÕÖ¾ÎÄ¼þÂ·¾¶</h2>
+<h2>æ—¥å¿—æ–‡ä»¶è·¯å¾„</h2>
 
-<p>log_file => '/data/log/swoole.log', Ö¸¶¨swoole´íÎóÈÕÖ¾ÎÄ¼þ¡£ÔÚswooleÔËÐÐÆÚ·¢ÉúµÄÒì³£ÐÅÏ¢»á¼ÇÂ¼µ½Õâ¸öÎÄ¼þÖÐ¡£Ä¬ÈÏ»á´òÓ¡µ½ÆÁÄ»¡£</p>
+<p>log_file => '/data/log/swoole.log', æŒ‡å®šswooleé”™è¯¯æ—¥å¿—æ–‡ä»¶ã€‚åœ¨swooleè¿è¡ŒæœŸå‘ç”Ÿçš„å¼‚å¸¸ä¿¡æ¯ä¼šè®°å½•åˆ°è¿™ä¸ªæ–‡ä»¶ä¸­ã€‚é»˜è®¤ä¼šæ‰“å°åˆ°å±å¹•ã€‚</p>
 
 <blockquote>
-  <p>´ËÅäÖÃ½öÔÚswoole-1.5.8ÒÔÉÏ°æ±¾ÖÐ¿ÉÓÃ</p>
+  <p>æ­¤é…ç½®ä»…åœ¨swoole-1.5.8ä»¥ä¸Šç‰ˆæœ¬ä¸­å¯ç”¨</p>
 </blockquote>
 
-<h2>Êý¾Ýbuffer</h2>
+<h2>æ•°æ®buffer</h2>
 
-<p>bufferÖ÷ÒªÊÇÓÃÓÚ¼ì²âÊý¾ÝÊÇ·ñÍêÕû£¬Èç¹û²»ÍêÕûswoole»á¼ÌÐøµÈ´ýÐÂµÄÊý¾Ýµ½À´¡£Ö±µ½ÊÕµ½ÍêÕûµÄÒ»¸öÇëÇó£¬²Å»áÒ»´ÎÐÔ·¢ËÍ¸øworker½ø³Ì¡£ÕâÊ±onReceive»áÊÕµ½Ò»¸ö³¬¹ýSW_BUFFER_SIZE£¬<br />
-Ð¡ÓÚ$serv->setting['package_max_length']µÄÊý¾Ý¡£<br />
-Ä¿Ç°½öÌá¹©ÁËEOF¼ì²â¡¢¹Ì¶¨°üÍ·³¤¶È¼ì²â2ÖÖbufferÄ£Ê½¡£</p>
+<p>bufferä¸»è¦æ˜¯ç”¨äºŽæ£€æµ‹æ•°æ®æ˜¯å¦å®Œæ•´ï¼Œå¦‚æžœä¸å®Œæ•´swooleä¼šç»§ç»­ç­‰å¾…æ–°çš„æ•°æ®åˆ°æ¥ã€‚ç›´åˆ°æ”¶åˆ°å®Œæ•´çš„ä¸€ä¸ªè¯·æ±‚ï¼Œæ‰ä¼šä¸€æ¬¡æ€§å‘é€ç»™workerè¿›ç¨‹ã€‚è¿™æ—¶onReceiveä¼šæ”¶åˆ°ä¸€ä¸ªè¶…è¿‡SW_BUFFER_SIZEï¼Œ<br />
+å°äºŽ$serv->setting['package_max_length']çš„æ•°æ®ã€‚<br />
+ç›®å‰ä»…æä¾›äº†EOFæ£€æµ‹ã€å›ºå®šåŒ…å¤´é•¿åº¦æ£€æµ‹2ç§bufferæ¨¡å¼ã€‚</p>
 
-<p>open_eof_check => true´ò¿ªbuffer<br />
-package_eof => "\r\n\r\n" ÉèÖÃEOF</p>
+<p>open_eof_check => trueæ‰“å¼€buffer<br />
+package_eof => "\r\n\r\n" è®¾ç½®EOF</p>
 
-<h2>ÐÄÌø¼ì²â»úÖÆ</h2>
+<h2>å¿ƒè·³æ£€æµ‹æœºåˆ¶</h2>
 
-<p>heartbeat_check_interval => 30 //Ã¿¸ô¶àÉÙÃë¼ì²âÒ»´Î£¬µ¥Î»Ãë£¬Swoole»áÂÖÑ¯ËùÓÐTCPÁ¬½Ó£¬½«³¬¹ýÐÄÌøÊ±¼äµÄÁ¬½Ó¹Ø±Õµô<br />
-heartbeat_idle_time  => 60   //TCPÁ¬½ÓµÄ×î´óÏÐÖÃÊ±¼ä£¬µ¥Î»s , Èç¹ûÄ³fd×îºóÒ»´Î·¢°ü¾àÀëÏÖÔÚµÄÊ±¼ä³¬¹ýheartbeat_idle_time»á°ÑÕâ¸öÁ¬½Ó¹Ø±Õ¡£</p>
+<p>heartbeat_check_interval => 30 //æ¯éš”å¤šå°‘ç§’æ£€æµ‹ä¸€æ¬¡ï¼Œå•ä½ç§’ï¼ŒSwooleä¼šè½®è¯¢æ‰€æœ‰TCPè¿žæŽ¥ï¼Œå°†è¶…è¿‡å¿ƒè·³æ—¶é—´çš„è¿žæŽ¥å…³é—­æŽ‰<br />
+heartbeat_idle_time  => 60   //TCPè¿žæŽ¥çš„æœ€å¤§é—²ç½®æ—¶é—´ï¼Œå•ä½s , å¦‚æžœæŸfdæœ€åŽä¸€æ¬¡å‘åŒ…è·ç¦»çŽ°åœ¨çš„æ—¶é—´è¶…è¿‡heartbeat_idle_timeä¼šæŠŠè¿™ä¸ªè¿žæŽ¥å…³é—­ã€‚</p>
 
 <blockquote>
-  <p>ÐÄÌø¼ì²âÌØÐÔÐèÒªswoole-1.6.10+<br />
-  heartbeat_idle_time±ØÐë´óÓÚ»òµÈÓÚheartbeat_check_interval</p>
+  <p>å¿ƒè·³æ£€æµ‹ç‰¹æ€§éœ€è¦swoole-1.6.10+<br />
+  heartbeat_idle_timeå¿…é¡»å¤§äºŽæˆ–ç­‰äºŽheartbeat_check_interval</p>
 </blockquote>
 
-<h2>worker½ø³ÌÊý¾Ý°ü·ÖÅäÄ£Ê½</h2>
+<h2>workerè¿›ç¨‹æ•°æ®åŒ…åˆ†é…æ¨¡å¼</h2>
 
-<p>dispatch_mode = 1 //1Æ½¾ù·ÖÅä£¬2°´FDÈ¡Ãþ¹Ì¶¨·ÖÅä£¬3ÇÀÕ¼Ê½·ÖÅä£¬Ä¬ÈÏÎªÈ¡Ãþ(dispatch=2)</p>
+<p>dispatch_mode = 1 //1å¹³å‡åˆ†é…ï¼Œ2æŒ‰FDå–æ‘¸å›ºå®šåˆ†é…ï¼Œ3æŠ¢å å¼åˆ†é…ï¼Œé»˜è®¤ä¸ºå–æ‘¸(dispatch=2)</p>
 
 <blockquote>
-  <p>ÇÀÕ¼Ê½·ÖÅä£¬Ã¿´Î¶¼ÊÇ¿ÕÏÐµÄworker½ø³Ì»ñµÃÊý¾Ý¡£ºÜºÏÊÊSOA/RPCÀàµÄÄÚ²¿·þÎñ¿ò¼Ü<br />
-  µ±Ñ¡ÔñÎªdispatch=3ÇÀÕ¼Ä£Ê½Ê±£¬worker½ø³ÌÄÚ·¢ÉúonConnect/onReceive/onClose/onTimer»á½«worker½ø³Ì±ê¼ÇÎªÃ¦£¬²»ÔÙ½ÓÊÜÐÂµÄÇëÇó¡£reactor»á½«ÐÂÇëÇóÍ¶µÝ¸øÆäËû×´Ì¬ÎªÏÐµÄworker½ø³Ì<br />
-  Èç¹ûÏ£ÍûÃ¿¸öÁ¬½ÓµÄÊý¾Ý·ÖÅä¸ø¹Ì¶¨µÄworker½ø³Ì£¬dispatch_modeÐèÒªÉèÖÃÎª2</p>
+  <p>æŠ¢å å¼åˆ†é…ï¼Œæ¯æ¬¡éƒ½æ˜¯ç©ºé—²çš„workerè¿›ç¨‹èŽ·å¾—æ•°æ®ã€‚å¾ˆåˆé€‚SOA/RPCç±»çš„å†…éƒ¨æœåŠ¡æ¡†æž¶<br />
+  å½“é€‰æ‹©ä¸ºdispatch=3æŠ¢å æ¨¡å¼æ—¶ï¼Œworkerè¿›ç¨‹å†…å‘ç”ŸonConnect/onReceive/onClose/onTimerä¼šå°†workerè¿›ç¨‹æ ‡è®°ä¸ºå¿™ï¼Œä¸å†æŽ¥å—æ–°çš„è¯·æ±‚ã€‚reactorä¼šå°†æ–°è¯·æ±‚æŠ•é€’ç»™å…¶ä»–çŠ¶æ€ä¸ºé—²çš„workerè¿›ç¨‹<br />
+  å¦‚æžœå¸Œæœ›æ¯ä¸ªè¿žæŽ¥çš„æ•°æ®åˆ†é…ç»™å›ºå®šçš„workerè¿›ç¨‹ï¼Œdispatch_modeéœ€è¦è®¾ç½®ä¸º2</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -156,7 +156,7 @@ heartbeat_idle_time  => 60   //TCPÁ¬½ÓµÄ×î´óÏÐÖÃÊ±¼ä£¬µ¥Î»s , Èç¹ûÄ³fd×îºóÒ»´Î·¢
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

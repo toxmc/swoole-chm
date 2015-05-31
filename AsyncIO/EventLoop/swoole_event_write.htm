@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_event_write</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_event_write</h1>
-                        <p>ÓÃÓÚPHP×Ô´østream/socketsÀ©Õ¹´´½¨µÄsocket£¬Ê¹ÓÃfwrite/socket_sendµÈº¯ÊıÏò¶Ô¶Ë·¢ËÍÊı¾İ¡£µ±·¢ËÍµÄÊı¾İÁ¿½Ï´ó£¬socketĞ´»º´æÇøÒÑÂú£¬¾Í»á·¢ËÍ×èÈûµÈ´ı»òÕß·µ»ØEAGAIN´íÎó¡£</p>
+                        <p>ç”¨äºPHPè‡ªå¸¦stream/socketsæ‰©å±•åˆ›å»ºçš„socketï¼Œä½¿ç”¨fwrite/socket_sendç­‰å‡½æ•°å‘å¯¹ç«¯å‘é€æ•°æ®ã€‚å½“å‘é€çš„æ•°æ®é‡è¾ƒå¤§ï¼Œsocketå†™ç¼“å­˜åŒºå·²æ»¡ï¼Œå°±ä¼šå‘é€é˜»å¡ç­‰å¾…æˆ–è€…è¿”å›EAGAINé”™è¯¯ã€‚</p>
 
-<p>swoole_event_writeº¯Êı¿ÉÒÔ½«stream/sockets×ÊÔ´µÄÊı¾İ·¢ËÍ±ä³ÉÒì²½µÄ£¬µ±»º³åÇøÂúÁË»òÕß·µ»ØEAGAIN£¬swooleµ×²ã»á½«Êı¾İ¼ÓÈëµ½·¢ËÍ¶ÓÁĞ£¬²¢¼àÌı¿ÉĞ´¡£socket¿ÉĞ´Ê±swooleµ×²ã»á×Ô¶¯Ğ´Èë¡£</p>
+<p>swoole_event_writeå‡½æ•°å¯ä»¥å°†stream/socketsèµ„æºçš„æ•°æ®å‘é€å˜æˆå¼‚æ­¥çš„ï¼Œå½“ç¼“å†²åŒºæ»¡äº†æˆ–è€…è¿”å›EAGAINï¼Œswooleåº•å±‚ä¼šå°†æ•°æ®åŠ å…¥åˆ°å‘é€é˜Ÿåˆ—ï¼Œå¹¶ç›‘å¬å¯å†™ã€‚socketå¯å†™æ—¶swooleåº•å±‚ä¼šè‡ªåŠ¨å†™å…¥ã€‚</p>
 
 <pre><code class="php" data-language="php">$fp = stream_socket_client('tcp://127.0.0.1:9501');
 $data = str_repeat('A', 1024 * 1024*2);
@@ -31,13 +31,13 @@ swoole_event_write($fp, $data);
 </code></pre>
 
 <blockquote>
-  <p>swoole_event_writeµ÷ÓÃÖ®Ç°£¬±ØĞëÔÚ½«socket¼ÓÈëevent_loop£¬·ñÔò»á·¢Éú´íÎó<br />
-  ´Ëº¯ÊıÔÚswoole-1.7.9ÒÔÉÏ°æ±¾¿ÉÓÃ</p>
+  <p>swoole_event_writeè°ƒç”¨ä¹‹å‰ï¼Œå¿…é¡»åœ¨å°†socketåŠ å…¥event_loopï¼Œå¦åˆ™ä¼šå‘ç”Ÿé”™è¯¯<br />
+  æ­¤å‡½æ•°åœ¨swoole-1.7.9ä»¥ä¸Šç‰ˆæœ¬å¯ç”¨</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -45,7 +45,7 @@ swoole_event_write($fp, $data);
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

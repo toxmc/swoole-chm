@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_process::__construct</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,32 +11,32 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_process::__construct</h1>
-                        <p>´´½¨×Ó½ø³Ì</p>
+                        <p>åˆ›å»ºå­è¿›ç¨‹</p>
 
 <pre><code class="php" data-language="php">int swoole_process::__construct(mixed $function, $redirect_stdin_stdout = false, $create_pipe = true);
 </code></pre>
 
 <ul>
-<li>$function£¬×Ó½ø³Ì´´½¨³É¹¦ºóÒªÖ´ĞĞµÄº¯Êı</li>
-<li>$redirect_stdin_stdout£¬ÖØ¶¨Ïò×Ó½ø³ÌµÄ±ê×¼ÊäÈëºÍÊä³ö¡£
-ÆôÓÃ´ËÑ¡Ïîºó£¬ÔÚ½ø³ÌÄÚecho½«²»ÊÇ´òÓ¡ÆÁÄ»£¬¶øÊÇĞ´Èëµ½¹ÜµÀ¡£¶ÁÈ¡¼üÅÌÊäÈë½«±äÎª´Ó¹ÜµÀÖĞ¶ÁÈ¡Êı¾İ¡£
-Ä¬ÈÏÎª×èÈû¶ÁÈ¡¡£</li>
-<li>$create_pipe£¬ÊÇ·ñ´´½¨¹ÜµÀ£¬ÆôÓÃ$redirect_stdin_stdoutºó£¬´ËÑ¡Ïî½«ºöÂÔÓÃ»§²ÎÊı£¬Ç¿ÖÆÎªtrue
-Èç¹û×Ó½ø³ÌÄÚÃ»ÓĞ½ø³Ì¼äÍ¨ĞÅ£¬¿ÉÒÔÉèÖÃÎªfalse</li>
+<li>$functionï¼Œå­è¿›ç¨‹åˆ›å»ºæˆåŠŸåè¦æ‰§è¡Œçš„å‡½æ•°</li>
+<li>$redirect_stdin_stdoutï¼Œé‡å®šå‘å­è¿›ç¨‹çš„æ ‡å‡†è¾“å…¥å’Œè¾“å‡ºã€‚
+å¯ç”¨æ­¤é€‰é¡¹åï¼Œåœ¨è¿›ç¨‹å†…echoå°†ä¸æ˜¯æ‰“å°å±å¹•ï¼Œè€Œæ˜¯å†™å…¥åˆ°ç®¡é“ã€‚è¯»å–é”®ç›˜è¾“å…¥å°†å˜ä¸ºä»ç®¡é“ä¸­è¯»å–æ•°æ®ã€‚
+é»˜è®¤ä¸ºé˜»å¡è¯»å–ã€‚</li>
+<li>$create_pipeï¼Œæ˜¯å¦åˆ›å»ºç®¡é“ï¼Œå¯ç”¨$redirect_stdin_stdoutåï¼Œæ­¤é€‰é¡¹å°†å¿½ç•¥ç”¨æˆ·å‚æ•°ï¼Œå¼ºåˆ¶ä¸ºtrue
+å¦‚æœå­è¿›ç¨‹å†…æ²¡æœ‰è¿›ç¨‹é—´é€šä¿¡ï¼Œå¯ä»¥è®¾ç½®ä¸ºfalse</li>
 </ul>
 
 <blockquote>
-  <p>$process¶ÔÏóÔÚÏú»ÙÊ±»á×Ô¶¯¹Ø±Õ¹ÜµÀ£¬µ«²»»áÓ°Ïì×Ó½ø³ÌµÄÔËĞĞ</p>
+  <p>$processå¯¹è±¡åœ¨é”€æ¯æ—¶ä¼šè‡ªåŠ¨å…³é—­ç®¡é“ï¼Œä½†ä¸ä¼šå½±å“å­è¿›ç¨‹çš„è¿è¡Œ</p>
 </blockquote>
 
-<h2>ÔÚ×Ó½ø³ÌÖĞ´´½¨swoole_server</h2>
+<h2>åœ¨å­è¿›ç¨‹ä¸­åˆ›å»ºswoole_server</h2>
 
-<p>¿ÉÒÔÔÚswoole_process´´½¨µÄ×Ó½ø³ÌÖĞswoole_server·şÎñÆ÷³ÌĞò£¬µ«ÎªÁË°²È«±ØĞëÔÚ$process->start´´½¨½ø³Ìºó£¬µ÷ÓÃ$worker->execÖ´ĞĞserverµÄ´úÂë¡£</p>
+<p>å¯ä»¥åœ¨swoole_processåˆ›å»ºçš„å­è¿›ç¨‹ä¸­swoole_serveræœåŠ¡å™¨ç¨‹åºï¼Œä½†ä¸ºäº†å®‰å…¨å¿…é¡»åœ¨$process->startåˆ›å»ºè¿›ç¨‹åï¼Œè°ƒç”¨$worker->execæ‰§è¡Œserverçš„ä»£ç ã€‚</p>
 
 <pre><code class="php" data-language="php">&lt;?php
 $process = new swoole_process('callback_function', true);
@@ -52,7 +52,7 @@ swoole_process::wait();
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -60,7 +60,7 @@ swoole_process::wait();
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

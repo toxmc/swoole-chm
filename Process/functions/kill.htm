@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_process::kill</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,30 +11,30 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_process::kill</h1>
-                        <p>���ӽ��̷����ź�</p>
+                        <p>向子进程发送信号</p>
 
 <pre><code class="php" data-language="php">int swoole_process::kill($pid, $signo = SIGTERM);
 </code></pre>
 
 <ul>
-<li>Ĭ�ϵ��ź�ΪSIGTERM����ʾ��ֹ����</li>
-<li>$signo=0�����Լ������Ƿ���ڣ����ᷢ���ź�</li>
+<li>默认的信号为SIGTERM，表示终止进程</li>
+<li>$signo=0，可以检测进程是否存在，不会发送信号</li>
 </ul>
 
-<h2>��ʬ����</h2>
+<h2>僵尸进程</h2>
 
-<p>�ӽ����˳��󣬸��������Ҫִ��swoole_process::wait���л��գ���������ӽ��̾ͻ��Ϊ��ʬ���̣��¶����̣������˷Ѳ���ϵͳ�Ľ�����Դ��</p>
+<p>子进程退出后，父进程务必要执行swoole_process::wait进行回收，否则这个子进程就会变为僵尸进程（孤儿进程）。会浪费操作系统的进程资源。</p>
 
-<p>�����̿�������SIGCHLD�źţ��յ��źź�ִ��swoole_process::wait�����˳����ӽ��̡�</p>
+<p>父进程可以设置SIGCHLD信号，收到信号后执行swoole_process::wait回收退出的子进程。</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -42,7 +42,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

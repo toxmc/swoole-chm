@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>����swoole�汾�ĳ�������</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>升级swoole版本的常见问题</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,27 +11,27 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>����swoole�汾�ĳ�������</h1>
-                        <p>����ʹ��pecl���а�װ������</p>
+                        <h1>升级swoole版本的常见问题</h1>
+                        <p>可以使用pecl进行安装和升级</p>
 
 <pre><code class="shell" data-language="shell">pecl upgrade swoole
 </code></pre>
 
-<p>Ҳ����ֱ�Ӵ�github/pecl����һ���°汾�����°�װ���롣</p>
+<p>也可以直接从github/pecl下载一个新版本，重新安装编译。</p>
 
 <ul>
-<li>����swoole�汾������Ҫж�ػ���ɾ���ɰ汾swoole����װ���̻Ḳ�Ǿɰ汾</li>
-<li>swoole���밲װ��û�ж�����ļ�������һ��swoole.so���������������������õĶ����ư汾��ֱ�ӻ��า��swoole.so������ʵ�ְ汾�л�  </li>
-<li>git clone��ȡ�Ĵ��룬ִ��git pull���´�������Ҫ�ٴ�ִ��phpize��./configure��make clean��make install</li>
+<li>更新swoole版本，不需要卸载或者删除旧版本swoole，安装过程会覆盖旧版本</li>
+<li>swoole编译安装后没有额外的文件，仅有一个swoole.so，如果是在其他机器编译好的二进制版本。直接互相覆盖swoole.so，即可实现版本切换  </li>
+<li>git clone拉取的代码，执行git pull更新代码后，务必要再次执行phpize、./configure、make clean、make install</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -39,7 +39,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

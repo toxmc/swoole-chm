@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->addListener</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,19 +11,19 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_server->addListener</h1>
-                        <p>SwooleÌá¹©ÁËswoole_server::addListenerÀ´Ôö¼Ó¼àÌıµÄ¶Ë¿Ú¡£ÒµÎñ´úÂëÖĞ¿ÉÒÔÍ¨¹ıµ÷ÓÃswoole_server::connection_infoÀ´»ñÈ¡Ä³¸öÁ¬½ÓÀ´×ÔÓÚÄÄ¸ö¶Ë¿Ú¡£</p>
+                        <p>Swooleæä¾›äº†swoole_server::addListeneræ¥å¢åŠ ç›‘å¬çš„ç«¯å£ã€‚ä¸šåŠ¡ä»£ç ä¸­å¯ä»¥é€šè¿‡è°ƒç”¨swoole_server::connection_infoæ¥è·å–æŸä¸ªè¿æ¥æ¥è‡ªäºå“ªä¸ªç«¯å£ã€‚</p>
 
-<p>º¯ÊıÔ­ĞÍ£º</p>
+<p>å‡½æ•°åŸå‹ï¼š</p>
 
 <pre><code class="php" data-language="php">void swoole_server-&gt;addListener(string $host, int $port, $type = SWOOLE_SOCK_TCP);
 </code></pre>
 
-<h2>swooleÖ§³ÖµÄSocketÀàĞÍ</h2>
+<h2>swooleæ”¯æŒçš„Socketç±»å‹</h2>
 
 <ul>
 <li><strong>SWOOLE_TCP</strong>/<strong>SWOOLE_SOCK_TCP</strong>  tcp ipv4 socket </li>
@@ -35,13 +35,13 @@
 </ul>
 
 <blockquote>
-  <p>Unix Socket½öÔÚ1.7.1+ºó¿ÉÓÃ£¬´ËÄ£Ê½ÏÂ$host²ÎÊı±ØĞëÌîĞ´¿É·ÃÎÊµÄÎÄ¼şÂ·¾¶£¬$port²ÎÊıºöÂÔ<br />
-  Unix SocketÄ£Ê½ÏÂ£¬¿Í»§¶Ë$fd½«²»ÔÙÊÇÊı×Ö£¬¶øÊÇÒ»¸öÎÄ¼şÂ·¾¶µÄ×Ö·û´®<br />
-  SWOOLE_TCPµÈÊÇ1.7.0+ºóÌá¹©µÄ¼òĞ´·½Ê½£¬Óë1.7.0Ç°µÄSWOOLE_SOCK_TCPÊÇµÈÍ¬µÄ</p>
+  <p>Unix Socketä»…åœ¨1.7.1+åå¯ç”¨ï¼Œæ­¤æ¨¡å¼ä¸‹$hostå‚æ•°å¿…é¡»å¡«å†™å¯è®¿é—®çš„æ–‡ä»¶è·¯å¾„ï¼Œ$portå‚æ•°å¿½ç•¥<br />
+  Unix Socketæ¨¡å¼ä¸‹ï¼Œå®¢æˆ·ç«¯$fdå°†ä¸å†æ˜¯æ•°å­—ï¼Œè€Œæ˜¯ä¸€ä¸ªæ–‡ä»¶è·¯å¾„çš„å­—ç¬¦ä¸²<br />
+  SWOOLE_TCPç­‰æ˜¯1.7.0+åæä¾›çš„ç®€å†™æ–¹å¼ï¼Œä¸1.7.0å‰çš„SWOOLE_SOCK_TCPæ˜¯ç­‰åŒçš„</p>
 </blockquote>
 
-<p>Äú¿ÉÒÔ»ìºÏÊ¹ÓÃUDP/TCP£¬Í¬Ê±¼àÌıÄÚÍøºÍÍâÍø¶Ë¿Ú¡£
-Ê¾Àı£º</p>
+<p>æ‚¨å¯ä»¥æ··åˆä½¿ç”¨UDP/TCPï¼ŒåŒæ—¶ç›‘å¬å†…ç½‘å’Œå¤–ç½‘ç«¯å£ã€‚
+ç¤ºä¾‹ï¼š</p>
 
 <pre><code class="php" data-language="php">$serv-&gt;addlistener("127.0.0.1", 9502, SWOOLE_SOCK_TCP);
 $serv-&gt;addlistener("192.168.1.100", 9503, SWOOLE_SOCK_TCP);
@@ -49,16 +49,16 @@ $serv-&gt;addlistener("0.0.0.0", 9504, SWOOLE_SOCK_UDP);
 $serv-&gt;addlistener("/var/run/myserv.sock", 0, SWOOLE_UNIX_STREAM);
 </code></pre>
 
-<h2>IPv4ÓëIPv6</h2>
+<h2>IPv4ä¸IPv6</h2>
 
 <ul>
-<li>IPv4Ê¹ÓÃ 127.0.0.1±íÊ¾¼àÌı±¾»ú£¬0.0.0.0±íÊ¾¼àÌıËùÓĞµØÖ·</li>
-<li>IPv6Ê¹ÓÃ::1±íÊ¾¼àÌı±¾»ú£¬:: (0:0:0:0:0:0:0:0) ±íÊ¾¼àÌıËùÓĞµØÖ·</li>
+<li>IPv4ä½¿ç”¨ 127.0.0.1è¡¨ç¤ºç›‘å¬æœ¬æœºï¼Œ0.0.0.0è¡¨ç¤ºç›‘å¬æ‰€æœ‰åœ°å€</li>
+<li>IPv6ä½¿ç”¨::1è¡¨ç¤ºç›‘å¬æœ¬æœºï¼Œ:: (0:0:0:0:0:0:0:0) è¡¨ç¤ºç›‘å¬æ‰€æœ‰åœ°å€</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -66,7 +66,7 @@ $serv-&gt;addlistener("/var/run/myserv.sock", 0, SWOOLE_UNIX_STREAM);
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

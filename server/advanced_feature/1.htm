@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>¸Ä±äWorker½ø³ÌµÄÓÃ»§/×é</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>æ”¹å˜Workerè¿›ç¨‹çš„ç”¨æˆ·/ç»„</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,36 +11,36 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
          <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>¸Ä±äWorker½ø³ÌµÄÓÃ»§/×é</h1>
-                        <p>ÔÚÄ³Ð©Çé¿öÏÂ£¬Ö÷½ø³ÌÐèÒªÊ¹ÓÃRootÀ´Æô¶¯£¬±ÈÈçÐèÒª¼àÌý80¶Ë¿Ú¡£ÕâÊ±Worker½ø³ÌµÄÒµÎñ´úÂëÒ²»áÔËÐÐÔÚrootÓÃ»§ÏÂ£¬ÕâÊÇ·Ç³£²»°²È«µÄ¡£
-ÒµÎñ´úÂëµÄÂ©¶´¿ÉÄÜ»áµ¼ÖÂÕû¸ö·þÎñÆ÷±»¹¥ÆÆ£¬ËùÒÔÐèÒª½«Worker½ø³ÌËùÊôÓÃ»§ºÍ×é¸ÄÎªÆäËûÓÃ»§¡£
-ÔÚPHPÖÐÊ¹ÓÃposixÏµÁÐº¯Êý¼´¿ÉÍê³É´Ë²Ù×÷¡£¿ÉÔÚswooleµÄonWorkerStart»Øµ÷ÖÐ¼ÓÈëÒÔÏÂ´úÂë£º</p>
+                        <h1>æ”¹å˜Workerè¿›ç¨‹çš„ç”¨æˆ·/ç»„</h1>
+                        <p>åœ¨æŸäº›æƒ…å†µä¸‹ï¼Œä¸»è¿›ç¨‹éœ€è¦ä½¿ç”¨Rootæ¥å¯åŠ¨ï¼Œæ¯”å¦‚éœ€è¦ç›‘å¬80ç«¯å£ã€‚è¿™æ—¶Workerè¿›ç¨‹çš„ä¸šåŠ¡ä»£ç ä¹Ÿä¼šè¿è¡Œåœ¨rootç”¨æˆ·ä¸‹ï¼Œè¿™æ˜¯éžå¸¸ä¸å®‰å…¨çš„ã€‚
+ä¸šåŠ¡ä»£ç çš„æ¼æ´žå¯èƒ½ä¼šå¯¼è‡´æ•´ä¸ªæœåŠ¡å™¨è¢«æ”»ç ´ï¼Œæ‰€ä»¥éœ€è¦å°†Workerè¿›ç¨‹æ‰€å±žç”¨æˆ·å’Œç»„æ”¹ä¸ºå…¶ä»–ç”¨æˆ·ã€‚
+åœ¨PHPä¸­ä½¿ç”¨posixç³»åˆ—å‡½æ•°å³å¯å®Œæˆæ­¤æ“ä½œã€‚å¯åœ¨swooleçš„onWorkerStartå›žè°ƒä¸­åŠ å…¥ä»¥ä¸‹ä»£ç ï¼š</p>
 
 <pre><code class="php" data-language="php">$user = posix_getpwnam('www-data');
 posix_setuid($user['uid']);
 posix_setgid($user['gid']);
 </code></pre>
 
-<h2>ÖØ¶¨Ïò¸ùÄ¿Â¼</h2>
+<h2>é‡å®šå‘æ ¹ç›®å½•</h2>
 
-<p>Ä¬ÈÏÊÇÃ»ÓÐÖØ¶¨ÏòµÄ£¬ÔÚPHP´úÂëÖÐ·ÃÎÊ/etc/Ä¿Â¼£¬¾ÍÊÇÖ¸ÎÄ¼þÏµÍ³µÄ/etc/£¬ÕâÑùÊÇ²»°²È«µÄ¡£±ÈÈçPHP´úÂëÖÐÎó²Ù×÷Ö´ÐÐrm -rf /¡£»á´øÀ´ÑÏÖØµÄºó¹û¡£
-¿ÉÒÔÊ¹ÓÃchrootº¯Êý£¬½«¸ùÄ¿Â¼ÖØ¶¨Ïòµ½ÁíÍâÒ»¸ö°²È«µÄÄ¿Â¼¡£</p>
+<p>é»˜è®¤æ˜¯æ²¡æœ‰é‡å®šå‘çš„ï¼Œåœ¨PHPä»£ç ä¸­è®¿é—®/etc/ç›®å½•ï¼Œå°±æ˜¯æŒ‡æ–‡ä»¶ç³»ç»Ÿçš„/etc/ï¼Œè¿™æ ·æ˜¯ä¸å®‰å…¨çš„ã€‚æ¯”å¦‚PHPä»£ç ä¸­è¯¯æ“ä½œæ‰§è¡Œrm -rf /ã€‚ä¼šå¸¦æ¥ä¸¥é‡çš„åŽæžœã€‚
+å¯ä»¥ä½¿ç”¨chrootå‡½æ•°ï¼Œå°†æ ¹ç›®å½•é‡å®šå‘åˆ°å¦å¤–ä¸€ä¸ªå®‰å…¨çš„ç›®å½•ã€‚</p>
 
 <pre><code class="php" data-language="php">chroot('/tmp/root/');
 </code></pre>
 
-<h2>Ê¹ÓÃswooleÅäÖÃÏî</h2>
+<h2>ä½¿ç”¨swooleé…ç½®é¡¹</h2>
 
 <pre><code class="php" data-language="php">$server-&gt;set(array('chroot' =&gt; '/tmp/root', 'user' =&gt; 'www-data', 'group' =&gt; 'www-data'));
 </code></pre>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -48,7 +48,7 @@ posix_setgid($user['gid']);
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

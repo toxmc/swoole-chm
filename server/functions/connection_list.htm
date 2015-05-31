@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->connection_list</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,32 +11,32 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
 
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_server->connection_list</h1>
-                        <p>ÓÃÀ´±éÀúµ±Ç°ServerËùÓÐµÄ¿Í»§¶ËÁ¬½Ó£¬connection_list·½·¨ÊÇ»ùÓÚ¹²ÏíÄÚ´æµÄ£¬²»´æÔÚIOWait£¬±éÀúµÄËÙ¶ÈºÜ¿ì¡£ÁíÍâconnection_list»á·µ»ØËùÓÐTCPÁ¬½Ó£¬¶ø²»½ö½öÊÇµ±Ç°worker½ø³ÌµÄTCPÁ¬½Ó¡£</p>
+                        <p>ç”¨æ¥éåŽ†å½“å‰Serveræ‰€æœ‰çš„å®¢æˆ·ç«¯è¿žæŽ¥ï¼Œconnection_listæ–¹æ³•æ˜¯åŸºäºŽå…±äº«å†…å­˜çš„ï¼Œä¸å­˜åœ¨IOWaitï¼ŒéåŽ†çš„é€Ÿåº¦å¾ˆå¿«ã€‚å¦å¤–connection_listä¼šè¿”å›žæ‰€æœ‰TCPè¿žæŽ¥ï¼Œè€Œä¸ä»…ä»…æ˜¯å½“å‰workerè¿›ç¨‹çš„TCPè¿žæŽ¥ã€‚</p>
 
 <blockquote>
-  <p>ÐèÒªswoole-1.5.8ÒÔÉÏ°æ±¾<br />
-  connection_list½ö¿ÉÓÃÓÚTCP£¬UDP·þÎñÆ÷ÐèÒª×ÔÐÐ±£´æ¿Í»§¶ËÐÅÏ¢</p>
+  <p>éœ€è¦swoole-1.5.8ä»¥ä¸Šç‰ˆæœ¬<br />
+  connection_listä»…å¯ç”¨äºŽTCPï¼ŒUDPæœåŠ¡å™¨éœ€è¦è‡ªè¡Œä¿å­˜å®¢æˆ·ç«¯ä¿¡æ¯</p>
 </blockquote>
 
-<p>º¯ÊýÔ­ÐÍ£º</p>
+<p>å‡½æ•°åŽŸåž‹ï¼š</p>
 
 <pre><code class="php" data-language="php">swoole_server::connection_list(int $start_fd = 0, int $pagesize = 10);
 </code></pre>
 
-<p>´Ëº¯Êý½ÓÊÜ2¸ö²ÎÊý£¬µÚ1¸ö²ÎÊýÊÇÆðÊ¼fd£¬µÚ2¸ö²ÎÊýÊÇÃ¿Ò³È¡¶àÉÙÌõ£¬×î´ó²»µÃ³¬¹ý100.</p>
+<p>æ­¤å‡½æ•°æŽ¥å—2ä¸ªå‚æ•°ï¼Œç¬¬1ä¸ªå‚æ•°æ˜¯èµ·å§‹fdï¼Œç¬¬2ä¸ªå‚æ•°æ˜¯æ¯é¡µå–å¤šå°‘æ¡ï¼Œæœ€å¤§ä¸å¾—è¶…è¿‡100.</p>
 
 <ul>
-<li>µ÷ÓÃ³É¹¦½«·µ»ØÒ»¸öÊý×ÖË÷ÒýÊý×é£¬ÔªËØÊÇÈ¡µ½µÄ$fd¡£Êý×é»á°´´ÓÐ¡µ½´óÅÅÐò¡£×îºóÒ»¸ö$fd×÷ÎªÐÂµÄstart_fdÔÙ´Î³¢ÊÔ»ñÈ¡</li>
-<li>µ÷ÓÃÊ§°Ü·µ»Øfalse</li>
+<li>è°ƒç”¨æˆåŠŸå°†è¿”å›žä¸€ä¸ªæ•°å­—ç´¢å¼•æ•°ç»„ï¼Œå…ƒç´ æ˜¯å–åˆ°çš„$fdã€‚æ•°ç»„ä¼šæŒ‰ä»Žå°åˆ°å¤§æŽ’åºã€‚æœ€åŽä¸€ä¸ª$fdä½œä¸ºæ–°çš„start_fdå†æ¬¡å°è¯•èŽ·å–</li>
+<li>è°ƒç”¨å¤±è´¥è¿”å›žfalse</li>
 </ul>
 
-<p>Ê¾Àý£º</p>
+<p>ç¤ºä¾‹ï¼š</p>
 
 <pre><code class="php" data-language="php">$start_fd = 0;
 while(true)
@@ -58,7 +58,7 @@ while(true)
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -66,7 +66,7 @@ while(true)
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

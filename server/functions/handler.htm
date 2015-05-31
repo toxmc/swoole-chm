@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->handler</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,31 +11,31 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_server->handler</h1>
-                        <p>ÉèÖÃServerµÄÊÂ¼ş»Øµ÷º¯Êı£¬Ô­ĞÍ£º</p>
+                        <p>è®¾ç½®Serverçš„äº‹ä»¶å›è°ƒå‡½æ•°ï¼ŒåŸå‹ï¼š</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;handler(string $event_name, mixed $event_callback_function);
 bool swoole_server_handler(swoole_server $serv, string $event_name, mixed $event_callback_function);
 </code></pre>
 
-<p>Ê¾Àı£º</p>
+<p>ç¤ºä¾‹ï¼š</p>
 
 <pre><code class="php" data-language="php">$serv-&gt;handler('onStart', 'my_onStart');
 function my_onStart($serv)
 {
-    echo "Server£ºstart\n";
+    echo "Serverï¼šstart\n";
 }
 </code></pre>
 
 <ul>
-<li>µÚÒ»¸ö²ÎÊıÊÇswooleµÄ×ÊÔ´¶ÔÏó  </li>
-<li>µÚ¶ş¸ö²ÎÊıÊÇ»Øµ÷µÄÃû³Æ, ´óĞ¡Ğ´²»Ãô¸Ğ£¬¾ßÌåÄÚÈİ²Î¿¼»Øµ÷º¯ÊıÁĞ±í  </li>
-<li>µÚÈı¸öº¯ÊıÊÇ»Øµ÷µÄPHPº¯Êı£¬¿ÉÒÔÊÇ×Ö·û´®£¬Êı×é£¬ÄäÃûº¯Êı¡£±ÈÈç  </li>
-<li>handler/on/set ·½·¨Ö»ÄÜÔÚswoole_server::startÇ°µ÷ÓÃ</li>
+<li>ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯swooleçš„èµ„æºå¯¹è±¡  </li>
+<li>ç¬¬äºŒä¸ªå‚æ•°æ˜¯å›è°ƒçš„åç§°, å¤§å°å†™ä¸æ•æ„Ÿï¼Œå…·ä½“å†…å®¹å‚è€ƒå›è°ƒå‡½æ•°åˆ—è¡¨  </li>
+<li>ç¬¬ä¸‰ä¸ªå‡½æ•°æ˜¯å›è°ƒçš„PHPå‡½æ•°ï¼Œå¯ä»¥æ˜¯å­—ç¬¦ä¸²ï¼Œæ•°ç»„ï¼ŒåŒ¿åå‡½æ•°ã€‚æ¯”å¦‚  </li>
+<li>handler/on/set æ–¹æ³•åªèƒ½åœ¨swoole_server::startå‰è°ƒç”¨</li>
 </ul>
 
 <pre><code class="php" data-language="php">$serv-&gt;handler('onStart', 'my_onStart');
@@ -43,17 +43,17 @@ $serv-&gt;handler('onStart', array($this, 'my_onStart'));
 $serv-&gt;handler('onStart', 'myClass::onStart');
 </code></pre>
 
-<p>ÉèÖÃ³É¹¦ºó·µ»Øtrue¡£Èç¹û$event_nameÌîĞ´´íÎó½«·µ»Øfalse¡£</p>
+<p>è®¾ç½®æˆåŠŸåè¿”å›trueã€‚å¦‚æœ$event_nameå¡«å†™é”™è¯¯å°†è¿”å›falseã€‚</p>
 
 <blockquote>
-  <p>onConnect/onClose/onReceiveÕâ3¸ö»Øµ÷º¯Êı±ØĞëÉèÖÃ¡£ÆäËûÊÂ¼ş»Øµ÷º¯Êı¿ÉÑ¡<br />
-  Èç¹ûÉè¶¨ÁËtimer¶¨Ê±Æ÷£¬onTimerÊÂ¼ş»Øµ÷º¯ÊıÒ²±ØĞëÉèÖÃ<br />
-  Èç¹ûÆôÓÃÁËtask_worker£¬onTask/onFinishÊÂ¼ş»Øµ÷º¯Êı±ØĞëÉèÖÃ</p>
+  <p>onConnect/onClose/onReceiveè¿™3ä¸ªå›è°ƒå‡½æ•°å¿…é¡»è®¾ç½®ã€‚å…¶ä»–äº‹ä»¶å›è°ƒå‡½æ•°å¯é€‰<br />
+  å¦‚æœè®¾å®šäº†timerå®šæ—¶å™¨ï¼ŒonTimeräº‹ä»¶å›è°ƒå‡½æ•°ä¹Ÿå¿…é¡»è®¾ç½®<br />
+  å¦‚æœå¯ç”¨äº†task_workerï¼ŒonTask/onFinishäº‹ä»¶å›è°ƒå‡½æ•°å¿…é¡»è®¾ç½®</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -61,7 +61,7 @@ $serv-&gt;handler('onStart', 'myClass::onStart');
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

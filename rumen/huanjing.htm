@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>��������</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>环境依赖</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -11,27 +11,27 @@
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
   <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>��������</h1>
+                        <h1>环境依赖</h1>
                         <ul>
-<li>��֧��Linux��FreeBSD��MacOS��3�����ϵͳ</li>
-<li>Linux�ں˰汾2.3.32����</li>
-<li>PHP5.3.10���ϰ汾</li>
-<li>gcc4.4���ϰ汾����clang</li>
-<li>cmake2.4+������Ϊlibswoole.so��ΪC/C++��ʱ��Ҫʹ��cmake</li>
+<li>仅支持Linux，FreeBSD，MacOS，3类操作系统</li>
+<li>Linux内核版本2.3.32以上</li>
+<li>PHP5.3.10以上版本</li>
+<li>gcc4.4以上版本或者clang</li>
+<li>cmake2.4+，编译为libswoole.so作为C/C++库时需要使用cmake</li>
 </ul>
 
-<h2>PHP�汾����</h2>
+<h2>PHP版本依赖</h2>
 
 <ul>
-<li>swoole��֧��PHP5.3.10����߰汾������ʹ��PHP5.4+</li>
-<li>swoole������php��stream��sockets��pcntl��posix��sysvmsg����չ��PHPֻ�谲װ���������չ����  </li>
+<li>swoole仅支持PHP5.3.10或更高版本，建议使用PHP5.4+</li>
+<li>swoole不依赖php的stream、sockets、pcntl、posix、sysvmsg等扩展。PHP只需安装最基本的扩展即可  </li>
 </ul>
 
-<h2>�Ƽ�ʹ�õ�Linux���а�</h2>
+<h2>推荐使用的Linux发行版</h2>
 
 <ul>
 <li>CentOS6.2+</li>
@@ -39,30 +39,30 @@
 <li>Debian6+</li>
 </ul>
 
-<h2>ARMƽ̨����ݮ��Raspberry PI��</h2>
+<h2>ARM平台（树莓派Raspberry PI）</h2>
 
 <ul>
-<li>��ʹ��swoole-1.7.10���ϰ汾</li>
-<li>�ڱ���Swooleʱ����Ҫ�ֹ��޸�Makefileȥ��-O2�������  </li>
+<li>请使用swoole-1.7.10以上版本</li>
+<li>在编译Swoole时，需要手工修改Makefile去掉-O2编译参数  </li>
 </ul>
 
-<h2>CygWin����֧�֣�Windowsϵͳ��</h2>
+<h2>CygWin环境支持（Windows系统）</h2>
 
-<p>swoole-1.7.7�����˶�cygwin������֧�֣���Windows�����£�����ֱ��ʹ��cygwin + php ����swoole����</p>
+<p>swoole-1.7.7增加了对cygwin环境的支持，在Windows环境下，可以直接使用cygwin + php 来跑swoole程序。</p>
 
 <ul>
-<li>��װcygwin������װgcc��make��autoconf��php 4����</li>
-<li>����swooleԴ�룬��cygwin-shell�н���phpize/configure/make/make install</li>
-<li>�޸�php.ini������swoole.so</li>
+<li>安装cygwin，并安装gcc、make、autoconf、php 4个包</li>
+<li>下载swoole源码，在cygwin-shell中进行phpize/configure/make/make install</li>
+<li>修改php.ini，加入swoole.so</li>
 </ul>
 
 <blockquote>
-  <p>cygwinģʽ����Ҫ��PHP���м򻯣�ȥ����ʹ�õ���չ���������ռ���ڴ���󣬵���Fork����ʧ��</p>
+  <p>cygwin模式下需要对PHP进行简化，去掉不使用的扩展，避免进程占用内存过大，导致Fork操作失败</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -70,7 +70,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

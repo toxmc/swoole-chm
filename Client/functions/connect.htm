@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_client->connect</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,30 +11,30 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_client->connect</h1>
-                        <p>Á¬½Óµ½Ô¶³Ì·þÎñÆ÷£¬º¯ÊýÔ­ÐÍ£º</p>
+                        <p>è¿žæŽ¥åˆ°è¿œç¨‹æœåŠ¡å™¨ï¼Œå‡½æ•°åŽŸåž‹ï¼š</p>
 
 <pre><code class="php" data-language="php">bool $swoole_client-&gt;connect(string $host, int $port, float $timeout = 0.1, int $flag = 0)
 </code></pre>
 
-<p>connect·½·¨½ÓÊÜ4¸ö²ÎÊý£º</p>
+<p>connectæ–¹æ³•æŽ¥å—4ä¸ªå‚æ•°ï¼š</p>
 
 <ul>
-<li>$hostÊÇÔ¶³Ì·þÎñÆ÷µÄµØÖ·</li>
-<li>$portÊÇÔ¶³Ì·þÎñÆ÷¶Ë¿Ú</li>
-<li>$timeoutÊÇÍøÂçIOµÄ³¬Ê±£¬µ¥Î»ÊÇs£¬Ö§³Ö¸¡µãÊý¡£Ä¬ÈÏÎª0.1s£¬¼´100ms</li>
-<li>$flag²ÎÊýÔÚUDPÀàÐÍÊ±±íÊ¾ÊÇ·ñÆôÓÃudp_connect<br />
-Éè¶¨´ËÑ¡Ïîºó½«°ó¶¨$hostÓë$port£¬´ËUDP½«»á¶ªÆú·ÇÖ¸¶¨host/portµÄÊý¾Ý°ü¡£</li>
-<li>$flag²ÎÊýÔÚTCPÀàÐÍ,$flag=1±íÊ¾ÉèÖÃÎª·Ç×èÈûsocket£¬connect»áÁ¢¼´·µ»Ø¡£Èç¹û½«$flagÉèÖÃÎª1£¬ÄÇÃ´ÔÚsend/recvÇ°±ØÐëÊ¹ÓÃswoole_client_selectÀ´¼ì²âÊÇ·ñÍê³ÉÁËÁ¬½Ó</li>
+<li>$hostæ˜¯è¿œç¨‹æœåŠ¡å™¨çš„åœ°å€</li>
+<li>$portæ˜¯è¿œç¨‹æœåŠ¡å™¨ç«¯å£</li>
+<li>$timeoutæ˜¯ç½‘ç»œIOçš„è¶…æ—¶ï¼Œå•ä½æ˜¯sï¼Œæ”¯æŒæµ®ç‚¹æ•°ã€‚é»˜è®¤ä¸º0.1sï¼Œå³100ms</li>
+<li>$flagå‚æ•°åœ¨UDPç±»åž‹æ—¶è¡¨ç¤ºæ˜¯å¦å¯ç”¨udp_connect<br />
+è®¾å®šæ­¤é€‰é¡¹åŽå°†ç»‘å®š$hostä¸Ž$portï¼Œæ­¤UDPå°†ä¼šä¸¢å¼ƒéžæŒ‡å®šhost/portçš„æ•°æ®åŒ…ã€‚</li>
+<li>$flagå‚æ•°åœ¨TCPç±»åž‹,$flag=1è¡¨ç¤ºè®¾ç½®ä¸ºéžé˜»å¡žsocketï¼Œconnectä¼šç«‹å³è¿”å›žã€‚å¦‚æžœå°†$flagè®¾ç½®ä¸º1ï¼Œé‚£ä¹ˆåœ¨send/recvå‰å¿…é¡»ä½¿ç”¨swoole_client_selectæ¥æ£€æµ‹æ˜¯å¦å®Œæˆäº†è¿žæŽ¥</li>
 </ul>
 
-<h2>Í¬²½Ä£Ê½</h2>
+<h2>åŒæ­¥æ¨¡å¼</h2>
 
-<p>connect·½·¨»á×èÈû£¬Ö±µ½Á¬½Ó³É¹¦²¢·µ»Øtrue¡£ÕâÊ±ºò¾Í¿ÉÒÔÏò·þÎñÆ÷¶Ë·¢ËÍÊý¾Ý»òÕßÊÕÈ¡Êý¾ÝÁË¡£</p>
+<p>connectæ–¹æ³•ä¼šé˜»å¡žï¼Œç›´åˆ°è¿žæŽ¥æˆåŠŸå¹¶è¿”å›žtrueã€‚è¿™æ—¶å€™å°±å¯ä»¥å‘æœåŠ¡å™¨ç«¯å‘é€æ•°æ®æˆ–è€…æ”¶å–æ•°æ®äº†ã€‚</p>
 
 <pre><code class="php" data-language="php">if ($cli-&gt;connect('127.0.0.1', 9501)) {
       $cli-&gt;send("data");
@@ -43,17 +43,17 @@
 }
 </code></pre>
 
-<p>Èç¹ûÁ¬½ÓÊ§°Ü£¬»á·µ»Øfalse</p>
+<p>å¦‚æžœè¿žæŽ¥å¤±è´¥ï¼Œä¼šè¿”å›žfalse</p>
 
-<h2>Òì²½Ä£Ê½</h2>
+<h2>å¼‚æ­¥æ¨¡å¼</h2>
 
-<p>connect»áÁ¢¼´·µ»Øtrue¡£µ«Êµ¼ÊÉÏÁ¬½Ó²¢Î´½¨Á¢¡£ËùÒÔ²»ÄÜÔÚconnectºóÊ¹ÓÃsend/recv¡£Í¨¹ýisConnected()ÅÐ¶ÏÒ²ÊÇfalse¡£</p>
+<p>connectä¼šç«‹å³è¿”å›žtrueã€‚ä½†å®žé™…ä¸Šè¿žæŽ¥å¹¶æœªå»ºç«‹ã€‚æ‰€ä»¥ä¸èƒ½åœ¨connectåŽä½¿ç”¨send/recvã€‚é€šè¿‡isConnected()åˆ¤æ–­ä¹Ÿæ˜¯falseã€‚</p>
 
-<p>µ±Á¬½Ó³É¹¦ºó£¬ÏµÍ³»á×Ô¶¯»Øµ÷onConnect¡£ÕâÊ±²Å¿ÉÒÔÊ¹ÓÃsend/recv¡£</p>
+<p>å½“è¿žæŽ¥æˆåŠŸåŽï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨å›žè°ƒonConnectã€‚è¿™æ—¶æ‰å¯ä»¥ä½¿ç”¨send/recvã€‚</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -61,7 +61,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

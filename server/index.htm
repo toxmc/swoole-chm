@@ -2,7 +2,7 @@
 
 <head>
   <title>Server</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -11,52 +11,52 @@
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>Server</h1>
-                        <h2>¹¹½¨Server¶ÔÏó</h2>
+                        <h2>æ„å»ºServerå¯¹è±¡</h2>
 
 <pre><code class="php" data-language="php">$serv = new swoole_server("127.0.0.1", 9501, SWOOLE_BASE, SWOOLE_SOCK_TCP);
 </code></pre>
 
 <blockquote>
-  <p>swoole_serverÖ»ÄÜÓÃÓÚphp-cli»·¾³</p>
+  <p>swoole_serveråªèƒ½ç”¨äºphp-cliç¯å¢ƒ</p>
 </blockquote>
 
-<h2>ÉèÖÃÔËĞĞÊ±²ÎÊı</h2>
+<h2>è®¾ç½®è¿è¡Œæ—¶å‚æ•°</h2>
 
 <pre><code class="php" data-language="php">$serv-&gt;set(array('worker_num' =&gt; 4, 'daemonize' =&gt; true));
 </code></pre>
 
-<h2>×¢²áÊÂ¼ş»Øµ÷º¯Êı</h2>
+<h2>æ³¨å†Œäº‹ä»¶å›è°ƒå‡½æ•°</h2>
 
 <pre><code class="php" data-language="php">$serv-&gt;on('Connect', 'my_onConnect');
 $serv-&gt;on('Receive', 'my_onReceive');
 $serv-&gt;on('Close', 'my_onClose');
 </code></pre>
 
-<h2>ÊôĞÔÁĞ±í</h2>
+<h2>å±æ€§åˆ—è¡¨</h2>
 
-<pre><code class="php" data-language="php">$serv-&gt;manager_pid;  //¹ÜÀí½ø³ÌµÄPID£¬Í¨¹ıÏò¹ÜÀí½ø³Ì·¢ËÍSIGUSR1ĞÅºÅ¿ÉÊµÏÖÈáĞÔÖØÆô
-$serv-&gt;master_pid;  //Ö÷½ø³ÌµÄPID£¬Í¨¹ıÏòÖ÷½ø³Ì·¢ËÍSIGTERMĞÅºÅ¿É°²È«¹Ø±Õ·şÎñÆ÷
+<pre><code class="php" data-language="php">$serv-&gt;manager_pid;  //ç®¡ç†è¿›ç¨‹çš„PIDï¼Œé€šè¿‡å‘ç®¡ç†è¿›ç¨‹å‘é€SIGUSR1ä¿¡å·å¯å®ç°æŸ”æ€§é‡å¯
+$serv-&gt;master_pid;  //ä¸»è¿›ç¨‹çš„PIDï¼Œé€šè¿‡å‘ä¸»è¿›ç¨‹å‘é€SIGTERMä¿¡å·å¯å®‰å…¨å…³é—­æœåŠ¡å™¨
 </code></pre>
 
-<h2>ÔËĞĞÁ÷³ÌÍ¼</h2>
+<h2>è¿è¡Œæµç¨‹å›¾</h2>
 
-<p><img src="../public/images/swoole.jpg" alt="SwooleÀ©Õ¹¼Ü¹¹Í¼" /></p>
+<p><img src="../public/images/swoole.jpg" alt="Swooleæ‰©å±•æ¶æ„å›¾" /></p>
 
-<h2>½ø³Ì/Ïß³Ì½á¹¹Í¼</h2>
+<h2>è¿›ç¨‹/çº¿ç¨‹ç»“æ„å›¾</h2>
 
-<p><img src="../public/images/process.jpg" alt="Swoole½ø³Ì/Ïß³Ì½á¹¹Í¼" /></p>
+<p><img src="../public/images/process.jpg" alt="Swooleè¿›ç¨‹/çº¿ç¨‹ç»“æ„å›¾" /></p>
 
-<h2>×¢ÒâÊÂÏî</h2>
+<h2>æ³¨æ„äº‹é¡¹</h2>
 
 <ul>
-<li>²»ÒªÔÚ´úÂëÖĞÖ´ĞĞsleep£¬ÕâÑù»áµ¼ÖÂÕû¸ö½ø³Ì×èÈû</li>
-<li>exit/dieÊÇÎ£ÏÕµÄ£¬»áµ¼ÖÂworker½ø³ÌÍË³ö</li>
-<li>¿ÉÍ¨¹ıregister_shutdown_functionÀ´²¶»ñÖÂÃü´íÎó£¬ÔÚ½ø³ÌÒì³£ÍË³öÊ±×öÒ»Ğ©ÇëÇó¹¤×÷£¬¾ßÌåÈçÏÂ</li>
+<li>ä¸è¦åœ¨ä»£ç ä¸­æ‰§è¡Œsleepï¼Œè¿™æ ·ä¼šå¯¼è‡´æ•´ä¸ªè¿›ç¨‹é˜»å¡</li>
+<li>exit/dieæ˜¯å±é™©çš„ï¼Œä¼šå¯¼è‡´workerè¿›ç¨‹é€€å‡º</li>
+<li>å¯é€šè¿‡register_shutdown_functionæ¥æ•è·è‡´å‘½é”™è¯¯ï¼Œåœ¨è¿›ç¨‹å¼‚å¸¸é€€å‡ºæ—¶åšä¸€äº›è¯·æ±‚å·¥ä½œï¼Œå…·ä½“å¦‚ä¸‹</li>
 </ul>
 
 <pre><code class="php" data-language="php">register_shutdown_function('handleFatal');
@@ -111,7 +111,7 @@ function handleFatal()
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -119,7 +119,7 @@ function handleFatal()
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

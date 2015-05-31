@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>����10��TCP���ӵĲ���</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>并发10万TCP连接的测试</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,22 +11,22 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>����10��TCP���ӵĲ���</h1>
-                        <p>������examples/c10k.php�У�����������10���ӽ��̣��������ӵ�Swoole��TCP Server.
-���ڵ�̨������ԭ��ip_local_port_range�ķ�Χ��32000-60000��
-���е�28000��������ʱ������local port�����ã��޷��ټ������ӡ�</p>
+                        <h1>并发10万TCP连接的测试</h1>
+                        <p>代码在examples/c10k.php中，本测试启动10个子进程，发起长连接到Swoole的TCP Server.
+由于单台机器的原因，ip_local_port_range的范围是32000-60000。
+运行到28000个长连接时，由于local port不够用，无法再继续连接。</p>
 
-<p>Swooleʹ��epoll��Ϊ�¼���ѯ����ά�ִ���TCP���ӡ�ֻҪ����ϵͳ���ڴ��㹻����һֱ��������ά�ֵ�TCP�����ӡ�</p>
+<p>Swoole使用epoll作为事件轮询，可维持大量TCP连接。只要操作系统的内存足够，就一直可以增加维持的TCP长连接。</p>
 
-<p>swoole_serverÿ��������ռ�õ��ڴ�Ϊ70-100�ֽڣ�ʹ�����ݻ��棬��EOF_CHECK/LENGTH_CHECK����ܻ����ӵ�ÿ����8K.</p>
+<p>swoole_server每个连接所占用的内存为70-100字节，使用数据缓存，如EOF_CHECK/LENGTH_CHECK后可能会增加到每连接8K.</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -34,7 +34,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

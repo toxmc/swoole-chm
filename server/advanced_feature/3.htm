@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>Buffer��EOF_Check��ʹ��</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>Buffer和EOF_Check的使用</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,25 +11,25 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>Buffer��EOF_Check��ʹ��</h1>
-                        <p>������ͨ��ʱ����Щ�ͻ��˷������ݵ��ٶȽ�����ÿ��ֻ�ܷ���һС�����ݡ�����onReceive�������ݾͲ���һ�������İ���
-����Щ�ͻ��������ֽڷ������ݵģ����ÿ�λص�onReceive����������ϵͳ��</p>
+                        <h1>Buffer和EOF_Check的使用</h1>
+                        <p>在外网通信时，有些客户端发送数据的速度较慢，每次只能发送一小段数据。这样onReceive到的数据就不是一个完整的包。
+还有些客户端是逐字节发送数据的，如果每次回调onReceive会拖慢整个系统。</p>
 
-<p>Swoole�ṩ��buffer��eof_check�Ĺ��ܣ���C��չ�ײ��⵽����������������󣬻�ȴ��µ����ݵ�������ɵ�������ٻص�onReceive��</p>
+<p>Swoole提供了buffer和eof_check的功能，在C扩展底层检测到如果不是完整的请求，会等待新的数据到达，组成完成的请求后再回调onReceive。</p>
 
-<p>��swoole_server_set�����ӣ�open_eof_check��package_eof�������˹��ܡ�open_eof_check=1��ʾ����buffer��飬package_eof�������ݰ���������<a href="../../rumen/xintexing/04.htm">�鿴��ϸ˵��</a></p>
+<p>在swoole_server_set中增加，open_eof_check和package_eof来开启此功能。open_eof_check=1表示启用buffer检查，package_eof设置数据包结束符。<a href="../../rumen/xintexing/04.htm">查看详细说明</a></p>
 
 <blockquote>
-  <p>buffer���ܻὫ�����յ������ݷŵ��ڴ��У���ռ�ý϶��ڴ�<br />
-  ͨ������ package_max_length ���趨ÿ��������󻺴�������ݣ������˴�С�����ӽ��ᱻ�ر�<br />
-  1.6.12ǰ�İ汾��onReceive��Ȼ�Ƿֶζ�ȡ��1.6.12��onReceive��һ���Է�����������</p>
+  <p>buffer功能会将所有收到的数据放到内存中，会占用较多内存<br />
+  通过设置 package_max_length 来设定每个连接最大缓存多少数据，超过此大小的连接将会被关闭<br />
+  1.6.12前的版本，onReceive仍然是分段读取。1.6.12后onReceive会一次性返回所有数据</p>
 </blockquote>
 
-<p>ʾ����</p>
+<p>示例：</p>
 
 <pre><code class="php" data-language="php">swoole_server_set($serv, array(
     'timeout' =&gt; 2.5,  //select and epoll_wait timeout. 
@@ -39,14 +39,14 @@
     'backlog' =&gt; 128,   //listen backlog
     'max_request' =&gt; 50,
     'dispatch_mode'=&gt;1, 
-    'package_eof' =&gt; "\r\n\r\n",  //httpЭ�������\r\n\r\n��Ϊ�������ģ�����Ҳ����ʹ�ö���������
+    'package_eof' =&gt; "\r\n\r\n",  //http协议就是以\r\n\r\n作为结束符的，这里也可以使用二进制内容
     'open_eof_check' =&gt; 1,
 ));
 </code></pre>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -54,7 +54,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

@@ -2,7 +2,7 @@
 
 <head>
   <title>onStart</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,48 +11,48 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
          <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>onStart</h1>
-                        <p>ServerÆô¶¯ÔÚÖ÷½ø³ÌµÄÖ÷Ïß³Ì»Øµ÷´Ëº¯Êý£¬º¯ÊýÔ­ÐÍ</p>
+                        <p>Serverå¯åŠ¨åœ¨ä¸»è¿›ç¨‹çš„ä¸»çº¿ç¨‹å›žè°ƒæ­¤å‡½æ•°ï¼Œå‡½æ•°åŽŸåž‹</p>
 
 <pre><code class="php" data-language="php">void onStart(resource $server);
 </code></pre>
 
-<p>ÔÚ´ËÊÂ¼þÖ®Ç°Swoole ServerÒÑ½øÐÐÁËÈçÏÂ²Ù×÷</p>
+<p>åœ¨æ­¤äº‹ä»¶ä¹‹å‰Swoole Serverå·²è¿›è¡Œäº†å¦‚ä¸‹æ“ä½œ</p>
 
 <ul>
-<li>ÒÑ´´½¨ÁËmanager½ø³Ì</li>
-<li>ÒÑ´´½¨ÁËworker×Ó½ø³Ì</li>
-<li>ÒÑ¼àÌýËùÓÐTCP/UDP¶Ë¿Ú</li>
-<li>ÒÑ¼àÌýÁË¶¨Ê±Æ÷</li>
+<li>å·²åˆ›å»ºäº†managerè¿›ç¨‹</li>
+<li>å·²åˆ›å»ºäº†workerå­è¿›ç¨‹</li>
+<li>å·²ç›‘å¬æ‰€æœ‰TCP/UDPç«¯å£</li>
+<li>å·²ç›‘å¬äº†å®šæ—¶å™¨</li>
 </ul>
 
-<p>½ÓÏÂÀ´ÒªÖ´ÐÐ</p>
+<p>æŽ¥ä¸‹æ¥è¦æ‰§è¡Œ</p>
 
 <ul>
-<li>Ö÷Reactor¿ªÊ¼½ÓÊÕÊÂ¼þ£¬¿Í»§¶Ë¿ÉÒÔconnectµ½Server</li>
+<li>ä¸»Reactorå¼€å§‹æŽ¥æ”¶äº‹ä»¶ï¼Œå®¢æˆ·ç«¯å¯ä»¥connectåˆ°Server</li>
 </ul>
 
-<p><strong>onStart»Øµ÷ÖÐ£¬½öÔÊÐíecho¡¢´òÓ¡Log¡¢ÐÞ¸Ä½ø³ÌÃû³Æ¡£²»µÃÖ´ÐÐÆäËû²Ù×÷¡£onWorkerStartºÍonStart»Øµ÷ÊÇÔÚ²»Í¬½ø³ÌÖÐ²¢ÐÐÖ´ÐÐµÄ£¬²»´æÔÚÏÈºóË³Ðò¡£</strong></p>
+<p><strong>onStartå›žè°ƒä¸­ï¼Œä»…å…è®¸echoã€æ‰“å°Logã€ä¿®æ”¹è¿›ç¨‹åç§°ã€‚ä¸å¾—æ‰§è¡Œå…¶ä»–æ“ä½œã€‚onWorkerStartå’ŒonStartå›žè°ƒæ˜¯åœ¨ä¸åŒè¿›ç¨‹ä¸­å¹¶è¡Œæ‰§è¡Œçš„ï¼Œä¸å­˜åœ¨å…ˆåŽé¡ºåºã€‚</strong></p>
 
-<p>¿ÉÒÔÔÚonStart»Øµ÷ÖÐ£¬½«$serv->master_pidºÍ$serv->manager_pidµÄÖµ±£´æµ½Ò»¸öÎÄ¼þÖÐ¡£ÕâÑù¿ÉÒÔ±àÐ´½Å±¾£¬ÏòÕâÁ½¸öPID·¢ËÍÐÅºÅÀ´ÊµÏÖ¹Ø±ÕºÍÖØÆôµÄ²Ù×÷¡£</p>
+<p>å¯ä»¥åœ¨onStartå›žè°ƒä¸­ï¼Œå°†$serv->master_pidå’Œ$serv->manager_pidçš„å€¼ä¿å­˜åˆ°ä¸€ä¸ªæ–‡ä»¶ä¸­ã€‚è¿™æ ·å¯ä»¥ç¼–å†™è„šæœ¬ï¼Œå‘è¿™ä¸¤ä¸ªPIDå‘é€ä¿¡å·æ¥å®žçŽ°å…³é—­å’Œé‡å¯çš„æ“ä½œã€‚</p>
 
-<p>´Ó1.7.5+ Master½ø³ÌÄÚ²»ÔÙÖ§³Ö¶¨Ê±Æ÷£¬onMasterConnect/onMasterClose2¸öÊÂ¼þ»Øµ÷Ò²³¹µ×ÒÆ³ý¡£Master½ø³ÌÄÚ²»ÔÙ±£ÁôÈÎºÎPHPµÄ½Ó¿Ú¡£</p>
+<p>ä»Ž1.7.5+ Masterè¿›ç¨‹å†…ä¸å†æ”¯æŒå®šæ—¶å™¨ï¼ŒonMasterConnect/onMasterClose2ä¸ªäº‹ä»¶å›žè°ƒä¹Ÿå½»åº•ç§»é™¤ã€‚Masterè¿›ç¨‹å†…ä¸å†ä¿ç•™ä»»ä½•PHPçš„æŽ¥å£ã€‚</p>
 
-<p>onStartÊÂ¼þÔÚMaster½ø³ÌµÄÖ÷Ïß³ÌÖÐ±»µ÷ÓÃ¡£</p>
+<p>onStartäº‹ä»¶åœ¨Masterè¿›ç¨‹çš„ä¸»çº¿ç¨‹ä¸­è¢«è°ƒç”¨ã€‚</p>
 
 <blockquote>
-  <p>ÔÚonStartÖÐ´´½¨µÄ<strong>È«¾Ö×ÊÔ´¶ÔÏó</strong>²»ÄÜÔÚworker½ø³ÌÖÐ±»Ê¹ÓÃ£¬ÒòÎª·¢ÉúonStartµ÷ÓÃÊ±£¬worker½ø³ÌÒÑ¾­´´½¨ºÃÁË¡£<br />
-  ÐÂ´´½¨µÄ¶ÔÏóÔÚÖ÷½ø³ÌÄÚ£¬worker½ø³ÌÎÞ·¨·ÃÎÊµ½´ËÄÚ´æÇøÓò¡£<br />
-  Òò´ËÈ«¾Ö¶ÔÏó´´½¨µÄ´úÂëÐèÒª·ÅÖÃÔÚswoole_server_startÖ®Ç°¡£</p>
+  <p>åœ¨onStartä¸­åˆ›å»ºçš„<strong>å…¨å±€èµ„æºå¯¹è±¡</strong>ä¸èƒ½åœ¨workerè¿›ç¨‹ä¸­è¢«ä½¿ç”¨ï¼Œå› ä¸ºå‘ç”ŸonStartè°ƒç”¨æ—¶ï¼Œworkerè¿›ç¨‹å·²ç»åˆ›å»ºå¥½äº†ã€‚<br />
+  æ–°åˆ›å»ºçš„å¯¹è±¡åœ¨ä¸»è¿›ç¨‹å†…ï¼Œworkerè¿›ç¨‹æ— æ³•è®¿é—®åˆ°æ­¤å†…å­˜åŒºåŸŸã€‚<br />
+  å› æ­¤å…¨å±€å¯¹è±¡åˆ›å»ºçš„ä»£ç éœ€è¦æ”¾ç½®åœ¨swoole_server_startä¹‹å‰ã€‚</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -60,7 +60,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

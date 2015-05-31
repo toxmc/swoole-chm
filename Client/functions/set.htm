@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_client->set</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_client->set</h1>
-                        <p>ÉèÖÃ¿Í»§¶Ë²ÎÊı£¬±ØĞëÔÚconnectÇ°Ö´ĞĞ¡£swoole-1.7.17Îª¿Í»§¶ËÌá¹©ÁËÀàËÆswoole_serverµÄ×Ô¶¯Ğ­Òé´¦Àí¹¦ÄÜ¡£Í¨¹ıÉèÖÃÒ»¸ö²ÎÊı¼´¿ÉÍê³ÉTCPµÄ×Ô¶¯·Ö°ü¡£</p>
+                        <p>è®¾ç½®å®¢æˆ·ç«¯å‚æ•°ï¼Œå¿…é¡»åœ¨connectå‰æ‰§è¡Œã€‚swoole-1.7.17ä¸ºå®¢æˆ·ç«¯æä¾›äº†ç±»ä¼¼swoole_serverçš„è‡ªåŠ¨åè®®å¤„ç†åŠŸèƒ½ã€‚é€šè¿‡è®¾ç½®ä¸€ä¸ªå‚æ•°å³å¯å®ŒæˆTCPçš„è‡ªåŠ¨åˆ†åŒ…ã€‚</p>
 
-<h2>½áÊø·û¼ì²â</h2>
+<h2>ç»“æŸç¬¦æ£€æµ‹</h2>
 
 <pre><code class="php" data-language="php">$client-&gt;set(array(
     'open_length_check' =&gt; true,
@@ -27,28 +27,28 @@
 ))
 </code></pre>
 
-<h2>³¤¶È¼ì²â</h2>
+<h2>é•¿åº¦æ£€æµ‹</h2>
 
 <pre><code class="php" data-language="php">$client-&gt;set(array(
     'open_length_check'     =&gt; 1,
     'package_length_type'   =&gt; 'N',
-    'package_length_offset' =&gt; 0,       //µÚN¸ö×Ö½ÚÊÇ°ü³¤¶ÈµÄÖµ
-    'package_body_offset'   =&gt; 4,       //µÚ¼¸¸ö×Ö½Ú¿ªÊ¼¼ÆËã³¤¶È
-    'package_max_length'    =&gt; 2000000,  //Ğ­Òé×î´ó³¤¶È
+    'package_length_offset' =&gt; 0,       //ç¬¬Nä¸ªå­—èŠ‚æ˜¯åŒ…é•¿åº¦çš„å€¼
+    'package_body_offset'   =&gt; 4,       //ç¬¬å‡ ä¸ªå­—èŠ‚å¼€å§‹è®¡ç®—é•¿åº¦
+    'package_max_length'    =&gt; 2000000,  //åè®®æœ€å¤§é•¿åº¦
 ));
 </code></pre>
 
-<h2>Ê¹ÓÃËµÃ÷</h2>
+<h2>ä½¿ç”¨è¯´æ˜</h2>
 
 <ul>
-<li>Ä¿Ç°Ö§³Öopen_length_checkºÍopen_eof_check2ÖÖ×Ô¶¯Ğ­Òé´¦Àí¹¦ÄÜ£¬²Î¿¼swoole_serverÖĞµÄÅäÖÃÑ¡Ïî  </li>
-<li>ÆôÓÃÁË×Ô¶¯Ğ­Òéºó£¬Í¬²½×èÈû¿Í»§¶Ërecv·½·¨½«²»½ÓÊÜ³¤¶È²ÎÊı£¬Ã¿´Î±ØÈ»·µ»ØÒ»¸öÍêÕûµÄÊı¾İ°ü  </li>
-<li>ÆôÓÃÁË×Ô¶¯Ğ­Òéºó£¬Òì²½·Ç×èÈû¿Í»§¶ËonReceiveÃ¿´Î±ØÈ»·µ»ØÒ»¸öÍêÕûµÄÊı¾İ°ü  </li>
+<li>ç›®å‰æ”¯æŒopen_length_checkå’Œopen_eof_check2ç§è‡ªåŠ¨åè®®å¤„ç†åŠŸèƒ½ï¼Œå‚è€ƒswoole_serverä¸­çš„é…ç½®é€‰é¡¹  </li>
+<li>å¯ç”¨äº†è‡ªåŠ¨åè®®åï¼ŒåŒæ­¥é˜»å¡å®¢æˆ·ç«¯recvæ–¹æ³•å°†ä¸æ¥å—é•¿åº¦å‚æ•°ï¼Œæ¯æ¬¡å¿…ç„¶è¿”å›ä¸€ä¸ªå®Œæ•´çš„æ•°æ®åŒ…  </li>
+<li>å¯ç”¨äº†è‡ªåŠ¨åè®®åï¼Œå¼‚æ­¥éé˜»å¡å®¢æˆ·ç«¯onReceiveæ¯æ¬¡å¿…ç„¶è¿”å›ä¸€ä¸ªå®Œæ•´çš„æ•°æ®åŒ…  </li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -56,7 +56,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

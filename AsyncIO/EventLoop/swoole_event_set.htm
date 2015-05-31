@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_event_set</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,27 +11,27 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_event_set</h1>
-                        <p>�޸��¼������Ļص����������롣����ԭ�ͣ�</p>
+                        <p>修改事件监听的回调函数和掩码。函数原型：</p>
 
 <pre><code class="php" data-language="php">bool swoole_event_set($fd, mixed $read_callback, mixed $write_callback, int $flag);
 </code></pre>
 
-<p>������<a href="swoole_event_add.htm">swoole_event_add</a>��ȫ��ͬ���������$fd��EventLoop�в���������ᱨ����</p>
+<p>参数与<a href="swoole_event_add.htm">swoole_event_add</a>完全相同。如果传入$fd在EventLoop中不存在这里会报错。</p>
 
 <ul>
-<li>��$read_callback��Ϊnullʱ�����޸Ŀɶ��¼��ص�����Ϊָ���ĺ���</li>
-<li>��$write_callback��Ϊnullʱ�����޸Ŀ�д�¼��ص�����Ϊָ���ĺ���</li>
-<li>$flag�ɹر�/��������д�Ϳɶ��¼��ļ���</li>
+<li>当$read_callback不为null时，将修改可读事件回调函数为指定的函数</li>
+<li>当$write_callback不为null时，将修改可写事件回调函数为指定的函数</li>
+<li>$flag可关闭/开启，可写和可读事件的监听</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -39,7 +39,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->task</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,49 +11,49 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
 
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>swoole_server->task</h1>
-                        <p>Í¶µİÒ»¸öÒì²½ÈÎÎñµ½task_worker³ØÖĞ¡£´Ëº¯Êı»áÁ¢¼´·µ»Ø¡£worker½ø³Ì¿ÉÒÔ¼ÌĞø´¦ÀíĞÂµÄÇëÇó¡£</p>
+                        <p>æŠ•é€’ä¸€ä¸ªå¼‚æ­¥ä»»åŠ¡åˆ°task_workeræ± ä¸­ã€‚æ­¤å‡½æ•°ä¼šç«‹å³è¿”å›ã€‚workerè¿›ç¨‹å¯ä»¥ç»§ç»­å¤„ç†æ–°çš„è¯·æ±‚ã€‚</p>
 
 <pre><code class="php" data-language="php">bool swoole_server::task(mixed $data, int $dst_worker_id = -1) 
 $task_id = $serv-&gt;task("some data");
 </code></pre>
 
 <ul>
-<li>$task_idÔÚÈ«¾Ö²»Î¨Ò»£¬ÔÚµ÷ÓÃtaskµÄevent½ø³ÌÖĞÎ¨Ò»£¬task id·¶Î§ 0 - 42ÒÚ</li>
-<li>$dataÒªÍ¶µİµÄÈÎÎñÊı¾İ£¬¿ÉÒÔÎª³ı×ÊÔ´ÀàĞÍÖ®ÍâµÄÈÎÒâPHP±äÁ¿</li>
-<li>$dst_worker_id¿ÉÒÔÖÆ¶¨Òª¸øÍ¶µİ¸øÄÄ¸ötask½ø³Ì£¬´«ÈëID¼´¿É£¬·¶Î§ÊÇ0 - serv->task_worker_num  </li>
-<li>·µ»ØÖµÎªÕûÊı($task_id)£¬±íÊ¾´ËÈÎÎñµÄID¡£Èç¹ûÓĞfinish»ØÓ¦£¬onFinish»Øµ÷ÖĞ»áĞ¯´ø$task_id²ÎÊı</li>
+<li>$task_idåœ¨å…¨å±€ä¸å”¯ä¸€ï¼Œåœ¨è°ƒç”¨taskçš„eventè¿›ç¨‹ä¸­å”¯ä¸€ï¼Œtask idèŒƒå›´ 0 - 42äº¿</li>
+<li>$dataè¦æŠ•é€’çš„ä»»åŠ¡æ•°æ®ï¼Œå¯ä»¥ä¸ºé™¤èµ„æºç±»å‹ä¹‹å¤–çš„ä»»æ„PHPå˜é‡</li>
+<li>$dst_worker_idå¯ä»¥åˆ¶å®šè¦ç»™æŠ•é€’ç»™å“ªä¸ªtaskè¿›ç¨‹ï¼Œä¼ å…¥IDå³å¯ï¼ŒèŒƒå›´æ˜¯0 - serv->task_worker_num  </li>
+<li>è¿”å›å€¼ä¸ºæ•´æ•°($task_id)ï¼Œè¡¨ç¤ºæ­¤ä»»åŠ¡çš„IDã€‚å¦‚æœæœ‰finishå›åº”ï¼ŒonFinishå›è°ƒä¸­ä¼šæºå¸¦$task_idå‚æ•°</li>
 </ul>
 
 <blockquote>
-  <p>$dst_worker_idÔÚ1.6.11+ºó¿ÉÓÃ£¬Ä¬ÈÏÎªËæ»úÍ¶µİ<br />
-  task·½·¨²»ÄÜÔÚtask½ø³ÌÖĞµ÷ÓÃ</p>
+  <p>$dst_worker_idåœ¨1.6.11+åå¯ç”¨ï¼Œé»˜è®¤ä¸ºéšæœºæŠ•é€’<br />
+  taskæ–¹æ³•ä¸èƒ½åœ¨taskè¿›ç¨‹ä¸­è°ƒç”¨</p>
 </blockquote>
 
-<p>´Ë¹¦ÄÜÓÃÓÚ½«ÂıËÙµÄÈÎÎñÒì²½µØÈ¥Ö´ĞĞ£¬±ÈÈçÒ»¸öÁÄÌìÊÒ·şÎñÆ÷£¬¿ÉÒÔÓÃËüÀ´½øĞĞ·¢ËÍ¹ã²¥¡£µ±ÈÎÎñÍê³ÉÊ±£¬ÔÚtask½ø³ÌÖĞµ÷ÓÃ$serv->finish("finish")¸æËßworker½ø³Ì´ËÈÎÎñÒÑÍê³É¡£µ±È»swoole_server->finishÊÇ¿ÉÑ¡µÄ¡£</p>
+<p>æ­¤åŠŸèƒ½ç”¨äºå°†æ…¢é€Ÿçš„ä»»åŠ¡å¼‚æ­¥åœ°å»æ‰§è¡Œï¼Œæ¯”å¦‚ä¸€ä¸ªèŠå¤©å®¤æœåŠ¡å™¨ï¼Œå¯ä»¥ç”¨å®ƒæ¥è¿›è¡Œå‘é€å¹¿æ’­ã€‚å½“ä»»åŠ¡å®Œæˆæ—¶ï¼Œåœ¨taskè¿›ç¨‹ä¸­è°ƒç”¨$serv->finish("finish")å‘Šè¯‰workerè¿›ç¨‹æ­¤ä»»åŠ¡å·²å®Œæˆã€‚å½“ç„¶swoole_server->finishæ˜¯å¯é€‰çš„ã€‚</p>
 
 <blockquote>
-  <p>AsyncTask¹¦ÄÜÔÚ1.6.4°æ±¾Ôö¼Ó£¬Ä¬ÈÏ²»Æô¶¯task¹¦ÄÜ£¬ĞèÒªÔÚÊÖ¹¤ÉèÖÃtask_worker_numÀ´Æô¶¯´Ë¹¦ÄÜ<br />
-  task_workerµÄÊıÁ¿ÔÚswoole_server::set²ÎÊıÖĞµ÷Õû£¬Èçtask_worker_num => 64£¬±íÊ¾Æô¶¯64¸ö½ø³ÌÀ´½ÓÊÕÒì²½ÈÎÎñ<br />
-  <strong>swoole_server_taskºÍswoole_server_finishÔÚ°æ±¾swoole-1.7.16-stable·¢ËÍ$dataµÄ³¤¶È¿ÉÒÔ³¬¹ı8K£¬
-  ´Ë²ÎÊıÊÜSW_BUFFER_SIZEºê¿ØÖÆ</strong> ¡£³¬¹ı8kµÄÊı¾İÄ¬ÈÏÊÇÓÃ/tmp×÷ÎªÁÙÊ±´æ´¢</p>
+  <p>AsyncTaskåŠŸèƒ½åœ¨1.6.4ç‰ˆæœ¬å¢åŠ ï¼Œé»˜è®¤ä¸å¯åŠ¨taskåŠŸèƒ½ï¼Œéœ€è¦åœ¨æ‰‹å·¥è®¾ç½®task_worker_numæ¥å¯åŠ¨æ­¤åŠŸèƒ½<br />
+  task_workerçš„æ•°é‡åœ¨swoole_server::setå‚æ•°ä¸­è°ƒæ•´ï¼Œå¦‚task_worker_num => 64ï¼Œè¡¨ç¤ºå¯åŠ¨64ä¸ªè¿›ç¨‹æ¥æ¥æ”¶å¼‚æ­¥ä»»åŠ¡<br />
+  <strong>swoole_server_taskå’Œswoole_server_finishåœ¨ç‰ˆæœ¬swoole-1.7.16-stableå‘é€$dataçš„é•¿åº¦å¯ä»¥è¶…è¿‡8Kï¼Œ
+  æ­¤å‚æ•°å—SW_BUFFER_SIZEå®æ§åˆ¶</strong> ã€‚è¶…è¿‡8kçš„æ•°æ®é»˜è®¤æ˜¯ç”¨/tmpä½œä¸ºä¸´æ—¶å­˜å‚¨</p>
 </blockquote>
 
-<h2>×¢ÒâÊÂÏî</h2>
+<h2>æ³¨æ„äº‹é¡¹</h2>
 
 <ul>
-<li>Ê¹ÓÃswoole_server_task±ØĞëÎªServerÉèÖÃonTask»Øµ÷£¬·ñÔòswoole_server->start»áÊ§°Ü,onFinish»Øµ÷¿ÉÑ¡£¬taskÈÎÎñÍê³Éºóµ÷ÓÃonFinish»Øµ÷</li>
-<li>task²Ù×÷µÄ´ÎÊı±ØĞëĞ¡ÓÚonTask´¦ÀíËÙ¶È£¬Èç¹ûÍ¶µİÈİÁ¿³¬¹ı´¦ÀíÄÜÁ¦£¬task»áÈûÂú»º´æÇø£¬µ¼ÖÂworker½ø³Ì·¢Éú×èÈû¡£worker½ø³Ì½«ÎŞ·¨½ÓÊÕĞÂµÄÇëÇó</li>
+<li>ä½¿ç”¨swoole_server_taskå¿…é¡»ä¸ºServerè®¾ç½®onTaskå›è°ƒï¼Œå¦åˆ™swoole_server->startä¼šå¤±è´¥,onFinishå›è°ƒå¯é€‰ï¼Œtaskä»»åŠ¡å®Œæˆåè°ƒç”¨onFinishå›è°ƒ</li>
+<li>taskæ“ä½œçš„æ¬¡æ•°å¿…é¡»å°äºonTaskå¤„ç†é€Ÿåº¦ï¼Œå¦‚æœæŠ•é€’å®¹é‡è¶…è¿‡å¤„ç†èƒ½åŠ›ï¼Œtaskä¼šå¡æ»¡ç¼“å­˜åŒºï¼Œå¯¼è‡´workerè¿›ç¨‹å‘ç”Ÿé˜»å¡ã€‚workerè¿›ç¨‹å°†æ— æ³•æ¥æ”¶æ–°çš„è¯·æ±‚</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -61,7 +61,7 @@ $task_id = $serv-&gt;task("some data");
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

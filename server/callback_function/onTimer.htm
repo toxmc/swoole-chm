@@ -2,7 +2,7 @@
 
 <head>
   <title>onTimer</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -11,26 +11,26 @@
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
                         <h1>onTimer</h1>
-                        <p>��ʱ������������ԭ��Ϊ</p>
+                        <p>定时器触发，函数原型为</p>
 
 <pre><code class="php" data-language="php">void onTimer(resource $server, int $interval);
 </code></pre>
 
-<p>$interval�Ƕ�ʱ��ʱ����������$interval��ֵ���������ĸ���ʱ�������ġ�����Ķ�ʱ������</br>$serv->addtimer�����ӵģ��ǹ̶����ѭ�������ġ�</p>
+<p>$interval是定时器时间间隔，根据$interval的值来区分是哪个定时器触发的。这里的定时器是由</br>$serv->addtimer来添加的，是固定间隔循环触发的。</p>
 
 <blockquote>
-  <p>onTimer��ִ��ʱ��������ᵼ����һ�ζ�ʱ�ӻ����������趨1��Ķ�ʱ����1���ᴥ��onTimer��onTimer������ʱ1.5s����ô�ڶ��δ���onTimer��ʱ��Ϊ��3�롣�м��2��Ķ�ʱ���ᱻ����<br />
-  onTimer�ص��������Ҫִ��һ����ʱ�����������ʹ��$serv->taskͶ�ݵ�task���̳���ִ��</p>
+  <p>onTimer中执行时间过长，会导致下一次定时延缓触发。如设定1秒的定时器，1秒后会触发onTimer，onTimer函数用时1.5s，那么第二次触发onTimer的时间为第3秒。中间第2秒的定时器会被丢弃<br />
+  onTimer回调函数如果要执行一个耗时操作，最好是使用$serv->task投递到task进程池中执行</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole��չ" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -38,7 +38,7 @@
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;Swoole����</td>
+      <td class="moHeader">&nbsp;Swoole流程</td>
     </tr>
   </table>
   

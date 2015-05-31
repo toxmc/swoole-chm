@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>ÔÚphp-fpm»òapacheÖĞÊ¹ÓÃswoole</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gb2312">
+  <title>åœ¨php-fpmæˆ–apacheä¸­ä½¿ç”¨swoole</title>
+  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -11,19 +11,19 @@
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
-<body lang=ZH-CN link=blue vlink=purple style='text-justify-trim:punctuation'>
+<body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>ÔÚphp-fpm»òapacheÖĞÊ¹ÓÃswoole</h1>
-                        <p>swooleÀ©Õ¹ÖĞswoole_serverÖ»ÄÜÔÚcliÄ£Ê½ÏÂÊ¹ÓÃ£¬ÔÚÆäËûÄ£Ê½ÏÂ»áÅ×³öÖÂÃü´íÎó¡£
-¶øswoole_clientºÍswoole_eventÊÇ¿ÉÒÔÓÃÔÚphp-fpm»òapache+mod_php5ÖĞµÄ¡£</p>
+                        <h1>åœ¨php-fpmæˆ–apacheä¸­ä½¿ç”¨swoole</h1>
+                        <p>swooleæ‰©å±•ä¸­swoole_serveråªèƒ½åœ¨cliæ¨¡å¼ä¸‹ä½¿ç”¨ï¼Œåœ¨å…¶ä»–æ¨¡å¼ä¸‹ä¼šæŠ›å‡ºè‡´å‘½é”™è¯¯ã€‚
+è€Œswoole_clientå’Œswoole_eventæ˜¯å¯ä»¥ç”¨åœ¨php-fpmæˆ–apache+mod_php5ä¸­çš„ã€‚</p>
 
-<p>ĞèÒª×¢ÒâµÄÊÇÊ¹ÓÃswoole_clientÒì²½ºÍswoole_event£¬ÔÚËùÓĞÊı¾İÊÕµ½²¢´¦ÀíÍêºó£¬Ò»¶¨ÒªÖ´ĞĞ$client->close()¡¢swoole_event_del»òswoole_event_exit£¬·ñÔòswooleÎŞ·¨µÃÖªÊ²Ã´Ê±ºòÒªÍ£Ö¹epoll wait¡£</p>
+<p>éœ€è¦æ³¨æ„çš„æ˜¯ä½¿ç”¨swoole_clientå¼‚æ­¥å’Œswoole_eventï¼Œåœ¨æ‰€æœ‰æ•°æ®æ”¶åˆ°å¹¶å¤„ç†å®Œåï¼Œä¸€å®šè¦æ‰§è¡Œ$client->close()ã€swoole_event_delæˆ–swoole_event_exitï¼Œå¦åˆ™swooleæ— æ³•å¾—çŸ¥ä»€ä¹ˆæ—¶å€™è¦åœæ­¢epoll waitã€‚</p>
 
-<h2>Í¬²½swoole_client</h2>
+<h2>åŒæ­¥swoole_client</h2>
 
-<pre><code class="php" data-language="php">$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_SYNC); //Í¬²½×èÈû
+<pre><code class="php" data-language="php">$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_SYNC); //åŒæ­¥é˜»å¡
 $client-&gt;connect('127.0.0.1', 9501) or die("connect failed\n");
 
 $client-&gt;send(str_repeat("A", 600));
@@ -31,10 +31,10 @@ $data = $client-&gt;recv(700, 0) or die("recv failed\n);;
 echo "recv: ",$data,"\n";
 </code></pre>
 
-<h2>Òì²½swoole_client</h2>
+<h2>å¼‚æ­¥swoole_client</h2>
 
 <pre><code class="php" data-language="php">&lt;?php
-$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC); //Òì²½·Ç×èÈû
+$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC); //å¼‚æ­¥éé˜»å¡
 
 $client-&gt;on("connect", function(swoole_client $cli) {
     $cli-&gt;send("GET / HTTP/1.1\r\n\r\n");
@@ -62,7 +62,7 @@ echo "connect to 127.0.0.1:9501";
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="SwooleÀ©Õ¹" data-thread-key="wiki-106">
+<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
 <script type="text/javascript">
 </div>
 </div>
@@ -70,7 +70,7 @@ echo "connect to 127.0.0.1:9501";
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
     <tr>
-      <td class="moHeader">&nbsp;SwooleÁ÷³Ì</td>
+      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
     </tr>
   </table>
   

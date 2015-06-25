@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server::__construct</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,9 +14,9 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+      <article class="markdown-body entry-content" >
                         <h1>swoole_server::__construct</h1>
-                        <p>创建一个swoole server资源对象。</p>
+                        <p>����һ��swoole server��Դ����</p>
 
 <pre><code class="php" data-language="php">$serv = new swoole_server(string $host, int $port, int $mode = SWOOLE_PROCESS,
     int $sock_type = SWOOLE_SOCK_TCP);
@@ -26,48 +26,29 @@ $serv = swoole_server_create(string $host, int $port, int $mode = SWOOLE_PROCESS
 </code></pre>
 
 <ul>
-<li>$host参数用来指定监听的ip地址，如127.0.0.1，或者外网地址，或者0.0.0.0监听全部地址
+<li>$host��������ָ��������ip��ַ����127.0.0.1������������ַ������0.0.0.0����ȫ����ַ
 
 <ul>
-<li>IPv4使用 127.0.0.1表示监听本机，0.0.0.0表示监听所有地址</li>
-<li>IPv6使用::1表示监听本机，:: (0:0:0:0:0:0:0:0) 表示监听所有地址</li>
+<li>IPv4ʹ�� 127.0.0.1��ʾ����������0.0.0.0��ʾ�������е�ַ</li>
+<li>IPv6ʹ��::1��ʾ����������:: (0:0:0:0:0:0:0:0) ��ʾ�������е�ַ</li>
 </ul></li>
-<li>$port监听的端口，如9501，监听小于1024端口需要root权限，如果此端口被占用server->start时会失败</li>
-<li>$mode运行的模式，swoole提供了3种运行模式，默认为多进程模式</li>
-<li>$sock_type指定socket的类型，支持TCP/UDP、TCP6/UDP6、UnixSock Stream/Dgram 6种</li>
-<li>1.7.11后增加了对Unix Socket的支持，详细请参见 <a href="addListener.htm">swoole支持的Socket类型</a></li>
-<li>构造函数中的参数与swoole_server::addlistener中是完全相同的</li>
-<li><strong>高负载的服务器，请务必调整<a href="../../rumen/neihe_canshu.htm">Linux内核参数</a></strong></li>
-<li><a href="../../server/advanced_feature/9.htm"> 3种Server运行模式介绍</a></li>
+<li>$port�����Ķ˿ڣ���9501������С��1024�˿���ҪrootȨ�ޣ�����˶˿ڱ�ռ��server->startʱ��ʧ��</li>
+<li>$mode���е�ģʽ��swoole�ṩ��3������ģʽ��Ĭ��Ϊ�����ģʽ</li>
+<li>$sock_typeָ��socket�����ͣ�֧��TCP/UDP��TCP6/UDP6��UnixSock Stream/Dgram 6��</li>
+<li>1.7.11�������˶�Unix Socket��֧�֣���ϸ��μ� <a href="addListener.htm">swoole֧�ֵ�Socket����</a></li>
+<li>���캯���еĲ�����swoole_server::addlistener������ȫ��ͬ��</li>
+<li><strong>�߸��صķ�����������ص���<a href="../../rumen/neihe_canshu.htm">Linux�ں˲���</a></strong></li>
+<li><a href="../../server/advanced_feature/9.htm"> 3��Server����ģʽ����</a></li>
 </ul>
 
 <blockquote>
-  <p>Swoole1.6版本之后PHP版本去掉了线程模式，原因是php的内存管理器在多线程下容易发生错误<br />
-  线程模式仅供C++中使用<br />
-  BASE模式在1.6.4版本之后也可是使用多进程，设置worker_num来启用</p>
+  <p>Swoole1.6�汾֮��PHP�汾ȥ�����߳�ģʽ��ԭ����php���ڴ�������ڶ��߳������׷�������<br />
+  �߳�ģʽ����C++��ʹ��<br />
+  BASEģʽ��1.6.4�汾֮��Ҳ����ʹ�ö���̣�����worker_num������</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

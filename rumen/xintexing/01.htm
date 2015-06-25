@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>1.7.2 task进程使用消息队列</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>1.7.2 task����ʹ����Ϣ����</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,57 +14,38 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>1.7.2 task进程使用消息队列</h1>
-                        <p>1.7.2新增特性，可将task进程单独设置为消息队列。带来的好处是：</p>
+         <article class="markdown-body entry-content" >
+                        <h1>1.7.2 task����ʹ����Ϣ����</h1>
+                        <p>1.7.2�������ԣ��ɽ�task���̵�������Ϊ��Ϣ���С������ĺô��ǣ�</p>
 
-<h2>任务排队容量增加</h2>
+<h2>�����Ŷ���������</h2>
 
-<p>在维持worker进程异步的前提下，task进程可使用消息队列提升任务排队的容量，unix sock受到缓存区尺寸限制，而消息队列不受限制，可以利用到操作系统所有的内存。
-如你的机器有32G内存，如果是unix sock一般缓冲区只有8M。如果你的任务很多，会堆积在socket缓存区中。当超过缓冲区时就会无法再投递新的任务。
-而消息队列，只要操作系统有剩余内存，那一直可以投递新的任务到队列中。</p>
+<p>��ά��worker�����첽��ǰ���£�task���̿�ʹ����Ϣ�������������Ŷӵ�������unix sock�ܵ��������ߴ����ƣ�����Ϣ���в������ƣ��������õ�����ϵͳ���е��ڴ档
+����Ļ�����32G�ڴ棬�����unix sockһ�㻺����ֻ��8M������������ܶ࣬��ѻ���socket�������С�������������ʱ�ͻ��޷���Ͷ���µ�����
+����Ϣ���У�ֻҪ����ϵͳ��ʣ���ڴ棬��һֱ����Ͷ���µ����񵽶����С�</p>
 
-<h2>支持外部程序投递任务</h2>
+<h2>֧���ⲿ����Ͷ������</h2>
 
-<p>当前的swoole使用unix sock，只允许程序内部进行通信。采用消息队列后，拿到消息队列的key。其他程序就可以向此队列投递数据了。</p>
+<p>��ǰ��swooleʹ��unix sock��ֻ���������ڲ�����ͨ�š�������Ϣ���к��õ���Ϣ���е�key����������Ϳ�����˶���Ͷ�������ˡ�</p>
 
-<p>task进程是可以与swoole_server所有的客户端连接进行通信的，所以外部程序使用消息队列作为IPC，就可以与所有客户端连接进行通信。</p>
+<p>task�����ǿ�����swoole_server���еĿͻ������ӽ���ͨ�ŵģ������ⲿ����ʹ����Ϣ������ΪIPC���Ϳ��������пͻ������ӽ���ͨ�š�</p>
 
-<h2>使用方法</h2>
+<h2>ʹ�÷���</h2>
 
-<p>只需设置swoole_server::set参数即可。新增的参数如下：</p>
+<p>ֻ������swoole_server::set�������ɡ������Ĳ������£�</p>
 
 <ul>
-<li><p>task_ipc_mode => 0 | 1 | 2，默认为0就是普通的unix socket通信方式，1,2就是使用消息队列模式。模式1和模式2的不同之处是，模式1支持定向投递，$serv->task($data, $task_worker_id) 这里可以指定投递到哪个task进程。模式2是完全争抢模式，task进程会争抢队列，将无法使用定向投递，即使指定了$task_worker_id，在模式2下也是无效的。</p></li>
-<li><p>message_queue_key => 0x72000100 ，指定一个消息队列key。如果需要运行多个swoole_server的实例，务必指定。否则会发生数据错乱</p></li>
+<li><p>task_ipc_mode => 0 | 1 | 2��Ĭ��Ϊ0������ͨ��unix socketͨ�ŷ�ʽ��1,2����ʹ����Ϣ����ģʽ��ģʽ1��ģʽ2�Ĳ�֮ͬ���ǣ�ģʽ1֧�ֶ���Ͷ�ݣ�$serv->task($data, $task_worker_id) �������ָ��Ͷ�ݵ��ĸ�task���̡�ģʽ2����ȫ����ģʽ��task���̻��������У����޷�ʹ�ö���Ͷ�ݣ���ʹָ����$task_worker_id����ģʽ2��Ҳ����Ч�ġ�</p></li>
+<li><p>message_queue_key => 0x72000100 ��ָ��һ����Ϣ����key�������Ҫ���ж��swoole_server��ʵ�������ָ��������ᷢ�����ݴ���</p></li>
 </ul>
 
 <blockquote>
-  <p>message_queue_key并不是task进程使用的key，task进程真正使用的key是 (message_queue_key + 2)<br />
-  message_queue_key可是用 ftok(<strong>FILE</strong>)来设置</p>
+  <p>message_queue_key������task����ʹ�õ�key��task��������ʹ�õ�key�� (message_queue_key + 2)<br />
+  message_queue_key������ ftok(<strong>FILE</strong>)������</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

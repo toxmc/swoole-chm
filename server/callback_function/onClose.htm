@@ -2,7 +2,7 @@
 
 <head>
   <title>onClose</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,50 +14,31 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>onClose</h1>
-                        <p>TCP客户端连接关闭后，在worker进程中回调此函数。函数原型：</p>
+                        <p>TCP�ͻ������ӹرպ���worker�����лص��˺���������ԭ�ͣ�</p>
 
 <pre><code class="php" data-language="php">void onClose(swoole_server $server, int $fd, int $from_id);
 </code></pre>
 
 <ul>
-<li>$server是swoole_server对象</li>
-<li>$fd是连接的文件描述符</li>
-<li>$from_id来自那个reactor线程</li>
+<li>$server��swoole_server����</li>
+<li>$fd�����ӵ��ļ�������</li>
+<li>$from_id�����Ǹ�reactor�߳�</li>
 </ul>
 
-<pre><code data-language="">onClose回调函数如果发生了致命错误，会导致连接泄漏。通过netstat命令会看到大量CLOSE_WAIT状态的TCP连接
+<pre><code data-language="">onClose�ص���������������������󣬻ᵼ������й©��ͨ��netstat����ῴ������CLOSE_WAIT״̬��TCP����
 </code></pre>
 
 <blockquote>
-  <p>无论由客户端发起close还是服务器端主动调用$serv->close()关闭连接，都会触发此事件。因此只要连接关闭，就一定会回调此函数<br />
-  1.7.7+版本以后onClose中依然可以调用connection_info方法获取到连接信息，在onClose回调函数执行完毕后才会调用close关闭TCP连接</p>
+  <p>�����ɿͻ��˷���close���Ƿ���������������$serv->close()�ر����ӣ����ᴥ�����¼������ֻҪ���ӹرգ���һ����ص��˺���<br />
+  1.7.7+�汾�Ժ�onClose����Ȼ���Ե���connection_info������ȡ��������Ϣ����onClose�ص�����ִ����Ϻ�Ż����close�ر�TCP����</p>
 </blockquote>
 
-<p>注意：这里回调onClose时表示客户端连接已经关闭，所以无需执行$server->close($fd)。代码中执行$serv->close($fd) 会抛出PHP错误告警。</p>
+<p>ע�⣺����ص�onCloseʱ��ʾ�ͻ��������Ѿ��رգ���������ִ��$server->close($fd)��������ִ��$serv->close($fd) ���׳�PHP����澯��</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

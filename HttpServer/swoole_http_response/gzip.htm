@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_http_response->gzip</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,43 +14,24 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_http_response->gzip</h1>
-                        <p>启用Http GZIP压缩。压缩可以减小HTML内容的尺寸，有效节省网络带宽，提高响应时间。必须在write/end发送内容之前执行gzip，否则会抛出错误。</p>
+                        <p>����Http GZIPѹ����ѹ�����Լ�СHTML���ݵĳߴ磬��Ч��ʡ��������������Ӧʱ�䡣������write/end��������֮ǰִ��gzip��������׳�����</p>
 
 <pre><code class="php" data-language="php">swoole_http_response-&gt;gzip(int $level = 1);
 </code></pre>
 
 <ul>
-<li>$level 压缩等级，范围是1-9，等级越高压缩后的尺寸越小，但CPU消耗更多。默认为1</li>
+<li>$level ѹ���ȼ�����Χ��1-9���ȼ�Խ��ѹ����ĳߴ�ԽС����CPU���ĸ��ࡣĬ��Ϊ1</li>
 </ul>
 
 <blockquote>
-  <p>gzip压缩在1.7.14以上版本可用<br />
-  jpg/png/gif格式的图片已经经过压缩，无需再次压缩</p>
+  <p>gzipѹ����1.7.14���ϰ汾����<br />
+  jpg/png/gif��ʽ��ͼƬ�Ѿ�����ѹ���������ٴ�ѹ��</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

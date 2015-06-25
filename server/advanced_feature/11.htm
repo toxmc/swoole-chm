@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>åœ¨workerè¿›ç¨‹å†…ç›‘å¬ä¸€ä¸ªServerç«¯å£</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>ÔÚworker½ø³ÌÄÚ¼àÌıÒ»¸öServer¶Ë¿Ú</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,16 +14,16 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>åœ¨workerè¿›ç¨‹å†…ç›‘å¬ä¸€ä¸ªServerç«¯å£</h1>
-                        <p>åœ¨ä¸€äº›åœºæ™¯ä¸‹ï¼Œéœ€è¦ç›‘å¬é¢å¤–çš„ç«¯å£æä¾›ç‰¹æ®Šåè®®å¤„ç†ã€‚å¦‚åœ¨HttpServerä¸­éœ€è¦ç›‘å¬8081ç«¯å£ï¼Œæä¾›ç®¡ç†Serverçš„åŠŸèƒ½ã€‚åœ¨Swooleæ‰©å±•å†…ç½®çš„æœåŠ¡ä¸­ä¸æ”¯æŒåŒæ—¶å¤„ç†2ç§åè®®ï¼Œå³ä½¿æ˜¯ä½¿ç”¨äº†addlisteneræ·»åŠ äº†å¤šä¸ªç«¯å£ä¹Ÿä¸èƒ½æ¥å—2ç§åè®®çš„è¯·æ±‚åŒ…ã€‚</p>
+      <article class="markdown-body entry-content" >
+                        <h1>ÔÚworker½ø³ÌÄÚ¼àÌıÒ»¸öServer¶Ë¿Ú</h1>
+                        <p>ÔÚÒ»Ğ©³¡¾°ÏÂ£¬ĞèÒª¼àÌı¶îÍâµÄ¶Ë¿ÚÌá¹©ÌØÊâĞ­Òé´¦Àí¡£ÈçÔÚHttpServerÖĞĞèÒª¼àÌı8081¶Ë¿Ú£¬Ìá¹©¹ÜÀíServerµÄ¹¦ÄÜ¡£ÔÚSwooleÀ©Õ¹ÄÚÖÃµÄ·şÎñÖĞ²»Ö§³ÖÍ¬Ê±´¦Àí2ÖÖĞ­Òé£¬¼´Ê¹ÊÇÊ¹ÓÃÁËaddlistenerÌí¼ÓÁË¶à¸ö¶Ë¿ÚÒ²²»ÄÜ½ÓÊÜ2ÖÖĞ­ÒéµÄÇëÇó°ü¡£</p>
 
-<p>è¿™æ—¶å€™å¯ä»¥ä½¿ç”¨æœ¬åœ°ç›‘å¬æ¥è§£å†³æ­¤é—®é¢˜ï¼ŒåŸç†æ˜¯åœ¨æŸä¸€ä¸ªworkerè¿›ç¨‹å†…ï¼Œåˆ›å»ºstream_socket_serverï¼Œå¹¶åŠ å…¥åˆ°swoole_eventä¸­ã€‚</p>
+<p>ÕâÊ±ºò¿ÉÒÔÊ¹ÓÃ±¾µØ¼àÌıÀ´½â¾ö´ËÎÊÌâ£¬Ô­ÀíÊÇÔÚÄ³Ò»¸öworker½ø³ÌÄÚ£¬´´½¨stream_socket_server£¬²¢¼ÓÈëµ½swoole_eventÖĞ¡£</p>
 
 <pre><code class="php" data-language="php">$serv = new swoole_server("0.0.0.0", 9502);
 
 $serv-&gt;on('workerstart', function($server, $id) {
-    //ä»…åœ¨worker-0ä¸­ç›‘å¬ç®¡ç†ç«¯å£
+    //½öÔÚworker-0ÖĞ¼àÌı¹ÜÀí¶Ë¿Ú
     if ($id != 0) return;
     $local_listener = stream_socket_server("tcp://127.0.0.1:8081", $errno, $errstr);
     swoole_event_add($local_listener, function($server) {
@@ -38,25 +38,6 @@ $serv-&gt;on('workerstart', function($server, $id) {
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

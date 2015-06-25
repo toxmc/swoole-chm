@@ -1,91 +1,73 @@
 <html>
 
 <head>
-  <title>入门指引</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>����ָ��</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../public/css/markdown.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>入门指引</h1>
-                        <p>Swoole虽然是标准的PHP扩展，实际上与普通的扩展不同。普通的扩展只是提供一个库函数。而swoole扩展在运行后会接管PHP的控制权，进入事件循环。当IO事件发生后，swoole会自动回调指定的PHP函数。</p>
+         <article class="markdown-body entry-content" >
+                        <h1>����ָ��</h1>
+                        <p>Swoole��Ȼ�Ǳ�׼��PHP��չ��ʵ��������ͨ����չ��ͬ����ͨ����չֻ���ṩһ���⺯������swoole��չ�����к��ӹ�PHP�Ŀ���Ȩ�������¼�ѭ������IO�¼�������swoole���Զ��ص�ָ����PHP������</p>
 
 <h2>swoole_server</h2>
 
-<p>强大的TCP/UDP Server框架，多线程，EventLoop，事件驱动，异步，Worker进程组，Task异步任务，毫秒定时器，SSL/TLS隧道加密。</p>
+<p>ǿ���TCP/UDP Server��ܣ�EventLoop���¼��������첽��Worker�����飬Task�첽���񣬺��붨ʱ����SSL/TLS�������ܡ�</p>
 
 <ul>
-<li>swoole_http_server是swoole_server的子类，内置了Http的支持</li>
-<li>swoole_websocket_server是swoole_http_server的子类，内置了WebSocket的支持</li>
+<li>swoole_http_server��swoole_server�����࣬������Http��֧��</li>
+<li>swoole_websocket_server��swoole_http_server�����࣬������WebSocket��֧��</li>
 </ul>
 
 <h2>swoole_client</h2>
 
-<p>TCP/UDP客户端，支持同步并发调用，也支持异步事件驱动。</p>
+<p>TCP/UDP�ͻ��ˣ�֧��ͬ���������ã�Ҳ֧���첽�¼�������</p>
 
 <h2>swoole_event</h2>
 
-<p>EventLoop API，让用户可以直接操作底层的事件循环，将socket，stream，管道等Linux文件加入到事件循环中。</p>
+<p>EventLoop API�����û�����ֱ�Ӳ����ײ���¼�ѭ������socket��stream���ܵ���Linux�ļ����뵽�¼�ѭ���С�</p>
 
 <blockquote>
-  <p>eventloop接口仅可用于socket类型的文件描述符，不能用于磁盘文件读写</p>
+  <p>eventloop�ӿڽ�������socket���͵��ļ����������������ڴ����ļ���д</p>
 </blockquote>
 
 <h2>swoole_async</h2>
 
-<p>异步IO接口，提供了 异步文件系统IO，异步DNS查询，异步MySQL等API。包括2个重要的子模块：</p>
+<p>�첽IO�ӿڣ��ṩ�� �첽�ļ�ϵͳIO���첽DNS��ѯ���첽MySQL��API������2����Ҫ����ģ�飺</p>
 
 <ul>
-<li>swoole_timer，异步毫秒定时器，可以实现间隔时间或一次性的定时任务</li>
-<li>file，文件系统操作的异步接口</li>
+<li>swoole_timer���첽���붨ʱ��������ʵ�ּ��ʱ���һ���ԵĶ�ʱ����</li>
+<li>file���ļ�ϵͳ�������첽�ӿ�</li>
 </ul>
 
 <h2>swoole_process</h2>
 
-<p>进程管理模块，可以方便的创建子进程，进程间通信，进程管理。</p>
+<p>���̹���ģ�飬���Է���Ĵ����ӽ��̣����̼�ͨ�ţ����̹�����</p>
 
 <h2>swoole_buffer</h2>
 
-<p>强大的内存区管理工具，像C一样进行指针计算，又无需关心内存的申请和释放，而且不用担心内存越界，底层全部做好了。</p>
+<p>ǿ����ڴ����������ߣ���Cһ������ָ����㣬����������ڴ��������ͷţ����Ҳ��õ����ڴ�Խ�磬�ײ�ȫ�������ˡ�</p>
 
 <h2>swoole_table</h2>
 
-<p>基于共享内存和自旋锁实现的超高性能内存表。彻底解决线程，进程间数据共享，加锁同步等问题。</p>
+<p>���ڹ����ڴ��������ʵ�ֵĳ��������ڴ�������׽���̣߳����̼����ݹ���������ͬ�������⡣</p>
 
 <blockquote>
-  <p>swoole_table的性能可以达到单线程每秒读写50W次</p>
+  <p>swoole_table�����ܿ��Դﵽ���߳�ÿ���д50W��</p>
 </blockquote>
 
         </article>
 
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

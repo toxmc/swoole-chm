@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_event_add</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,34 +14,34 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_event_add</h1>
-                        <p>swoole_event_addå‡½æ•°ç”¨äºå°†ä¸€ä¸ªsocketåŠ å…¥åˆ°swooleçš„reactoräº‹ä»¶ç›‘å¬ä¸­ã€‚æ­¤å‡½æ•°å¯ä»¥ç”¨åœ¨Serveræˆ–Clientæ¨¡å¼ä¸‹ã€‚
-å‡½æ•°åŸå‹ï¼š</p>
+                        <p>swoole_event_addº¯ÊıÓÃÓÚ½«Ò»¸ösocket¼ÓÈëµ½swooleµÄreactorÊÂ¼ş¼àÌıÖĞ¡£´Ëº¯Êı¿ÉÒÔÓÃÔÚServer»òClientÄ£Ê½ÏÂ¡£
+º¯ÊıÔ­ĞÍ£º</p>
 
 <pre><code class="php" data-language="php">bool swoole_event_add(int $sock, mixed $read_callback, mixed $write_callback = null, int $event_flag = null);
 </code></pre>
 
-<p>å‚æ•°1å¯ä»¥ä¸ºä»¥ä¸‹ä¸‰ç§ç±»å‹ï¼š</p>
+<p>²ÎÊı1¿ÉÒÔÎªÒÔÏÂÈıÖÖÀàĞÍ£º</p>
 
 <ul>
-<li>intï¼Œå°±æ˜¯æ–‡ä»¶æè¿°ç¬¦,åŒ…æ‹¬swoole_clientçš„socket,ä»¥åŠç¬¬ä¸‰æ–¹æ‰©å±•çš„socketï¼ˆæ¯”å¦‚mysqlï¼‰</li>
-<li>streamèµ„æºï¼Œå°±æ˜¯stream_socket_client/fsockopen åˆ›å»ºçš„èµ„æº</li>
-<li>socketsèµ„æºï¼Œå°±æ˜¯socketsæ‰©å±•ä¸­ socket_createåˆ›å»ºçš„èµ„æº
-éœ€è¦åœ¨ç¼–è¯‘æ—¶åŠ å…¥ ./configure --enable-sockets</li>
+<li>int£¬¾ÍÊÇÎÄ¼şÃèÊö·û,°üÀ¨swoole_clientµÄsocket,ÒÔ¼°µÚÈı·½À©Õ¹µÄsocket£¨±ÈÈçmysql£©</li>
+<li>stream×ÊÔ´£¬¾ÍÊÇstream_socket_client/fsockopen ´´½¨µÄ×ÊÔ´</li>
+<li>sockets×ÊÔ´£¬¾ÍÊÇsocketsÀ©Õ¹ÖĞ socket_create´´½¨µÄ×ÊÔ´
+ĞèÒªÔÚ±àÒëÊ±¼ÓÈë ./configure --enable-sockets</li>
 </ul>
 
-<p>å‚æ•°2ä¸ºå¯è¯»å›è°ƒå‡½æ•°ï¼Œå‚æ•°3ä¸ºå¯å†™äº‹ä»¶å›è°ƒï¼Œå¯ä»¥æ˜¯å­—ç¬¦ä¸²å‡½æ•°åã€å¯¹è±¡+æ–¹æ³•ã€ç±»é™æ€æ–¹æ³•æˆ–åŒ¿åå‡½æ•°ï¼Œå½“æ­¤socketå¯è¯»æ—¶å›è°ƒæŒ‡å®šçš„å‡½æ•°ã€‚</p>
+<p>²ÎÊı2Îª¿É¶Á»Øµ÷º¯Êı£¬²ÎÊı3Îª¿ÉĞ´ÊÂ¼ş»Øµ÷£¬¿ÉÒÔÊÇ×Ö·û´®º¯ÊıÃû¡¢¶ÔÏó+·½·¨¡¢Àà¾²Ì¬·½·¨»òÄäÃûº¯Êı£¬µ±´Ësocket¿É¶ÁÊ±»Øµ÷Ö¸¶¨µÄº¯Êı¡£</p>
 
 <blockquote>
-  <p>swoole_event_addåœ¨swoole1.6.2+ä¹‹åå¯ç”¨<br />
-  ç¬¬3ï¼Œ4ä¸ªå‚æ•°åœ¨1.7.1ç‰ˆæœ¬åå¯ç”¨ï¼Œç”¨äºç›‘å¬å¯å†™äº‹ä»¶å›è°ƒï¼Œä»¥åŠè®¾ç½®è¯»å†™äº‹ä»¶çš„ç›‘å¬</p>
+  <p>swoole_event_addÔÚswoole1.6.2+Ö®ºó¿ÉÓÃ<br />
+  µÚ3£¬4¸ö²ÎÊıÔÚ1.7.1°æ±¾ºó¿ÉÓÃ£¬ÓÃÓÚ¼àÌı¿ÉĞ´ÊÂ¼ş»Øµ÷£¬ÒÔ¼°ÉèÖÃ¶ÁĞ´ÊÂ¼şµÄ¼àÌı</p>
 </blockquote>
 
-<p>å‚æ•°4ä¸ºäº‹ä»¶ç±»å‹çš„æ©ç ï¼Œå¯é€‰æ‹©å…³é—­/å¼€å¯å¯è¯»å¯å†™äº‹ä»¶ï¼Œå¦‚SWOOLE_EVENT_READï¼ŒSWOOLE_EVENT_WRITEï¼Œæˆ–è€…SWOOLE_EVENT_READ | SWOOLE_EVENT_WRITE</p>
+<p>²ÎÊı4ÎªÊÂ¼şÀàĞÍµÄÑÚÂë£¬¿ÉÑ¡Ôñ¹Ø±Õ/¿ªÆô¿É¶Á¿ÉĞ´ÊÂ¼ş£¬ÈçSWOOLE_EVENT_READ£¬SWOOLE_EVENT_WRITE£¬»òÕßSWOOLE_EVENT_READ | SWOOLE_EVENT_WRITE</p>
 
-<p>åœ¨Serverç¨‹åºä¸­ä½¿ç”¨ï¼Œå¯ä»¥ç†è§£ä¸ºåœ¨worker/taskworkerè¿›ç¨‹ä¸­å°†æ­¤socketæ³¨å†Œåˆ°epolläº‹ä»¶ä¸­ã€‚<br />
-åœ¨Clientç¨‹åºä¸­ä½¿ç”¨ï¼Œå¯ä»¥ç†è§£ä¸ºåœ¨å®¢æˆ·ç«¯è¿›ç¨‹ä¸­å°†æ­¤socketæ³¨å†Œåˆ°epolläº‹ä»¶ä¸­ã€‚</p>
+<p>ÔÚServer³ÌĞòÖĞÊ¹ÓÃ£¬¿ÉÒÔÀí½âÎªÔÚworker/taskworker½ø³ÌÖĞ½«´Ësocket×¢²áµ½epollÊÂ¼şÖĞ¡£<br />
+ÔÚClient³ÌĞòÖĞÊ¹ÓÃ£¬¿ÉÒÔÀí½âÎªÔÚ¿Í»§¶Ë½ø³ÌÖĞ½«´Ësocket×¢²áµ½epollÊÂ¼şÖĞ¡£</p>
 
 <pre><code class="php" data-language="php">&lt;?php
 $db = new mysqli;
@@ -51,7 +51,7 @@ swoole_event_add(swoole_get_mysqli_sock($db), function($db_sock) {
     global $db;
     $res = $db-&gt;reap_async_query();
     var_dump($res-&gt;fetch_all(MYSQLI_ASSOC));
-    swoole_event_del(swoole_get_mysqli_sock($db)); // socketå¤„ç†å®Œæˆåï¼Œä»epolläº‹ä»¶ä¸­ç§»é™¤socket 
+    swoole_event_del(swoole_get_mysqli_sock($db)); // socket´¦ÀíÍê³Éºó£¬´ÓepollÊÂ¼şÖĞÒÆ³ısocket 
 });
 $db2 = new mysqli;
 $db2-&gt;connect('127.0.0.1', 'root', 'root', 'test');
@@ -60,32 +60,13 @@ swoole_event_add(swoole_get_mysqli_sock($db2), function($db_sock) {
     global $db2;
     $res = $db2-&gt;reap_async_query();
     var_dump($res-&gt;fetch_all(MYSQLI_ASSOC));
-    swoole_event_del(swoole_get_mysqli_sock($db2)); // socketå¤„ç†å®Œæˆåï¼Œä»epolläº‹ä»¶ä¸­ç§»é™¤socket 
+    swoole_event_del(swoole_get_mysqli_sock($db2)); // socket´¦ÀíÍê³Éºó£¬´ÓepollÊÂ¼şÖĞÒÆ³ısocket 
 });
-echo "Finish\n";  //swoole_event_addä¸ä¼šé˜»å¡è¿›ç¨‹ï¼Œè¿™è¡Œä»£ç ä¼šé¡ºåºæ‰§è¡Œ
+echo "Finish\n";  //swoole_event_add²»»á×èÈû½ø³Ì£¬ÕâĞĞ´úÂë»áË³ĞòÖ´ĞĞ
 </code></pre>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

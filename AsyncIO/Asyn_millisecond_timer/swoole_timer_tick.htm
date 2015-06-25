@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_timer_tick</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,38 +14,38 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>swoole_timer_tick</h1>
-                        <p>è®¾ç½®ä¸€ä¸ªé—´éš”æ—¶é’Ÿå®šæ—¶å™¨ï¼Œä¸Žafterå®šæ—¶å™¨ä¸åŒçš„æ˜¯tickå®šæ—¶å™¨ä¼šæŒç»­è§¦å‘ï¼Œç›´åˆ°è°ƒç”¨swoole_timer_clearæ¸…é™¤ã€‚ä¸Žswoole_timer_addä¸åŒçš„æ˜¯tickå®šæ—¶å™¨å¯ä»¥å­˜åœ¨å¤šä¸ªç›¸åŒé—´éš”æ—¶é—´çš„å®šæ—¶å™¨ã€‚</p>
+                        <p>ÉèÖÃÒ»¸ö¼ä¸ôÊ±ÖÓ¶¨Ê±Æ÷£¬Óëafter¶¨Ê±Æ÷²»Í¬µÄÊÇtick¶¨Ê±Æ÷»á³ÖÐø´¥·¢£¬Ö±µ½µ÷ÓÃswoole_timer_clearÇå³ý¡£Óëswoole_timer_add²»Í¬µÄÊÇtick¶¨Ê±Æ÷¿ÉÒÔ´æÔÚ¶à¸öÏàÍ¬¼ä¸ôÊ±¼äµÄ¶¨Ê±Æ÷¡£</p>
 
 <pre><code class="php" data-language="php">int swoole_timer_tick(int $ms, mixed $callback, mixed $param = null);
 </code></pre>
 
 <ul>
-<li>$ms æŒ‡å®šæ—¶é—´ï¼Œå•ä½ä¸ºæ¯«ç§’</li>
-<li>$callback_function æ—¶é—´åˆ°æœŸåŽæ‰€æ‰§è¡Œçš„å‡½æ•°ï¼Œå¿…é¡»æ˜¯å¯ä»¥è°ƒç”¨çš„ã€‚callbackå‡½æ•°ä¸æŽ¥å—ä»»ä½•å‚æ•°</li>
-<li>$param å›žè°ƒå‚æ•°</li>
+<li>$ms Ö¸¶¨Ê±¼ä£¬µ¥Î»ÎªºÁÃë</li>
+<li>$callback_function Ê±¼äµ½ÆÚºóËùÖ´ÐÐµÄº¯Êý£¬±ØÐëÊÇ¿ÉÒÔµ÷ÓÃµÄ¡£callbackº¯Êý²»½ÓÊÜÈÎºÎ²ÎÊý</li>
+<li>$param »Øµ÷²ÎÊý</li>
 </ul>
 
 <blockquote>
-  <p>$ms æœ€å¤§ä¸å¾—è¶…è¿‡ 86400000<br />
-  tickå®šæ—¶å™¨åœ¨1.7.14ä»¥ä¸Šç‰ˆæœ¬å¯ç”¨<br />
-  tickå®šæ—¶å™¨å³å°†è¦å–ä»£swoole_timer_add</p>
+  <p>$ms ×î´ó²»µÃ³¬¹ý 86400000<br />
+  tick¶¨Ê±Æ÷ÔÚ1.7.14ÒÔÉÏ°æ±¾¿ÉÓÃ<br />
+  tick¶¨Ê±Æ÷¼´½«ÒªÈ¡´úswoole_timer_add</p>
 </blockquote>
 
-<h2>å›žè°ƒå‡½æ•°</h2>
+<h2>»Øµ÷º¯Êý</h2>
 
-<p>å®šæ—¶å™¨è§¦å‘çš„å›žè°ƒå‡½æ•°æŽ¥å—2ä¸ªå‚æ•°ã€‚</p>
+<p>¶¨Ê±Æ÷´¥·¢µÄ»Øµ÷º¯Êý½ÓÊÜ2¸ö²ÎÊý¡£</p>
 
 <pre><code class="php" data-language="php">function onTimer(int $timer_id, mixed $params = null);
 </code></pre>
 
 <ul>
-<li>$timer_id å®šæ—¶å™¨çš„IDï¼Œå¯ç”¨äºŽswoole_timer_clearæ¸…é™¤æ­¤å®šæ—¶å™¨</li>
-<li>$params ç”±swoole_timer_tickä¼ å…¥çš„ç”¨æˆ·å‚æ•°</li>
+<li>$timer_id ¶¨Ê±Æ÷µÄID£¬¿ÉÓÃÓÚswoole_timer_clearÇå³ý´Ë¶¨Ê±Æ÷</li>
+<li>$params ÓÉswoole_timer_tick´«ÈëµÄÓÃ»§²ÎÊý</li>
 </ul>
 
-<h2>ä½¿ç”¨ç¤ºä¾‹</h2>
+<h2>Ê¹ÓÃÊ¾Àý</h2>
 
 <pre><code class="php" data-language="php">swoole_timer_tick(1000, function(){
     echo "timeout\n";
@@ -54,25 +54,7 @@
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
 
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swoole_server中内存管理机制</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>swoole_server���ڴ��������</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,39 +14,20 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>swoole_server中内存管理机制</h1>
-                        <p>swoole_server启动后内存管理的底层原理与普通php-cli程序一致。具体请参考Zend VM内存管理方面的文章。</p>
+        <article class="markdown-body entry-content" >
+                        <h1>swoole_server���ڴ��������</h1>
+                        <p>swoole_server�������ڴ�����ĵײ�ԭ������ͨphp-cli����һ�¡�������ο�Zend VM�ڴ������������¡�</p>
 
 <ul>
-<li>在事件回调函数返回后，所有局部对象和变量会全部回收，不需要unset。如果变量是一个资源类型，那么对应的资源也会被PHP底层释放。</li>
-<li>全局变量和对象，类静态变量，保存在swoole_server对象上的变量不会被释放。需要程序员自行处理这些变量和对象的销毁工作</li>
-<li>在事件回调函数中需要特别注意非局部变量的array类型值，某些操作如  TestClass::$array[] = "string" 可能会造成内存泄漏，严重时可能发生爆内存，必要时应当注意清理大数组。</li>
-<li>在事件回调函数中，非局部变量的字符串进行拼接操作是必须小心内存泄漏，如 TestClass::$buffer .= $data，可能会有内存泄漏，严重时可能发生爆内存。</li>
-<li>当Worker进程/Task进程结束运行时，比如设置了max_request，达到任务上限后进程自动退出。该进程的所有变量/对象/资源均会被释放回收。</li>
+<li>���¼��ص��������غ����оֲ�����ͱ�����ȫ�����գ�����Ҫunset�����������һ����Դ���ͣ���ô��Ӧ����ԴҲ�ᱻPHP�ײ��ͷš�</li>
+<li>ȫ�ֱ����Ͷ����ྲ̬������������swoole_server�����ϵı������ᱻ�ͷš���Ҫ����Ա���д�����Щ�����Ͷ�������ٹ���</li>
+<li>���¼��ص���������Ҫ�ر�ע��Ǿֲ�������array����ֵ��ĳЩ������  TestClass::$array[] = "string" ���ܻ�����ڴ�й©������ʱ���ܷ������ڴ棬��ҪʱӦ��ע�����������顣</li>
+<li>���¼��ص������У��Ǿֲ��������ַ�������ƴ�Ӳ����Ǳ���С���ڴ�й©���� TestClass::$buffer .= $data�����ܻ����ڴ�й©������ʱ���ܷ������ڴ档</li>
+<li>��Worker����/Task���̽�������ʱ������������max_request���ﵽ�������޺�����Զ��˳����ý��̵����б���/����/��Դ���ᱻ�ͷŻ��ա�</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

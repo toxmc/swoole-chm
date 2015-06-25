@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_lock::__construct</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,46 +14,27 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>swoole_lock::__construct</h1>
-                        <p>函数原型：</p>
+                        <p>����ԭ�ͣ�</p>
 
 <pre><code class="php" data-language="php">swoole_lock-&gt;__construct(int $type, [string $lockfile])
 </code></pre>
 
 <ul>
-<li>$type为锁的类型</li>
-<li>$lockfile，当类型为SWOOLE_FILELOCK时必须传入，指定文件锁的路径</li>
+<li>$typeΪ��������</li>
+<li>$lockfile��������ΪSWOOLE_FILELOCKʱ���봫�룬ָ���ļ�����·��</li>
 </ul>
 
-<p>注意每一种类型的锁支持的方法都不一样。如读写锁、文件锁可以支持$lock->lock_read()。<br />
-另外除文件锁外，其他类型的锁必须在父进程内创建，这样fork出的子进程之间才可以互相争抢锁。</p>
+<p>ע��ÿһ�����͵���֧�ֵķ�������һ�������д�����ļ�������֧��$lock->lock_read()��<br />
+������ļ����⣬�������͵��������ڸ������ڴ���������fork�����ӽ���֮��ſ��Ի�����������</p>
 
 <blockquote>
-  <p>不要循环创建/销毁锁的对象，否则会发生内存泄漏</p>
+  <p>��Ҫѭ������/�������Ķ��󣬷���ᷢ���ڴ�й©</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_timer_add</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,9 +14,9 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_timer_add</h1>
-                        <p>增加定时器，用于fpm/apache/cli环境下。</p>
+                        <p>���Ӷ�ʱ��������fpm/apache/cli�����¡�</p>
 
 <pre><code class="php" data-language="php">swoole_timer_add($interval, $callback);
 
@@ -26,37 +26,19 @@ swoole_timer_add(3000, function($interval) {
 </code></pre>
 
 <ul>
-<li>$interval为定时器间隔，单位是毫秒，不能存在同样时间间隔的2个定时器</li>
-<li>$callback为定时器的事件回调函数</li>
+<li>$intervalΪ��ʱ���������λ�Ǻ��룬���ܴ���ͬ��ʱ������2����ʱ��</li>
+<li>$callbackΪ��ʱ�����¼��ص�����</li>
 </ul>
 
 <blockquote>
-  <p>需要swoole-1.6.12+<br />
-  swoole_server中不可使用<br />
-  定时器必须在全异步模式下才能使用，同步阻塞的代码中不要使用</p>
+  <p>��Ҫswoole-1.6.12+<br />
+  swoole_server�в���ʹ��<br />
+  ��ʱ��������ȫ�첽ģʽ�²���ʹ�ã�ͬ�������Ĵ����в�Ҫʹ��</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
 
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

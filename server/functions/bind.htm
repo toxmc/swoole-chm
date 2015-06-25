@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->bind</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,46 +14,27 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+      <article class="markdown-body entry-content" >
                         <h1>swoole_server->bind</h1>
-                        <p>将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程。</p>
+                        <p>�����Ӱ�һ���û������ID����������dispatch_mode=5�����Ѵ�IDֵ����hash�̶����䡣���Ա�֤ĳһ��UID������ȫ������䵽ͬһ��Worker���̡�</p>
 
-<p>在默认的dispatch_mode=2设置下，server会按照socket fd来分配连接数据到不同的worker。因为fd是不稳定的，一个客户端断开后重新连接，fd会发生改变。这样这个客户端的数据就会被分配到别的Worker。使用bind之后就可以按照用户定义的ID进行分配。即使断线重连，相同uid的TCP连接数据会被分配相同的Worker进程。</p>
+<p>��Ĭ�ϵ�dispatch_mode=2�����£�server�ᰴ��socket fd�������������ݵ���ͬ��worker����Ϊfd�ǲ��ȶ��ģ�һ���ͻ��˶Ͽ����������ӣ�fd�ᷢ���ı䡣��������ͻ��˵����ݾͻᱻ���䵽���Worker��ʹ��bind֮��Ϳ��԰����û������ID���з��䡣��ʹ������������ͬuid��TCP�������ݻᱻ������ͬ��Worker���̡�</p>
 
 <pre><code class="php" data-language="php">bool swoole_server::bind(int $fd, int $uid)
 </code></pre>
 
 <ul>
-<li>$fd 连接的文件描述符</li>
-<li>$uid 指定UID</li>
+<li>$fd ���ӵ��ļ�������</li>
+<li>$uid ָ��UID</li>
 </ul>
 
 <blockquote>
-  <p>同一个连接只能被bind一次，如果已经绑定了uid，再次调用bind会返回false<br />
-  可以使用$serv->connection_info($fd) 查看连接所绑定uid的值</p>
+  <p>ͬһ������ֻ�ܱ�bindһ�Σ�����Ѿ�����uid���ٴε���bind�᷵��false<br />
+  ����ʹ��$serv->connection_info($fd) �鿴��������uid��ֵ</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>å¦‚ä½•åœ¨å›è°ƒå‡½æ•°ä¸­è®¿é—®å¤–éƒ¨çš„å˜é‡</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>ÈçºÎÔÚ»Øµ÷º¯ÊıÖĞ·ÃÎÊÍâ²¿µÄ±äÁ¿</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,11 +14,11 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-         <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>å¦‚ä½•åœ¨å›è°ƒå‡½æ•°ä¸­è®¿é—®å¤–éƒ¨çš„å˜é‡</h1>
-                        <p>åœ¨swoole_server/swoole_clientçš„äº‹ä»¶å›è°ƒå‡½æ•°ä¸­ï¼Œéœ€è¦è¯»å–è°ƒç”¨å¤–éƒ¨çš„å˜é‡å’Œå¯¹è±¡ï¼Œå¯ä»¥é€šè¿‡ä¸‹é¢çš„å‡ ç§æ–¹æ³•å®ç°ã€‚</p>
+         <article class="markdown-body entry-content" >
+                        <h1>ÈçºÎÔÚ»Øµ÷º¯ÊıÖĞ·ÃÎÊÍâ²¿µÄ±äÁ¿</h1>
+                        <p>ÔÚswoole_server/swoole_clientµÄÊÂ¼ş»Øµ÷º¯ÊıÖĞ£¬ĞèÒª¶ÁÈ¡µ÷ÓÃÍâ²¿µÄ±äÁ¿ºÍ¶ÔÏó£¬¿ÉÒÔÍ¨¹ıÏÂÃæµÄ¼¸ÖÖ·½·¨ÊµÏÖ¡£</p>
 
-<h2>ä¸€ã€äº‹ä»¶å›è°ƒå‡½æ•°æ”¹ç”¨å¯¹è±¡+å±æ€§</h2>
+<h2>Ò»¡¢ÊÂ¼ş»Øµ÷º¯Êı¸ÄÓÃ¶ÔÏó+ÊôĞÔ</h2>
 
 <pre><code class="php" data-language="php">class Server
 {
@@ -27,7 +27,7 @@
 
     function onReceive($serv, $fd, $from_id, $data)
     {
-        //åœ¨è¿™é‡Œå¯ä»¥è¯»å–åˆ°EventCallbackå¯¹è±¡ä¸Šçš„å±æ€§å’Œæ–¹æ³•
+        //ÔÚÕâÀï¿ÉÒÔ¶ÁÈ¡µ½EventCallback¶ÔÏóÉÏµÄÊôĞÔºÍ·½·¨
         $this-&gt;buffer[$fd] = $data;
         $this-&gt;hello();
     }
@@ -50,7 +50,7 @@ $server= new Server;
 $server-&gt;run();
 </code></pre>
 
-<h2>äºŒã€ä½¿ç”¨å…¨å±€å˜é‡</h2>
+<h2>¶ş¡¢Ê¹ÓÃÈ«¾Ö±äÁ¿</h2>
 
 <pre><code class="php" data-language="php">$buffer = array();
 $serv-&gt;on('receive', function($serv, $fd, $from_id, $data) {
@@ -59,7 +59,7 @@ $serv-&gt;on('receive', function($serv, $fd, $from_id, $data) {
 });
 </code></pre>
 
-<h2>ä¸‰ã€ä½¿ç”¨ç±»é™æ€å˜é‡</h2>
+<h2>Èı¡¢Ê¹ÓÃÀà¾²Ì¬±äÁ¿</h2>
 
 <pre><code class="php" data-language="php">class Test
 {
@@ -71,7 +71,7 @@ $serv-&gt;on('receive', function($serv, $fd, $from_id, $data) {
 });
 </code></pre>
 
-<h2>å››ã€åŒ¿åå‡½æ•°ä¸­ä½¿ç”¨useè¯­æ³•</h2>
+<h2>ËÄ¡¢ÄäÃûº¯ÊıÖĞÊ¹ÓÃuseÓï·¨</h2>
 
 <pre><code class="php" data-language="php">$buffer = array();
 $serv-&gt;on('receive', function($serv, $fd, $from_id, $data) use ($buffer) {
@@ -80,11 +80,11 @@ $serv-&gt;on('receive', function($serv, $fd, $from_id, $data) use ($buffer) {
 </code></pre>
 
 <blockquote>
-  <p>éœ€è¦PHP5.4æˆ–æ›´é«˜çš„ç‰ˆæœ¬<br />
-  å¤šä¸ªå‚æ•°å¯ä»¥ç”¨é€—å·éš”å¼€ï¼Œå¦‚use ($buffer, $users, $config)</p>
+  <p>ĞèÒªPHP5.4»ò¸ü¸ßµÄ°æ±¾<br />
+  ¶à¸ö²ÎÊı¿ÉÒÔÓÃ¶ººÅ¸ô¿ª£¬Èçuse ($buffer, $users, $config)</p>
 </blockquote>
 
-<h2>äº”ã€ç›´æ¥ä¿å­˜åœ¨swoole_server/swoole_clientå¯¹è±¡ä¸Š</h2>
+<h2>Îå¡¢Ö±½Ó±£´æÔÚswoole_server/swoole_client¶ÔÏóÉÏ</h2>
 
 <pre><code class="php" data-language="php">$serv-&gt;buffer = array();
 $serv-&gt;on('receive', function($serv, $fd, $from_id, $data) use ($buffer) {
@@ -94,25 +94,6 @@ $serv-&gt;on('receive', function($serv, $fd, $from_id, $data) use ($buffer) {
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

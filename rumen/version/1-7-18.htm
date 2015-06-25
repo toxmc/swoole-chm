@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>swoole框架-自定义路由</title>
+  <title>版本更新记录 - 1.7.18</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
@@ -14,22 +14,20 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
-                        <h1>自定义路由</h1>
-                        <p>在Swoole::$php->runMVC() 调用之前可以修改默认的路由函数。</p>
-
-<pre><code class="php" data-language="php">Swoole::$php-&gt;router(function(){
-    return array('controller' =&gt; 'YourController', 'view' =&gt; 'YourView');
-});
-Swoole::$php-&gt;runMVC();
-</code></pre>
-
-<p>设置后将使用制定的函数作为路由，路由函数务必要返回一个数组，包含控制器和视图的名称。</p>
-
-<pre><code class="php" data-language="php"> array('controller' =&gt; 'YourController', 'view' =&gt; 'YourView');
-</code></pre>
+        <article class="markdown-body entry-content">
+                        <h1>1.7.18</h1>
+                        <ul>
+<li>增加onPacket事件回调函数，使UDP包与TCP分离</li>
+<li>修复EOF协议处理时发生错误的问题</li>
+<li>兼容PHP7版本</li>
+<li>修复swoole_http_response->header导致内存泄漏的问题</li>
+<li>长度检测协议允许0长度无包体的请求</li>
+<li>swoole_table支持有符号整数</li>
+<li>支持REUSEPORT特性，短连接TCP服务性能提升200%</li>
+</ul>
 
         </article>
+
 <hr>
 
 </div>

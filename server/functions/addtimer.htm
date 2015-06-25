@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->addtimer</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,31 +14,31 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_server->addtimer</h1>
-                        <p>设置定时器。1.6.12版本前此函数不能用在消息队列模式下，1.6.12后消息队列IPC模式也可以使用定时器。</p>
+                        <p>���ö�ʱ����1.6.12�汾ǰ�˺�������������Ϣ����ģʽ�£�1.6.12����Ϣ����IPCģʽҲ����ʹ�ö�ʱ����</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;addtimer(int $interval);
 bool swoole_server_addtimer(swoole_server $serv, int $interval);
 </code></pre>
 
-<p>第二个参数是定时器的间隔时间，单位为毫秒。swoole定时器的最小颗粒是1毫秒。支持多个定时器。此函数可以用于worker进程中。</p>
+<p>�ڶ��������Ƕ�ʱ���ļ��ʱ�䣬��λΪ���롣swoole��ʱ������С������1���롣֧�ֶ����ʱ�����˺�����������worker�����С�</p>
 
 <ul>
-<li>swoole1.6.5之前支持的单位是秒，所以1.6.5之前传入的参数为1，那在1.6.5后需要传入1000  </li>
-<li>swoole1.6.5之后，addtimer必须在onStart/onWorkerStart/onConnect/onReceive/onClose等回调函数中才可以使用，否则会抛出错误。并且定时器无效  </li>
-<li>注意不能存在2个相同间隔时间的定时器</li>
-<li>即使在代码中多次添加一个定时器，也只会有1个生效  </li>
+<li>swoole1.6.5֮ǰ֧�ֵĵ�λ���룬����1.6.5֮ǰ����Ĳ���Ϊ1������1.6.5����Ҫ����1000  </li>
+<li>swoole1.6.5֮��addtimer������onStart/onWorkerStart/onConnect/onReceive/onClose�Ȼص������вſ���ʹ�ã�������׳����󡣲��Ҷ�ʱ����Ч  </li>
+<li>ע�ⲻ�ܴ���2����ͬ���ʱ��Ķ�ʱ��</li>
+<li>��ʹ�ڴ����ж������һ����ʱ����Ҳֻ����1����Ч  </li>
 </ul>
 
 <blockquote>
-  <p>1.7.5之后onStart回调中不再支持定时器<br />
-  建议使用tick定时器，addtimer定时器未来或将移除</p>
+  <p>1.7.5֮��onStart�ص��в���֧�ֶ�ʱ��<br />
+  ����ʹ��tick��ʱ����addtimer��ʱ��δ�����Ƴ�</p>
 </blockquote>
 
-<p><strong>增加定时器后需要为Server设置onTimer回调函数，否则Server将无法启动</strong>。多个定时器都会回调此函数。在这个函数内需要自行switch，根据interval的值来判断是来自于哪个定时器。</p>
+<p><strong>���Ӷ�ʱ������ҪΪServer����onTimer�ص�����������Server���޷�����</strong>�������ʱ������ص��˺������������������Ҫ����switch������interval��ֵ���ж����������ĸ���ʱ����</p>
 
-<p>面向对象风格：</p>
+<p>���������</p>
 
 <pre><code class="php" data-language="php">$serv-&gt;addtimer(1000); //1s
 $serv-&gt;addtimer(20); //20ms
@@ -54,25 +54,6 @@ function my_OnTimer($serv, $interval)
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

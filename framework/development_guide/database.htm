@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swooleæ¡†æ¶-Database</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>swoole¿ò¼Ü-Database</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,9 +14,9 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>Database</h1>
-                        <p>ä¿®æ”¹ apps/configs/db.php ï¼ŒåŠ å…¥é…ç½®ã€‚</p>
+                        <p>ĞŞ¸Ä apps/configs/db.php £¬¼ÓÈëÅäÖÃ¡£</p>
 
 <pre><code class="php" data-language="php">$db['master'] = array(
     'type'    =&gt; Swoole\Database::TYPE_MYSQLi,
@@ -34,57 +34,38 @@
 return $db;
 </code></pre>
 
-<h2>ä½¿ç”¨æ–¹å¼</h2>
+<h2>Ê¹ÓÃ·½Ê½</h2>
 
-<p>å•æ•°æ®åº“ï¼Œé»˜è®¤è¯»å–masteré…ç½®</p>
+<p>µ¥Êı¾İ¿â£¬Ä¬ÈÏ¶ÁÈ¡masterÅäÖÃ</p>
 
 <pre><code class="php" data-language="php">$this-&gt;db-&gt;query("select * from test");
 </code></pre>
 
-<p>å¤šæ•°æ®åº“ï¼Œè¯»å–åˆ¶å®šçš„æ•°æ®åº“é…ç½®</p>
+<p>¶àÊı¾İ¿â£¬¶ÁÈ¡ÖÆ¶¨µÄÊı¾İ¿âÅäÖÃ</p>
 
 <pre><code class="php" data-language="php">$this-&gt;db('other_db_config')-&gt;query("select * from test");
 </code></pre>
 
-<h2>é©±åŠ¨ç±»å‹</h2>
+<h2>Çı¶¯ÀàĞÍ</h2>
 
-<p>swooleæ¡†æ¶æ”¯æŒ3ç§é©±åŠ¨ç±»å‹ï¼š</p>
+<p>swoole¿ò¼ÜÖ§³Ö3ÖÖÇı¶¯ÀàĞÍ£º</p>
 
 <ol>
-<li>Swoole\Database::TYPE_MYSQLï¼Œä½¿ç”¨mysqlæ‰©å±•</li>
-<li>Swoole\Database::TYPE_MYSQLiï¼Œä½¿ç”¨mysqliæ‰©å±•</li>
-<li>Swoole\Database::TYPE_PDOï¼Œä½¿ç”¨PDOæ‰©å±•</li>
+<li>Swoole\Database::TYPE_MYSQL£¬Ê¹ÓÃmysqlÀ©Õ¹</li>
+<li>Swoole\Database::TYPE_MYSQLi£¬Ê¹ÓÃmysqliÀ©Õ¹</li>
+<li>Swoole\Database::TYPE_PDO£¬Ê¹ÓÃPDOÀ©Õ¹</li>
 </ol>
 
-<h2>é…ç½®é€‰é¡¹</h2>
+<h2>ÅäÖÃÑ¡Ïî</h2>
 
 <ul>
-<li>charset åˆ¶å®šæ•°æ®åº“å­—ç¬¦é›†</li>
-<li>setname åœ¨è¿æ¥æœåŠ¡å™¨æˆåŠŸåå‘é€set names $charset</li>
-<li>persistent å¯ç”¨MySQLæ•°æ®åº“é•¿è¿æ¥</li>
+<li>charset ÖÆ¶¨Êı¾İ¿â×Ö·û¼¯</li>
+<li>setname ÔÚÁ¬½Ó·şÎñÆ÷³É¹¦ºó·¢ËÍset names $charset</li>
+<li>persistent ÆôÓÃMySQLÊı¾İ¿â³¤Á¬½Ó</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

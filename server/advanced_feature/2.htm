@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>å›žè°ƒå‡½æ•°ä¸­çš„from_idå’Œfd</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>»Øµ÷º¯ÊýÖÐµÄfrom_idºÍfd</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,52 +14,33 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>å›žè°ƒå‡½æ•°ä¸­çš„from_idå’Œfd</h1>
-                        <p>å›žè°ƒå‡½æ•°ä¸­ç»å¸¸çœ‹åˆ°å®ƒã€‚</p>
+        <article class="markdown-body entry-content" >
+                        <h1>»Øµ÷º¯ÊýÖÐµÄfrom_idºÍfd</h1>
+                        <p>»Øµ÷º¯ÊýÖÐ¾­³£¿´µ½Ëü¡£</p>
 
 <ul>
-<li>from_idæ˜¯æ¥è‡ªäºŽå“ªä¸ªreactorçº¿ç¨‹</li>
-<li>fdæ˜¯tcpè¿žæŽ¥çš„æ–‡ä»¶æè¿°ç¬¦</li>
+<li>from_idÊÇÀ´×ÔÓÚÄÄ¸öreactorÏß³Ì</li>
+<li>fdÊÇtcpÁ¬½ÓµÄÎÄ¼þÃèÊö·û</li>
 </ul>
 
-<p>è°ƒç”¨swoole_server->send/swoole_server->closeå‡½æ•°éœ€è¦ä¼ å…¥$fdå‚æ•°æ‰èƒ½è¢«æ­£ç¡®çš„å¤„ç†ã€‚å¦‚æžœä¸šåŠ¡ä¸­éœ€è¦å‘é€å¹¿æ’­ï¼Œéœ€è¦ç”¨apc/redis/memcache/swoole_tableå°†fdçš„å€¼ä¿å­˜èµ·æ¥ã€‚</p>
+<p>µ÷ÓÃswoole_server->send/swoole_server->closeº¯ÊýÐèÒª´«Èë$fd²ÎÊý²ÅÄÜ±»ÕýÈ·µÄ´¦Àí¡£Èç¹ûÒµÎñÖÐÐèÒª·¢ËÍ¹ã²¥£¬ÐèÒªÓÃapc/redis/memcache/swoole_table½«fdµÄÖµ±£´æÆðÀ´¡£</p>
 
 <blockquote>
-  <p>1.6.0ä»¥ä¸Šç‰ˆæœ¬ä¸å†éœ€è¦from_idå‚æ•°ï¼Œswooleæœ¬èº«æä¾›äº†ConnectionListå¯ä»¥æŸ¥è¯¢åˆ°å½“å‰æ‰€æœ‰çš„fdå’Œå¯¹åº”from_id<br />
-  1.7.10ä»¥ä¸Šç‰ˆæœ¬ï¼Œfdä¸å†æ˜¯æ–‡ä»¶æè¿°ç¬¦ã€‚fdæ˜¯ä¸€ä¸ªè‡ªå¢žæ•°å­—ï¼ŒèŒƒå›´æ˜¯ 1 ï½ž 1600ä¸‡</p>
+  <p>1.6.0ÒÔÉÏ°æ±¾²»ÔÙÐèÒªfrom_id²ÎÊý£¬swoole±¾ÉíÌá¹©ÁËConnectionList¿ÉÒÔ²éÑ¯µ½µ±Ç°ËùÓÐµÄfdºÍ¶ÔÓ¦from_id<br />
+  1.7.10ÒÔÉÏ°æ±¾£¬fd²»ÔÙÊÇÎÄ¼þÃèÊö·û¡£fdÊÇÒ»¸ö×ÔÔöÊý×Ö£¬·¶Î§ÊÇ 1 ¡« 1600Íò</p>
 </blockquote>
 
 <pre><code class="php" data-language="php">function my_onReceive($serv, $fd, $from_id, $data)  {
-    //å‘Connectionå‘é€æ•°æ®
+    //ÏòConnection·¢ËÍÊý¾Ý
     $serv-&gt;send($fd, 'Swoole: '.$data); 
 
-    //å…³é—­Connection
+    //¹Ø±ÕConnection
     $serv-&gt;close($fd); 
 }
 </code></pre>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

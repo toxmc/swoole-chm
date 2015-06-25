@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>附录：编译PHP扩展的相关工具</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>��¼������PHP��չ����ع���</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -14,39 +14,39 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>附录：编译PHP扩展的相关工具</h1>
-                        <p>首先你需要下载一份扩展的源码，可以到github或者pecl.php.net上下载，解压后放到一个目录中，cd进入此目录。</p>
+       <article class="markdown-body entry-content" >
+                        <h1>��¼������PHP��չ����ع���</h1>
+                        <p>��������Ҫ����һ����չ��Դ�룬���Ե�github����pecl.php.net�����أ���ѹ��ŵ�һ��Ŀ¼�У�cd�����Ŀ¼��</p>
 
 <h2>autoconf</h2>
 
-<p>根据config.m4生成configure脚本，phpize是基于autoconf的封装。</p>
+<p>����config.m4����configure�ű���phpize�ǻ���autoconf�ķ�װ��</p>
 
 <h2>phpize</h2>
 
-<p>phpize这个工具是php官方提供的，用于将PHP扩展的config.m4解析生成./configure 脚本。</p>
+<p>phpize���������php�ٷ��ṩ�ģ����ڽ�PHP��չ��config.m4��������./configure �ű���</p>
 
 <h2>configure</h2>
 
-<p>这个脚本是用来检测系统和环境状态，依赖库和头文件是否存在，编译配置等</p>
+<p>����ű����������ϵͳ�ͻ���״̬���������ͷ�ļ��Ƿ���ڣ��������õ�</p>
 
 <h2>php-config</h2>
 
-<p>这个工具执行后会打印当前PHP安装在哪里目录，API版本号是什么，扩展目录在哪里等信息。configure脚本需要依赖它找到PHP安装的目录</p>
+<p>�������ִ�к���ӡ��ǰPHP��װ������Ŀ¼��API�汾����ʲô����չĿ¼���������Ϣ��configure�ű���Ҫ�������ҵ�PHP��װ��Ŀ¼</p>
 
 <h2>make</h2>
 
-<p>用来将.c源文件编译为目标文件。make install将编译好的扩展文件，如swoole.so安装到PHP的扩展目录下</p>
+<p>������.cԴ�ļ�����ΪĿ���ļ���make install������õ���չ�ļ�����swoole.so��װ��PHP����չĿ¼��</p>
 
 <h2>gcc</h2>
 
-<p>编译器，将*.c源文件编译为目标文件。并连接所有目标文件生成swoole.so</p>
+<p>����������*.cԴ�ļ�����ΪĿ���ļ�������������Ŀ���ļ�����swoole.so</p>
 
 <h2>clang</h2>
 
-<p>另外一种编译器，FreeBSD/MacOS下用的比较多。</p>
+<p>����һ�ֱ�������FreeBSD/MacOS���õıȽ϶ࡣ</p>
 
-<h2>安装过程</h2>
+<h2>��װ����</h2>
 
 <pre><code class="shell" data-language="shell">phpize
 ./configure
@@ -56,25 +56,6 @@ make install
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

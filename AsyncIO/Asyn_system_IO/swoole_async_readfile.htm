@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_async_readfile</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,14 +14,14 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>swoole_async_readfile</h1>
-                        <p>异步读取文件内容，函数原型</p>
+                        <p>�첽��ȡ�ļ����ݣ�����ԭ��</p>
 
 <pre><code class="php" data-language="php">swoole_async_readfile(string $filename, mixed $callback);
 </code></pre>
 
-<p>此函数调用后会马上返回，当文件读取完毕时会回调制定的callback函数。使用示例：</p>
+<p>�˺������ú�����Ϸ��أ����ļ���ȡ���ʱ��ص��ƶ���callback������ʹ��ʾ����</p>
 
 <pre><code class="php" data-language="php">swoole_async_readfile(__DIR__."/server.php", function($filename, $content) {
      echo "$filename: $content";
@@ -29,32 +29,13 @@
 </code></pre>
 
 <blockquote>
-  <p>swoole_async_readfile会将文件内容全部复制到内存，所以不能用于大文件的读取<br />
-  如果要读取超大文件，请使用swoole_async_read函数<br />
-  swoole_async_readfile最大可读取4M的文件，受限于SW_AIO_MAX_FILESIZE宏</p>
+  <p>swoole_async_readfile�Ὣ�ļ�����ȫ�����Ƶ��ڴ棬���Բ������ڴ��ļ��Ķ�ȡ<br />
+  ���Ҫ��ȡ�����ļ�����ʹ��swoole_async_read����<br />
+  swoole_async_readfile���ɶ�ȡ4M���ļ���������SW_AIO_MAX_FILESIZE��</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

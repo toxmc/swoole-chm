@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swoole_server的3种运行模式介绍</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>swoole_server��3������ģʽ����</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,88 +14,69 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>swoole_server的3种运行模式介绍</h1>
-                        <h2>一、Base模式</h2>
+       <article class="markdown-body entry-content" >
+                        <h1>swoole_server��3������ģʽ����</h1>
+                        <h2>һ��Baseģʽ</h2>
 
-<p>这种模式就是传统的异步非阻塞Server。在Reactor内直接回调PHP的函数。如果回调函数中有阻塞操作会导致Server退化为同步模式。worker_num参数对与BASE模式仍然有效，swoole会启动多个Reactor进程。</p>
-
-<blockquote>
-  <p>BASE模式下reactor和worker是同一个角色</p>
-</blockquote>
-
-<p><strong>BASE模式的优点：</strong></p>
-
-<ul>
-<li>BASE模式没有IPC开销，性能更好</li>
-<li>BASE模式代码更简单，不容易出错</li>
-</ul>
-
-<p><strong>BASE模式的缺点：</strong></p>
-
-<ul>
-<li>TCP连接是在worker进程中维持的，所以当某个worker进程挂掉时，此worker内的所有连接都将被关闭  </li>
-<li>worker进程中fd是可以重复的，所以不存在唯一标识符。不同worker的TCP连接之间无法通信  </li>
-<li>少量TCP长连接无法利用到所有Worker进程</li>
-</ul>
-
-<p><strong>BASE模式的适用场景：</strong></p>
-
-<p>如果客户端连接之间不需要交互，可以使用BASE模式。如Memcache、Http服务器等。</p>
-
-<h2>二、线程模式</h2>
-
-<p>这个就是多线程Worker模式，Reactor线程来处理网络事件轮询，读取数据。得到的请求交给Worker线程去处理。
-Swoole提供了可配置的参数，以实现m/n的参数调整。在这种模式下onReceive可以有适度的阻塞操作。多线程模式比进程模式轻量一些，而且线程之间可以共享堆栈和资源。</p>
-
-<p>访问共享内存时会有同步问题，需要使用Swoole提供的锁机制来保护数据。目前已经提供了Mutex、读写锁、文件锁、信号量、自旋锁一共5种锁的实现。</p>
-
-<p><strong>多线程的优点：</strong></p>
-
-<ul>
-<li>对象和变量是共享的，可直接进行操作</li>
-<li>文件描述符是共享的，不同的线程可以对同一个资源直接进行操作</li>
-</ul>
-
-<p><strong>多线程的缺点：</strong></p>
-
-<ul>
-<li>操作非局部变量时需要加锁，编程难度高</li>
-<li>一个线程发生内存错误，整个进程会全部结束 </li>
-</ul>
+<p>����ģʽ���Ǵ�ͳ���첽������Server����Reactor��ֱ�ӻص�PHP�ĺ���������ص������������������ᵼ��Server�˻�Ϊͬ��ģʽ��worker_num��������BASEģʽ��Ȼ��Ч��swoole���������Reactor���̡�</p>
 
 <blockquote>
-  <p>由于PHP的ZendVM在多线程模式存在内存错误，多线程模式在v1.6.0版本后已关闭</p>
+  <p>BASEģʽ��reactor��worker��ͬһ����ɫ</p>
 </blockquote>
 
-<h2>三、进程模式</h2>
+<p><strong>BASEģʽ���ŵ㣺</strong></p>
 
-<p>多进程模式是最复杂的方式，用了大量的进程间通信、进程管理机制。适合业务逻辑非常复杂的场景。Swoole提供了完善的进程管理、内存保护机制。
-在业务逻辑非常复杂的情况下，也可以长期稳定运行。</p>
+<ul>
+<li>BASEģʽû��IPC���������ܸ���</li>
+<li>BASEģʽ������򵥣������׳���</li>
+</ul>
 
-<p>Swoole在Reactor线程中提供了Buffer的功能，可以应对大量慢速连接和逐字节的恶意客户端。另外也提供了CPU亲和设置选项，使程序运行的效率更好。</p>
+<p><strong>BASEģʽ��ȱ�㣺</strong></p>
+
+<ul>
+<li>TCP��������worker������ά�ֵģ����Ե�ĳ��worker���̹ҵ�ʱ����worker�ڵ��������Ӷ������ر�  </li>
+<li>worker������fd�ǿ����ظ��ģ����Բ�����Ψһ��ʶ������ͬworker��TCP����֮���޷�ͨ��  </li>
+<li>����TCP�������޷����õ�����Worker����</li>
+</ul>
+
+<p><strong>BASEģʽ�����ó�����</strong></p>
+
+<p>����ͻ�������֮�䲻��Ҫ����������ʹ��BASEģʽ����Memcache��Http�������ȡ�</p>
+
+<h2>�����߳�ģʽ</h2>
+
+<p>������Ƕ��߳�Workerģʽ��Reactor�߳������������¼���ѯ����ȡ���ݡ��õ������󽻸�Worker�߳�ȥ������
+Swoole�ṩ�˿����õĲ�������ʵ��m/n�Ĳ���������������ģʽ��onReceive�������ʶȵ��������������߳�ģʽ�Ƚ���ģʽ����һЩ�������߳�֮����Թ�����ջ����Դ��</p>
+
+<p>���ʹ����ڴ�ʱ����ͬ�����⣬��Ҫʹ��Swoole�ṩ�����������������ݡ�Ŀǰ�Ѿ��ṩ��Mutex����д�����ļ������ź�����������һ��5������ʵ�֡�</p>
+
+<p><strong>���̵߳��ŵ㣺</strong></p>
+
+<ul>
+<li>����ͱ����ǹ����ģ���ֱ�ӽ��в���</li>
+<li>�ļ��������ǹ����ģ���ͬ���߳̿��Զ�ͬһ����Դֱ�ӽ��в���</li>
+</ul>
+
+<p><strong>���̵߳�ȱ�㣺</strong></p>
+
+<ul>
+<li>�����Ǿֲ�����ʱ��Ҫ����������Ѷȸ�</li>
+<li>һ���̷߳����ڴ�����������̻�ȫ������ </li>
+</ul>
+
+<blockquote>
+  <p>����PHP��ZendVM�ڶ��߳�ģʽ�����ڴ���󣬶��߳�ģʽ��v1.6.0�汾���ѹر�</p>
+</blockquote>
+
+<h2>��������ģʽ</h2>
+
+<p>�����ģʽ����ӵķ�ʽ�����˴����Ľ��̼�ͨ�š����̹������ơ��ʺ�ҵ���߼��ǳ����ӵĳ�����Swoole�ṩ�����ƵĽ��̹������ڴ汣�����ơ�
+��ҵ���߼��ǳ����ӵ�����£�Ҳ���Գ����ȶ����С�</p>
+
+<p>Swoole��Reactor�߳����ṩ��Buffer�Ĺ��ܣ�����Ӧ�Դ����������Ӻ����ֽڵĶ���ͻ��ˡ�����Ҳ�ṩ��CPU�׺�����ѡ�ʹ�������е�Ч�ʸ��á�</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

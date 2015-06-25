@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swoole框架-Socket网络开发</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>swoole���-Socket���翪��</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../../public/css/default.css" type="text/css" />
@@ -14,38 +14,38 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>Socket网络开发</h1>
-                        <p>Swoole提供了底层的网络socket服务器实现。普通用户只需要实现协议或基于现有的协议进行二次开发。</p>
+       <article class="markdown-body entry-content" >
+                        <h1>Socket���翪��</h1>
+                        <p>Swoole�ṩ�˵ײ������socket������ʵ�֡���ͨ�û�ֻ��Ҫʵ��Э���������е�Э����ж��ο�����</p>
 
-<h2>底层Driver</h2>
+<h2>�ײ�Driver</h2>
 
 <ul>
-<li>BlockTCP 阻塞的tcp/udp server, 请求按顺序执行，必须处理完一个请求才能继续处理新的请求。</li>
-<li>SelectTCP 使用select做IO复用的异步非阻塞 server，可以同时维持多个TCP连接。select最大只能维持1024个连接，并且性能会随着连接数量增多而下降</li>
-<li>EventTCP 使用libevent做IO复用的异步非阻塞Server，可以同时维持大量TCP连接，性能不会随连接增多而下降</li>
-<li>Server 使用Swoole扩展作为底层的网络驱动，推荐使用</li>
+<li>BlockTCP ������tcp/udp server, ����˳��ִ�У����봦����һ��������ܼ��������µ�����</li>
+<li>SelectTCP ʹ��select��IO���õ��첽������ server������ͬʱά�ֶ��TCP���ӡ�select���ֻ��ά��1024�����ӣ��������ܻ�������������������½�</li>
+<li>EventTCP ʹ��libevent��IO���õ��첽������Server������ͬʱά�ִ���TCP���ӣ����ܲ���������������½�</li>
+<li>Server ʹ��Swoole��չ��Ϊ�ײ�������������Ƽ�ʹ��</li>
 </ul>
 
 <blockquote>
-  <p>BlockTCP和SelectTCP可用于Windows</p>
+  <p>BlockTCP��SelectTCP������Windows</p>
 </blockquote>
 
-<h2>协议Protocol</h2>
+<h2>Э��Protocol</h2>
 
-<p>Protocol决定应用层如何处理数据，如何回应客户端。开发者可以基于Swoole提供的Protocol之上进行开发，也可以自行实现Protocol
-Swoole框架自带的Protocol有：</p>
+<p>Protocol����Ӧ�ò���δ������ݣ���λ�Ӧ�ͻ��ˡ������߿��Ի���Swoole�ṩ��Protocol֮�Ͻ��п�����Ҳ��������ʵ��Protocol
+Swoole����Դ���Protocol�У�</p>
 
 <ul>
-<li>HttpServer 是http协议的实现，提供web server的功能</li>
-<li>WebSocket 是websocket协议的实现</li>
-<li>AppServer 是Web应用服务器的实现</li>
-<li>SOAServer 是SOA协议的实现，（SOA不是标准协议）</li>
+<li>HttpServer ��httpЭ���ʵ�֣��ṩweb server�Ĺ���</li>
+<li>WebSocket ��websocketЭ���ʵ��</li>
+<li>AppServer ��WebӦ�÷�������ʵ��</li>
+<li>SOAServer ��SOAЭ���ʵ�֣���SOA���Ǳ�׼Э�飩</li>
 </ul>
 
-<h2>运行Server</h2>
+<h2>����Server</h2>
 
-<p>在你的脚本中只需要选择一种合适的Driver，构造一个Protocol对象。并调用Driver的setProtocol方法，组装到Drvier中即可，最后调用Driver的run方法进入网络事件循环即可。</p>
+<p>����Ľű���ֻ��Ҫѡ��һ�ֺ��ʵ�Driver������һ��Protocol���󡣲�����Driver��setProtocol��������װ��Drvier�м��ɣ�������Driver��run�������������¼�ѭ�����ɡ�</p>
 
 <p>test.php</p>
 
@@ -56,10 +56,10 @@ $AppSvr-&gt;setDocumentRoot(WEBPATH);
 $AppSvr-&gt;setLogger(new \Swoole\Log\EchoLog(true)); //Logger
 
 
-$server = new \Swoole\Network\SelectTCP('0.0.0.0', 8888); //这里选择了selectTCP驱动
-$server-&gt;setProtocol($AppSvr); //组装协议
+$server = new \Swoole\Network\SelectTCP('0.0.0.0', 8888); //����ѡ����selectTCP����
+$server-&gt;setProtocol($AppSvr); //��װЭ��
 
-$server-&gt;run(array('worker_num' =&gt; 1, 'max_request' =&gt; 5000)); //运行
+$server-&gt;run(array('worker_num' =&gt; 1, 'max_request' =&gt; 5000)); //����
 </code></pre>
 
 <pre><code class="shell" data-language="shell">php test.php
@@ -67,25 +67,6 @@ $server-&gt;run(array('worker_num' =&gt; 1, 'max_request' =&gt; 5000)); //运行
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

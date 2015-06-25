@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>å†…æ ¸å‚æ•°è°ƒæ•´</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>ÄÚºË²ÎÊıµ÷Õû</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -14,11 +14,11 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>å†…æ ¸å‚æ•°è°ƒæ•´</h1>
-                        <h2>ulimitè®¾ç½®</h2>
+        <article class="markdown-body entry-content" >
+                        <h1>ÄÚºË²ÎÊıµ÷Õû</h1>
+                        <h2>ulimitÉèÖÃ</h2>
 
-<p>ulimit -n è¦è°ƒæ•´ä¸º100000ç”šè‡³æ›´å¤§ã€‚ å‘½ä»¤è¡Œä¸‹æ‰§è¡Œ ulimit -n 100000å³å¯ä¿®æ”¹ã€‚å¦‚æœä¸èƒ½ä¿®æ”¹ï¼Œéœ€è¦è®¾ç½®  /etc/security/limits.confï¼ŒåŠ å…¥</p>
+<p>ulimit -n Òªµ÷ÕûÎª100000ÉõÖÁ¸ü´ó¡£ ÃüÁîĞĞÏÂÖ´ĞĞ ulimit -n 100000¼´¿ÉĞŞ¸Ä¡£Èç¹û²»ÄÜĞŞ¸Ä£¬ĞèÒªÉèÖÃ  /etc/security/limits.conf£¬¼ÓÈë</p>
 
 <pre><code data-language="">* soft nofile 262140
 * hard nofile 262140
@@ -30,16 +30,16 @@ root soft core unlimited
 root hard core unlimited
 </code></pre>
 
-<h2>å†…æ ¸è®¾ç½®</h2>
+<h2>ÄÚºËÉèÖÃ</h2>
 
 <h3>net.unix.max_dgram_qlen = 100</h3>
 
-<p>swooleä½¿ç”¨unix socket dgramæ¥åšè¿›ç¨‹é—´é€šä¿¡ï¼Œå¦‚æœè¯·æ±‚é‡å¾ˆå¤§ï¼Œéœ€è¦è°ƒæ•´æ­¤å‚æ•°ã€‚ç³»ç»Ÿé»˜è®¤ä¸º10ï¼Œå¯ä»¥è®¾ç½®ä¸º100æˆ–è€…æ›´å¤§ã€‚<br />
-æˆ–è€…å¢åŠ workerè¿›ç¨‹çš„æ•°é‡ï¼Œå‡å°‘å•ä¸ªworkerè¿›ç¨‹åˆ†é…çš„è¯·æ±‚é‡ã€‚</p>
+<p>swooleÊ¹ÓÃunix socket dgramÀ´×ö½ø³Ì¼äÍ¨ĞÅ£¬Èç¹ûÇëÇóÁ¿ºÜ´ó£¬ĞèÒªµ÷Õû´Ë²ÎÊı¡£ÏµÍ³Ä¬ÈÏÎª10£¬¿ÉÒÔÉèÖÃÎª100»òÕß¸ü´ó¡£<br />
+»òÕßÔö¼Óworker½ø³ÌµÄÊıÁ¿£¬¼õÉÙµ¥¸öworker½ø³Ì·ÖÅäµÄÇëÇóÁ¿¡£</p>
 
 <h3>net.core.wmem_max</h3>
 
-<p>ä¿®æ”¹æ­¤å‚æ•°å¢åŠ socketç¼“å­˜åŒºçš„å†…å­˜å¤§å°</p>
+<p>ĞŞ¸Ä´Ë²ÎÊıÔö¼Ósocket»º´æÇøµÄÄÚ´æ´óĞ¡</p>
 
 <pre><code data-language="">net.ipv4.tcp_mem  =   379008       505344  758016
 net.ipv4.tcp_wmem = 4096        16384   4194304
@@ -52,20 +52,20 @@ net.core.wmem_max = 16777216
 
 <h3>net.ipv4.tcp_tw_reuse</h3>
 
-<p>æ˜¯å¦socket reuseï¼Œæ­¤å‡½æ•°çš„ä½œç”¨æ˜¯Serveré‡å¯æ—¶å¯ä»¥å¿«é€Ÿé‡æ–°ä½¿ç”¨ç›‘å¬çš„ç«¯å£ã€‚å¦‚æœæ²¡æœ‰è®¾ç½®æ­¤å‚æ•°ï¼Œä¼šå¯¼è‡´serveré‡å¯æ—¶å‘ç”Ÿç«¯å£æœªåŠæ—¶é‡Šæ”¾è€Œå¯åŠ¨å¤±è´¥</p>
+<p>ÊÇ·ñsocket reuse£¬´Ëº¯ÊıµÄ×÷ÓÃÊÇServerÖØÆôÊ±¿ÉÒÔ¿ìËÙÖØĞÂÊ¹ÓÃ¼àÌıµÄ¶Ë¿Ú¡£Èç¹ûÃ»ÓĞÉèÖÃ´Ë²ÎÊı£¬»áµ¼ÖÂserverÖØÆôÊ±·¢Éú¶Ë¿ÚÎ´¼°Ê±ÊÍ·Å¶øÆô¶¯Ê§°Ü</p>
 
 <h3>net.ipv4.tcp_tw_recycle</h3>
 
-<p>ä½¿ç”¨socketå¿«é€Ÿå›æ”¶ï¼ŒçŸ­è¿æ¥Serveréœ€è¦å¼€å¯æ­¤å‚æ•°</p>
+<p>Ê¹ÓÃsocket¿ìËÙ»ØÊÕ£¬¶ÌÁ¬½ÓServerĞèÒª¿ªÆô´Ë²ÎÊı</p>
 
-<h2>æ¶ˆæ¯é˜Ÿåˆ—è®¾ç½®</h2>
+<h2>ÏûÏ¢¶ÓÁĞÉèÖÃ</h2>
 
-<p>å½“ä½¿ç”¨æ¶ˆæ¯é˜Ÿåˆ—ä½œä¸ºè¿›ç¨‹é—´é€šä¿¡æ–¹å¼æ—¶ï¼Œéœ€è¦è°ƒæ•´æ­¤å†…æ ¸å‚æ•°</p>
+<p>µ±Ê¹ÓÃÏûÏ¢¶ÓÁĞ×÷Îª½ø³Ì¼äÍ¨ĞÅ·½Ê½Ê±£¬ĞèÒªµ÷Õû´ËÄÚºË²ÎÊı</p>
 
 <ul>
-<li>kernel.msgmnb = 4203520ï¼Œæ¶ˆæ¯é˜Ÿåˆ—çš„æœ€å¤§å­—èŠ‚æ•°</li>
-<li>kernel.msgmni = 64ï¼Œæœ€å¤šå…è®¸åˆ›å»ºå¤šå°‘ä¸ªæ¶ˆæ¯é˜Ÿåˆ—</li>
-<li>kernel.msgmax = 8192ï¼Œæ¶ˆæ¯é˜Ÿåˆ—å•æ¡æ•°æ®æœ€å¤§çš„é•¿åº¦</li>
+<li>kernel.msgmnb = 4203520£¬ÏûÏ¢¶ÓÁĞµÄ×î´ó×Ö½ÚÊı</li>
+<li>kernel.msgmni = 64£¬×î¶àÔÊĞí´´½¨¶àÉÙ¸öÏûÏ¢¶ÓÁĞ</li>
+<li>kernel.msgmax = 8192£¬ÏûÏ¢¶ÓÁĞµ¥ÌõÊı¾İ×î´óµÄ³¤¶È</li>
 </ul>
 
 <h2>FreeBSD/MacOS</h2>
@@ -73,28 +73,28 @@ net.core.wmem_max = 16777216
 <ul>
 <li>sysctl -w net.local.dgram.maxdgram=8192</li>
 <li>sysctl -w net.local.dgram.recvspace=200000
-ä¿®æ”¹Unix Socketçš„bufferåŒºå°ºå¯¸</li>
+ĞŞ¸ÄUnix SocketµÄbufferÇø³ß´ç</li>
 </ul>
 
-<h2>å¼€å¯CoreDump</h2>
+<h2>¿ªÆôCoreDump</h2>
 
-<p>è®¾ç½®å†…æ ¸å‚æ•°</p>
+<p>ÉèÖÃÄÚºË²ÎÊı</p>
 
 <pre><code data-language="">kernel.core_pattern = /data/core_files/core-%e-%p-%t
 </code></pre>
 
-<p>é€šè¿‡ulimit -cå‘½ä»¤æŸ¥çœ‹å½“å‰coredumpæ–‡ä»¶çš„é™åˆ¶</p>
+<p>Í¨¹ıulimit -cÃüÁî²é¿´µ±Ç°coredumpÎÄ¼şµÄÏŞÖÆ</p>
 
 <pre><code class="shell" data-language="shell">ulimit -c
 </code></pre>
 
-<p>å¦‚æœä¸º0ï¼Œéœ€è¦ä¿®æ”¹/etc/security/limits.confï¼Œè¿›è¡Œlimitè®¾ç½®ã€‚</p>
+<p>Èç¹ûÎª0£¬ĞèÒªĞŞ¸Ä/etc/security/limits.conf£¬½øĞĞlimitÉèÖÃ¡£</p>
 
 <blockquote>
-  <p>å¼€å¯core-dumpåï¼Œä¸€æ—¦ç¨‹åºå‘ç”Ÿå¼‚å¸¸ï¼Œä¼šå°†è¿›ç¨‹å¯¼å‡ºåˆ°æ–‡ä»¶ã€‚å¯¹äºè°ƒæŸ¥ç¨‹åºé—®é¢˜æœ‰å¾ˆå¤§çš„å¸®åŠ©</p>
+  <p>¿ªÆôcore-dumpºó£¬Ò»µ©³ÌĞò·¢ÉúÒì³££¬»á½«½ø³Ìµ¼³öµ½ÎÄ¼ş¡£¶ÔÓÚµ÷²é³ÌĞòÎÊÌâÓĞºÜ´óµÄ°ïÖú</p>
 </blockquote>
 
-<h2>å…¶ä»–é‡è¦é…ç½®</h2>
+<h2>ÆäËûÖØÒªÅäÖÃ</h2>
 
 <ul>
 <li>net.ipv4.tcp_syncookies=1</li>
@@ -110,36 +110,17 @@ net.core.wmem_max = 16777216
 <li>net.ipv4.route.max_size = 5242880</li>
 </ul>
 
-<h2>æŸ¥çœ‹é…ç½®æ˜¯å¦ç”Ÿæ•ˆ</h2>
+<h2>²é¿´ÅäÖÃÊÇ·ñÉúĞ§</h2>
 
-<p>å¦‚ï¼šä¿®æ”¹net.unix.max_dgram_qlen = 100åï¼Œé€šè¿‡</p>
+<p>Èç£ºĞŞ¸Änet.unix.max_dgram_qlen = 100ºó£¬Í¨¹ı</p>
 
 <pre><code class="shell" data-language="shell">cat /proc/sys/net/unix/max_dgram_qlen
 </code></pre>
 
-<p>å¦‚æœä¿®æ”¹æˆåŠŸï¼Œè¿™é‡Œæ˜¯æ–°è®¾ç½®çš„å€¼ã€‚</p>
+<p>Èç¹ûĞŞ¸Ä³É¹¦£¬ÕâÀïÊÇĞÂÉèÖÃµÄÖµ¡£</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

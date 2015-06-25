@@ -2,7 +2,7 @@
 
 <head>
   <title>onWorkerError</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,42 +14,23 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>onWorkerError</h1>
-                        <p>当worker/task_worker进程发生异常后会在Manager进程内回调此函数。</p>
+                        <p>��worker/task_worker���̷����쳣�����Manager�����ڻص��˺�����</p>
 
 <pre><code class="php" data-language="php">void onWorkerError(swoole_server $serv, int $worker_id, int $worker_pid, int $exit_code);
 </code></pre>
 
 <ul>
-<li>$worker_id是异常进程的编号</li>
-<li>$worker_pid是异常进程的ID</li>
-<li>$exit_code退出的状态码，范围是 1 ～255</li>
+<li>$worker_id���쳣���̵ı��</li>
+<li>$worker_pid���쳣���̵�ID</li>
+<li>$exit_code�˳���״̬�룬��Χ�� 1 ��255</li>
 </ul>
 
-<p>此函数主要用于报警和监控，一旦发现Worker进程异常退出，那么很有可能是遇到了致命错误或者进程CoreDump。通过记录日志或者发送报警的信息来提示开发者进行相应的处理。</p>
+<p>�˺�����Ҫ���ڱ����ͼ�أ�һ������Worker�����쳣�˳�����ô���п���������������������߽���CoreDump��ͨ����¼��־���߷��ͱ�������Ϣ����ʾ�����߽�����Ӧ�Ĵ�����</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

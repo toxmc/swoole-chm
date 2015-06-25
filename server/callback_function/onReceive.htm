@@ -2,7 +2,7 @@
 
 <head>
   <title>onReceive</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,75 +14,56 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>onReceive</h1>
-                        <p>接收到数据时回调此函数，发生在worker进程中。函数原型：</p>
+                        <p>���յ�����ʱ�ص��˺�����������worker�����С�����ԭ�ͣ�</p>
 
 <pre><code class="php" data-language="php">void onReceive(resource $server, int $fd, int $from_id, string $data);
 </code></pre>
 
 <ul>
-<li>$server，swoole_server对象</li>
-<li>$fd，TCP客户端连接的文件描述符</li>
-<li>$from_id，TCP连接所在的Reactor线程ID</li>
-<li>$data，收到的数据内容，可能是文本或者二进制内容</li>
+<li>$server��swoole_server����</li>
+<li>$fd��TCP�ͻ������ӵ��ļ�������</li>
+<li>$from_id��TCP�������ڵ�Reactor�߳�ID</li>
+<li>$data���յ����������ݣ��������ı����߶���������</li>
 </ul>
 
 <blockquote>
-  <p>未开启swoole的自动协议选项，onReceive回调函数单次收到的数据最大为64K<br />
-  Swoole支持二进制格式，$data可能是二进制数据</p>
+  <p>δ����swoole���Զ�Э��ѡ�onReceive�ص����������յ����������Ϊ64K<br />
+  Swoole֧�ֶ����Ƹ�ʽ��$data�����Ƕ���������</p>
 </blockquote>
 
-<h2>协议相关说明</h2>
+<h2>Э�����˵��</h2>
 
 <ul>
-<li>UDP协议，onReceive可以保证总是收到一个完整的包，最大长度不超过64K</li>
-<li>UDP协议下，$fd参数是对应客户端的IP，$from_id是客户端的端口</li>
-<li>TCP协议是流式的，onReceive无法保证数据包的完整性，可能会同时收到多个请求包，也可能只收到一个请求包的一部分数据</li>
-<li>swoole只负责底层通信，$data是通过网络接收到的原始数据。对数据解包打包需要在PHP代码中自行实现</li>
+<li>UDPЭ�飬onReceive���Ա�֤�����յ�һ�������İ�����󳤶Ȳ�����64K</li>
+<li>UDPЭ���£�$fd�����Ƕ�Ӧ�ͻ��˵�IP��$from_id�ǿͻ��˵Ķ˿�</li>
+<li>TCPЭ������ʽ�ģ�onReceive�޷���֤���ݰ��������ԣ����ܻ�ͬʱ�յ�����������Ҳ����ֻ�յ�һ���������һ��������</li>
+<li>swooleֻ����ײ�ͨ�ţ�$data��ͨ��������յ���ԭʼ���ݡ������ݽ�������Ҫ��PHP����������ʵ��</li>
 </ul>
 
 <blockquote>
-  <p>如果开启了eof_check/length_check/http_protocol，$data的长度可能会超过64K，但最大不超过$server->setting['package_max_length']</p>
+  <p>���������eof_check/length_check/http_protocol��$data�ĳ��ȿ��ܻᳬ��64K������󲻳���$server->setting['package_max_length']</p>
 </blockquote>
 
-<h2>关于TCP协议下包完整性</h2>
+<h2>����TCPЭ���°�������</h2>
 
 <ul>
-<li>使用swoole提供的open_eof_check/open_length_check/open_http_protocol，可以保证数据包的完整性</li>
-<li>不使用swoole的协议处理，在onReceive后PHP代码中自行对数据分析，合并/拆分数据包。</li>
+<li>ʹ��swoole�ṩ��open_eof_check/open_length_check/open_http_protocol�����Ա�֤���ݰ���������</li>
+<li>��ʹ��swoole��Э�鴦������onReceive��PHP���������ж����ݷ������ϲ�/������ݰ���</li>
 </ul>
 
-<p>例如：代码中可以增加一个 $buffer = array()，使用$fd作为key，来保存上下文数据。 每次收到数据进行字符串拼接，$buffer[$fd] .= $data，然后在判断$buffer[$fd]字符串是否为一个完整的数据包。</p>
+<p>���磺�����п�������һ�� $buffer = array()��ʹ��$fd��Ϊkey�����������������ݡ� ÿ���յ����ݽ����ַ���ƴ�ӣ�$buffer[$fd] .= $data��Ȼ�����ж�$buffer[$fd]�ַ����Ƿ�Ϊһ�����������ݰ���</p>
 
-<p>默认情况下，同一个fd会被分配到同一个worker中，所以数据可以拼接起来。<strong>使用dispatch_mode = 3时。<br />
-请求数据是抢占式的，同一个fd发来的数据可能会被分到不同的进程。所以无法使用上述的数据包拼接方法</strong></p>
+<p>Ĭ������£�ͬһ��fd�ᱻ���䵽ͬһ��worker�У��������ݿ���ƴ��������<strong>ʹ��dispatch_mode = 3ʱ��<br />
+������������ռʽ�ģ�ͬһ��fd���������ݿ��ܻᱻ�ֵ���ͬ�Ľ��̡������޷�ʹ�����������ݰ�ƴ�ӷ���</strong></p>
 
-<p>关于粘包问题，如SMTP协议，客户端可能会同时发出2条指令。在swoole中可能是一次性收到的，这时应用层需要自行拆包。smtp是通过\r\n来分包的，所以业务代码中需要 explode("\r\n", $data)来拆分数据包。</p>
+<p>����ճ�����⣬��SMTPЭ�飬�ͻ��˿��ܻ�ͬʱ����2��ָ���swoole�п�����һ�����յ��ģ���ʱӦ�ò���Ҫ���в����smtp��ͨ��\r\n���ְ��ģ�����ҵ���������Ҫ explode("\r\n", $data)��������ݰ���</p>
 
-<p>如果是请求应答式的服务，无需考虑粘包问题。原因是客户端在发起一次请求后，必须等到服务器端返回当前请求的响应数据，才会发起第二次请求，不会同时发送2个请求。</p>
+<p>���������Ӧ��ʽ�ķ������迼��ճ�����⡣ԭ���ǿͻ����ڷ���һ������󣬱���ȵ��������˷��ص�ǰ�������Ӧ���ݣ��Żᷢ��ڶ������󣬲���ͬʱ����2������</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

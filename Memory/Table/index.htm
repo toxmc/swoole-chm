@@ -2,7 +2,7 @@
 
 <head>
   <title>Table</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,51 +14,32 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>Table</h1>
-                        <p>swoole_table一个基于共享内存和锁实现的超高性能，并发数据结构。用于解决多进程/多线程数据共享和同步加锁问题。</p>
+                        <p>swoole_tableһ�����ڹ����ڴ����ʵ�ֵĳ������ܣ��������ݽṹ�����ڽ�������/���߳����ݹ�����ͬ���������⡣</p>
 
-<h2>swoole_table的优势</h2>
+<h2>swoole_table������</h2>
 
 <ul>
-<li>性能强悍，单线程每秒可读写50万次。8核机器8线程可以支持每秒并发读写400万次</li>
-<li>无需加锁，swoole_table内置行锁自选锁，所有操作均是多线程/多进程安全。用户层完全不需要考虑数据同步问题。</li>
-<li>支持多进程，swoole_table可以用于多进程之间共享数据</li>
+<li>����ǿ�������߳�ÿ��ɶ�д50��Ρ�8�˻���8�߳̿���֧��ÿ�벢����д400���</li>
+<li>���������swoole_table����������ѡ�������в������Ƕ��߳�/����̰�ȫ���û�����ȫ����Ҫ��������ͬ�����⡣</li>
+<li>֧�ֶ���̣�swoole_table�������ڶ����֮�乲������</li>
 </ul>
 
 <blockquote>
-  <p>swoole_table使用行锁，而不是全局锁，仅当2个进程在同一CPU时间，并发读取同一条数据才会进行发生抢锁</p>
+  <p>swoole_tableʹ��������������ȫ����������2��������ͬһCPUʱ�䣬������ȡͬһ�����ݲŻ���з�������</p>
 </blockquote>
 
-<pre><code data-language="">swoole_table模块在版本1.7.16已能稳定运行，建议在生产环境中可以尝试使用。也可使用成熟的方案Redis/Apc/Yac作为数据共享层。
+<pre><code data-language="">swoole_tableģ���ڰ汾1.7.16�����ȶ����У����������������п��Գ���ʹ�á�Ҳ��ʹ�ó���ķ���Redis/Apc/Yac��Ϊ���ݹ����㡣
 </code></pre>
 
 <blockquote>
-  <p>swoole_table在1.7.5版本后可用<br />
-  swoole_table-0.1版本，单进程压测每秒可读写50W次左右</p>
+  <p>swoole_table��1.7.5�汾�����<br />
+  swoole_table-0.1�汾��������ѹ��ÿ��ɶ�д50W������</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_set_process_name</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -15,16 +15,16 @@
 
 <div class="wiki_content blob instapaper_body">
 
-   <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+   <article class="markdown-body entry-content" >
                         <h1>swoole_set_process_name</h1>
-                        <p>ç”¨äºè®¾ç½®è¿›ç¨‹çš„åç§°ã€‚ä¿®æ”¹è¿›ç¨‹åç§°åï¼Œé€šè¿‡pså‘½ä»¤çœ‹åˆ°çš„å°†ä¸å†æ˜¯php your_file.phpã€‚è€Œæ˜¯è®¾å®šçš„å­—ç¬¦ä¸²ã€‚
-æ­¤å‡½æ•°æ¥å—ä¸€ä¸ªå­—ç¬¦ä¸²å‚æ•°ã€‚
-æ­¤å‡½æ•°ä¸PHP5.5æä¾›çš„cli_set_process_titleåŠŸèƒ½æ˜¯ç›¸åŒçš„ã€‚ä½†swoole_set_process_nameå¯ç”¨äºPHP5.2ä¹‹ä¸Šçš„ä»»æ„ç‰ˆæœ¬ã€‚swoole_set_process_nameå…¼å®¹æ€§æ¯”cli_set_process_titleè¦å·®ï¼Œå¦‚æœå­˜åœ¨cli_set_process_titleå‡½æ•°åˆ™ä¼˜å…ˆä½¿ç”¨cli_set_process_titleã€‚</p>
+                        <p>ÓÃÓÚÉèÖÃ½ø³ÌµÄÃû³Æ¡£ĞŞ¸Ä½ø³ÌÃû³Æºó£¬Í¨¹ıpsÃüÁî¿´µ½µÄ½«²»ÔÙÊÇphp your_file.php¡£¶øÊÇÉè¶¨µÄ×Ö·û´®¡£
+´Ëº¯Êı½ÓÊÜÒ»¸ö×Ö·û´®²ÎÊı¡£
+´Ëº¯ÊıÓëPHP5.5Ìá¹©µÄcli_set_process_title¹¦ÄÜÊÇÏàÍ¬µÄ¡£µ«swoole_set_process_name¿ÉÓÃÓÚPHP5.2Ö®ÉÏµÄÈÎÒâ°æ±¾¡£swoole_set_process_name¼æÈİĞÔ±Ècli_set_process_titleÒª²î£¬Èç¹û´æÔÚcli_set_process_titleº¯ÊıÔòÓÅÏÈÊ¹ÓÃcli_set_process_title¡£</p>
 
 <pre><code class="php" data-language="php">void swoole_set_process_name(string $name);
 </code></pre>
 
-<p>ç¤ºä¾‹ä»£ç ï¼š</p>
+<p>Ê¾Àı´úÂë£º</p>
 
 <pre><code class="php" data-language="php">swoole_set_process_name("swoole server");
 var_dump($argv);
@@ -32,44 +32,25 @@ sleep(1000);
 </code></pre>
 
 <blockquote>
-  <p>swoole_set_process_nameåœ¨1.6.3ç‰ˆæœ¬æä¾›<br />
-  åœ¨onStartå›è°ƒä¸­æ‰§è¡Œæ­¤å‡½æ•°ï¼Œå°†ä¿®æ”¹ä¸»è¿›ç¨‹çš„åç§°ã€‚åœ¨onWorkerStartä¸­è°ƒç”¨å°†ä¿®æ”¹workerå­è¿›ç¨‹çš„åç§°ã€‚</p>
+  <p>swoole_set_process_nameÔÚ1.6.3°æ±¾Ìá¹©<br />
+  ÔÚonStart»Øµ÷ÖĞÖ´ĞĞ´Ëº¯Êı£¬½«ĞŞ¸ÄÖ÷½ø³ÌµÄÃû³Æ¡£ÔÚonWorkerStartÖĞµ÷ÓÃ½«ĞŞ¸Äworker×Ó½ø³ÌµÄÃû³Æ¡£</p>
 </blockquote>
 
-<h3>å¦‚ä½•ä¸ºSwoole Serveré‡å‘½åå„ä¸ªè¿›ç¨‹åç§°</h3>
+<h3>ÈçºÎÎªSwoole ServerÖØÃüÃû¸÷¸ö½ø³ÌÃû³Æ</h3>
 
 <ul>
-<li>åœ¨swoole_server_createä¹‹å‰ä¿®æ”¹ä¸ºmanagerè¿›ç¨‹åç§°</li>
-<li>onStartè°ƒç”¨æ—¶ä¿®æ”¹ä¸ºä¸»è¿›ç¨‹åç§°</li>
-<li>onWorkerStartä¿®æ”¹ä¸ºworkerè¿›ç¨‹åç§°  </li>
+<li>ÔÚswoole_server_createÖ®Ç°ĞŞ¸ÄÎªmanager½ø³ÌÃû³Æ</li>
+<li>onStartµ÷ÓÃÊ±ĞŞ¸ÄÎªÖ÷½ø³ÌÃû³Æ</li>
+<li>onWorkerStartĞŞ¸ÄÎªworker½ø³ÌÃû³Æ  </li>
 </ul>
 
 <blockquote>
-  <p>1.6.12åå¢åŠ äº†onManagerStartäº‹ä»¶å›è°ƒï¼Œå¯ä»¥åœ¨è¿™é‡Œè®¾ç½®ç®¡ç†è¿›ç¨‹çš„åç§°<br />
-  æœ‰äº›ä½ç‰ˆæœ¬Linuxå†…æ ¸ä¸æ”¯æŒè¿›ç¨‹é‡å‘½å</p>
+  <p>1.6.12ºóÔö¼ÓÁËonManagerStartÊÂ¼ş»Øµ÷£¬¿ÉÒÔÔÚÕâÀïÉèÖÃ¹ÜÀí½ø³ÌµÄÃû³Æ<br />
+  ÓĞĞ©µÍ°æ±¾LinuxÄÚºË²»Ö§³Ö½ø³ÌÖØÃüÃû</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

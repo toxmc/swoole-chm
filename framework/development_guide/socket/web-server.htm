@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swooleæ¡†æ¶-WebæœåŠ¡å™¨</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>swoole¿ò¼Ü-Web·şÎñÆ÷</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../../public/css/default.css" type="text/css" />
@@ -14,23 +14,23 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>WebæœåŠ¡å™¨</h1>
-                        <p>Swooleæ¡†æ¶æä¾›çš„WebServeræœ‰3ç§ä½¿ç”¨æ–¹æ³•</p>
+       <article class="markdown-body entry-content" >
+                        <h1>Web·şÎñÆ÷</h1>
+                        <p>Swoole¿ò¼ÜÌá¹©µÄWebServerÓĞ3ÖÖÊ¹ÓÃ·½·¨</p>
 
-<h2>ä¸€ã€ç›´æ¥ä½¿ç”¨HttpServer</h2>
+<h2>Ò»¡¢Ö±½ÓÊ¹ÓÃHttpServer</h2>
 
-<p>HttpServeræ”¯æŒé™æ€æ–‡ä»¶å’Œinclude fileã€‚ä¸šåŠ¡ä»£ç ä¸éœ€è¦å†™ä»»ä½•Serverçš„ä»£ç ï¼Œåªéœ€è¦è®¾ç½®document_rootï¼Œå¹¶ç¼–å†™å¯¹åº”phpæ–‡ä»¶ã€‚è¿™ç§ä½¿ç”¨æ–¹æ³•ä¸Apache/Nginx+FPMç±»ä¼¼ã€‚</p>
+<p>HttpServerÖ§³Ö¾²Ì¬ÎÄ¼şºÍinclude file¡£ÒµÎñ´úÂë²»ĞèÒªĞ´ÈÎºÎServerµÄ´úÂë£¬Ö»ĞèÒªÉèÖÃdocument_root£¬²¢±àĞ´¶ÔÓ¦phpÎÄ¼ş¡£ÕâÖÖÊ¹ÓÃ·½·¨ÓëApache/Nginx+FPMÀàËÆ¡£</p>
 
 <p>server.php</p>
 
 <pre><code class="php" data-language="php">$AppSvr = new Swoole\Network\Protocol\HttpServer();
-$AppSvr-&gt;loadSetting("./swoole.ini"); //åŠ è½½é…ç½®æ–‡ä»¶
-$AppSvr-&gt;setDocumentRoot(__DIR__.'/webdocs/'); //è®¾ç½®document_root
+$AppSvr-&gt;loadSetting("./swoole.ini"); //¼ÓÔØÅäÖÃÎÄ¼ş
+$AppSvr-&gt;setDocumentRoot(__DIR__.'/webdocs/'); //ÉèÖÃdocument_root
 
 $server = new \Swoole\Network\Server('0.0.0.0', 9501);
 $server-&gt;setProtocol($AppSvr);
-//$server-&gt;daemonize(); //ä½œä¸ºå®ˆæŠ¤è¿›ç¨‹
+//$server-&gt;daemonize(); //×÷ÎªÊØ»¤½ø³Ì
 $server-&gt;run(array('worker_num' =&gt; 2, 'max_request' =&gt; 1000));
 </code></pre>
 
@@ -40,21 +40,21 @@ $server-&gt;run(array('worker_num' =&gt; 2, 'max_request' =&gt; 1000));
 echo "hello world";
 </code></pre>
 
-<p>åœ¨æµè§ˆå™¨ä¸­æ‰“å¼€<a href="http://localhost:9501/index.php">http://localhost:9501/index.php</a></p>
+<p>ÔÚä¯ÀÀÆ÷ÖĞ´ò¿ª<a href="http://localhost:9501/index.php">http://localhost:9501/index.php</a></p>
 
-<h2>äºŒã€ç»§æ‰¿HttpServer</h2>
+<h2>¶ş¡¢¼Ì³ĞHttpServer</h2>
 
-<p>ä¸šåŠ¡ä»£ç åªéœ€è¦ç»§æ‰¿æ­¤ç±»ï¼Œå¹¶è‡ªè¡Œå®ç°onRequestæ–¹æ³•å³å¯ã€‚</p>
+<p>ÒµÎñ´úÂëÖ»ĞèÒª¼Ì³Ğ´ËÀà£¬²¢×ÔĞĞÊµÏÖonRequest·½·¨¼´¿É¡£</p>
 
 <pre><code class="php" data-language="php">    /**
-     * å¤„ç†è¯·æ±‚
+     * ´¦ÀíÇëÇó
      * @param $request
      * @return Swoole\Response
      */
     function onRequest(Swoole\Request $request)
 </code></pre>
 
-<p>onRequestæ–¹æ³•å‚æ•°ä¸ºè§£æå¥½çš„Requestå¯¹è±¡</p>
+<p>onRequest·½·¨²ÎÊıÎª½âÎöºÃµÄRequest¶ÔÏó</p>
 
 <ul>
 <li>$request->post : $_POST</li>
@@ -63,66 +63,47 @@ echo "hello world";
 <li>$request->file  $_FILES</li>
 </ul>
 
-<p>onRequestæ–¹æ³•å¿…é¡»è¿”å›ä¸€ä¸ªResponseå¯¹è±¡</p>
+<p>onRequest·½·¨±ØĞë·µ»ØÒ»¸öResponse¶ÔÏó</p>
 
 <ul>
-<li>$response->body è¿”å›çš„HTMLå†…å®¹</li>
-<li>$response->head HTTPå¤´ä¿¡æ¯</li>
+<li>$response->body ·µ»ØµÄHTMLÄÚÈİ</li>
+<li>$response->head HTTPÍ·ĞÅÏ¢</li>
 </ul>
 
-<h2>ä¸‰ã€ä½¿ç”¨AppServer</h2>
+<h2>Èı¡¢Ê¹ÓÃAppServer</h2>
 
-<p>åŸºäºAppServerç±»å¼€å‘ï¼Œå°±å¿…é¡»éµå¾ªSwoole MVCè§„èŒƒã€‚å…·ä½“å¯ä»¥æŸ¥çœ‹examples/å’Œapps/ä¸­çš„ç¤ºä¾‹ç¨‹åºã€‚
-apps/ç›®å½•ä¸­å­˜æ”¾åº”ç”¨ä»£ç ã€‚</p>
+<p>»ùÓÚAppServerÀà¿ª·¢£¬¾Í±ØĞë×ñÑ­Swoole MVC¹æ·¶¡£¾ßÌå¿ÉÒÔ²é¿´examples/ºÍapps/ÖĞµÄÊ¾Àı³ÌĞò¡£
+apps/Ä¿Â¼ÖĞ´æ·ÅÓ¦ÓÃ´úÂë¡£</p>
 
 <table>
 <thead>
 <tr>
-  <th>ç›®å½•</th>
-  <th>è¯´æ˜</th>
+  <th>Ä¿Â¼</th>
+  <th>ËµÃ÷</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>apps/controllers</td>
-  <td>æ§åˆ¶å™¨ä»£ç </td>
+  <td>¿ØÖÆÆ÷´úÂë</td>
 </tr>
 <tr>
   <td>apps/models</td>
-  <td>æ•°æ®æ¨¡å‹ä»£ç </td>
+  <td>Êı¾İÄ£ĞÍ´úÂë</td>
 </tr>
 <tr>
   <td>apps/teamplets</td>
-  <td>æ¨¡æ¿æ–‡ä»¶</td>
+  <td>Ä£°åÎÄ¼ş</td>
 </tr>
 <tr>
   <td>apps/config</td>
-  <td>é…ç½®æ–‡ä»¶</td>
+  <td>ÅäÖÃÎÄ¼ş</td>
 </tr>
 </tbody>
 </table>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

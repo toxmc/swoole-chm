@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>Swoole的实现</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>Swoole��ʵ��</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -14,70 +14,52 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>Swoole的实现</h1>
-                        <p>swoole使用纯C编写，不依赖其他第三方库。</p>
+        <article class="markdown-body entry-content" >
+                        <h1>Swoole��ʵ��</h1>
+                        <p>swooleʹ�ô�C��д�������������������⡣</p>
 
 <ul>
-<li>swoole并没有用libevent，所以不需要安装libevent</li>
-<li>swoole并不依赖php的stream/sockets/pcntl/posix/sysvmsg等扩展</li>
+<li>swoole��û����libevent�����Բ���Ҫ��װlibevent</li>
+<li>swoole��������php��stream/sockets/pcntl/posix/sysvmsg����չ</li>
 </ul>
 
-<h2>socket部分</h2>
+<h2>socket����</h2>
 
-<p>swoole使用底层的socket系统调用。参见 sys/socket.h</p>
+<p>swooleʹ�õײ��socketϵͳ���á��μ� sys/socket.h</p>
 
-<h2>IO事件循环</h2>
+<h2>IO�¼�ѭ��</h2>
 
 <ul>
-<li>主进程的事件循环使用select/poll，因为主线程中的文件描述符只有几个，使用select/poll即可</li>
-<li>reactor线程/worker进程中使用epoll/kqueue</li>
+<li>�����̵��¼�ѭ��ʹ��select/poll����Ϊ���߳��е��ļ�������ֻ�м�����ʹ��select/poll����</li>
+<li>reactor�߳�/worker������ʹ��epoll/kqueue</li>
 </ul>
 
 <blockquote>
-  <p>有很多人使用strace -p去查看swoole主进程只能看到poll系统调用。正确的查看方法是strace -f -p</p>
+  <p>�кܶ���ʹ��strace -pȥ�鿴swoole������ֻ�ܿ���pollϵͳ���á���ȷ�Ĳ鿴������strace -f -p</p>
 </blockquote>
 
-<h2>多进程/多线程</h2>
+<h2>�����/���߳�</h2>
 
 <ul>
-<li>多进程使用fork()系统调用</li>
-<li>多线程使用pthread线程库</li>
+<li>�����ʹ��fork()ϵͳ����</li>
+<li>���߳�ʹ��pthread�߳̿�</li>
 </ul>
 
 <h2>EventFd</h2>
 
-<p>Swoole中使用了eventfd作为线程/进程间消息通知的机制。</p>
+<p>Swoole��ʹ����eventfd��Ϊ�߳�/���̼���Ϣ֪ͨ�Ļ��ơ�</p>
 
 <h2>Timerfd</h2>
 
-<p>Swoole使用timerfd来实现定时器</p>
+<p>Swooleʹ��timerfd��ʵ�ֶ�ʱ��</p>
 
 <h2>SIgnalfd</h2>
 
-<p>swoole中使用了signalfd来实现对信号的屏蔽和处理。可以有效地避免线程/进程被信号打断，系统调用restart的问题。在主进程中reactor线程不会接受任何信号。</p>
+<p>swoole��ʹ����signalfd��ʵ�ֶ��źŵ����κʹ�����������Ч�ر����߳�/���̱��źŴ�ϣ�ϵͳ����restart�����⡣����������reactor�̲߳�������κ��źš�</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
 
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

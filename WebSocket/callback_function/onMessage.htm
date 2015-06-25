@@ -2,7 +2,7 @@
 
 <head>
   <title>WebSocket::onMessage</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,60 +14,41 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+      <article class="markdown-body entry-content" >
                         <h1>onMessage</h1>
-                        <p>å½“æœåŠ¡å™¨æ”¶åˆ°æ¥è‡ªå®¢æˆ·ç«¯çš„æ•°æ®å¸§æ—¶ä¼šå›žè°ƒæ­¤å‡½æ•°ã€‚</p>
+                        <p>µ±·þÎñÆ÷ÊÕµ½À´×Ô¿Í»§¶ËµÄÊý¾ÝÖ¡Ê±»á»Øµ÷´Ëº¯Êý¡£</p>
 
 <pre><code class="php" data-language="php">function onMessage($server, int $fd, swoole_websocket_frame $frame)
 </code></pre>
 
 <ul>
-<li>$frame æ˜¯swoole_websocket_frameå¯¹è±¡ï¼ŒåŒ…å«äº†å®¢æˆ·ç«¯å‘æ¥çš„æ•°æ®å¸§ä¿¡æ¯</li>
+<li>$frame ÊÇswoole_websocket_frame¶ÔÏó£¬°üº¬ÁË¿Í»§¶Ë·¢À´µÄÊý¾ÝÖ¡ÐÅÏ¢</li>
 </ul>
 
 <h2>swoole_websocket_frame</h2>
 
-<p>å…±æœ‰4ä¸ªå±žæ€§ï¼Œåˆ†åˆ«æ˜¯</p>
+<p>¹²ÓÐ4¸öÊôÐÔ£¬·Ö±ðÊÇ</p>
 
 <ul>
-<li>$frame->fdï¼Œå®¢æˆ·ç«¯çš„socket idï¼Œä½¿ç”¨$server->pushæŽ¨é€æ•°æ®æ—¶éœ€è¦ç”¨åˆ°</li>
-<li>$frame->dataï¼Œæ•°æ®å†…å®¹ï¼Œå¯ä»¥æ˜¯æ–‡æœ¬å†…å®¹ä¹Ÿå¯ä»¥æ˜¯äºŒè¿›åˆ¶æ•°æ®ï¼Œå¯ä»¥é€šè¿‡opcodeçš„å€¼æ¥åˆ¤æ–­</li>
-<li>$frame->opcodeï¼ŒWebSocketçš„OpCodeç±»åž‹ï¼Œå¯ä»¥å‚è€ƒWebSocketåè®®æ ‡å‡†æ–‡æ¡£  </li>
-<li>$frame->finishï¼Œ è¡¨ç¤ºæ•°æ®å¸§æ˜¯å¦å®Œæ•´ï¼Œä¸€ä¸ªWebSocketè¯·æ±‚å¯èƒ½ä¼šåˆ†æˆå¤šä¸ªæ•°æ®å¸§è¿›è¡Œå‘é€  </li>
+<li>$frame->fd£¬¿Í»§¶ËµÄsocket id£¬Ê¹ÓÃ$server->pushÍÆËÍÊý¾ÝÊ±ÐèÒªÓÃµ½</li>
+<li>$frame->data£¬Êý¾ÝÄÚÈÝ£¬¿ÉÒÔÊÇÎÄ±¾ÄÚÈÝÒ²¿ÉÒÔÊÇ¶þ½øÖÆÊý¾Ý£¬¿ÉÒÔÍ¨¹ýopcodeµÄÖµÀ´ÅÐ¶Ï</li>
+<li>$frame->opcode£¬WebSocketµÄOpCodeÀàÐÍ£¬¿ÉÒÔ²Î¿¼WebSocketÐ­Òé±ê×¼ÎÄµµ  </li>
+<li>$frame->finish£¬ ±íÊ¾Êý¾ÝÖ¡ÊÇ·ñÍêÕû£¬Ò»¸öWebSocketÇëÇó¿ÉÄÜ»á·Ö³É¶à¸öÊý¾ÝÖ¡½øÐÐ·¢ËÍ  </li>
 </ul>
 
 <blockquote>
-  <p>$data å¦‚æžœæ˜¯æ–‡æœ¬ç±»åž‹ï¼Œç¼–ç æ ¼å¼å¿…ç„¶æ˜¯UTF-8ï¼Œè¿™æ˜¯WebSocketåè®®è§„å®šçš„</p>
+  <p>$data Èç¹ûÊÇÎÄ±¾ÀàÐÍ£¬±àÂë¸ñÊ½±ØÈ»ÊÇUTF-8£¬ÕâÊÇWebSocketÐ­Òé¹æ¶¨µÄ</p>
 </blockquote>
 
-<h2>OpCodeä¸Žæ•°æ®ç±»åž‹</h2>
+<h2>OpCodeÓëÊý¾ÝÀàÐÍ</h2>
 
 <ul>
-<li>OPCODE_TEXT_FRAME = 0x1 ï¼Œæ–‡æœ¬æ•°æ®</li>
-<li>OPCODE_BINARY_FRAME = 0x2 ï¼ŒäºŒè¿›åˆ¶æ•°æ®</li>
+<li>OPCODE_TEXT_FRAME = 0x1 £¬ÎÄ±¾Êý¾Ý</li>
+<li>OPCODE_BINARY_FRAME = 0x2 £¬¶þ½øÖÆÊý¾Ý</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

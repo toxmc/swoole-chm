@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->reload</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,69 +14,50 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_server->reload</h1>
-                        <p>重启所有worker进程。</p>
+                        <p>��������worker���̡�</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;reload()
 </code></pre>
 
-<p>一台繁忙的后端服务器随时都在处理请求，如果管理员通过kill进程方式来终止/重启服务器程序，可能导致刚好代码执行到一半终止。
-这种情况下会产生数据的不一致。如交易系统中，支付逻辑的下一段是发货，假设在支付逻辑之后进程被终止了。会导致用户支付了货币，但并没有发货，后果非常严重。</p>
+<p>һ̨��æ�ĺ�˷�������ʱ���ڴ��������������Աͨ��kill���̷�ʽ����ֹ/�������������򣬿��ܵ��¸պô���ִ�е�һ����ֹ��
+��������»�������ݵĲ�һ�¡��罻��ϵͳ�У�֧���߼�����һ���Ƿ�����������֧���߼�֮����̱���ֹ�ˡ��ᵼ���û�֧���˻��ң�����û�з���������ǳ����ء�</p>
 
-<p>Swoole提供了柔性终止/重启的机制，管理员只需要向SwooleServer发送特定的信号，Server的worker进程可以安全的结束。</p>
+<p>Swoole�ṩ��������ֹ/�����Ļ��ƣ�����Աֻ��Ҫ��SwooleServer�����ض����źţ�Server��worker���̿��԰�ȫ�Ľ�����</p>
 
 <ul>
-<li>SIGTERM: 向主进程发送此信号服务器将安全终止</li>
-<li>在PHP代码中可以调用$serv->shutdown()完成此操作</li>
-<li>SIGUSR1: 向管理进程发送SIGUSR1信号，将平稳地restart所有worker进程</li>
-<li>在PHP代码中可以调用$serv->reload()完成此操作</li>
-<li>swoole的reload有保护机制，当一次reload正在进行时，收到新的重启信号会丢弃</li>
+<li>SIGTERM: �������̷��ʹ��źŷ���������ȫ��ֹ</li>
+<li>��PHP�����п��Ե���$serv->shutdown()��ɴ˲���</li>
+<li>SIGUSR1: ��������̷���SIGUSR1�źţ���ƽ�ȵ�restart����worker����</li>
+<li>��PHP�����п��Ե���$serv->reload()��ɴ˲���</li>
+<li>swoole��reload�б������ƣ���һ��reload���ڽ���ʱ���յ��µ������źŻᶪ��</li>
 </ul>
 
-<pre><code class="shell" data-language="shell">#重启所有worker进程
-kill -USR1 主进程PID
+<pre><code class="shell" data-language="shell">#��������worker����
+kill -USR1 ������PID
 </code></pre>
 
-<p>1.7.7版本增加了仅重启task_worker的功能。只需向服务器发送SIGUSR2即可。</p>
+<p>1.7.7�汾�����˽�����task_worker�Ĺ��ܡ�ֻ�������������SIGUSR2���ɡ�</p>
 
-<pre><code class="shell" data-language="shell">#仅重启task进程
-kill -USR2 主进程PID
+<pre><code class="shell" data-language="shell">#������task����
+kill -USR2 ������PID
 </code></pre>
 
 <blockquote>
-  <p>平滑重启只对onWorkerStart或onReceive等在Worker进程中include/require的PHP文件有效，Server启动前就已经include/require的PHP文件，不能通过平滑重启重新加载<br />
-  对于Server的配置即$serv->set()中传入的参数设置，必须关闭/重启整个Server才可以重新加载<br />
-  Server可以监听一个内网端口，然后可以接收远程的控制命令，去重启所有worker</p>
+  <p>ƽ������ֻ��onWorkerStart��onReceive����Worker������include/require��PHP�ļ���Ч��Server����ǰ���Ѿ�include/require��PHP�ļ�������ͨ��ƽ���������¼���<br />
+  ����Server�����ü�$serv->set()�д���Ĳ������ã�����ر�/��������Server�ſ������¼���<br />
+  Server���Լ���һ�������˿ڣ�Ȼ����Խ���Զ�̵Ŀ������ȥ��������worker</p>
 </blockquote>
 
-<h2>参考</h2>
+<h2>�ο�</h2>
 
 <ul>
-<li><a href="../../other/linux_signal_list.htm">附录：Linux信号列表</a></li>
+<li><a href="../../other/linux_signal_list.htm">��¼��Linux�ź��б�</a></li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

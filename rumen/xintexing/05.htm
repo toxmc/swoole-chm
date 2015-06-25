@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>1.7.4 task进程中使用毫秒定时器</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>1.7.4 task������ʹ�ú��붨ʱ��</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,20 +14,20 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>1.7.4 task进程中使用毫秒定时器</h1>
-                        <p>task进程有别与worker进程，worker进程内有EventLoop，所以即可同步阻塞，又可以异步非阻塞。但task进程设计之初就是仅仅支持同步阻塞模式的。</p>
+        <article class="markdown-body entry-content" >
+                        <h1>1.7.4 task������ʹ�ú��붨ʱ��</h1>
+                        <p>task�����б���worker���̣�worker��������EventLoop�����Լ���ͬ���������ֿ����첽����������task�������֮�����ǽ���֧��ͬ������ģʽ�ġ�</p>
 
-<p>而swoole的毫秒定时器是使用timerfd实现的异步定时器。所以在1.7.4之前，task进程中是无法使用定时器的。1.7.4专门对task进程进行了优化，实现了同步的信号触发式定时器。</p>
+<p>��swoole�ĺ��붨ʱ����ʹ��timerfdʵ�ֵ��첽��ʱ����������1.7.4֮ǰ��task���������޷�ʹ�ö�ʱ���ġ�1.7.4ר�Ŷ�task���̽������Ż���ʵ����ͬ�����źŴ���ʽ��ʱ����</p>
 
 <blockquote>
-  <p>swoole并不是在信号回调函数中执行定时器代码，所以不存在安全问题。</p>
+  <p>swoole���������źŻص�������ִ�ж�ʱ�����룬���Բ����ڰ�ȫ���⡣</p>
 </blockquote>
 
-<p>使用方法与普通的worker进程相同。</p>
+<p>ʹ�÷�������ͨ��worker������ͬ��</p>
 
 <pre><code class="php" data-language="php">function onWorkerStart($serv, $worker_id) {
-    if ($worker_id &gt;= $serv-&gt;setting['worker_num']) {  //超过worker_num，表示这是一个task进程
+    if ($worker_id &gt;= $serv-&gt;setting['worker_num']) {  //����worker_num����ʾ����һ��task����
         $serv-&gt;addtimer(1000);  //1s
         $serv-&gt;addtimer(200);    //200ms
     }
@@ -37,25 +37,6 @@
         </article>
 
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

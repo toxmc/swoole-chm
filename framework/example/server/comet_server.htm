@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swooleæ¡†æž¶-comet_server</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>swoole¿ò¼Ü-comet_server</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../../public/css/default.css" type="text/css" />
@@ -14,48 +14,29 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-     <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+     <article class="markdown-body entry-content" >
                         <h1>comet_server.php</h1>
-                        <p>Cometæ˜¯ä½¿ç”¨Httpåè®®ç»´æŒé•¿è¿žæŽ¥ï¼Œè¾¾åˆ°æœåŠ¡å™¨æŽ¨é€çš„ç›®çš„ã€‚Swooleæ¡†æž¶æä¾›äº†ä¸€å¥—å…¼å®¹WebSocketå’ŒHttp 2ç§åè®®çš„CometServerã€‚</p>
+                        <p>CometÊÇÊ¹ÓÃHttpÐ­ÒéÎ¬³Ö³¤Á¬½Ó£¬´ïµ½·þÎñÆ÷ÍÆËÍµÄÄ¿µÄ¡£Swoole¿ò¼ÜÌá¹©ÁËÒ»Ì×¼æÈÝWebSocketºÍHttp 2ÖÖÐ­ÒéµÄCometServer¡£</p>
 
 <h2>WebSocket</h2>
 
-<p>å¦‚æžœå®¢æˆ·ç«¯æµè§ˆå™¨æ”¯æŒWebSocketï¼Œè‡ªåŠ¨ä½¿ç”¨WebSocketä½œä¸ºé€šä¿¡åè®®ã€‚</p>
+<p>Èç¹û¿Í»§¶Ëä¯ÀÀÆ÷Ö§³ÖWebSocket£¬×Ô¶¯Ê¹ÓÃWebSocket×÷ÎªÍ¨ÐÅÐ­Òé¡£</p>
 
 <h2>Comet</h2>
 
-<p>å¦‚æžœå®¢æˆ·ç«¯æµè§ˆå™¨æ˜¯IEç³»åˆ—ï¼Œä¸æ”¯æŒWebSocketï¼Œåˆ™ä½¿ç”¨Cometæ–¹æ¡ˆã€‚Cometä¼šåˆ›å»º2ä¸ªhttpè¯·æ±‚ã€‚</p>
+<p>Èç¹û¿Í»§¶Ëä¯ÀÀÆ÷ÊÇIEÏµÁÐ£¬²»Ö§³ÖWebSocket£¬ÔòÊ¹ÓÃComet·½°¸¡£Comet»á´´½¨2¸öhttpÇëÇó¡£</p>
 
 <ul>
-<li>/pull æ­¤è¯·æ±‚å‘å‡ºåŽï¼Œä¼šç­‰å¾…æœåŠ¡å™¨æŽ¨é€æ•°æ®ï¼Œå¦‚æžœåœ¨50så†…æœªæœ‰æŽ¨é€ä¿¡æ¯ï¼ŒæœåŠ¡å™¨ä¼šè¿”å›žTimeoutã€‚ç„¶åŽå®¢æˆ·ç«¯å†æ¬¡å‘èµ·ä¸€æ¬¡/pull/è¯·æ±‚ã€‚</li>
-<li>/push æ­¤è¯·æ±‚ç”¨äºŽæƒ³æœåŠ¡å™¨å‘é€æ•°æ®</li>
+<li>/pull ´ËÇëÇó·¢³öºó£¬»áµÈ´ý·þÎñÆ÷ÍÆËÍÊý¾Ý£¬Èç¹ûÔÚ50sÄÚÎ´ÓÐÍÆËÍÐÅÏ¢£¬·þÎñÆ÷»á·µ»ØTimeout¡£È»ºó¿Í»§¶ËÔÙ´Î·¢ÆðÒ»´Î/pull/ÇëÇó¡£</li>
+<li>/push ´ËÇëÇóÓÃÓÚÏë·þÎñÆ÷·¢ËÍÊý¾Ý</li>
 </ul>
 
 <blockquote>
-  <p>pull è¯·æ±‚ç”±äºŽæ˜¯å¯ç”¨äº†Http KeepAliveï¼Œå®žé™…ä¸ŠSocketæ˜¯é•¿è¿žæŽ¥çš„ï¼Œä¸å­˜åœ¨å¤šæ¬¡connect/closeçš„é—®é¢˜ï¼Œæ€§èƒ½å¾ˆé«˜ã€‚</p>
+  <p>pull ÇëÇóÓÉÓÚÊÇÆôÓÃÁËHttp KeepAlive£¬Êµ¼ÊÉÏSocketÊÇ³¤Á¬½ÓµÄ£¬²»´æÔÚ¶à´Îconnect/closeµÄÎÊÌâ£¬ÐÔÄÜºÜ¸ß¡£</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->heartbeat</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,55 +14,36 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_server->heartbeat</h1>
-                        <p>检测服务器所有连接，并找出已经超过约定时间的连接。如果指定if_close_connection，则自动关闭超时的连接。未指定仅返回连接的fd数组。</p>
+                        <p>���������������ӣ����ҳ��Ѿ�����Լ��ʱ������ӡ����ָ��if_close_connection�����Զ��رճ�ʱ�����ӡ�δָ�����������ӵ�fd���顣</p>
 
 <blockquote>
-  <p>需要swoole-1.6.10 以上版本</p>
+  <p>��Ҫswoole-1.6.10 ���ϰ汾</p>
 </blockquote>
 
-<p>函数原型：</p>
+<p>����ԭ�ͣ�</p>
 
 <pre><code class="php" data-language="php">array swoole_server::heartbeat(bool $if_close_connection = true);
 </code></pre>
 
 <ul>
-<li>$if_close_connection是否关闭超时的连接，默认为true</li>
-<li>调用成功将返回一个连续数组，元素是已关闭的$fd。</li>
-<li>调用失败返回false</li>
+<li>$if_close_connection�Ƿ�رճ�ʱ�����ӣ�Ĭ��Ϊtrue</li>
+<li>���óɹ�������һ���������飬Ԫ�����ѹرյ�$fd��</li>
+<li>����ʧ�ܷ���false</li>
 </ul>
 
 <blockquote>
-  <p>$if_close_connection 在1.7.4+可用</p>
+  <p>$if_close_connection ��1.7.4+����</p>
 </blockquote>
 
-<p>示例：</p>
+<p>ʾ����</p>
 
 <pre><code class="php" data-language="php">$closeFdArr = $serv-&gt;heartbeat();
 </code></pre>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

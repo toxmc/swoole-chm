@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>异步毫秒定时器</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>�첽���붨ʱ��</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,42 +14,23 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>异步毫秒定时器</h1>
-                        <p>swoole_server中已经提供了定时器的API，如果是在客户端程序中，也想使用毫秒定时器。可以用swoole提供的swoole_timer模块。</p>
+        <article class="markdown-body entry-content" >
+                        <h1>�첽���붨ʱ��</h1>
+                        <p>swoole_server���Ѿ��ṩ�˶�ʱ����API��������ڿͻ��˳����У�Ҳ��ʹ�ú��붨ʱ����������swoole�ṩ��swoole_timerģ�顣</p>
 
-<p>swoole_timer与PHP本身的pcntl_alarm是不同的。pcntl_alarm是基于时钟信号 + PHP tick函数实现,有4个缺陷：</p>
+<p>swoole_timer��PHP������pcntl_alarm�ǲ�ͬ�ġ�pcntl_alarm�ǻ���ʱ���ź� + PHP tick����ʵ��,��4��ȱ�ݣ�</p>
 
 <ul>
-<li>最大仅支持到秒，而swoole_timer可以到毫秒级别</li>
-<li>不支持同时设定多个定时器程序</li>
-<li>pcntl_alarm依赖declare(ticks = 1)性能很差</li>
-<li>无法用于异步IO，只支持同步方式</li>
+<li>����֧�ֵ��룬��swoole_timer���Ե����뼶��</li>
+<li>��֧��ͬʱ�趨�����ʱ������</li>
+<li>pcntl_alarm����declare(ticks = 1)���ܺܲ�</li>
+<li>�޷������첽IO��ֻ֧��ͬ����ʽ</li>
 </ul>
 
-<p>swoole_timer是基于timerfd+epoll实现的异步毫秒定时器，可完美的运行在EventLoop中，与swoole_client/swoole_event等模块可以无缝结合。</p>
+<p>swoole_timer�ǻ���timerfd+epollʵ�ֵ��첽���붨ʱ������������������EventLoop�У���swoole_client/swoole_event��ģ������޷��ϡ�</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

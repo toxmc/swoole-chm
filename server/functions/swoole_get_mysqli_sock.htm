@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_get_mysqli_sock</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,19 +14,19 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-      <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+      <article class="markdown-body entry-content" >
                         <h1>swoole_get_mysqli_sock</h1>
-                        <p>ç”¨äºè·å–MySQLiçš„socketæ–‡ä»¶æè¿°ç¬¦ã€‚å¯å°†mysqlçš„socketå¢åŠ åˆ°swooleä¸­ï¼Œæ‰§è¡Œå¼‚æ­¥MySQLæŸ¥è¯¢ã€‚</p>
+                        <p>ÓÃÓÚ»ñÈ¡MySQLiµÄsocketÎÄ¼şÃèÊö·û¡£¿É½«mysqlµÄsocketÔö¼Óµ½swooleÖĞ£¬Ö´ĞĞÒì²½MySQL²éÑ¯¡£</p>
 
 <pre><code class="php" data-language="php">int swoole_get_mysqli_sock(mysqli $db)
 </code></pre>
 
 <blockquote>
-  <p>å¦‚æœæƒ³è¦ä½¿ç”¨å¼‚æ­¥MySQLï¼Œéœ€è¦åœ¨ç¼–è¯‘swooleæ—¶åˆ¶å®š--enable-async-mysql<br />
-  swoole_get_mysqli_sockä»…æ”¯æŒmysqlndé©±åŠ¨ï¼Œphp5.4ä»¥ä¸‹ç‰ˆæœ¬ä¸æ”¯æŒæ­¤ç‰¹æ€§</p>
+  <p>Èç¹ûÏëÒªÊ¹ÓÃÒì²½MySQL£¬ĞèÒªÔÚ±àÒëswooleÊ±ÖÆ¶¨--enable-async-mysql<br />
+  swoole_get_mysqli_sock½öÖ§³ÖmysqlndÇı¶¯£¬php5.4ÒÔÏÂ°æ±¾²»Ö§³Ö´ËÌØĞÔ</p>
 </blockquote>
 
-<p>ç¤ºä¾‹ï¼š</p>
+<p>Ê¾Àı£º</p>
 
 <pre><code class="php" data-language="php">$db = new mysqli;
 $db-&gt;connect('127.0.0.1', 'root', 'root', 'test');
@@ -39,45 +39,26 @@ swoole_event_add(swoole_get_mysqli_sock($db), function($db_sock) {
 });
 </code></pre>
 
-<h2>apt-get/yumå®‰è£…çš„PHPæ— æ³•ç¼–è¯‘é€šè¿‡</h2>
+<h2>apt-get/yum°²×°µÄPHPÎŞ·¨±àÒëÍ¨¹ı</h2>
 
-<p>å»ºè®®è‡ªè¡Œç¼–è¯‘PHPï¼Œè€Œä¸æ˜¯ä½¿ç”¨apt-getæˆ–yumå®‰è£…ï¼Œé¿å…å› ä¸ºç¼ºå°‘å¤´æ–‡ä»¶å¯¼è‡´ç¼–è¯‘ä¸é€šè¿‡ã€‚ç¼–è¯‘PHPæ—¶è¦åŠ å…¥--enable-mysqlnd --with-mysqli</p>
+<p>½¨Òé×ÔĞĞ±àÒëPHP£¬¶ø²»ÊÇÊ¹ÓÃapt-get»òyum°²×°£¬±ÜÃâÒòÎªÈ±ÉÙÍ·ÎÄ¼şµ¼ÖÂ±àÒë²»Í¨¹ı¡£±àÒëPHPÊ±Òª¼ÓÈë--enable-mysqlnd --with-mysqli</p>
 
-<h2>åŒæ—¶å¹¶å‘æ‰§è¡Œ2æ¡ä»¥ä¸ŠSQLè¯­å¥</h2>
+<h2>Í¬Ê±²¢·¢Ö´ĞĞ2ÌõÒÔÉÏSQLÓï¾ä</h2>
 
-<p>ä¸€ä¸ªMySQLè¿æ¥åªèƒ½æ‰§è¡Œ1æ¡SQLè¯­å¥ï¼Œä¸‹é¢çš„ä»£ç æ˜¯é”™è¯¯çš„ã€‚</p>
+<p>Ò»¸öMySQLÁ¬½ÓÖ»ÄÜÖ´ĞĞ1ÌõSQLÓï¾ä£¬ÏÂÃæµÄ´úÂëÊÇ´íÎóµÄ¡£</p>
 
 <pre><code class="php" data-language="php">$db-&gt;query("select * from test", MYSQLI_ASYNC);
 $db-&gt;query("select * from test", MYSQLI_ASYNC);
 </code></pre>
 
-<p>åœ¨ç¬¬ä¸€æ¡SQLæ‰§è¡Œåï¼Œæœªè°ƒç”¨reap_async_queryè¿”å›ç»“æœå‰ï¼Œä¸èƒ½å†æ¬¡æ‰§è¡Œ$db->query()ã€‚å¦‚æœæƒ³è¦å¹¶å‘æ‰§è¡ŒSQLéœ€è¦åˆ›å»º2ä¸ªä»¥ä¸ŠMySQLè¿æ¥ï¼Œå¹¶åˆ†åˆ«è°ƒç”¨swoole_get_mysqli_sockå’Œswoole_event_addï¼ŒåŠ å…¥åˆ°äº‹ä»¶å¾ªç¯ä¸­ã€‚å¯ä»¥å‚è€ƒ <a href="https://github.com/swoole/swoole-src/blob/master/examples/mysql_proxy_server.php">https://github.com/swoole/swoole-src/blob/master/examples/mysql_proxy_server.php</a>ã€‚</p>
+<p>ÔÚµÚÒ»ÌõSQLÖ´ĞĞºó£¬Î´µ÷ÓÃreap_async_query·µ»Ø½á¹ûÇ°£¬²»ÄÜÔÙ´ÎÖ´ĞĞ$db->query()¡£Èç¹ûÏëÒª²¢·¢Ö´ĞĞSQLĞèÒª´´½¨2¸öÒÔÉÏMySQLÁ¬½Ó£¬²¢·Ö±ğµ÷ÓÃswoole_get_mysqli_sockºÍswoole_event_add£¬¼ÓÈëµ½ÊÂ¼şÑ­»·ÖĞ¡£¿ÉÒÔ²Î¿¼ <a href="https://github.com/swoole/swoole-src/blob/master/examples/mysql_proxy_server.php">https://github.com/swoole/swoole-src/blob/master/examples/mysql_proxy_server.php</a>¡£</p>
 
-<h2>å¼‚æ­¥å¹¶è¡ŒMySQLæ˜¯å¦åªç”¨1ä¸ªè¿æ¥å³å¯ï¼Ÿ</h2>
+<h2>Òì²½²¢ĞĞMySQLÊÇ·ñÖ»ÓÃ1¸öÁ¬½Ó¼´¿É£¿</h2>
 
-<p>è¿™æ˜¯é”™è¯¯çš„ç†è§£ï¼Œå³ä½¿æ˜¯å¼‚æ­¥MySQLä¹Ÿéœ€è¦ä¸€ä¸ªè¿æ¥æ± ã€‚æ­£å¦‚ä¸Šä¸€æ¡ä¿¡æ¯æ‰€ç¤ºï¼Œå¹¶å‘SQLå¿…é¡»æœ‰å¤šä¸ªè¿æ¥ã€‚</p>
+<p>ÕâÊÇ´íÎóµÄÀí½â£¬¼´Ê¹ÊÇÒì²½MySQLÒ²ĞèÒªÒ»¸öÁ¬½Ó³Ø¡£ÕıÈçÉÏÒ»ÌõĞÅÏ¢ËùÊ¾£¬²¢·¢SQL±ØĞëÓĞ¶à¸öÁ¬½Ó¡£</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->sendwait</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -15,42 +15,23 @@
 
 <div class="wiki_content blob instapaper_body">
 
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>swoole_server->sendwait</h1>
-                        <p>阻塞地向客户端发送数据。</p>
+                        <p>��������ͻ��˷������ݡ�</p>
 
-<p>有一些特殊的场景，Server需要连续向客户端发送数据，而swoole_server->send数据发送接口是纯异步的，大量数据发送会导致内存发送队列塞满。</p>
+<p>��һЩ����ĳ�����Server��Ҫ������ͻ��˷������ݣ���swoole_server->send���ݷ��ͽӿ��Ǵ��첽�ģ��������ݷ��ͻᵼ���ڴ淢�Ͷ���������</p>
 
-<p>使用swoole_server->sendwait就可以解决此问题，swoole_server->sendwait会阻塞等待连接可写。直到数据发送完毕才会返回。</p>
+<p>ʹ��swoole_server->sendwait�Ϳ��Խ�������⣬swoole_server->sendwait�������ȴ����ӿ�д��ֱ�����ݷ�����ϲŻ᷵�ء�</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;sendwait(int $fd, string $send_data);
 </code></pre>
 
 <blockquote>
-  <p>sendwait目前仅可用于SWOOLE_BASE模式</p>
+  <p>sendwaitĿǰ��������SWOOLE_BASEģʽ</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

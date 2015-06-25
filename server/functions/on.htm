@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->on</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,20 +14,20 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_server->on</h1>
-                        <p>æ³¨å†ŒServerçš„äº‹ä»¶å›è°ƒå‡½æ•°ã€‚</p>
+                        <p>×¢²áServerµÄÊÂ¼ş»Øµ÷º¯Êı¡£</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;on(string $event, mixed $callback);
 </code></pre>
 
 <ul>
-<li>ç¬¬1ä¸ªå‚æ•°æ˜¯å›è°ƒçš„åç§°, å¤§å°å†™ä¸æ•æ„Ÿï¼Œå…·ä½“å†…å®¹å‚è€ƒå›è°ƒå‡½æ•°åˆ—è¡¨</li>
-<li>ç¬¬2ä¸ªå‡½æ•°æ˜¯å›è°ƒçš„PHPå‡½æ•°ï¼Œå¯ä»¥æ˜¯å‡½æ•°åçš„å­—ç¬¦ä¸²ï¼Œç±»é™æ€æ–¹æ³•ï¼Œå¯¹è±¡æ–¹æ³•æ•°ç»„ï¼ŒåŒ¿åå‡½æ•°ã€‚</li>
+<li>µÚ1¸ö²ÎÊıÊÇ»Øµ÷µÄÃû³Æ, ´óĞ¡Ğ´²»Ãô¸Ğ£¬¾ßÌåÄÚÈİ²Î¿¼»Øµ÷º¯ÊıÁĞ±í</li>
+<li>µÚ2¸öº¯ÊıÊÇ»Øµ÷µÄPHPº¯Êı£¬¿ÉÒÔÊÇº¯ÊıÃûµÄ×Ö·û´®£¬Àà¾²Ì¬·½·¨£¬¶ÔÏó·½·¨Êı×é£¬ÄäÃûº¯Êı¡£</li>
 </ul>
 
-<p>æ­¤æ–¹æ³•ä¸swoole_server->handleråŠŸèƒ½ç›¸åŒï¼Œä½œç”¨æ˜¯ä¸swoole_clienté£æ ¼ä¿æŒä¸€è‡´ã€‚<br />
-swoole_server->onä¸­äº‹ä»¶åç§°å­—ç¬¦ä¸²ä¸è¦åŠ onã€‚</p>
+<p>´Ë·½·¨Óëswoole_server->handler¹¦ÄÜÏàÍ¬£¬×÷ÓÃÊÇÓëswoole_client·ç¸ñ±£³ÖÒ»ÖÂ¡£<br />
+swoole_server->onÖĞÊÂ¼şÃû³Æ×Ö·û´®²»Òª¼Óon¡£</p>
 
 <pre><code class="php" data-language="php">$serv = new swoole_server("127.0.0.1", 9501);
 $serv-&gt;on('connect', function ($serv, $fd){
@@ -43,29 +43,10 @@ $serv-&gt;on('close', function ($serv, $fd) {
 $serv-&gt;start();
 </code></pre>
 
-<p>è¿™é‡Œçš„<strong>$serv->on('receive', $function);</strong>ç­‰åŒäº<strong>swoole_server_handler($serv, 'onReceive', $function);</strong></p>
+<p>ÕâÀïµÄ<strong>$serv->on('receive', $function);</strong>µÈÍ¬ÓÚ<strong>swoole_server_handler($serv, 'onReceive', $function);</strong></p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

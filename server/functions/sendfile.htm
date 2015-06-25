@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->sendfile</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,46 +14,27 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>swoole_server->sendfile</h1>
-                        <p>发送文件到TCP客户端连接。使用示例：</p>
+                        <p>�����ļ���TCP�ͻ������ӡ�ʹ��ʾ����</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;sendfile(int $fd, string $filename);
 $serv-&gt;sendfile($fd, __DIR__.'/test.jpg');
 </code></pre>
 
-<p>sendfile函数调用OS提供的sendfile系统调用，由操作系统直接读取文件并写入socket。sendfile只有2次内存拷贝，使用此函数可以降低发送大量文件时操作系统的CPU和内存占用。</p>
+<p>sendfile��������OS�ṩ��sendfileϵͳ���ã��ɲ���ϵͳֱ�Ӷ�ȡ�ļ���д��socket��sendfileֻ��2���ڴ濽����ʹ�ô˺������Խ��ͷ��ʹ����ļ�ʱ����ϵͳ��CPU���ڴ�ռ�á�</p>
 
 <ul>
-<li>$filename 要发送的文件路径，如果文件不存在会返回false</li>
-<li>操作成功返回true，失败返回false</li>
+<li>$filename Ҫ���͵��ļ�·��������ļ������ڻ᷵��false</li>
+<li>�����ɹ�����true��ʧ�ܷ���false</li>
 </ul>
 
 <blockquote>
-  <p>此函数与swoole_server->send都是向客户端发送数据，不同的是sendfile的数据来自于指定的文件。</p>
+  <p>�˺�����swoole_server->send������ͻ��˷������ݣ���ͬ����sendfile������������ָ�����ļ���</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

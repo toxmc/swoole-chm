@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_server->sendto</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,58 +14,39 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>swoole_server->sendto</h1>
-                        <p>向任意的客户端IP:PORT发送UDP数据包。</p>
+                        <p>������Ŀͻ���IP:PORT����UDP���ݰ���</p>
 
-<p>函数原型：</p>
+<p>����ԭ�ͣ�</p>
 
 <pre><code class="php" data-language="php">bool swoole_server-&gt;sendto(string $ip, int $port, string $data, bool $ipv6 = false);
 </code></pre>
 
 <ul>
-<li>$ip为IPv4字符串，如192.168.1.102。如果IP不合法会返回错误</li>
-<li>$port为 1-65535的网络端口号，如果端口错误发送会失败</li>
-<li>$data要发送的数据内容，可以是文本或者二进制内容</li>
-<li>$ipv6 是否为IPv6地址，可选参数，默认为false</li>
+<li>$ipΪIPv4�ַ�������192.168.1.102�����IP���Ϸ��᷵�ش���</li>
+<li>$portΪ 1-65535������˿ںţ�����˿ڴ����ͻ�ʧ��</li>
+<li>$dataҪ���͵��������ݣ��������ı����߶���������</li>
+<li>$ipv6 �Ƿ�ΪIPv6��ַ����ѡ������Ĭ��Ϊfalse</li>
 </ul>
 
-<p>示例：</p>
+<p>ʾ����</p>
 
-<pre><code class="php" data-language="php">//向IP地址为220.181.57.216主机的9502端口发送一个hello world字符串。
+<pre><code class="php" data-language="php">//��IP��ַΪ220.181.57.216������9502�˿ڷ���һ��hello world�ַ�����
 $server-&gt;sendto('220.181.57.216', 9502, "hello world");
-//向IPv6服务器发送UDP数据包
+//��IPv6����������UDP���ݰ�
 $server-&gt;sendto('2600:3c00::f03c:91ff:fe73:e98f', 9501, "hello world", true);
 </code></pre>
 
 <blockquote>
-  <p>swoole_server->sendto 在1.7.10+版本可用<br />
-  server必须监听了UDP的端口，才可以使用swoole_server->sendto<br />
-  server必须监听了UDP6的端口，才可以使用swoole_server->sendto向IPv6地址发送数据<br />
-  IPv6参数在1.7.13以上版本可用</p>
+  <p>swoole_server->sendto ��1.7.10+�汾����<br />
+  server���������UDP�Ķ˿ڣ��ſ���ʹ��swoole_server->sendto<br />
+  server���������UDP6�Ķ˿ڣ��ſ���ʹ��swoole_server->sendto��IPv6��ַ��������<br />
+  IPv6������1.7.13���ϰ汾����</p>
 </blockquote>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

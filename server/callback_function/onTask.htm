@@ -2,7 +2,7 @@
 
 <head>
   <title>onTask</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,51 +14,32 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>onTask</h1>
-                        <p>åœ¨task_workerè¿›ç¨‹å†…è¢«è°ƒç”¨ã€‚workerè¿›ç¨‹å¯ä»¥ä½¿ç”¨swoole_server_taskå‡½æ•°å‘task_workerè¿›ç¨‹æŠ•é€’æ–°çš„ä»»åŠ¡ã€‚</p>
+                        <p>ÔÚtask_worker½ø³ÌÄÚ±»µ÷ÓÃ¡£worker½ø³Ì¿ÉÒÔÊ¹ÓÃswoole_server_taskº¯ÊıÏòtask_worker½ø³ÌÍ¶µİĞÂµÄÈÎÎñ¡£</p>
 
 <pre><code class="php" data-language="php">void onTask((swoole_server $serv, int $task_id, int $from_id, string $data));
 </code></pre>
 
 <ul>
-<li>$task_idæ˜¯ä»»åŠ¡IDï¼Œç”±swooleæ‰©å±•å†…è‡ªåŠ¨ç”Ÿæˆï¼Œç”¨äºåŒºåˆ†ä¸åŒçš„ä»»åŠ¡ã€‚<strong>$task_idå’Œ$from_idç»„åˆèµ·æ¥æ‰æ˜¯å…¨å±€å”¯ä¸€çš„ï¼Œä¸åŒçš„workerè¿›ç¨‹æŠ•é€’çš„ä»»åŠ¡IDå¯èƒ½ä¼šæœ‰ç›¸åŒ</strong></li>
-<li>$from_idæ¥è‡ªäºå“ªä¸ªworkerè¿›ç¨‹</li>
-<li>$data æ˜¯ä»»åŠ¡çš„å†…å®¹</li>
+<li>$task_idÊÇÈÎÎñID£¬ÓÉswooleÀ©Õ¹ÄÚ×Ô¶¯Éú³É£¬ÓÃÓÚÇø·Ö²»Í¬µÄÈÎÎñ¡£<strong>$task_idºÍ$from_id×éºÏÆğÀ´²ÅÊÇÈ«¾ÖÎ¨Ò»µÄ£¬²»Í¬µÄworker½ø³ÌÍ¶µİµÄÈÎÎñID¿ÉÄÜ»áÓĞÏàÍ¬</strong></li>
+<li>$from_idÀ´×ÔÓÚÄÄ¸öworker½ø³Ì</li>
+<li>$data ÊÇÈÎÎñµÄÄÚÈİ</li>
 </ul>
 
 <blockquote>
-  <p>1.7.2ä»¥å‰çš„ç‰ˆæœ¬ï¼Œ<strong>$dataçš„é•¿åº¦æœ€å¤§ä¸å¾—è¶…è¿‡8Kï¼Œæ­¤å‚æ•°å—SW_BUFFER_SIZEå®æ§åˆ¶</strong><br />
-  1.7.2ä»¥ä¸Šçš„ç‰ˆæœ¬ï¼Œ$dataçš„é•¿åº¦ä¸å—é™åˆ¶ï¼Œå¦‚æœè¶…è¿‡SW_BUFFER_SIZEï¼Œå°†è‡ªåŠ¨å†™å…¥ä¸´æ—¶æ–‡ä»¶</p>
+  <p>1.7.2ÒÔÇ°µÄ°æ±¾£¬<strong>$dataµÄ³¤¶È×î´ó²»µÃ³¬¹ı8K£¬´Ë²ÎÊıÊÜSW_BUFFER_SIZEºê¿ØÖÆ</strong><br />
+  1.7.2ÒÔÉÏµÄ°æ±¾£¬$dataµÄ³¤¶È²»ÊÜÏŞÖÆ£¬Èç¹û³¬¹ıSW_BUFFER_SIZE£¬½«×Ô¶¯Ğ´ÈëÁÙÊ±ÎÄ¼ş</p>
 </blockquote>
 
-<h2>è¿”å›æ‰§è¡Œç»“æœåˆ°workerè¿›ç¨‹</h2>
+<h2>·µ»ØÖ´ĞĞ½á¹ûµ½worker½ø³Ì</h2>
 
-<p>1.7.2ä»¥ä¸Šçš„ç‰ˆæœ¬ï¼Œåœ¨onTaskå‡½æ•°ä¸­ returnå­—ç¬¦ä¸²ï¼Œè¡¨ç¤ºå°†æ­¤å†…å®¹è¿”å›ç»™workerè¿›ç¨‹ã€‚workerè¿›ç¨‹ä¸­ä¼šè§¦å‘onFinishå‡½æ•°ï¼Œè¡¨ç¤ºæŠ•é€’çš„taskå·²å®Œæˆã€‚</p>
+<p>1.7.2ÒÔÉÏµÄ°æ±¾£¬ÔÚonTaskº¯ÊıÖĞ return×Ö·û´®£¬±íÊ¾½«´ËÄÚÈİ·µ»Ø¸øworker½ø³Ì¡£worker½ø³ÌÖĞ»á´¥·¢onFinishº¯Êı£¬±íÊ¾Í¶µİµÄtaskÒÑÍê³É¡£</p>
 
-<p>1.7.2ä»¥å‰çš„ç‰ˆæœ¬ï¼Œéœ€è¦è°ƒç”¨swoole_server->finish()å‡½æ•°å°†ç»“æœè¿”å›ç»™workerè¿›ç¨‹</p>
+<p>1.7.2ÒÔÇ°µÄ°æ±¾£¬ĞèÒªµ÷ÓÃswoole_server->finish()º¯Êı½«½á¹û·µ»Ø¸øworker½ø³Ì</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

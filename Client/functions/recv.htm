@@ -2,7 +2,7 @@
 
 <head>
   <title>swoole_client->recv</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,50 +14,32 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+       <article class="markdown-body entry-content" >
                         <h1>swoole_client->recv</h1>
-                        <p>recv方法用于从服务器端接收数据。接受2个参数。函数原型为：</p>
+                        <p>recv�������ڴӷ������˽������ݡ�����2������������ԭ��Ϊ��</p>
 
 <pre><code class="php" data-language="php">string $swoole_client-&gt;recv(int $size = 65535, bool $waitall = 0);
 </code></pre>
 
 <ul>
-<li>$size：接收数据的最大长度  </li>
-<li>$waitall: 是否等待所有数据到达后返回</li>
+<li>$size���������ݵ���󳤶�  </li>
+<li>$waitall: �Ƿ�ȴ��������ݵ���󷵻�</li>
 </ul>
 
 <blockquote>
-  <p>如果设定了$waitall就必须设定准确的$size，否则会一直等待，直到接收的数据长度达到$size<br />
-  如果设置了错误的$size，会导致recv超时，返回 <strong>false</strong></p>
+  <p>����趨��$waitall�ͱ����趨׼ȷ��$size�������һֱ�ȴ���ֱ�����յ����ݳ��ȴﵽ$size<br />
+  ��������˴����$size���ᵼ��recv��ʱ������ <strong>false</strong></p>
 </blockquote>
 
 <ul>
-<li>成功收到数据返回字符串</li>
-<li>连接关闭返回空字符串</li>
-<li>失败返回 <strong>false</strong>，并设置$swoole_client->errCode属性</li>
+<li>�ɹ��յ����ݷ����ַ���</li>
+<li>���ӹرշ��ؿ��ַ���</li>
+<li>ʧ�ܷ��� <strong>false</strong>��������$swoole_client->errCode����</li>
 </ul>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
 
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

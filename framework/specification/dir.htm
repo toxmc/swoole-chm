@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>swoole框架-目录规范</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>swoole���-Ŀ¼�淶</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,61 +14,42 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>目录规范</h1>
-                        <p>假设根目录为$ROOT。</p>
+        <article class="markdown-body entry-content" >
+                        <h1>Ŀ¼�淶</h1>
+                        <p>�����Ŀ¼Ϊ$ROOT��</p>
 
 <h2>$ROOT/apps</h2>
 
-<p>应用程序代码，此目录中的代码是公用的，包括类，配置，模板，控制器，Model等。此目录不得放置静态文件，如js, css, jpg, html等，必须全部为.php文件。此目录不允许http直接访问。</p>
+<p>Ӧ�ó�����룬��Ŀ¼�еĴ����ǹ��õģ������࣬���ã�ģ�壬��������Model�ȡ���Ŀ¼���÷��þ�̬�ļ�����js, css, jpg, html�ȣ�����ȫ��Ϊ.php�ļ�����Ŀ¼������httpֱ�ӷ��ʡ�</p>
 
 <ul>
-<li><strong><em>$ROOT/apps/controllers</em></strong>  Web应用的控制器类代码</li>
-<li><strong><em>$ROOT/apps/models</em></strong> 数据模型封装类代码</li>
-<li><strong><em>$ROOT/apps/configs</em></strong> 配置文件，通过$php->config['db']['master'] 这样来访问</li>
-<li><strong><em>$ROOT/apps/classes</em></strong> 类库，这里存放所有用户定义的类，必须符合psr-0规范，文件名必须为 {类名}.php，顶层命名空间必须为App。</li>
-<li><strong><em>$ROOT/apps/templates</em></strong> 模板文件目录</li>
+<li><strong><em>$ROOT/apps/controllers</em></strong>  WebӦ�õĿ����������</li>
+<li><strong><em>$ROOT/apps/models</em></strong> ����ģ�ͷ�װ�����</li>
+<li><strong><em>$ROOT/apps/configs</em></strong> �����ļ���ͨ��$php->config['db']['master'] ����������</li>
+<li><strong><em>$ROOT/apps/classes</em></strong> ��⣬�����������û�������࣬�������psr-0�淶���ļ�������Ϊ {����}.php�����������ռ����ΪApp��</li>
+<li><strong><em>$ROOT/apps/templates</em></strong> ģ���ļ�Ŀ¼</li>
 </ul>
 
 <blockquote>
-  <p>命名空间：如 new App\Hello\Test 类，会映射到 $ROOT/apps/classes/Hello/Test.php<br />
-  配置文件：如 $php->config['db']['master'] 或 Swoole::getInstance()->config['db']['master'] 会映射到$ROOT/apps/configs/db.php文件，db.php中必须返回数组，key为master。<br />
-  数据模型：model('UserInfo')或者$php->model->UserInfo 会映射到$ROOT/apps/models/UserInfo.php</p>
+  <p>�����ռ䣺�� new App\Hello\Test �࣬��ӳ�䵽 $ROOT/apps/classes/Hello/Test.php<br />
+  �����ļ����� $php->config['db']['master'] �� Swoole::getInstance()->config['db']['master'] ��ӳ�䵽$ROOT/apps/configs/db.php�ļ���db.php�б��뷵�����飬keyΪmaster��<br />
+  ����ģ�ͣ�model('UserInfo')����$php->model->UserInfo ��ӳ�䵽$ROOT/apps/models/UserInfo.php</p>
 </blockquote>
 
 <h2>$ROOT/static</h2>
 
-<p>静态文件目录，比如js, css, jpg, html等。此目录允许http直接访问。</p>
+<p>��̬�ļ�Ŀ¼������js, css, jpg, html�ȡ���Ŀ¼����httpֱ�ӷ��ʡ�</p>
 
 <h2>$ROOT/index.php</h2>
 
-<p>web网站单一入口文件，可直接放到根目录，或者单独建立目录存放，如$ROOT/webroot/index.php</p>
+<p>web��վ��һ����ļ�����ֱ�ӷŵ���Ŀ¼�����ߵ�������Ŀ¼��ţ���$ROOT/webroot/index.php</p>
 
 <h2>$ROOT/server.php</h2>
 
-<p>服务器程序启动入口。</p>
+<p>����������������ڡ�</p>
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swoole扩展" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swoole流程</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

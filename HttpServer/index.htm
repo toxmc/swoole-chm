@@ -2,7 +2,7 @@
 
 <head>
   <title>Swoole-HttpServer</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
@@ -14,9 +14,9 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
+        <article class="markdown-body entry-content" >
                         <h1>HttpServer</h1>
-                        <p>swoole-1.7.7å¢åŠ äº†å†…ç½®HttpæœåŠ¡å™¨çš„æ”¯æŒï¼Œé€šè¿‡å‡ è¡Œä»£ç å³å¯å†™å‡ºä¸€ä¸ªå¼‚æ­¥éé˜»å¡å¤šè¿›ç¨‹çš„HttpæœåŠ¡å™¨ã€‚</p>
+                        <p>swoole-1.7.7Ôö¼ÓÁËÄÚÖÃHttp·şÎñÆ÷µÄÖ§³Ö£¬Í¨¹ı¼¸ĞĞ´úÂë¼´¿ÉĞ´³öÒ»¸öÒì²½·Ç×èÈû¶à½ø³ÌµÄHttp·şÎñÆ÷¡£</p>
 
 <pre><code class="php" data-language="php">$http = new swoole_http_server("127.0.0.1", 9501);
 $http-&gt;on('request', function ($request, $response) {
@@ -26,15 +26,15 @@ $http-&gt;start();
 </code></pre>
 
 <blockquote>
-  <p>swoole_http_serverå¯¹Httpåè®®çš„æ”¯æŒå¹¶ä¸å®Œæ•´ï¼Œå»ºè®®ä»…ä½œä¸ºåº”ç”¨æœåŠ¡å™¨ã€‚å¹¶ä¸”åœ¨å‰ç«¯å¢åŠ Nginxä½œä¸ºä»£ç†</p>
+  <p>swoole_http_server¶ÔHttpĞ­ÒéµÄÖ§³Ö²¢²»ÍêÕû£¬½¨Òé½ö×÷ÎªÓ¦ÓÃ·şÎñÆ÷¡£²¢ÇÒÔÚÇ°¶ËÔö¼ÓNginx×÷Îª´úÀí</p>
 </blockquote>
 
-<p>é€šè¿‡ä½¿ç”¨apache benchå·¥å…·è¿›è¡Œå‹åŠ›æµ‹è¯•ï¼Œåœ¨Inter Core-I5 4æ ¸ + 8Gå†…å­˜çš„æ™®é€šPCæœºå™¨ä¸Šï¼Œswoole_http_serverå¯ä»¥è¾¾åˆ°è¿‘11ä¸‡QPSã€‚è¿œè¿œè¶…è¿‡php-fpmï¼Œgolangè‡ªå¸¦httpæœåŠ¡å™¨ï¼Œnode.jsè‡ªå¸¦httpæœåŠ¡å™¨ã€‚æ€§èƒ½å‡ ä¹æ¥è¿‘ä¸Nginxçš„é™æ€æ–‡ä»¶å¤„ç†ã€‚</p>
+<p>Í¨¹ıÊ¹ÓÃapache bench¹¤¾ß½øĞĞÑ¹Á¦²âÊÔ£¬ÔÚInter Core-I5 4ºË + 8GÄÚ´æµÄÆÕÍ¨PC»úÆ÷ÉÏ£¬swoole_http_server¿ÉÒÔ´ïµ½½ü11ÍòQPS¡£Ô¶Ô¶³¬¹ıphp-fpm£¬golang×Ô´øhttp·şÎñÆ÷£¬node.js×Ô´øhttp·şÎñÆ÷¡£ĞÔÄÜ¼¸ºõ½Ó½üÓëNginxµÄ¾²Ì¬ÎÄ¼ş´¦Àí¡£</p>
 
 <pre><code class="shell" data-language="shell">ab -c 200 -n 200000 -k http://127.0.0.1:9501
 </code></pre>
 
-<h2>nginx+swooleé…ç½®</h2>
+<h2>nginx+swooleÅäÖÃ</h2>
 
 <pre><code data-language="">server {
     root /data/wwwroot/;
@@ -52,25 +52,6 @@ $http-&gt;start();
 
         </article>
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

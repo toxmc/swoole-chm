@@ -62,6 +62,10 @@
           <param name="Local" value="rumen\version\1-7-17.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="版本更新记录 - 1.7.18">
+          <param name="Local" value="rumen\version\1-7-18.htm">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
           <param name="Name" value="开发者列表">
           <param name="Local" value="rumen\developers.htm">
         </OBJECT>
@@ -1078,7 +1082,7 @@
           <param name="Local" value="advanced\index.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Achieve">
+          <param name="Name" value="Swoole的实现">
           <param name="Local" value="advanced\achieve.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1094,11 +1098,11 @@
           <param name="Local" value="advanced\Worker.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Relationship">
+          <param name="Name" value="Reactor、Worker、Task的关系">
           <param name="Local" value="advanced\relationship.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Task_Finish">
+          <param name="Name" value="Task/Finish特性的用途">
           <param name="Local" value="advanced\Task_Finish.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1122,7 +1126,7 @@
           <param name="Local" value="advanced\100_available.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Mysql_connection_pool">
+          <param name="Name" value="MySQL的连接池、异步、断线重连">
           <param name="Local" value="advanced\mysql_connection_pool.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1222,15 +1226,15 @@
           <param name="Local" value="framework\index.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Index">
+          <param name="Name" value="swoole框架-开发指南">
           <param name="Local" value="framework\development_guide\index.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Install-swoole">
+          <param name="Name" value="swoole框架-安装Swoole框架和扩展">
           <param name="Local" value="framework\development_guide\install-swoole.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Index">
+          <param name="Name" value="swoole框架-数据库Model类">
           <param name="Local" value="framework\development_guide\model\index.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1242,7 +1246,7 @@
           <param name="Local" value="framework\development_guide\model\set.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="swoole框架-model->del">
+          <param name="Name" value="swoole妗嗘灦-model->del">
           <param name="Local" value="framework\development_guide\model\del.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1258,19 +1262,19 @@
           <param name="Local" value="framework\development_guide\model\sets.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="swoole框架-model->dels">
+          <param name="Name" value="swoole妗嗘灦-model->dels">
           <param name="Local" value="framework\development_guide\model\dels.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="swoole框架-model->all">
+          <param name="Name" value="swoole妗嗘灦-model->all">
           <param name="Local" value="framework\development_guide\model\all.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="swoole框架-model->count">
+          <param name="Name" value="swoole妗嗘灦-model->count">
           <param name="Local" value="framework\development_guide\model\count.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="swoole框架-model->exists">
+          <param name="Name" value="swoole妗嗘灦-model->exists">
           <param name="Local" value="framework\development_guide\model\exists.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1286,15 +1290,15 @@
           <param name="Local" value="framework\development_guide\orm.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Index">
+          <param name="Name" value="swoole框架-Socket网络开发">
           <param name="Local" value="framework\development_guide\socket\index.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Tcp-server">
+          <param name="Name" value="swoole框架-TCP服务器">
           <param name="Local" value="framework\development_guide\socket\tcp-server.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Web-server">
+          <param name="Name" value="swoole框架-Web服务器">
           <param name="Local" value="framework\development_guide\socket\web-server.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1302,11 +1306,11 @@
           <param name="Local" value="framework\development_guide\socket\websocket.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Nginx_swoole">
+          <param name="Name" value="swoole框架-Nginx+Swoole服务器配置">
           <param name="Local" value="framework\development_guide\socket\nginx_swoole.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Apache+swoole">
+          <param name="Name" value="swoole框架-Apache+Swoole服务器配置">
           <param name="Local" value="framework\development_guide\socket\apache+swoole.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
@@ -1342,7 +1346,7 @@
           <param name="Local" value="framework\specification\dir.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Router">
+          <param name="Name" value="swoole框架-自定义路由">
           <param name="Local" value="framework\specification\router.htm">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">

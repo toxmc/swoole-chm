@@ -1,8 +1,8 @@
 <html>
 
 <head>
-  <title>1.7.4 SSLéš§é“åŠ å¯†TCP-Server</title>
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+  <title>1.7.4 SSLËíµÀ¼ÓÃÜTCP-Server</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,15 +14,15 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" itemprop="mainContentOfPage">
-                        <h1>1.7.4 SSLéš§é“åŠ å¯†TCP-Server</h1>
-                        <p>1.7.4åswooleå¢åŠ äº†å¯¹SSLéš§é“åŠ å¯†çš„æ”¯æŒï¼Œåœ¨swoole_serverä¸­å¯ä»¥å¯ç”¨SSLè¯ä¹¦åŠ å¯†ã€‚ä½¿ç”¨ä»…éœ€å¢åŠ $serv->setçš„é…ç½®å³å¯ï¼Œå¹¶å°†listenerç«¯å£çš„ç±»å‹ï¼Œå¢åŠ SWOOLE_SSLæ ‡å¿—ã€‚</p>
+        <article class="markdown-body entry-content" >
+                        <h1>1.7.4 SSLËíµÀ¼ÓÃÜTCP-Server</h1>
+                        <p>1.7.4ºóswooleÔö¼ÓÁË¶ÔSSLËíµÀ¼ÓÃÜµÄÖ§³Ö£¬ÔÚswoole_serverÖĞ¿ÉÒÔÆôÓÃSSLÖ¤Êé¼ÓÃÜ¡£Ê¹ÓÃ½öĞèÔö¼Ó$serv->setµÄÅäÖÃ¼´¿É£¬²¢½«listener¶Ë¿ÚµÄÀàĞÍ£¬Ôö¼ÓSWOOLE_SSL±êÖ¾¡£</p>
 
 <pre><code class="php" data-language="php">$serv = new swoole_server("0.0.0.0", 443, SWOOLE_PROCESS, SWOOLE_SOCK_TCP | SWOOLE_SSL);
 $key_dir = dirname(dirname(__DIR__)).'/tests/ssl';
 
- // SWOOLE_SOCK_TCPè¡¨ç¤ºæ­¤ç«¯å£ä¸åŠ å¯†
-//  SWOOLE_SOCK_TCP | SWOOLE_SSL è¡¨ç¤ºæ­¤ç«¯å£å¯ç”¨åŠ å¯†
+ // SWOOLE_SOCK_TCP±íÊ¾´Ë¶Ë¿Ú²»¼ÓÃÜ
+//  SWOOLE_SOCK_TCP | SWOOLE_SSL ±íÊ¾´Ë¶Ë¿ÚÆôÓÃ¼ÓÃÜ
 
 $serv-&gt;addlistener('0.0.0.0', 80, SWOOLE_SOCK_TCP);
 
@@ -33,30 +33,11 @@ $serv-&gt;set(array(
 ));
 </code></pre>
 
-<p>é…ç½®è¯ä¹¦åå³å¯å¯ç”¨SSLéš§é“åŠ å¯†ï¼ŒonReceive/$serv->sendå‡½æ•°ä¸­è¿˜æ˜¯ç»§ç»­å¡«å†™æ˜æ–‡ï¼ŒåŠ å¯†å·¥ä½œç”±åº•å±‚å®Œæˆã€‚åº”ç”¨å±‚æ— éœ€è€ƒè™‘ã€‚</p>
+<p>ÅäÖÃÖ¤Êéºó¼´¿ÉÆôÓÃSSLËíµÀ¼ÓÃÜ£¬onReceive/$serv->sendº¯ÊıÖĞ»¹ÊÇ¼ÌĞøÌîĞ´Ã÷ÎÄ£¬¼ÓÃÜ¹¤×÷ÓÉµ×²ãÍê³É¡£Ó¦ÓÃ²ãÎŞĞè¿¼ÂÇ¡£</p>
 
         </article>
 
 <hr>
-<div id="ds-thread" class="ds-thread" data-url="http://wiki.swoole.com/wiki/page/106.html" data-title="Swooleæ‰©å±•" data-thread-key="wiki-106">
-<script type="text/javascript">
-</div>
-</div>
-
-
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-    <tr>
-      <td class="moHeader">&nbsp;Swooleæµç¨‹</td>
-    </tr>
-  </table>
-  
-  <p></p>
-
-<div class=Section1 style='layout-grid:15.6pt'>
-
-
-<p class=MsoNormal><span lang=EN-US><img width=572 height=468
-src="temp.files/image001.jpg"></span></p>
 
 </div>
 

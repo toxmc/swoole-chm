@@ -16,35 +16,35 @@
 <div class="wiki_content blob instapaper_body">
       <article class="markdown-body entry-content" >
                         <h1>onMessage</h1>
-                        <p>µ±·þÎñÆ÷ÊÕµ½À´×Ô¿Í»§¶ËµÄÊý¾ÝÖ¡Ê±»á»Øµ÷´Ëº¯Êý¡£</p>
+                        <p>å½“æœåŠ¡å™¨æ”¶åˆ°æ¥è‡ªå®¢æˆ·ç«¯çš„æ•°æ®å¸§æ—¶ä¼šå›žè°ƒæ­¤å‡½æ•°ã€‚</p>
 
-<pre><code class="php" data-language="php">function onMessage($server, int $fd, swoole_websocket_frame $frame)
+<pre><code class="php" data-language="php">function onMessage(swoole_server $server, swoole_websocket_frame $frame)
 </code></pre>
 
 <ul>
-<li>$frame ÊÇswoole_websocket_frame¶ÔÏó£¬°üº¬ÁË¿Í»§¶Ë·¢À´µÄÊý¾ÝÖ¡ÐÅÏ¢</li>
+<li>$frame æ˜¯swoole_websocket_frameå¯¹è±¡ï¼ŒåŒ…å«äº†å®¢æˆ·ç«¯å‘æ¥çš„æ•°æ®å¸§ä¿¡æ¯</li>
 </ul>
 
 <h2>swoole_websocket_frame</h2>
 
-<p>¹²ÓÐ4¸öÊôÐÔ£¬·Ö±ðÊÇ</p>
+<p>å…±æœ‰4ä¸ªå±žæ€§ï¼Œåˆ†åˆ«æ˜¯</p>
 
 <ul>
-<li>$frame->fd£¬¿Í»§¶ËµÄsocket id£¬Ê¹ÓÃ$server->pushÍÆËÍÊý¾ÝÊ±ÐèÒªÓÃµ½</li>
-<li>$frame->data£¬Êý¾ÝÄÚÈÝ£¬¿ÉÒÔÊÇÎÄ±¾ÄÚÈÝÒ²¿ÉÒÔÊÇ¶þ½øÖÆÊý¾Ý£¬¿ÉÒÔÍ¨¹ýopcodeµÄÖµÀ´ÅÐ¶Ï</li>
-<li>$frame->opcode£¬WebSocketµÄOpCodeÀàÐÍ£¬¿ÉÒÔ²Î¿¼WebSocketÐ­Òé±ê×¼ÎÄµµ  </li>
-<li>$frame->finish£¬ ±íÊ¾Êý¾ÝÖ¡ÊÇ·ñÍêÕû£¬Ò»¸öWebSocketÇëÇó¿ÉÄÜ»á·Ö³É¶à¸öÊý¾ÝÖ¡½øÐÐ·¢ËÍ  </li>
+<li>$frame->fdï¼Œå®¢æˆ·ç«¯çš„socket idï¼Œä½¿ç”¨$server->pushæŽ¨é€æ•°æ®æ—¶éœ€è¦ç”¨åˆ°</li>
+<li>$frame->dataï¼Œæ•°æ®å†…å®¹ï¼Œå¯ä»¥æ˜¯æ–‡æœ¬å†…å®¹ä¹Ÿå¯ä»¥æ˜¯äºŒè¿›åˆ¶æ•°æ®ï¼Œå¯ä»¥é€šè¿‡opcodeçš„å€¼æ¥åˆ¤æ–­</li>
+<li>$frame->opcodeï¼ŒWebSocketçš„OpCodeç±»åž‹ï¼Œå¯ä»¥å‚è€ƒWebSocketåè®®æ ‡å‡†æ–‡æ¡£  </li>
+<li>$frame->finishï¼Œ è¡¨ç¤ºæ•°æ®å¸§æ˜¯å¦å®Œæ•´ï¼Œä¸€ä¸ªWebSocketè¯·æ±‚å¯èƒ½ä¼šåˆ†æˆå¤šä¸ªæ•°æ®å¸§è¿›è¡Œå‘é€  </li>
 </ul>
 
 <blockquote>
-  <p>$data Èç¹ûÊÇÎÄ±¾ÀàÐÍ£¬±àÂë¸ñÊ½±ØÈ»ÊÇUTF-8£¬ÕâÊÇWebSocketÐ­Òé¹æ¶¨µÄ</p>
+  <p>$data å¦‚æžœæ˜¯æ–‡æœ¬ç±»åž‹ï¼Œç¼–ç æ ¼å¼å¿…ç„¶æ˜¯UTF-8ï¼Œè¿™æ˜¯WebSocketåè®®è§„å®šçš„</p>
 </blockquote>
 
-<h2>OpCodeÓëÊý¾ÝÀàÐÍ</h2>
+<h2>OpCodeä¸Žæ•°æ®ç±»åž‹</h2>
 
 <ul>
-<li>OPCODE_TEXT_FRAME = 0x1 £¬ÎÄ±¾Êý¾Ý</li>
-<li>OPCODE_BINARY_FRAME = 0x2 £¬¶þ½øÖÆÊý¾Ý</li>
+<li>OPCODE_TEXT_FRAME = 0x1 ï¼Œæ–‡æœ¬æ•°æ®</li>
+<li>OPCODE_BINARY_FRAME = 0x2 ï¼ŒäºŒè¿›åˆ¶æ•°æ®</li>
 </ul>
 
         </article>

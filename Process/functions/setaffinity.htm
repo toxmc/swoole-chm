@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <title>swoole_process::setaffinity</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+      <article class="markdown-body entry-content" >
+                      <h1>swoole_process::setaffinity</h1>
+                        <p>设置CPU亲和性，可以将进程绑定到特定的CPU核上。</p>
+
+<pre><code class="php" data-language="php">function swoole_process::setaffinity(array $cpu_set);
+</code></pre>
+
+<ul>
+<li>接受一个数组参数表示绑定哪些CPU核，如array(0,2,3)表示绑定CPU0/CPU2/CPU3</li>
+<li>成功返回true，失败返回false</li>
+</ul>
+
+<blockquote>
+  <p>$cpu_set内的元素不能超过CPU核数<br />
+  CPU-ID不得超过（CPU核数 - 1）<br />
+  使用SWOOLE_CPU_NUM常量可以得到当前服务器的CPU核数<br />
+  setaffinity函数在1.7.18以上版本可用</p>
+</blockquote>
+
+<p>此函数的作用是让进程只在某几个CPU核上运行，让出某些CPU资源执行更重要的程序。</p>
+        </article>
+<hr>
+
+</div>
+
+</body>
+
+</html>

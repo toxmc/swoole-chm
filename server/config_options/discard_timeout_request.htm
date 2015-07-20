@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>swoole框架 - Redis</title>
+  <title>discard_timeout_request</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
@@ -15,21 +15,14 @@
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" >
-                        <h1>Redis</h1>
-                        <p>修改 apps/configs/redis.php ，加入配置。</p>
+                        <h1>discard_timeout_request</h1>
+                        <p>swoole在配置dispatch_mode=1或3后，系统无法保证onConnect/onReceive/onClose的顺序，因此可能会有一些请求数据在连接关闭后，才能到达Worker进程。</p>
 
-<pre><code class="php" data-language="php">$redis['master'] = array(
-    'host' =&gt; '172.19.104.157',
-    'port' =&gt; 6379, //默认为6379
-    //'database' =&gt; 16, //数据库ID，可选
-);
-</code></pre>
+<p>discard_timeout_request配置默认为true，表示如果worker进程收到了已关闭连接的数据请求，将自动丢弃。discard_timeout_request如果设置为false，表示无论连接是否关闭Worker进程都会处理数据请求。</p>
 
-<ul>
-<li>默认取master项作为redis配置，$this->redis->get，框架会读取$this->config['redis']['master']作为配置</li>
-<li>使用$this->redis('master2')->get 实现多实例访问，框架会读取$this->config['redis']['master2']作为配置</li>
-</ul>
-
+<blockquote>
+  <p>discard_timeout_request 在1.7.16以上可用</p>
+</blockquote>
         </article>
 <hr>
 

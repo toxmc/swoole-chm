@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>swoole框架 - Redis</title>
+  <title>enable_unsafe_event</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
@@ -15,20 +15,14 @@
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" >
-                        <h1>Redis</h1>
-                        <p>修改 apps/configs/redis.php ，加入配置。</p>
+                       <h1>enable_unsafe_event</h1>
+                        <p>swoole在配置dispatch_mode=1或3后，因为系统无法保证onConnect/onReceive/onClose的顺序，默认关闭了onConnect/onClose事件。</p>
 
-<pre><code class="php" data-language="php">$redis['master'] = array(
-    'host' =&gt; '172.19.104.157',
-    'port' =&gt; 6379, //默认为6379
-    //'database' =&gt; 16, //数据库ID，可选
-);
-</code></pre>
+<p>如果应用程序需要onConnect/onClose事件，并且能接受顺序问题可能带来的安全风险，可以通过设置 enable_unsafe_event = true，启用onConnect/onClose事件</p>
 
-<ul>
-<li>默认取master项作为redis配置，$this->redis->get，框架会读取$this->config['redis']['master']作为配置</li>
-<li>使用$this->redis('master2')->get 实现多实例访问，框架会读取$this->config['redis']['master2']作为配置</li>
-</ul>
+<blockquote>
+  <p>enable_unsafe_event配置在1.7.18以上版本可用</p>
+</blockquote>
 
         </article>
 <hr>

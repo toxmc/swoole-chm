@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>swoole框架 - Swoole\Database::insert</title>
+  <title>Atomic</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
@@ -14,20 +14,28 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
-                        <h1>Swoole\Database->insert</h1>
-                        <p>将一个数组插入到数据库表中。</p>
-
-<pre><code class="php" data-language="php">function Swoole\Database-&gt;insert(array $record, string $table_name);
-$db-&gt;insert(array('field1' =&gt; 12345, 'field2' =&gt; 'hello'), 'test');
-</code></pre>
+       <article class="markdown-body entry-content" >
+                        <h1>Atomic</h1>
+                        <p>swoole_atomic是swoole扩展提供的原子计数操作类，可以方便整数的无锁原子增减。</p>
 
 <ul>
-<li>$record是一个键值对应数组，键务必要一一对应数据库表的字段</li>
-<li>$table_name 指定数据库表名</li>
-<li>操作成功返回true，失败返回false</li>
+<li>swoole_atomic使用共享内存，可以在不同的进程之间操作计数</li>
+<li>swoole_atomic基于gcc提供的CPU原子指令，无需加锁</li>
 </ul>
 
+<blockquote>
+  <p>swoole_atomic在1.7.19以上版本可用</p>
+</blockquote>
+
+<h2>使用示例</h2>
+
+<pre><code class="php" data-language="php">$atomic = new swoole_atomic(123);
+echo $atomic->add(12)."\n";
+echo $atomic->sub(11)."\n";
+echo $atomic->cmpset(122, 999)."\n";
+echo $atomic->cmpset(124, 999)."\n";
+echo $atomic->get()."\n";
+</code></pre>
         </article>
 <hr>
 

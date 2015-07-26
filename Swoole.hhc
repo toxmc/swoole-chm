@@ -1050,6 +1050,32 @@
                       <param name="Local" value="Memory\Table\constants.htm">
                     </OBJECT>
                 </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Atomic">
+                  <param name="Local" value="Memory\Atomic\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_atomic::__construct">
+                      <param name="Local" value="Memory\Atomic\construct.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_atomic::add">
+                      <param name="Local" value="Memory\Atomic\add.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_atomic::sub">
+                      <param name="Local" value="Memory\Atomic\sub.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_atomic::get">
+                      <param name="Local" value="Memory\Atomic\get.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_atomic::cmpset">
+                      <param name="Local" value="Memory\Atomic\cmpset.htm">
+                    </OBJECT>
+                </UL>
             </UL>
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="HttpServer">
@@ -1146,6 +1172,10 @@
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="CURL发送POST请求服务器端超时">
                       <param name="Local" value="HttpServer\FAQs\1.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="使用Chrome访问服务器会产生2次请求">
+                      <param name="Local" value="HttpServer\FAQs\2.htm">
                     </OBJECT>
                 </UL>
             </UL>

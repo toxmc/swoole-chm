@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>swoole框架 - Swoole\Database::insert</title>
+  <title>使用Chrome访问服务器会产生2次请求</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
@@ -15,19 +15,8 @@
 
 <div class="wiki_content blob instapaper_body">
         <article class="markdown-body entry-content" >
-                        <h1>Swoole\Database->insert</h1>
-                        <p>将一个数组插入到数据库表中。</p>
-
-<pre><code class="php" data-language="php">function Swoole\Database-&gt;insert(array $record, string $table_name);
-$db-&gt;insert(array('field1' =&gt; 12345, 'field2' =&gt; 'hello'), 'test');
-</code></pre>
-
-<ul>
-<li>$record是一个键值对应数组，键务必要一一对应数据库表的字段</li>
-<li>$table_name 指定数据库表名</li>
-<li>操作成功返回true，失败返回false</li>
-</ul>
-
+                        <h1>使用Chrome访问服务器会产生2次请求</h1>
+                        <p>这是因为Chrome浏览器会自动请求一次favorite.ico，所以服务器会收到2个Request，通过打印$req->server['request_uri'] 能看到请求的URL路径。</p>
         </article>
 <hr>
 

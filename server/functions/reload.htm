@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>swoole_server->reload</title>
+  <title>swoole_server::reload</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
@@ -49,7 +49,14 @@ kill -USR2 主进程PID
   对于Server的配置即$serv->set()中传入的参数设置，必须关闭/重启整个Server才可以重新加载<br />
   Server可以监听一个内网端口，然后可以接收远程的控制命令，去重启所有worker</p>
 </blockquote>
+<h2>APC/OpCache</h2>
 
+<p>如果PHP开启了APC/OpCache，reload重载入时会受到影响，有2种解决方案</p>
+
+<ul>
+<li>打开APC/OpCache的stat检测，如果发现文件更新APC/OpCache会自动更新OpCode</li>
+<li>在onWorkerStart中执行apc_clear_cache或opcache_reset刷新OpCode缓存</li>
+</ul>
 <h2>参考</h2>
 
 <ul>

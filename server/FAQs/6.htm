@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <title>4种PHP回调函数风格</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+       <article class="markdown-body entry-content" >
+                        <h1>4种PHP回调函数风格</h1>
+                        <h2>匿名函数</h2>
+
+<pre><code class="php" data-language="php">$server-&gt;on('Request', function ($req, $resp) {
+    echo "hello world";
+});
+</code></pre>
+
+<h2>类静态方法</h2>
+
+<pre><code class="php" data-language="php">class A
+{
+    static function test($req, $resp)
+    {
+        echo "hello world";
+    }
+}
+$server-&gt;on('Request', 'A::Test');
+</code></pre>
+
+<h2>函数</h2>
+
+<pre><code class="php" data-language="php">function my_onRequest($req, $resp)
+{
+    echo "hello world";
+}
+$server-&gt;on('Request', 'my_onRequest');
+</code></pre>
+
+<h2>对象方法</h2>
+
+<pre><code class="php" data-language="php">class A
+{
+    function test($req, $resp)
+    {
+        echo "hello world";
+    }
+}
+
+$object = new A();
+$server-&gt;on('Request', array($object, 'test'));
+</code></pre>
+
+        </article>
+        </article>
+<hr>
+
+</div>
+
+</body>
+
+</html>

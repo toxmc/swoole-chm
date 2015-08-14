@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <title>enable_unsafe_event</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" >
+                       <h1>enable_unsafe_event</h1>
+                        <p>swoole在配置dispatch_mode=1或3后，因为系统无法保证onConnect/onReceive/onClose的顺序，默认关闭了onConnect/onClose事件。</p>
+
+<p>如果应用程序需要onConnect/onClose事件，并且能接受顺序问题可能带来的安全风险，可以通过设置 enable_unsafe_event = true，启用onConnect/onClose事件</p>
+
+<blockquote>
+  <p>enable_unsafe_event配置在1.7.18以上版本可用</p>
+</blockquote>
+
+        </article>
+<hr>
+
+</div>
+
+</body>
+
+</html>

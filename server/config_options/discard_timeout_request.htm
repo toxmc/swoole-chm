@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>discard_timeout_request</title>
+  <meta http-equiv=Content-Type content="text/html; charset=gbk">
+  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+
+<body style='text-justify-trim:punctuation'>
+
+<div class="wiki_content blob instapaper_body">
+        <article class="markdown-body entry-content" >
+                        <h1>discard_timeout_request</h1>
+                        <p>swoole在配置dispatch_mode=1或3后，系统无法保证onConnect/onReceive/onClose的顺序，因此可能会有一些请求数据在连接关闭后，才能到达Worker进程。</p>
+
+<p>discard_timeout_request配置默认为true，表示如果worker进程收到了已关闭连接的数据请求，将自动丢弃。discard_timeout_request如果设置为false，表示无论连接是否关闭Worker进程都会处理数据请求。</p>
+
+<blockquote>
+  <p>discard_timeout_request 在1.7.16以上可用</p>
+</blockquote>
+        </article>
+<hr>
+
+</div>
+
+</body>
+
+</html>

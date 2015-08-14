@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>onTask</h1>
                         <p>在task_worker进程内被调用。worker进程可以使用swoole_server_task函数向task_worker进程投递新的任务。</p>
 
-<pre><code class="php" data-language="php">void onTask((swoole_server $serv, int $task_id, int $from_id, string $data));
-</code></pre>
+<pre class="brush: php;">void onTask((swoole_server $serv, int $task_id, int $from_id, string $data));
+</pre>
 
 <ul>
 <li>$task_id是任务ID，由swoole扩展内自动生成，用于区分不同的任务。<strong>$task_id和$from_id组合起来才是全局唯一的，不同的worker进程投递的任务ID可能会有相同</strong></li>

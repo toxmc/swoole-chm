@@ -6,24 +6,24 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>HttpServer</h1>
                         <p>swoole-1.7.7增加了内置Http服务器的支持，通过几行代码即可写出一个异步非阻塞多进程的Http服务器。</p>
 
-<pre><code class="php" data-language="php">$http = new swoole_http_server("127.0.0.1", 9501);
+<pre class="brush: php;">$http = new swoole_http_server("127.0.0.1", 9501);
 $http-&gt;on('request', function ($request, $response) {
     $response-&gt;end("&lt;h1&gt;Hello Swoole. #".rand(1000, 9999)."&lt;/h1&gt;");
 });
 $http-&gt;start();
-</code></pre>
+</pre>
 
 <blockquote>
   <p>swoole_http_server对Http协议的支持并不完整，建议仅作为应用服务器。并且在前端增加Nginx作为代理</p>
@@ -31,12 +31,12 @@ $http-&gt;start();
 
 <p>通过使用apache bench工具进行压力测试，在Inter Core-I5 4核 + 8G内存的普通PC机器上，swoole_http_server可以达到近11万QPS。远远超过php-fpm，golang自带http服务器，node.js自带http服务器。性能几乎接近与Nginx的静态文件处理。</p>
 
-<pre><code class="shell" data-language="shell">ab -c 200 -n 200000 -k http://127.0.0.1:9501
-</code></pre>
+<pre class="brush: php;">ab -c 200 -n 200000 -k http://127.0.0.1:9501
+</pre>
 
 <h2>nginx+swoole配置</h2>
 
-<pre><code data-language="">server {
+<pre class="brush: php;">server {
     root /data/wwwroot/;
     server_name local.swoole.com;
 
@@ -48,7 +48,7 @@ $http-&gt;start();
         }
     }
 }
-</code></pre>
+</pre>
 
         </article>
 <hr>

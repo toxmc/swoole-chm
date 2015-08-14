@@ -6,30 +6,30 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
+<div class="wiki_content">
 
-   <article class="markdown-body entry-content" >
+   <article >
                         <h1>swoole_set_process_name</h1>
                         <p>用于设置进程的名称。修改进程名称后，通过ps命令看到的将不再是php your_file.php。而是设定的字符串。
 此函数接受一个字符串参数。
 此函数与PHP5.5提供的cli_set_process_title功能是相同的。但swoole_set_process_name可用于PHP5.2之上的任意版本。swoole_set_process_name兼容性比cli_set_process_title要差，如果存在cli_set_process_title函数则优先使用cli_set_process_title。</p>
 
-<pre><code class="php" data-language="php">void swoole_set_process_name(string $name);
-</code></pre>
+<pre class="brush: php;">void swoole_set_process_name(string $name);
+</pre>
 
 <p>示例代码：</p>
 
-<pre><code class="php" data-language="php">swoole_set_process_name("swoole server");
+<pre class="brush: php;">swoole_set_process_name("swoole server");
 var_dump($argv);
 sleep(1000);
-</code></pre>
+</pre>
 
 <blockquote>
   <p>swoole_set_process_name在1.6.3版本提供<br />

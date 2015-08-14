@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_process::__construct</h1>
                         <p>创建子进程</p>
 
-<pre><code class="php" data-language="php">int swoole_process::__construct(mixed $function, $redirect_stdin_stdout = false, $create_pipe = true);
-</code></pre>
+<pre class="brush: php;">int swoole_process::__construct(mixed $function, $redirect_stdin_stdout = false, $create_pipe = true);
+</pre>
 
 <ul>
 <li>$function，子进程创建成功后要执行的函数</li>
@@ -38,7 +38,7 @@
 
 <p>可以在swoole_process创建的子进程中swoole_server服务器程序，但为了安全必须在$process->start创建进程后，调用$worker->exec执行server的代码。</p>
 
-<pre><code class="php" data-language="php">&lt;?php
+<pre class="brush: php;">&lt;?php
 $process = new swoole_process('callback_function', true);
 $pid = $process-&gt;start();
 
@@ -48,7 +48,7 @@ function callback_function(swoole_process $worker)
 }
 
 swoole_process::wait();
-</code></pre>
+</pre>
 
         </article>
 <hr>

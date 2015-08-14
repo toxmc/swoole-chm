@@ -6,30 +6,30 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>swoole_server->handler</h1>
                         <p>设置Server的事件回调函数，原型：</p>
 
-<pre><code class="php" data-language="php">bool swoole_server-&gt;handler(string $event_name, mixed $event_callback_function);
+<pre class="brush: php;">bool swoole_server-&gt;handler(string $event_name, mixed $event_callback_function);
 bool swoole_server_handler(swoole_server $serv, string $event_name, mixed $event_callback_function);
-</code></pre>
+</pre>
 
 <p>示例：</p>
 
-<pre><code class="php" data-language="php">$serv-&gt;handler('onStart', 'my_onStart');
+<pre class="brush: php;">$serv-&gt;handler('onStart', 'my_onStart');
 function my_onStart($serv)
 {
     echo "Server：start\n";
 }
-</code></pre>
+</pre>
 
 <ul>
 <li>第一个参数是swoole的资源对象  </li>
@@ -38,10 +38,10 @@ function my_onStart($serv)
 <li>handler/on/set 方法只能在swoole_server::start前调用</li>
 </ul>
 
-<pre><code class="php" data-language="php">$serv-&gt;handler('onStart', 'my_onStart');
+<pre class="brush: php;">$serv-&gt;handler('onStart', 'my_onStart');
 $serv-&gt;handler('onStart', array($this, 'my_onStart'));
 $serv-&gt;handler('onStart', 'myClass::onStart');
-</code></pre>
+</pre>
 
 <p>设置成功后返回true。如果$event_name填写错误将返回false。</p>
 

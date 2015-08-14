@@ -6,33 +6,33 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>URL映射规则</h1>
                         <p>swoole框架使用强规则来做URL映射。如下面的URL</p>
 
-<pre><code data-language="">http://127.0.0.1/hello/index/
-</code></pre>
+<pre class="brush: php;">http://127.0.0.1/hello/index/
+</pre>
 
 <p>将会映射到 apps/controllers/Hello.php 中的 Hello::index 方法。</p>
 
 <h2>自定义URL</h2>
 
-<p>修改 <code>apps/configs/rewrite.php</code> ，增加正则配置。具体使用方法请看示例。</p>
+<p>修改 <code>apps/configs/rewrite.php ，增加正则配置。具体使用方法请看示例。</p>
 
-<pre><code class="php" data-language="php">$rewrite[] = array(
+<pre class="brush: php;">$rewrite[] = array(
     'regx' =&gt; '^/content/([a-z]+)\.html$',
     'mvc'  =&gt; array('controller' =&gt; 'content', 'view' =&gt; 'getlist'),
     'get'  =&gt; 'app',
 );
-</code></pre>
+</pre>
 
 <ul>
 <li>$regx需要传入一个正则表达式，符合该正则表达式就会进入此条URL路由</li>

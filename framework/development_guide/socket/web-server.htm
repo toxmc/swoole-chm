@@ -13,8 +13,8 @@
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>Web服务器</h1>
                         <p>Swoole框架提供的WebServer有3种使用方法</p>
 
@@ -24,7 +24,7 @@
 
 <p>server.php</p>
 
-<pre><code class="php" data-language="php">$AppSvr = new Swoole\Network\Protocol\HttpServer();
+<pre class="brush: php;">$AppSvr = new Swoole\Network\Protocol\HttpServer();
 $AppSvr-&gt;loadSetting("./swoole.ini"); //加载配置文件
 $AppSvr-&gt;setDocumentRoot(__DIR__.'/webdocs/'); //设置document_root
 
@@ -32,13 +32,13 @@ $server = new \Swoole\Network\Server('0.0.0.0', 9501);
 $server-&gt;setProtocol($AppSvr);
 //$server-&gt;daemonize(); //作为守护进程
 $server-&gt;run(array('worker_num' =&gt; 2, 'max_request' =&gt; 1000));
-</code></pre>
+</pre>
 
 <p>webdocs/index.php</p>
 
-<pre><code class="php" data-language="php">&lt;?php
+<pre class="brush: php;">&lt;?php
 echo "hello world";
-</code></pre>
+</pre>
 
 <p>在浏览器中打开<a href="http://localhost:9501/index.php">http://localhost:9501/index.php</a></p>
 
@@ -46,13 +46,13 @@ echo "hello world";
 
 <p>业务代码只需要继承此类，并自行实现onRequest方法即可。</p>
 
-<pre><code class="php" data-language="php">    /**
+<pre class="brush: php;">    /**
      * 处理请求
      * @param $request
      * @return Swoole\Response
      */
     function onRequest(Swoole\Request $request)
-</code></pre>
+</pre>
 
 <p>onRequest方法参数为解析好的Request对象</p>
 

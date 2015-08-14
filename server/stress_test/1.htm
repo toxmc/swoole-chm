@@ -6,43 +6,43 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>Nginx/Golang/Swoole/Node.js的性能对比</h1>
                         <p>通过ab工具分别压测nginx swoole node.js golang的http server，并观察结果。
 web server都是输出一行It work!
 硬件环境是一台8G/4核酷睿I5CPU的笔记本电脑，型号是Thinkpad T430.</p>
 
-<pre><code data-language="">Nginx   ab -c 100 -n 100000 http://localhost/index.html
+<pre class="brush: php;">Nginx   ab -c 100 -n 100000 http://localhost/index.html
 Swoole  ab -c 100 -n 100000 http://127.0.0.1:8848/
 Node.js ab -c 100 -n 100000 http://127.0.0.1:8080/
 Golang  ab -c 100 -n 100000 http://127.0.0.1:8080/
-</code></pre>
+</pre>
 
 <p>本次测试使用的软件版本如下：</p>
 
-<pre><code data-language="">nginx version: nginx/1.2.6 (Ubuntu)
+<pre class="brush: php;">nginx version: nginx/1.2.6 (Ubuntu)
 go version go1.1.1 linux/amd64
 swoole-1.5.4
 node.js-0.11.3-pre
-</code></pre>
+</pre>
 
 <p>代码在./code目录中。</p>
 
 <h2>QPS对比</h2>
 
-<pre><code data-language="">Nginx:      Requests per second:    23770.74 [#/sec] (mean)
+<pre class="brush: php;">Nginx:      Requests per second:    23770.74 [#/sec] (mean)
 Golang:     Requests per second:    21807.00 [#/sec] (mean)
 Swoole:     Requests per second:    19711.22 [#/sec] (mean)
 Node.js:    Requests per second:    6680.53 [#/sec] (mean)
-</code></pre>
+</pre>
 
 <h2>内存占用对比</h2>
 

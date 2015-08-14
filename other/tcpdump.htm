@@ -6,22 +6,22 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>附录：tcpdump抓包工具的使用</h1>
                         <p>在调试网络通信程序是tcpdump是必备工具。tcpdump很强大，可以看到网络通信的每个细节。如TCP，可以看到3次握手，PUSH/ACT数据推送，close4次挥手，全部细节。包括每一次网络收包的字节数，时间等。</p>
 
 <h2>最简单的一个使用示例：</h2>
 
-<pre><code class="shell" data-language="shell">sudo tcpdump -i any tcp port 9501
-</code></pre>
+<pre class="brush: php;">sudo tcpdump -i any tcp port 9501
+</pre>
 
 <ul>
 <li>-i 参数制定了网卡，any表示所有网卡</li>
@@ -36,7 +36,7 @@
 
 <p>运行结果</p>
 
-<pre><code data-language="">13:29:07.788802 IP localhost.42333 &gt; localhost.9501: Flags [S], seq 828582357, win 43690, options [mss 65495,sackOK,TS val 2207513 ecr 0,nop,wscale 7], length 0
+<pre class="brush: php;">13:29:07.788802 IP localhost.42333 &gt; localhost.9501: Flags [S], seq 828582357, win 43690, options [mss 65495,sackOK,TS val 2207513 ecr 0,nop,wscale 7], length 0
 13:29:07.788815 IP localhost.9501 &gt; localhost.42333: Flags [S.], seq 1242884615, ack 828582358, win 43690, options [mss 65495,sackOK,TS val 2207513 ecr 2207513,nop,wscale 7], length 0
 13:29:07.788830 IP localhost.42333 &gt; localhost.9501: Flags [.], ack 1, win 342, options [nop,nop,TS val 2207513 ecr 2207513], length 0
 13:29:10.298686 IP localhost.42333 &gt; localhost.9501: Flags [P.], seq 1:5, ack 1, win 342, options [nop,nop,TS val 2208141 ecr 2207513], length 4
@@ -46,7 +46,7 @@
 13:29:11.563361 IP localhost.42333 &gt; localhost.9501: Flags [F.], seq 5, ack 13, win 342, options [nop,nop,TS val 2208457 ecr 2208141], length 0
 13:29:11.563450 IP localhost.9501 &gt; localhost.42333: Flags [F.], seq 13, ack 6, win 342, options [nop,nop,TS val 2208457 ecr 2208457], length 0
 13:29:11.563473 IP localhost.42333 &gt; localhost.9501: Flags [.], ack 14, win 342, options [nop,nop,TS val 2208457 ecr 2208457], length 0
-</code></pre>
+</pre>
 
 <ul>
 <li>13:29:11.563473 时间带有精确到微妙</li>

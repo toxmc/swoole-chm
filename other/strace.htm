@@ -6,15 +6,15 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>附录：strace工具的使用</h1>
                         <p>strace可以跟踪系统调用的执行情况，在程序发生问题后，可以用strace分析和跟踪问题。
 使用方法：</p>
@@ -23,8 +23,8 @@
   <p>FreeBSD/MacOS下可以使用truss</p>
 </blockquote>
 
-<pre><code class="shell" data-language="shell">strace -o /tmp/strace.log -f -p $PID
-</code></pre>
+<pre class="brush: php;">strace -o /tmp/strace.log -f -p $PID
+</pre>
 
 <ul>
 <li>-f 表示跟踪多线程和多进程，如果不加-f参数，无法抓取到子进程和子线程的运行情况</li>

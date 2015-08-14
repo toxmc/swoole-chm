@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>onHandShake</h1>
                         <p>WebSocket建立连接后进行握手。WebSocket服务器已经内置了handshake，如果用户希望自己进行握手处理，可以设置onHandShake事件回调函数。</p>
 
-<pre><code class="php" data-language="php">function onHandShake(swoole_http_request $request, swoole_http_response $response);
-</code></pre>
+<pre class="brush: php;">function onHandShake(swoole_http_request $request, swoole_http_response $response);
+</pre>
 
 <blockquote>
   <p>设置onHandShake回调函数后不会再触发onOpen事件，需要应用代码自行处理</p>

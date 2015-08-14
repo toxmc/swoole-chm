@@ -6,15 +6,15 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>swoole_http_server->on</h1>
                         <p>注册事件回调函数，与swoole_server->on相同。swoole_http_server->on的不同之处是：</p>
 
@@ -25,10 +25,10 @@
 
 <h2>onRequest事件</h2>
 
-<pre><code class="php" data-language="php">$http_server-&gt;on('request', function(swoole_http_request $request, swoole_http_response $response) {
+<pre class="brush: php;">$http_server-&gt;on('request', function(swoole_http_request $request, swoole_http_response $response) {
      $response-&gt;end("&lt;h1&gt;hello swoole&lt;/h1&gt;");
 })
-</code></pre>
+</pre>
 
 <p>在收到一个完整的Http请求后，会回调此函数。回调函数共有2个参数：</p>
 

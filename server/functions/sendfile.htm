@@ -6,21 +6,21 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_server->sendfile</h1>
                         <p>发送文件到TCP客户端连接。使用示例：</p>
 
-<pre><code class="php" data-language="php">bool swoole_server-&gt;sendfile(int $fd, string $filename);
+<pre class="brush: php;">bool swoole_server-&gt;sendfile(int $fd, string $filename);
 $serv-&gt;sendfile($fd, __DIR__.'/test.jpg');
-</code></pre>
+</pre>
 
 <p>sendfile函数调用OS提供的sendfile系统调用，由操作系统直接读取文件并写入socket。sendfile只有2次内存拷贝，使用此函数可以降低发送大量文件时操作系统的CPU和内存占用。</p>
 

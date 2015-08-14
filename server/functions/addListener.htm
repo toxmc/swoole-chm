@@ -1,27 +1,34 @@
 <html>
 
 <head>
-  <title>swoole_server->addListener</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <title>swoole_server->addListener</title>
+    <meta http-equiv=Content-Type content="text/html; charset=gbk">
+    <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+    <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/default.css" type="text/css" /> 
+    <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>swoole_server->addListener</h1>
                         <p>Swoole提供了swoole_server::addListener来增加监听的端口。业务代码中可以通过调用swoole_server::connection_info来获取某个连接来自于哪个端口。</p>
 
 <p>函数原型：</p>
 
-<pre><code class="php" data-language="php">void swoole_server-&gt;addListener(string $host, int $port, $type = SWOOLE_SOCK_TCP);
-</code></pre>
+<pre class="brush: php;">void swoole_server-&gt;addListener(string $host, int $port, $type = SWOOLE_SOCK_TCP);
+</pre>
 
 <h2>swoole支持的Socket类型</h2>
 
@@ -43,11 +50,11 @@
 <p>您可以混合使用UDP/TCP，同时监听内网和外网端口。
 示例：</p>
 
-<pre><code class="php" data-language="php">$serv-&gt;addlistener("127.0.0.1", 9502, SWOOLE_SOCK_TCP);
+<pre class="brush: php;">$serv-&gt;addlistener("127.0.0.1", 9502, SWOOLE_SOCK_TCP);
 $serv-&gt;addlistener("192.168.1.100", 9503, SWOOLE_SOCK_TCP);
 $serv-&gt;addlistener("0.0.0.0", 9504, SWOOLE_SOCK_UDP);
 $serv-&gt;addlistener("/var/run/myserv.sock", 0, SWOOLE_UNIX_STREAM);
-</code></pre>
+</pre>
 
 <h2>IPv4与IPv6</h2>
 

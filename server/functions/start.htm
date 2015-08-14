@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_server->start</h1>
                         <p>启动server，监听所有TCP/UDP端口，函数原型：</p>
 
-<pre><code class="php" data-language="php">bool swoole_server-&gt;start()
-</code></pre>
+<pre class="brush: php;">bool swoole_server-&gt;start()
+</pre>
 
 <p>启动成功后会创建worker_num+2个进程。主进程+Manager进程+worker_num个Worker进程。</p>
 
@@ -47,8 +47,8 @@
 
 <p>如果想要在开机启动时，自动运行你的Server，可以在/etc/rc.local文件中加入</p>
 
-<pre><code data-language="">/usr/bin/php /data/webroot/www.swoole.com/server.php
-</code></pre>
+<pre class="brush: php;">/usr/bin/php /data/webroot/www.swoole.com/server.php
+</pre>
 
 <h2>常见的错误有：</h2>
 

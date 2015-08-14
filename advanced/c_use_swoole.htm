@@ -6,15 +6,15 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>C/C++开发者如何使用Swoole</h1>
                         <p>swoole使用cmake来做编译配置，示例程序在examples/server.c中。
 您可以在此基础上进行代码开发。
@@ -22,17 +22,17 @@
 
 <h2>Build &amp; Install</h2>
 
-<pre><code class="bash" data-language="bash">cmake .
+<pre class="brush: php;"><code class="bash" data-language="bash">cmake .
 make
 make install
-</code></pre>
+</pre>
 
 <h2>Example</h2>
 
 <p>示例代码：examples/server.c
 在C/C++代码中只需要引入swoole头即可。</p>
 
-<pre><code class="c" data-language="c">#include &lt;swoole/Server.h&gt;
+<pre class="brush: php;"><code class="c" data-language="c">#include &lt;swoole/Server.h&gt;
 #include &lt;swoole/Client.h&gt;
 
 int main() 
@@ -43,13 +43,13 @@ int main()
     ...
     swServer_start(&amp;serv);
 }
-</code></pre>
+</pre>
 
 <p>编译运行</p>
 
-<pre><code data-language="">gcc -o server server.c -lswoole
+<pre class="brush: php;">gcc -o server server.c -lswoole
 ./server
-</code></pre>
+</pre>
 
         </article>
 <hr>

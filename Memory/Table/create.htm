@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>swoole_table->create</h1>
                         <p>创建内存表。</p>
 
-<pre><code class="php" data-language="php">swoole_table-&gt;create()
-</code></pre>
+<pre class="brush: php;">swoole_table-&gt;create()
+</pre>
 
 <ul>
 <li>创建好表的结构后，执行create后创建表</li>
@@ -30,7 +30,7 @@
   swoole_server中使用swoole_table，swoole_table->create()  必须在swoole_server->start()前执行</p>
 </blockquote>
 
-<pre><code class="php" data-language="php">$table = new swoole_table(1024);
+<pre class="brush: php;">$table = new swoole_table(1024);
 $table-&gt;column('id', swoole_table::TYPE_INT, 4);       //1,2,4,8
 $table-&gt;column('name', swoole_table::TYPE_STRING, 64);
 $table-&gt;column('num', swoole_table::TYPE_FLOAT);
@@ -41,7 +41,7 @@ $worker-&gt;start();
 
 //$serv = new swoole_server('127.0.0.1', 9501);
 //$serv-&gt;start();
-</code></pre>
+</pre>
 
         </article>
 <hr>

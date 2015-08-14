@@ -6,21 +6,21 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>swoole_server->addtimer</h1>
                         <p>设置定时器。1.6.12版本前此函数不能用在消息队列模式下，1.6.12后消息队列IPC模式也可以使用定时器。</p>
 
-<pre><code class="php" data-language="php">bool swoole_server-&gt;addtimer(int $interval);
+<pre class="brush: php;">bool swoole_server-&gt;addtimer(int $interval);
 bool swoole_server_addtimer(swoole_server $serv, int $interval);
-</code></pre>
+</pre>
 
 <p>第二个参数是定时器的间隔时间，单位为毫秒。swoole定时器的最小颗粒是1毫秒。支持多个定时器。此函数可以用于worker进程中。</p>
 
@@ -40,17 +40,17 @@ bool swoole_server_addtimer(swoole_server $serv, int $interval);
 
 <p>面向对象风格：</p>
 
-<pre><code class="php" data-language="php">$serv-&gt;addtimer(1000); //1s
+<pre class="brush: php;">$serv-&gt;addtimer(1000); //1s
 $serv-&gt;addtimer(20); //20ms
-</code></pre>
+</pre>
 
-<pre><code class="php" data-language="php">$serv-&gt;on('Timer', 'my_OnTimer');
+<pre class="brush: php;">$serv-&gt;on('Timer', 'my_OnTimer');
 
 function my_OnTimer($serv, $interval)
 {
     echo "Timer[$interval] is call\n";
 }
-</code></pre>
+</pre>
 
         </article>
 <hr>

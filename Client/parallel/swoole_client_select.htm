@@ -6,22 +6,22 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_client_select</h1>
                         <p>swoole_client的并行处理中用了select来做IO事件循环。</p>
 
 <p>函数原型：</p>
 
-<pre><code class="php" data-language="php">int swoole_client_select(array &amp;$read, array &amp;$write, array &amp;$error, float $timeout);
-</code></pre>
+<pre class="brush: php;">int swoole_client_select(array &amp;$read, array &amp;$write, array &amp;$error, float $timeout);
+</pre>
 
 <p>swoole_client_select接受4个参数，$read,$write,$error分别是可读/可写/错误的文件描述符。<br />
 这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。<br />

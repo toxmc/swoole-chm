@@ -6,16 +6,16 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
+<div class="wiki_content">
 
-        <article class="markdown-body entry-content" >
+        <article >
                         <h1>swoole_server->connection_list</h1>
                         <p>用来遍历当前Server所有的客户端连接，connection_list方法是基于共享内存的，不存在IOWait，遍历的速度很快。另外connection_list会返回所有TCP连接，而不仅仅是当前worker进程的TCP连接。</p>
 
@@ -26,8 +26,8 @@
 
 <p>函数原型：</p>
 
-<pre><code class="php" data-language="php">swoole_server::connection_list(int $start_fd = 0, int $pagesize = 10);
-</code></pre>
+<pre class="brush: php;">swoole_server::connection_list(int $start_fd = 0, int $pagesize = 10);
+</pre>
 
 <p>此函数接受2个参数，第1个参数是起始fd，第2个参数是每页取多少条，最大不得超过100.</p>
 
@@ -38,7 +38,7 @@
 
 <p>示例：</p>
 
-<pre><code class="php" data-language="php">$start_fd = 0;
+<pre class="brush: php;">$start_fd = 0;
 while(true)
 {
     $conn_list = $serv-&gt;connection_list($start_fd, 10);
@@ -54,7 +54,7 @@ while(true)
         $serv-&gt;send($fd, "broadcast");
     }
 }
-</code></pre>
+</pre>
 
         </article>
 <hr>

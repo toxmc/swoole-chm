@@ -6,22 +6,22 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>swoole_async_writefile</h1>
                         <p>异步写文件，调用此函数后会立即返回。当写入完成时会自动回调指定的callback函数。</p>
 
-<pre><code class="php" data-language="php">swoole_async_writefile('test.log', $file_content, function($filename) {
+<pre class="brush: php;">swoole_async_writefile('test.log', $file_content, function($filename) {
     echo "wirte ok.\n";
 });
-</code></pre>
+</pre>
 
 <blockquote>
   <p>swoole_async_writefile最大可写入4M的文件<br />

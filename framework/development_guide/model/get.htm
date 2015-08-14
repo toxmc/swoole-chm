@@ -13,23 +13,23 @@
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>model->get</h1>
                         <p>从数据库中获取单条记录</p>
 
-<pre><code class="php" data-language="php">function get($object_id=0,$where='')
-</code></pre>
+<pre class="brush: php;">function get($object_id=0,$where='')
+</pre>
 
 <p>参数为主键ID的值，生成的SQL类似这样</p>
 
-<pre><code class="sql" data-language="sql">select * from table where id = {$id} limit 1
-</code></pre>
+<pre class="brush: php;"><code class="sql" data-language="sql">select * from table where id = {$id} limit 1
+</pre>
 
 <p>如果希望使用另外的字段进行查询，需要传入$where参数，如 $model->get('me', 'name')。则生成的SQL为：</p>
 
-<pre><code class="sql" data-language="sql">select * from table where name = 'me' limit 1
-</code></pre>
+<pre class="brush: php;"><code class="sql" data-language="sql">select * from table where name = 'me' limit 1
+</pre>
 
 <p>返回一个Record对象，在此对象上可以进行更多ORM操作。</p>
 

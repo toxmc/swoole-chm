@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_client::__construct</h1>
                         <p>函数原型：</p>
 
-<pre><code class="php" data-language="php">swoole_client-&gt;__construct(int $sock_type, int $is_sync = SWOOLE_SOCK_SYNC, string $key);
-</code></pre>
+<pre class="brush: php;">swoole_client-&gt;__construct(int $sock_type, int $is_sync = SWOOLE_SOCK_SYNC, string $key);
+</pre>
 
 <p>可以使用swoole提供的宏来之指定类型，请参考 <a href="../../server/constants.htm">swoole常量定义</a></p>
 
@@ -31,8 +31,8 @@
 
 <p><strong>在php-fpm/apache中创建长连接：</strong></p>
 
-<pre><code class="php" data-language="php">$cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
-</code></pre>
+<pre class="brush: php;">$cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
+</pre>
 
 <p>加入SWOOLE_KEEP标志后，创建的TCP连接在PHP请求结束或者调用$cli->close时并不会关闭。下一次执行connect调用时会复用上一次创建的连接。长连接保存的方式默认是以ServerHost:ServerPort为key的。可以再第3个参数内指定key。</p>
 

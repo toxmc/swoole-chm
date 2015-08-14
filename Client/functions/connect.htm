@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_client->connect</h1>
                         <p>连接到远程服务器，函数原型：</p>
 
-<pre><code class="php" data-language="php">bool $swoole_client-&gt;connect(string $host, int $port, float $timeout = 0.1, int $flag = 0)
-</code></pre>
+<pre class="brush: php;">bool $swoole_client-&gt;connect(string $host, int $port, float $timeout = 0.1, int $flag = 0)
+</pre>
 
 <p>connect方法接受4个参数：</p>
 
@@ -36,12 +36,12 @@
 
 <p>connect方法会阻塞，直到连接成功并返回true。这时候就可以向服务器端发送数据或者收取数据了。</p>
 
-<pre><code class="php" data-language="php">if ($cli-&gt;connect('127.0.0.1', 9501)) {
+<pre class="brush: php;">if ($cli-&gt;connect('127.0.0.1', 9501)) {
       $cli-&gt;send("data");
 } else {
       echo "connect failed.";
 }
-</code></pre>
+</pre>
 
 <p>如果连接失败，会返回false</p>
 

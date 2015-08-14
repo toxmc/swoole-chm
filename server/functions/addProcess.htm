@@ -5,39 +5,49 @@
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" /> 
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
-                        <h1>swoole_server->addProcess</h1>
-                        <p>添加一个用户自定义的工作进程。</p>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_server->addProcess</h1>
+            <p>添加一个用户自定义的工作进程。</p>
 
-<pre><code class="php" data-language="php">bool swoole_server-&gt;addProcess(swoole_process $process);
-</code></pre>
+            <pre class="brush: php;">bool swoole_server-&gt;addProcess(swoole_process $process);
+</pre>
 
-<ul>
-<li>$process 为swoole_process对象，注意不需要执行start。在swoole_server启动时会自动创建进程，并执行指定的子进程函数</li>
-<li>创建的子进程可以调用$server对象提供的各个方法，如connection_list/connection_info/stats</li>
-<li>在worker进程中可以调用$process提供的方法与子进程进行通信</li>
-</ul>
+            <ul>
+                <li>$process
+                    为swoole_process对象，注意不需要执行start。在swoole_server启动时会自动创建进程，并执行指定的子进程函数</li>
+                <li>创建的子进程可以调用$server对象提供的各个方法，如connection_list/connection_info/stats</li>
+                <li>在worker进程中可以调用$process提供的方法与子进程进行通信</li>
+            </ul>
 
-<p>此函数通常用于创建一个特殊的工作进程，用于监控、上报或者其他特殊的任务。</p>
+            <p>此函数通常用于创建一个特殊的工作进程，用于监控、上报或者其他特殊的任务。</p>
 
-<blockquote>
-  <p>子进程会托管到Manager进程，如果发生致命错误，manager进程会重新创建一个<br />
-  此函数在swoole-1.7.9以上版本可用</p>
-</blockquote>
+            <blockquote>
+                <p>
+                    子进程会托管到Manager进程，如果发生致命错误，manager进程会重新创建一个<br />
+                    此函数在swoole-1.7.9以上版本可用
+                </p>
+            </blockquote>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

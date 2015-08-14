@@ -6,15 +6,15 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>cpu_affinity_ignore</h1>
                         <p>IO密集型程序中，所有网络中断都是用CPU0来处理，如果网络IO很重，CPU0负载过高会导致网络中断无法及时处理，那网络收发包的能力就会下降。</p>
 
@@ -23,8 +23,8 @@
   此选项必须与open_cpu_affinity同时设置才会生效</p>
 </blockquote>
 
-<pre><code class="php" data-language="php">array('cpu_affinity_ignore' =&gt; array(0, 1))
-</code></pre>
+<pre class="brush: php;">array('cpu_affinity_ignore' =&gt; array(0, 1))
+</pre>
 
 <p>接受一个数组作为参数，array(0, 1) 表示不使用CPU0,CPU1，专门空出来处理网络中断。</p>
 

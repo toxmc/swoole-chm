@@ -6,21 +6,21 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>内核参数调整</h1>
                         <h2>ulimit设置</h2>
 
 <p>ulimit -n 要调整为100000甚至更大。 命令行下执行 ulimit -n 100000即可修改。如果不能修改，需要设置  /etc/security/limits.conf，加入</p>
 
-<pre><code data-language="">* soft nofile 262140
+<pre class="brush: php;">* soft nofile 262140
 * hard nofile 262140
 root soft nofile 262140
 root hard nofile 262140
@@ -28,7 +28,7 @@ root hard nofile 262140
 * hard core unlimited
 root soft core unlimited
 root hard core unlimited
-</code></pre>
+</pre>
 
 <h2>内核设置</h2>
 
@@ -41,14 +41,14 @@ root hard core unlimited
 
 <p>修改此参数增加socket缓存区的内存大小</p>
 
-<pre><code data-language="">net.ipv4.tcp_mem  =   379008       505344  758016
+<pre class="brush: php;">net.ipv4.tcp_mem  =   379008       505344  758016
 net.ipv4.tcp_wmem = 4096        16384   4194304
 net.ipv4.tcp_rmem = 4096          87380   4194304
 net.core.wmem_default = 8388608
 net.core.rmem_default = 8388608
 net.core.rmem_max = 16777216
 net.core.wmem_max = 16777216
-</code></pre>
+</pre>
 
 <h3>net.ipv4.tcp_tw_reuse</h3>
 
@@ -80,13 +80,13 @@ net.core.wmem_max = 16777216
 
 <p>设置内核参数</p>
 
-<pre><code data-language="">kernel.core_pattern = /data/core_files/core-%e-%p-%t
-</code></pre>
+<pre class="brush: php;">kernel.core_pattern = /data/core_files/core-%e-%p-%t
+</pre>
 
 <p>通过ulimit -c命令查看当前coredump文件的限制</p>
 
-<pre><code class="shell" data-language="shell">ulimit -c
-</code></pre>
+<pre class="brush: php;">ulimit -c
+</pre>
 
 <p>如果为0，需要修改/etc/security/limits.conf，进行limit设置。</p>
 
@@ -114,8 +114,8 @@ net.core.wmem_max = 16777216
 
 <p>如：修改net.unix.max_dgram_qlen = 100后，通过</p>
 
-<pre><code class="shell" data-language="shell">cat /proc/sys/net/unix/max_dgram_qlen
-</code></pre>
+<pre class="brush: php;">cat /proc/sys/net/unix/max_dgram_qlen
+</pre>
 
 <p>如果修改成功，这里是新设置的值。</p>
 

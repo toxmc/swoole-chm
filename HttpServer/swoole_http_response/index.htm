@@ -6,25 +6,25 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-     <article class="markdown-body entry-content" >
+<div class="wiki_content">
+     <article >
                         <h1>swoole_http_response</h1>
 <p>Ê¾Àý£º</p>
 
-<pre><code class="php" data-language="php">$http = new swoole_http_server("127.0.0.1", 9501);
+<pre class="brush: php;">$http = new swoole_http_server("127.0.0.1", 9501);
 $http-&gt;on('request', function ($request, $response) {
     var_dump($response);
     $response-&gt;end("&lt;h1&gt;Hello Swoole. #".rand(1000, 9999)."&lt;/h1&gt;");
 });
 $http-&gt;start();
-</code></pre>
+</pre>
 
         </article>
 <hr>

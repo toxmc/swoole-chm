@@ -6,15 +6,15 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole服务器如何做到无人值守100%可用</h1>
                         <p>在某些情况下，如系统负载过大swoole无法申请到内存而挂掉、swoole底层发生段错误、Server占用内存过大被内核Kill，或者被某些程序误杀。那swoole-server将无法提供服务，导致业务中断，公司收入出现损失。</p>
 
@@ -23,12 +23,12 @@
 
 <p>如果在系统的crontab中加入：</p>
 
-<pre><code class="shell" data-language="shell">*/1 * * * * /data/script/check_server.sh
-</code></pre>
+<pre class="brush: php;">*/1 * * * * /data/script/check_server.sh
+</pre>
 
 <p>/data/script/check_server.sh：</p>
 
-<pre><code class="shell" data-language="shell">count=`ps -fe |grep "server.php" | grep -v "grep" | grep "master" | wc -l`
+<pre class="brush: php;">count=`ps -fe |grep "server.php" | grep -v "grep" | grep "master" | wc -l`
 
 echo $count
 if [ $count -lt 1 ]; then
@@ -39,7 +39,7 @@ ulimit -c unlimited
 echo "restart";
 echo $(date +%Y-%m-%d_%H:%M:%S) &gt;/data/log/restart.log
 fi
-</code></pre>
+</pre>
 
 <h2>可以改进的地方</h2>
 

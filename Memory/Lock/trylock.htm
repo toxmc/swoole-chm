@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-    <article class="markdown-body entry-content" >
+<div class="wiki_content">
+    <article >
                         <h1>swoole_lock::trylock</h1>
                         <p>函数原型：</p>
 
-<pre><code class="php" data-language="php">$lock-&gt;trylock();
-</code></pre>
+<pre class="brush: php;">$lock-&gt;trylock();
+</pre>
 
 <p>加锁操作。与lock方法不同的是，trylock()不会阻塞，它会立即返回。当返回false时表示抢锁失败，有其他进程持有锁。返回true时表示加锁成功，此时可以修改共享变量。</p>
 

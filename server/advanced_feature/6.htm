@@ -6,15 +6,15 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>TCP服务器心跳维持方案</h1>
                         <p>正常情况下客户端中断TCP连接时，会发送一个FIN包，进行4次断开握手来通知服务器。但一些异常情况下，如客户端突然断电断网或者网络异常，服务器可能无法得知客户端已断开连接。</p>
 
@@ -24,11 +24,11 @@
 
 <h2>使用方法：</h2>
 
-<pre><code class="php" data-language="php">$serv-&gt;set(array(
+<pre class="brush: php;">$serv-&gt;set(array(
     'heartbeat_check_interval' =&gt; 5,
     'heartbeat_idle_time' =&gt; 10,
 ));
-</code></pre>
+</pre>
 
 <p>上面的设置就是每5秒侦测一次心跳，一个TCP连接如果在10秒内未向服务器端发送数据，将会被切断。</p>
 

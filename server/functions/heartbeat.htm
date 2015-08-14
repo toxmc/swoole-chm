@@ -6,15 +6,15 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>swoole_server->heartbeat</h1>
                         <p>检测服务器所有连接，并找出已经超过约定时间的连接。如果指定if_close_connection，则自动关闭超时的连接。未指定仅返回连接的fd数组。</p>
 
@@ -24,8 +24,8 @@
 
 <p>函数原型：</p>
 
-<pre><code class="php" data-language="php">array swoole_server::heartbeat(bool $if_close_connection = true);
-</code></pre>
+<pre class="brush: php;">array swoole_server::heartbeat(bool $if_close_connection = true);
+</pre>
 
 <ul>
 <li>$if_close_connection是否关闭超时的连接，默认为true</li>
@@ -39,8 +39,8 @@
 
 <p>示例：</p>
 
-<pre><code class="php" data-language="php">$closeFdArr = $serv-&gt;heartbeat();
-</code></pre>
+<pre class="brush: php;">$closeFdArr = $serv-&gt;heartbeat();
+</pre>
 
         </article>
 <hr>

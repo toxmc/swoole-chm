@@ -13,12 +13,12 @@
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>Apache+Swoole服务器配置</h1>
                         <p>Apache可以使用代理指令或Rewrite来实现。</p>
 
-<pre><code data-language="">&lt;VirtualHost *:80&gt;
+<pre class="brush: php;">&lt;VirtualHost *:80&gt;
     ServerName www.swoole.com
     DocumentRoot /data/webroot/www.swoole.com
     DirectoryIndex index.html index.php
@@ -41,7 +41,7 @@
         RewriteRule ^(.*)$ http://127.0.0.1:9501$1 [L,P]
     &lt;/IfModule&gt;
 &lt;/VirtualHost&gt;
-</code></pre>
+</pre>
 
         </article>
 <hr>

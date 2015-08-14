@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_async_read</h1>
                         <p>异步读文件，使用此函数读取文件是非阻塞的，当读操作完成时会自动回调指定的函数。</p>
 
-<pre><code class="php" data-language="php">bool swoole_async_read(string $filename, mixed $callback, int $size = 8192, int $offset = 0);
-</code></pre>
+<pre class="brush: php;">bool swoole_async_read(string $filename, mixed $callback, int $size = 8192, int $offset = 0);
+</pre>
 
 <p>此函数与swoole_async_readfile不同，它是分段读取，可以用于读取超大文件。每次只读$trunk_size个字节，不会占用太多内存。</p>
 

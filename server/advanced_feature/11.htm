@@ -6,21 +6,21 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-      <article class="markdown-body entry-content" >
+<div class="wiki_content">
+      <article >
                         <h1>在worker进程内监听一个Server端口</h1>
                         <p>在一些场景下，需要监听额外的端口提供特殊协议处理。如在HttpServer中需要监听8081端口，提供管理Server的功能。在Swoole扩展内置的服务中不支持同时处理2种协议，即使是使用了addlistener添加了多个端口也不能接受2种协议的请求包。</p>
 
 <p>这时候可以使用本地监听来解决此问题，原理是在某一个worker进程内，创建stream_socket_server，并加入到swoole_event中。</p>
 
-<pre><code class="php" data-language="php">$serv = new swoole_server("0.0.0.0", 9502);
+<pre class="brush: php;">$serv = new swoole_server("0.0.0.0", 9502);
 
 $serv-&gt;on('workerstart', function($server, $id) {
     //仅在worker-0中监听管理端口
@@ -34,7 +34,7 @@ $serv-&gt;on('workerstart', function($server, $id) {
           });
      });
 });
-</code></pre>
+</pre>
 
         </article>
 <hr>

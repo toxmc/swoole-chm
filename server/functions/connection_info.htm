@@ -6,16 +6,16 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
+<div class="wiki_content">
 
-        <article class="markdown-body entry-content" >
+        <article >
                         <h1>swoole_server->connection_info</h1>
                         <p>swoole_server->connection_info 函数用来获取连接的信息</p>
 
@@ -30,7 +30,7 @@
 <li>连接不存在或已关闭，返回false</li>
 </ul>
 
-<pre><code class="php" data-language="php">$fdinfo = $serv-&gt;connection_info($fd);
+<pre class="brush: php;">$fdinfo = $serv-&gt;connection_info($fd);
 var_dump($fdinfo);
 array(5) {
   ["from_id"]=&gt;
@@ -51,7 +51,7 @@ array(5) {
 
 $udp_client = $serv-&gt;connection_info($fd, $from_id);
 var_dump($udp_client);
-</code></pre>
+</pre>
 
 <ul>
 <li><strong>from_id</strong> 来自哪个reactor线程</li>

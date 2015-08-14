@@ -6,40 +6,51 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+    
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
+    
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
-                        <h1>1.7.4 SSL隧道加密TCP-Server</h1>
-                        <p>1.7.4后swoole增加了对SSL隧道加密的支持，在swoole_server中可以启用SSL证书加密。使用仅需增加$serv->set的配置即可，并将listener端口的类型，增加SWOOLE_SSL标志。</p>
+    <div class="wiki_content">
+        <article>
+            <h1>1.7.4 SSL隧道加密TCP-Server</h1>
+            <p>1.7.4后swoole增加了对SSL隧道加密的支持，在swoole_server中可以启用SSL证书加密。使用仅需增加$serv->set的配置即可，并将listener端口的类型，增加SWOOLE_SSL标志。</p>
 
-<pre><code class="php" data-language="php">$serv = new swoole_server("0.0.0.0", 443, SWOOLE_PROCESS, SWOOLE_SOCK_TCP | SWOOLE_SSL);
-$key_dir = dirname(dirname(__DIR__)).'/tests/ssl';
+            <pre class="brush: php;">
+            &lt;?php 
+                $serv = new swoole_server("0.0.0.0", 443, SWOOLE_PROCESS, SWOOLE_SOCK_TCP | SWOOLE_SSL);
+                $key_dir = dirname(dirname(__DIR__)).'/tests/ssl';
+                
+                 // SWOOLE_SOCK_TCP表示此端口不加密
+                //  SWOOLE_SOCK_TCP | SWOOLE_SSL 表示此端口启用加密
+                
+                $serv-&gt;addlistener('0.0.0.0', 80, SWOOLE_SOCK_TCP);
+                
+                $serv-&gt;set(array(
+                    'worker_num' =&gt; 4,
+                    'ssl_cert_file' =&gt; $key_dir.'/ssl.crt',
+                    'ssl_key_file' =&gt; $key_dir.'/ssl.key',
+                ));
+            </pre>
 
- // SWOOLE_SOCK_TCP表示此端口不加密
-//  SWOOLE_SOCK_TCP | SWOOLE_SSL 表示此端口启用加密
-
-$serv-&gt;addlistener('0.0.0.0', 80, SWOOLE_SOCK_TCP);
-
-$serv-&gt;set(array(
-    'worker_num' =&gt; 4,
-    'ssl_cert_file' =&gt; $key_dir.'/ssl.crt',
-    'ssl_key_file' =&gt; $key_dir.'/ssl.key',
-));
-</code></pre>
-
-<p>配置证书后即可启用SSL隧道加密，onReceive/$serv->send函数中还是继续填写明文，加密工作由底层完成。应用层无需考虑。</p>
+            <p>配置证书后即可启用SSL隧道加密，onReceive/$serv->send函数中还是继续填写明文，加密工作由底层完成。应用层无需考虑。</p>
 
         </article>
 
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

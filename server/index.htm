@@ -1,65 +1,77 @@
 <html>
-
 <head>
-  <title>Server</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/code.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+    <title>Server</title>
+    <meta http-equiv=Content-Type content="text/html; charset=gbk">
+    <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+    <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../public/css/default.css" type="text/css" />    
+    <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+    <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+    
+    <link rel="stylesheet" href="../public/styles/shThemeDefault.css" type="text/css"/> 
+    <script type="text/javascript" src="../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
-                        <h1>Server</h1>
-                        <h2>构建Server对象</h2>
+    <div class="wiki_content">
+        <article>
+            <h1>Server</h1>
+            <h2>构建Server对象</h2>
 
-<pre><code class="php" data-language="php">$serv = new swoole_server("127.0.0.1", 9501, SWOOLE_BASE, SWOOLE_SOCK_TCP);
-</code></pre>
+            <pre class="brush: php;">$serv = new swoole_server("127.0.0.1", 9501, SWOOLE_BASE, SWOOLE_SOCK_TCP);
+</pre>
 
-<blockquote>
-  <p>swoole_server只能用于php-cli环境</p>
-</blockquote>
+            <blockquote>
+                <p>swoole_server只能用于php-cli环境</p>
+            </blockquote>
 
-<h2>设置运行时参数</h2>
+            <h2>设置运行时参数</h2>
 
-<pre><code class="php" data-language="php">$serv-&gt;set(array('worker_num' =&gt; 4, 'daemonize' =&gt; true));
-</code></pre>
+            <pre class="brush: php;">$serv-&gt;set(array('worker_num' =&gt; 4, 'daemonize' =&gt; true));
+</pre>
 
-<h2>注册事件回调函数</h2>
+            <h2>注册事件回调函数</h2>
 
-<pre><code class="php" data-language="php">$serv-&gt;on('Connect', 'my_onConnect');
+            <pre class="brush: php;">$serv-&gt;on('Connect', 'my_onConnect');
 $serv-&gt;on('Receive', 'my_onReceive');
 $serv-&gt;on('Close', 'my_onClose');
-</code></pre>
+</pre>
 
-<h2>属性列表</h2>
+            <h2>属性列表</h2>
 
-<pre><code class="php" data-language="php">$serv-&gt;manager_pid;  //管理进程的PID，通过向管理进程发送SIGUSR1信号可实现柔性重启
+            <pre class="brush: php;">$serv-&gt;manager_pid;  //管理进程的PID，通过向管理进程发送SIGUSR1信号可实现柔性重启
 $serv-&gt;master_pid;  //主进程的PID，通过向主进程发送SIGTERM信号可安全关闭服务器
-</code></pre>
+</pre>
 
-<h2>运行流程图</h2>
+            <h2>运行流程图</h2>
 
-<p><img src="../public/images/swoole.jpg" alt="Swoole扩展架构图" /></p>
+            <p>
+                <img src="../public/images/swoole.jpg" alt="Swoole扩展架构图" />
+            </p>
 
-<h2>进程/线程结构图</h2>
+            <h2>进程/线程结构图</h2>
 
-<p><img src="../public/images/process.jpg" alt="Swoole进程/线程结构图" /></p>
+            <p>
+                <img src="../public/images/process.jpg"
+                    alt="Swoole进程/线程结构图" />
+            </p>
 
-<h2>注意事项</h2>
+            <h2>注意事项</h2>
 
-<ul>
-<li>不要在代码中执行sleep，这样会导致整个进程阻塞</li>
-<li>exit/die是危险的，会导致worker进程退出</li>
-<li>可通过register_shutdown_function来捕获致命错误，在进程异常退出时做一些请求工作，具体如下</li>
-</ul>
+            <ul>
+                <li>不要在代码中执行sleep，这样会导致整个进程阻塞</li>
+                <li>exit/die是危险的，会导致worker进程退出</li>
+                <li>可通过register_shutdown_function来捕获致命错误，在进程异常退出时做一些请求工作，具体如下</li>
+            </ul>
 
-<pre><code class="php" data-language="php">register_shutdown_function('handleFatal');
+            <pre class="brush: php;">register_shutdown_function('handleFatal');
 function handleFatal()
 {
     $error = error_get_last();
@@ -107,12 +119,12 @@ function handleFatal()
         }
     }
 }
-</code></pre>
+</pre>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

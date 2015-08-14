@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>onWorkerStart</h1>
                         <p>此事件在worker进程/task进程启动时发生。这里创建的对象可以在进程生命周期内使用。原型：</p>
 
-<pre><code class="php" data-language="php">void onWorkerStart(resource $server, int $worker_id);
-</code></pre>
+<pre class="brush: php;">void onWorkerStart(resource $server, int $worker_id);
+</pre>
 
 <blockquote>
   <p>swoole1.6.11之后task_worker中也会触发onWorkerStart<br />
@@ -31,7 +31,7 @@
 
 <p>下面的示例用于为task_worker和worker进程重命名。</p>
 
-<pre><code class="php" data-language="php">$serv-&gt;on('WorkerStart', function ($serv, $worker_id){
+<pre class="brush: php;">$serv-&gt;on('WorkerStart', function ($serv, $worker_id){
     global $argv;
     if($worker_id &gt;= $serv-&gt;setting['worker_num']) {
         swoole_set_process_name("php {$argv[0]} task worker");
@@ -39,7 +39,7 @@
         swoole_set_process_name("php {$argv[0]} event worker");
     }
 });
-</code></pre>
+</pre>
 
 <p>如果想使用swoole_server_reload实现代码重载入，必须在workerStart中require你的业务文件，而不是在文件头部。在onWorkerStart调用之前已包含的文件，不会重新载入代码。</p>
 

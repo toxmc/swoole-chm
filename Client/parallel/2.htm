@@ -6,21 +6,21 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
+<div class="wiki_content">
+        <article >
                         <h1>SWOOLE_KEEP建立TCP长连接</h1>
                         <p>swoole_client支持在php-fpm/apache中创建一个TCP长连接到服务器端。使用方法：</p>
 
-<pre><code class="php" data-language="php">$client = new swoole_client(SWOOLE_SOCK_TCP | SWOOLE_KEEP);
+<pre class="brush: php;">$client = new swoole_client(SWOOLE_SOCK_TCP | SWOOLE_KEEP);
 $client-&gt;connect('127.0.0.1', 9501);
-</code></pre>
+</pre>
 
 <p>启用SWOOLE_KEEP选项后，一个请求结束PHP不会关闭socket，下一次再进行connect时会自动复用上次创建的连接。如果执行connect发现连接已经被服务器关闭，那么connect会重新创建新的连接。</p>
 

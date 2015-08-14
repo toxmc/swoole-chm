@@ -46,38 +46,34 @@
                 </OBJECT>
                 <UL>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.7.12">
-                      <param name="Local" value="rumen\version\1-7-12.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.7.13">
-                      <param name="Local" value="rumen\version\1-7-13.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.7.14">
-                      <param name="Local" value="rumen\version\1-7-14.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.7.15">
-                      <param name="Local" value="rumen\version\1-7-15.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.7.16">
-                      <param name="Local" value="rumen\version\1-7-16.htm">
+                      <param name="Name" value="1.7.18">
+                      <param name="Local" value="rumen\version\1-7-18.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="1.7.17">
                       <param name="Local" value="rumen\version\1-7-17.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.7.18">
-                      <param name="Local" value="rumen\version\1-7-18.htm">
+                      <param name="Name" value="1.7.16">
+                      <param name="Local" value="rumen\version\1-7-16.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="1.7.15">
+                      <param name="Local" value="rumen\version\1-7-15.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="1.7.14">
+                      <param name="Local" value="rumen\version\1-7-14.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="1.7.13">
+                      <param name="Local" value="rumen\version\1-7-13.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="1.7.12">
+                      <param name="Local" value="rumen\version\1-7-12.htm">
                     </OBJECT>
                 </UL>
-                <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="开发者列表">
-                  <param name="Local" value="rumen\developers.htm">
-                </OBJECT>
                 <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="新特性使用">
                   <param name="Local" value="rumen\xintexing\index.htm">
@@ -120,6 +116,10 @@
                       <param name="Local" value="rumen\xintexing\01.htm">
                     </OBJECT>
                 </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="开发者列表">
+                  <param name="Local" value="rumen\developers.htm">
+                </OBJECT>
                 <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="项目路线图">
                   <param name="Local" value="rumen\luxian.htm">

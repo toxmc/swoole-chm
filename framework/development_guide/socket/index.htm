@@ -13,8 +13,8 @@
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>SocketÍøÂç¿ª·¢</h1>
                         <p>SwooleÌá¹©ÁËµ×²ãµÄÍøÂçsocket·şÎñÆ÷ÊµÏÖ¡£ÆÕÍ¨ÓÃ»§Ö»ĞèÒªÊµÏÖĞ­Òé»ò»ùÓÚÏÖÓĞµÄĞ­Òé½øĞĞ¶ş´Î¿ª·¢¡£</p>
 
@@ -49,7 +49,7 @@ Swoole¿ò¼Ü×Ô´øµÄProtocolÓĞ£º</p>
 
 <p>test.php</p>
 
-<pre><code class="php" data-language="php">require __DIR__ . '/../libs/lib_config.php';
+<pre class="brush: php;">require __DIR__ . '/../libs/lib_config.php';
 $AppSvr = new Swoole\Network\Protocol\HttpServer();
 
 $AppSvr-&gt;setDocumentRoot(WEBPATH);
@@ -60,10 +60,10 @@ $server = new \Swoole\Network\SelectTCP('0.0.0.0', 8888); //ÕâÀïÑ¡ÔñÁËselectTCPÇ
 $server-&gt;setProtocol($AppSvr); //×é×°Ğ­Òé
 
 $server-&gt;run(array('worker_num' =&gt; 1, 'max_request' =&gt; 5000)); //ÔËĞĞ
-</code></pre>
+</pre>
 
-<pre><code class="shell" data-language="shell">php test.php
-</code></pre>
+<pre class="brush: php;">php test.php
+</pre>
 
         </article>
 <hr>

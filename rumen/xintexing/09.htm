@@ -1,42 +1,41 @@
 <html>
-
 <head>
-  <title>1.7.16 使用迭代器遍历Server所有连接</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>1.7.16 使用迭代器遍历Server所有连接</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+
+<link rel="stylesheet" href="../../public/styles/shCoreDefault.css" type="text/css"/>
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
-                        <h1>1.7.16 使用迭代器遍历Server所有连接</h1>
-                        <p>swoole-1.7.16版本增加了客户端连接迭代器接口，可以非常轻松实现遍历当前服务器的所有连接。</p>
-
-<h2>遍历连接并广播</h2>
-
-<pre><code class="php" data-language="php">foreach($server-&gt;connections as $fd)
-{
-    $server-&gt;send($fd, "hello world\n");
-}
-</code></pre>
-
-<h2>获取连接总数</h2>
-
-<pre><code class="php" data-language="php">echo count($server-&gt;connections);
-</code></pre>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>1.7.16 使用迭代器遍历Server所有连接</h1>
+            <p>swoole-1.7.16版本增加了客户端连接迭代器接口，可以非常轻松实现遍历当前服务器的所有连接。</p>
+            <h2>遍历连接并广播</h2>
+            <pre class="brush: php;">
+                foreach($server->connections as $fd) 
+                { 
+                    $server->send($fd, "hello world\n"); 
+                }
+        	</pre>
+            <h2>获取连接总数</h2>
+            <pre class="brush: php;">
+        	   echo count($server->connections);
+        	</pre>
         </article>
-
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

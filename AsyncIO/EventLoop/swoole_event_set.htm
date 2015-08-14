@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-      <article class="markdown-body entry-content" >
+<div class="wiki_content">
+      <article >
                         <h1>swoole_event_set</h1>
                         <p>修改事件监听的回调函数和掩码。函数原型：</p>
 
-<pre><code class="php" data-language="php">bool swoole_event_set($fd, mixed $read_callback, mixed $write_callback, int $flag);
-</code></pre>
+<pre class="brush: php;">bool swoole_event_set($fd, mixed $read_callback, mixed $write_callback, int $flag);
+</pre>
 
 <p>参数与<a href="swoole_event_add.htm">swoole_event_add</a>完全相同。如果传入$fd在EventLoop中不存在这里会报错。</p>
 

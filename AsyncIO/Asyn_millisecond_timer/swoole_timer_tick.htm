@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_timer_tick</h1>
                         <p>设置一个间隔时钟定时器，与after定时器不同的是tick定时器会持续触发，直到调用swoole_timer_clear清除。与swoole_timer_add不同的是tick定时器可以存在多个相同间隔时间的定时器。</p>
 
-<pre><code class="php" data-language="php">int swoole_timer_tick(int $ms, mixed $callback, mixed $param = null);
-</code></pre>
+<pre class="brush: php;">int swoole_timer_tick(int $ms, mixed $callback, mixed $param = null);
+</pre>
 
 <ul>
 <li>$ms 指定时间，单位为毫秒</li>
@@ -37,8 +37,8 @@
 
 <p>定时器触发的回调函数接受2个参数。</p>
 
-<pre><code class="php" data-language="php">function onTimer(int $timer_id, mixed $params = null);
-</code></pre>
+<pre class="brush: php;">function onTimer(int $timer_id, mixed $params = null);
+</pre>
 
 <ul>
 <li>$timer_id 定时器的ID，可用于swoole_timer_clear清除此定时器</li>
@@ -47,10 +47,10 @@
 
 <h2>使用示例</h2>
 
-<pre><code class="php" data-language="php">swoole_timer_tick(1000, function(){
+<pre class="brush: php;">swoole_timer_tick(1000, function(){
     echo "timeout\n";
 });
-</code></pre>
+</pre>
 
         </article>
 <hr>

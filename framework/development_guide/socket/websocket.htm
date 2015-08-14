@@ -13,8 +13,8 @@
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-         <article class="markdown-body entry-content" >
+<div class="wiki_content">
+         <article >
                         <h1>WebSocket</h1>
                         <p>Swoole框架提供了WebSocket协议的实现。具体代码可以参考
 examples/websocket_server.php和examples/websocket_client.hml。</p>
@@ -24,9 +24,9 @@ examples/websocket_server.php和examples/websocket_client.hml。</p>
 <p>应用程序代码只需要继承 <strong>Swoole\Network\Protocol\WebSocket</strong>，并实现onMessage方法即可。onMessage方法在服务器端收到客户端消息时回调。Swoole框架已经处理好了connect/accept，打包解包等工作。应用层无需关心。
 在onMessage方法中，可调用</p>
 
-<pre><code class="php" data-language="php">$this-&gt;close($client_id) //关闭此连接
+<pre class="brush: php;">$this-&gt;close($client_id) //关闭此连接
 $this-&gt;send($client_id, $response_string) //向某个客户端发送数据
-</code></pre>
+</pre>
 
 <p>如果你的代码中没有阻塞，建议使用Swoole扩展的SWOOLE_BASE模式，如果业务代码中存在阻塞操作，请使用SWOOLE_PROCESS模式，并根据实际处理时间，设置worker_num参数，启用多进程。</p>
 

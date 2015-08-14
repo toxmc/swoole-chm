@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-       <article class="markdown-body entry-content" >
+<div class="wiki_content">
+       <article >
                         <h1>swoole_table->set</h1>
                         <p>设置行的数据，swoole_table使用key-value的方式来访问数据。</p>
 
-<pre><code class="php" data-language="php">swoole_table-&gt;set(string $key, array $array)
-</code></pre>
+<pre class="brush: php;">swoole_table-&gt;set(string $key, array $array)
+</pre>
 
 <ul>
 <li>$key，数据的key，相同的$key对应同一行数据，如果set同一个key，会覆盖上一次的数据</li>
@@ -32,10 +32,10 @@
   set/get/del 是自带行锁，所以不需要调用lock加锁</p>
 </blockquote>
 
-<pre><code class="php" data-language="php">$table-&gt;set('tianfenghan@qq.com', array('id' =&gt; 145, 'name' =&gt; 'rango', 'num' =&gt; 3.1415));
+<pre class="brush: php;">$table-&gt;set('tianfenghan@qq.com', array('id' =&gt; 145, 'name' =&gt; 'rango', 'num' =&gt; 3.1415));
 $table-&gt;set('350749960@qq.com', array('id' =&gt; 358, 'name' =&gt; "Rango1234", 'num' =&gt; 3.1415));
 $table-&gt;set('hello@qq.com', array('id' =&gt; 189, 'name' =&gt; 'rango3', 'num' =&gt; 3.1415));
-</code></pre>
+</pre>
 
         </article>
 <hr>

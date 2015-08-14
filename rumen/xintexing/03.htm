@@ -5,33 +5,42 @@
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" /> 
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />    
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content blob instapaper_body">
-        <article class="markdown-body entry-content" >
-                        <h1>1.7.3 onTask直接return取代finish函数</h1>
-                        <p>1.7.3之后，task/finish可以支持超大包了。发送的数据不再限制为8192。</p>
+    <div class="wiki_content">
+        <article>
+            <h1>1.7.3 onTask直接return取代finish函数</h1>
+            <p>1.7.3之后，task/finish可以支持超大包了。发送的数据不再限制为8192。</p>
 
-<p>另外swoole_server->finish函数已经废弃，采用直接在onTask回调函数中return字符串的方式。</p>
+            <p>另外swoole_server->finish函数已经废弃，采用直接在onTask回调函数中return字符串的方式。</p>
 
-<pre><code class="php" data-language="php">function onTask($serv, $task_id, $from_id, $data)
-{
-       //your code
-       //1.7.3之前，是$serv-&gt;finish("result");
-       return "result.";
-}
-</code></pre>
+            <pre class="brush: php;">
+            function onTask($serv, $task_id, $from_id, $data)
+            {
+                   //your code
+                   //1.7.3之前，是$serv-&gt;finish("result");
+                   return "result.";
+            }
+            </pre>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

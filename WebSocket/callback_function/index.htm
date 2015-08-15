@@ -1,27 +1,90 @@
 <html>
-
 <head>
   <title>WebSocket - 事件回调函数</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-      <article >
-                        <h1>事件回调函数</h1>
-                        
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>事件回调函数</h1>
+            <p>例子：</p>
+            <pre class="brush: php;">
+&lt;?php
+$server = new swoole_websocket_server("0.0.0.0", 9501);
+//$server = new swoole_websocket_server("0.0.0.0", 9501, SWOOLE_BASE);
+$server->addlistener('0.0.0.0', 9502, SWOOLE_SOCK_UDP);
+$server->set(['worker_num' => 4]);
+function user_handshake(swoole_http_request $request, swoole_http_response $response)
+{
+    //自定定握手规则，没有设置则用系统内置的（只支持version:13的）
+    if (!isset($request->header['sec-websocket-key']))
+    {
+        //'Bad protocol implementation: it is not RFC6455.'
+        $response->end();
+        return false;
+    }
+    if (0 === preg_match('#^[+/0-9A-Za-z]{21}[AQgw]==$#', $request->header['sec-websocket-key'])
+        || 16 !== strlen(base64_decode($request->header['sec-websocket-key']))
+    )
+    {
+        //Header Sec-WebSocket-Key is illegal;
+        $response->end();
+        return false;
+    }
+    $key = base64_encode(sha1($request->header['sec-websocket-key']
+        . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11',
+        true));
+    $headers = array(
+        'Upgrade'               => 'websocket',
+        'Connection'            => 'Upgrade',
+        'Sec-WebSocket-Accept'  => $key,
+        'Sec-WebSocket-Version' => '13',
+        'KeepAlive'             => 'off',
+    );
+    foreach ($headers as $key => $val)
+    {
+        $response->header($key, $val);
+    }
+    $response->status(101);
+    $response->end();
+    return true;
+}
+$server->on('handshake', 'user_handshake');
+$server->on('open', function (swoole_websocket_server $_server, swoole_http_request $request) {
+    echo "server#{$_server->worker_pid}: handshake success with fd#{$request->fd}\n";
+//    var_dump($request);
+});
+$server->on('message', function (swoole_websocket_server $_server, $frame) {
+    var_dump($frame);
+    echo "received ".strlen($frame->data)." bytes\n";
+    //echo "receive from {$fd}:{$data},opcode:{$opcode},fin:{$fin}\n";
+    $_server->push($frame->fd, "this is server");
+//  $_server->close($frame->fd);
+});
+$server->on('close', function ($_server, $fd) {
+    echo "client {$fd} closed\n";
+});
+$server->on('packet', function ($_server, $data, $client) {
+    echo "#".posix_getpid()."\tPacket {$data}\n";
+    var_dump($client);
+});
+$server->start();
+            </pre>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

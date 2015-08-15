@@ -4,3 +4,5 @@
 .settings/org.eclipse.wst.common.project.facet.core.xml
 swoole.chw
 swoole.chw
+*.log
+*.chw

@@ -1,54 +1,60 @@
 <html>
-
 <head>
   <title>Buffer和EOF_Check的使用</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
 <body style='text-justify-trim:punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>Buffer和EOF_Check的使用</h1>
+            <p>在外网通信时，有些客户端发送数据的速度较慢，每次只能发送一小段数据。这样onReceive到的数据就不是一个完整的包。
+                还有些客户端是逐字节发送数据的，如果每次回调onReceive会拖慢整个系统。</p>
 
-<div class="wiki_content">
-       <article >
-                        <h1>Buffer和EOF_Check的使用</h1>
-                        <p>在外网通信时，有些客户端发送数据的速度较慢，每次只能发送一小段数据。这样onReceive到的数据就不是一个完整的包。
-还有些客户端是逐字节发送数据的，如果每次回调onReceive会拖慢整个系统。</p>
+            <p>Swoole提供了buffer和eof_check的功能，在C扩展底层检测到如果不是完整的请求，会等待新的数据到达，组成完成的请求后再回调onReceive。</p>
 
-<p>Swoole提供了buffer和eof_check的功能，在C扩展底层检测到如果不是完整的请求，会等待新的数据到达，组成完成的请求后再回调onReceive。</p>
+            <p>
+                在swoole_server_set中增加，open_eof_check和package_eof来开启此功能。open_eof_check=1表示启用buffer检查，package_eof设置数据包结束符。<a
+                    href="../../rumen/xintexing/04.htm">查看详细说明</a>
+            </p>
 
-<p>在swoole_server_set中增加，open_eof_check和package_eof来开启此功能。open_eof_check=1表示启用buffer检查，package_eof设置数据包结束符。<a href="../../rumen/xintexing/04.htm">查看详细说明</a></p>
+            <blockquote>
+                <p>
+                    buffer功能会将所有收到的数据放到内存中，会占用较多内存<br /> 通过设置
+                    package_max_length 来设定每个连接最大缓存多少数据，超过此大小的连接将会被关闭<br />
+                    1.6.12前的版本，onReceive仍然是分段读取。1.6.12后onReceive会一次性返回所有数据
+                </p>
+            </blockquote>
 
-<blockquote>
-  <p>buffer功能会将所有收到的数据放到内存中，会占用较多内存<br />
-  通过设置 package_max_length 来设定每个连接最大缓存多少数据，超过此大小的连接将会被关闭<br />
-  1.6.12前的版本，onReceive仍然是分段读取。1.6.12后onReceive会一次性返回所有数据</p>
-</blockquote>
+            <p>示例：</p>
 
-<p>示例：</p>
-
-<pre class="brush: php;">swoole_server_set($serv, array(
-    'timeout' =&gt; 2.5,  //select and epoll_wait timeout. 
-    'poll_thread_num' =&gt; 2, //reactor thread num
-    'writer_num' =&gt; 2,     //writer thread num
-    'worker_num' =&gt; 4,    //worker process num
-    'backlog' =&gt; 128,   //listen backlog
-    'max_request' =&gt; 50,
-    'dispatch_mode'=&gt;1, 
-    'package_eof' =&gt; "\r\n\r\n",  //http协议就是以\r\n\r\n作为结束符的，这里也可以使用二进制内容
-    'open_eof_check' =&gt; 1,
+            <pre class="brush: php;">swoole_server_set($serv, array(
+    'timeout' => 2.5,  //select and epoll_wait timeout. 
+    'poll_thread_num' => 2, //reactor thread num
+    'writer_num' => 2,     //writer thread num
+    'worker_num' => 4,    //worker process num
+    'backlog' => 128,   //listen backlog
+    'max_request' => 50,
+    'dispatch_mode'=>1, 
+    'package_eof' => "\r\n\r\n",  //http协议就是以\r\n\r\n作为结束符的，这里也可以使用二进制内容
+    'open_eof_check' => 1,
 ));
 </pre>
-
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

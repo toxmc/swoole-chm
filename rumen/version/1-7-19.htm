@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>pipe_buffer_size</title>
+  <title>版本更新记录 - 1.7.19</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
@@ -14,14 +14,21 @@
 <body style='text-justify-trim:punctuation'>
 
 <div class="wiki_content">
-        <article class="markdown-body entry-content">
-                        <h1>pipe_buffer_size</h1>
-                        <p>调整管道通信的内存缓存区长度。swoole的reactor线程与worker进程之间使用unix socket进行通信，在收发大量数据的场景下，需要启用内存缓存队列。此函数可以修改内存缓存的长度。</p>
+        <article>
+                       <h1>1.7.19</h1>
+                        <h2>主要更新</h2>
+<ul>
+<li>增加swoole_atomic模块，支持原子整数操作</li>
+<li>修复定时器在系统休眠后无法恢复运行的BUG</li>
+<li>修复SSL服务器在慢速网络中发送超过30K大包失败的问题</li>
+<li>UDP/UDP6/UNIX_DGRAM协议支持64K大包</li>
+<li>修复addtimer/tick定时器在BASE模式下无法使用的问题</li>
+<li>修复swoole_process子进程退出时消息队列被自动销毁的问题</li>
+<li>增加SWOOLE_BASE模式下对addProcess的支持</li>
+</ul>
 
-<blockquote>
-  <p>此参数在1.7.17以上版本默认为32M，1.7.17以下版本默认为8M</p>
-</blockquote>
         </article>
+
 <hr>
 
 </div>

@@ -6,20 +6,20 @@
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/code.css" type="text/css" />
+  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
 
 <body style='text-justify-trim:punctuation'>
 
-<div class="wiki_content blob instapaper_body">
+<div class="wiki_content">
        <article class="markdown-body entry-content" >
                        <h1>undefined symbol: __sync_bool_compare_and_swap_4</h1>
                         <p>运行swoole程序时出现此错误，说明操作系统gcc版本过低，请升级gcc至4.4以上版本。</p>
 
-<pre><code data-language="">/usr/local/php56/bin/php: symbol lookup error: /usr/local/php56/lib/php/extensions/no-debug-non-zts-20131226/swoole.so: undefined symbol: __sync_bool_compare_and_swap_4
-</code></pre>
+<pre>/usr/local/php56/bin/php: symbol lookup error: /usr/local/php56/lib/php/extensions/no-debug-non-zts-20131226/swoole.so: undefined symbol: __sync_bool_compare_and_swap_4
+</pre>
 
 <p>然后重新编译安装swoole</p>
 
@@ -27,7 +27,7 @@
 ./configure
 make clean
 make install
-</code></pre>
+</pre>
         </article>
 <hr>
 

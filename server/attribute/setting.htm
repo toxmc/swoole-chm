@@ -1,40 +1,46 @@
 <html>
-
 <head>
   <title>swoole_server::$setting</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content">
-        <article >
-                        <h1>swoole_server::$setting</h1>
-                        <p>swoole_server::set()函数所设置的参数会保存到swoole_server::$setting属性上。在回调函数中可以访问运行参数的值。</p>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_server::$setting</h1>
+            <p>swoole_server::set()函数所设置的参数会保存到swoole_server::$setting属性上。在回调函数中可以访问运行参数的值。</p>
 
-<blockquote>
-  <p>在swoole-1.6.11+可用</p>
-</blockquote>
+            <blockquote>
+                <p>在swoole-1.6.11+可用</p>
+            </blockquote>
 
-<p>示例：</p>
+            <p>示例：</p>
 
-<pre class="brush: php;">$serv = new swoole_server('127.0.0.1', 9501);
-$serv-&gt;set(array('worker_num' =&gt; 4));
+            <pre class="brush: php;">$serv = new swoole_server('127.0.0.1', 9501);
+$serv->set(array('worker_num' => 4));
 
-echo $serv-&gt;setting['worker_num'];
+echo $serv->setting['worker_num'];
 
 </pre>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

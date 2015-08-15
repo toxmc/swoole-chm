@@ -1,38 +1,44 @@
 <html>
-
 <head>
   <title>onWorkerError</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content">
-        <article >
-                        <h1>onWorkerError</h1>
-                        <p>当worker/task_worker进程发生异常后会在Manager进程内回调此函数。</p>
+    <div class="wiki_content">
+        <article>
+            <h1>onWorkerError</h1>
+            <p>当worker/task_worker进程发生异常后会在Manager进程内回调此函数。</p>
 
-<pre class="brush: php;">void onWorkerError(swoole_server $serv, int $worker_id, int $worker_pid, int $exit_code);
+            <pre class="brush: php;">void onWorkerError(swoole_server $serv, int $worker_id, int $worker_pid, int $exit_code);
 </pre>
 
-<ul>
-<li>$worker_id是异常进程的编号</li>
-<li>$worker_pid是异常进程的ID</li>
-<li>$exit_code退出的状态码，范围是 1 ～255</li>
-</ul>
+            <ul>
+                <li>$worker_id是异常进程的编号</li>
+                <li>$worker_pid是异常进程的ID</li>
+                <li>$exit_code退出的状态码，范围是 1 ～255</li>
+            </ul>
 
-<p>此函数主要用于报警和监控，一旦发现Worker进程异常退出，那么很有可能是遇到了致命错误或者进程CoreDump。通过记录日志或者发送报警的信息来提示开发者进行相应的处理。</p>
+            <p>此函数主要用于报警和监控，一旦发现Worker进程异常退出，那么很有可能是遇到了致命错误或者进程CoreDump。通过记录日志或者发送报警的信息来提示开发者进行相应的处理。</p>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

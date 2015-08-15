@@ -1,44 +1,42 @@
 <html>
-
 <head>
   <title>swoole_async_readfile</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_async_readfile</h1>
-                        <p>异步读取文件内容，函数原型</p>
-
-<pre class="brush: php;">swoole_async_readfile(string $filename, mixed $callback);
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_async_readfile</h1>
+            <p>异步读取文件内容，函数原型</p>
+            <pre class="brush: php;">swoole_async_readfile(string $filename, mixed $callback);
 </pre>
-
-<p>此函数调用后会马上返回，当文件读取完毕时会回调制定的callback函数。使用示例：</p>
-
-<pre class="brush: php;">swoole_async_readfile(__DIR__."/server.php", function($filename, $content) {
+            <p>此函数调用后会马上返回，当文件读取完毕时会回调制定的callback函数。使用示例：</p>
+            <pre class="brush: php;">swoole_async_readfile(__DIR__."/server.php", function($filename, $content) {
      echo "$filename: $content";
 });
 </pre>
-
-<blockquote>
-  <p>swoole_async_readfile会将文件内容全部复制到内存，所以不能用于大文件的读取<br />
-  如果要读取超大文件，请使用swoole_async_read函数<br />
-  swoole_async_readfile最大可读取4M的文件，受限于SW_AIO_MAX_FILESIZE宏</p>
-</blockquote>
-
+            <blockquote>
+                <p>
+                    swoole_async_readfile会将文件内容全部复制到内存，所以不能用于大文件的读取<br />
+                    如果要读取超大文件，请使用swoole_async_read函数<br />
+                    swoole_async_readfile最大可读取4M的文件，受限于SW_AIO_MAX_FILESIZE宏
+                </p>
+            </blockquote>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

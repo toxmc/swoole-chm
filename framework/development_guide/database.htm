@@ -1,74 +1,63 @@
 <html>
-
 <head>
   <title>swoole框架 - Database</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>Database</h1>
-                        <p>修改 apps/configs/db.php ，加入配置。</p>
-
-<pre class="brush: php;">$db['master'] = array(
-    'type'    =&gt; Swoole\Database::TYPE_MYSQLi,
-    'host'    =&gt; "127.0.0.1",
-    'port'    =&gt; 3306,
-    'dbms'    =&gt; 'mysql',
-    'engine'  =&gt; 'MyISAM',
-    'user'    =&gt; "root",
-    'passwd'  =&gt; "root",
-    'name'    =&gt; "db_live",
-    'charset' =&gt; "utf8",
-    'setname' =&gt; true,
-    'persistent'  =&gt; true,
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>Database</h1>
+            <p>修改 apps/configs/db.php ，加入配置。</p>
+            <pre class="brush: php;">$db['master'] = array(
+    'type'    => Swoole\Database::TYPE_MYSQLi,
+    'host'    => "127.0.0.1",
+    'port'    => 3306,
+    'dbms'    => 'mysql',
+    'engine'  => 'MyISAM',
+    'user'    => "root",
+    'passwd'  => "root",
+    'name'    => "db_live",
+    'charset' => "utf8",
+    'setname' => true,
+    'persistent'  => true,
 );
 return $db;
 </pre>
-
-<h2>使用方式</h2>
-
-<p>单数据库，默认读取master配置</p>
-
-<pre class="brush: php;">$this-&gt;db-&gt;query("select * from test");
+            <h2>使用方式</h2>
+            <p>单数据库，默认读取master配置</p>
+            <pre class="brush: php;">$this->db->query("select * from test");
 </pre>
-
-<p>多数据库，读取制定的数据库配置</p>
-
-<pre class="brush: php;">$this-&gt;db('other_db_config')-&gt;query("select * from test");
+            <p>多数据库，读取制定的数据库配置</p>
+            <pre class="brush: php;">$this->db('other_db_config')->query("select * from test");
 </pre>
-
-<h2>驱动类型</h2>
-
-<p>swoole框架支持3种驱动类型：</p>
-
-<ol>
-<li>Swoole\Database::TYPE_MYSQL，使用mysql扩展</li>
-<li>Swoole\Database::TYPE_MYSQLi，使用mysqli扩展</li>
-<li>Swoole\Database::TYPE_PDO，使用PDO扩展</li>
-</ol>
-
-<h2>配置选项</h2>
-
-<ul>
-<li>charset 制定数据库字符集</li>
-<li>setname 在连接服务器成功后发送set names $charset</li>
-<li>persistent 启用MySQL数据库长连接</li>
-</ul>
-
+            <h2>驱动类型</h2>
+            <p>swoole框架支持3种驱动类型：</p>
+            <ol>
+                <li>Swoole\Database::TYPE_MYSQL，使用mysql扩展</li>
+                <li>Swoole\Database::TYPE_MYSQLi，使用mysqli扩展</li>
+                <li>Swoole\Database::TYPE_PDO，使用PDO扩展</li>
+            </ol>
+            <h2>配置选项</h2>
+            <ul>
+                <li>charset 制定数据库字符集</li>
+                <li>setname 在连接服务器成功后发送set names $charset</li>
+                <li>persistent 启用MySQL数据库长连接</li>
+            </ul>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

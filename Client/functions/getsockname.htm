@@ -1,14 +1,20 @@
 <html>
-
 <head>
   <title>swoole_client::getsockname</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
 <body style='text-justify-trim:punctuation'>
@@ -18,12 +24,30 @@
                         <h1>swoole_client->getsockname</h1>
                         <p>用于获取客户端socket的本地host:port，必须在连接之后才可以使用。</p>
 
-<pre class="brush: php;">array swoole_client-&gt;getsockname();
+<pre class="brush: php;">array swoole_client->getsockname();
 </pre>
 
 <ul>
 <li>调用成功返回一个数组，如：array('host' => '127.0.0.1', 'port' => 53652)</li>
 </ul>
+                        <p>例子：</p>
+
+<pre class="brush: php;">
+&lt;?php
+$client = new swoole_client(SWOOLE_SOCK_TCP6);
+if (!$client->connect('::1', 9501, -1))
+{
+    exit("connect failed. Error: {$client->errCode}\n");
+}
+var_dump($client->getsockname());
+for($i=0; $i < 1; $i ++)
+{
+    $client->send("hello world\n");
+    echo $client->recv();
+    usleep(2000);
+}
+$client->close();
+</pre>
 
 <blockquote>
   <p>此函数在1.7.13以上版本可用</p>

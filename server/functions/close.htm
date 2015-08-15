@@ -1,40 +1,79 @@
 <html>
-
 <head>
-  <title>swoole_server::close</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>swoole_server::close</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css"
+    type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css"
+    type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css"
+    type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css"
+    type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css"
+    type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content">
+    <div class="wiki_content">
 
-        <article >
-                        <h1>swoole_server->close</h1>
-                        <p>关闭客户端连接，函数原型：</p>
+        <article>
+            <h1>swoole_server->close</h1>
+            <p>关闭客户端连接，函数原型：</p>
 
-<pre class="brush: php;">bool swoole_server-&gt;close(int $fd, int $from_id = 0);
+            <pre class="brush: php;">bool swoole_server->close(int $fd, int $from_id = 0);
 </pre>
 
-<blockquote>
-  <p>swoole-1.6以上版本不需要$from_id
-  swoole-1.5.8以下的版本，务必要传入正确的$from_id，否则可能会导致连接泄露</p>
-</blockquote>
+            <blockquote>
+                <p>swoole-1.6以上版本不需要$from_id
+                    swoole-1.5.8以下的版本，务必要传入正确的$from_id，否则可能会导致连接泄露</p>
+            </blockquote>
 
-<p>操作成功返回true，失败返回false.<br />
-Server主动close连接，也一样会触发onClose事件。不要在close之后写清理逻辑。应当放置到onClose回调中处理。</p>
-
+            <p>
+                操作成功返回true，失败返回false.<br />
+                Server主动close连接，也一样会触发onClose事件。不要在close之后写清理逻辑。应当放置到onClose回调中处理。
+            </p>
+            <p>例子：</p>
+            <pre class="brush: php;">
+&lt;?php
+$serv = new swoole_server("0.0.0.0", 9501);
+$serv->set(array(
+        'worker_num' => 2,
+        'dispatch_mode' => 3,
+        'daemonize' => false,
+        'log_file' => '/tmp/swoole.log'
+));
+$serv->on('start', function($serv) {
+    echo 'start',PHP_EOL;
+});
+$serv->on('workerStart', function($serv, $worker_id) {
+    echo "server start\n";
+});
+$serv->on('connect', function ($serv, $fd, $from_id){
+    echo "[#".posix_getpid()."]\tClient@[$fd:$from_id]: Connect.\n";
+});
+$serv->on('receive', function (swoole_server $serv, $fd, $from_id, $data) {
+    echo "[#".$serv->worker_id."]\tClient[$fd]: $data\n";
+    $serv->send($fd, json_encode(array("hello" => '1213', "bat" => "ab")).PHP_EOL);
+    $serv->close($fd);
+});
+$serv->on('close', function ($serv, $fd, $from_id) {
+    echo "[#".posix_getpid()."]\tClient@[$fd:$from_id]: Close.\n";
+});
+$serv->start();
+            </pre>
         </article>
-<hr>
-
-
-</div>
+        <hr>
+    </div>
 
 </body>
 

@@ -1,112 +1,98 @@
 <html>
-
 <head>
   <title>swoole框架 - Web服务器</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../../public/css/code.css" type="text/css" />
   <link rel="stylesheet" href="../../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>Web服务器</h1>
-                        <p>Swoole框架提供的WebServer有3种使用方法</p>
-
-<h2>一、直接使用HttpServer</h2>
-
-<p>HttpServer支持静态文件和include file。业务代码不需要写任何Server的代码，只需要设置document_root，并编写对应php文件。这种使用方法与Apache/Nginx+FPM类似。</p>
-
-<p>server.php</p>
-
-<pre class="brush: php;">$AppSvr = new Swoole\Network\Protocol\HttpServer();
-$AppSvr-&gt;loadSetting("./swoole.ini"); //加载配置文件
-$AppSvr-&gt;setDocumentRoot(__DIR__.'/webdocs/'); //设置document_root
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>Web服务器</h1>
+            <p>Swoole框架提供的WebServer有3种使用方法</p>
+            <h2>一、直接使用HttpServer</h2>
+            <p>HttpServer支持静态文件和include
+                file。业务代码不需要写任何Server的代码，只需要设置document_root，并编写对应php文件。这种使用方法与Apache/Nginx+FPM类似。</p>
+            <p>server.php</p>
+            <pre class="brush: php;">$AppSvr = new Swoole\Network\Protocol\HttpServer();
+$AppSvr->loadSetting("./swoole.ini"); //加载配置文件
+$AppSvr->setDocumentRoot(__DIR__.'/webdocs/'); //设置document_root
 
 $server = new \Swoole\Network\Server('0.0.0.0', 9501);
-$server-&gt;setProtocol($AppSvr);
-//$server-&gt;daemonize(); //作为守护进程
-$server-&gt;run(array('worker_num' =&gt; 2, 'max_request' =&gt; 1000));
+$server->setProtocol($AppSvr);
+//$server->daemonize(); //作为守护进程
+$server->run(array('worker_num' => 2, 'max_request' => 1000));
 </pre>
-
-<p>webdocs/index.php</p>
-
-<pre class="brush: php;">&lt;?php
+            <p>webdocs/index.php</p>
+            <pre class="brush: php;">&lt;?php
 echo "hello world";
 </pre>
-
-<p>在浏览器中打开<a href="http://localhost:9501/index.php">http://localhost:9501/index.php</a></p>
-
-<h2>二、继承HttpServer</h2>
-
-<p>业务代码只需要继承此类，并自行实现onRequest方法即可。</p>
-
-<pre class="brush: php;">    /**
+            <p>
+                在浏览器中打开<a href="http://localhost:9501/index.php">http://localhost:9501/index.php</a>
+            </p>
+            <h2>二、继承HttpServer</h2>
+            <p>业务代码只需要继承此类，并自行实现onRequest方法即可。</p>
+            <pre class="brush: php;">    /**
      * 处理请求
      * @param $request
      * @return Swoole\Response
      */
     function onRequest(Swoole\Request $request)
 </pre>
-
-<p>onRequest方法参数为解析好的Request对象</p>
-
-<ul>
-<li>$request->post : $_POST</li>
-<li>$request->get : $_GET</li>
-<li>$request->cookie : $_COOKIES</li>
-<li>$request->file  $_FILES</li>
-</ul>
-
-<p>onRequest方法必须返回一个Response对象</p>
-
-<ul>
-<li>$response->body 返回的HTML内容</li>
-<li>$response->head HTTP头信息</li>
-</ul>
-
-<h2>三、使用AppServer</h2>
-
-<p>基于AppServer类开发，就必须遵循Swoole MVC规范。具体可以查看examples/和apps/中的示例程序。
-apps/目录中存放应用代码。</p>
-
-<table>
-<thead>
-<tr>
-  <th>目录</th>
-  <th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>apps/controllers</td>
-  <td>控制器代码</td>
-</tr>
-<tr>
-  <td>apps/models</td>
-  <td>数据模型代码</td>
-</tr>
-<tr>
-  <td>apps/teamplets</td>
-  <td>模板文件</td>
-</tr>
-<tr>
-  <td>apps/config</td>
-  <td>配置文件</td>
-</tr>
-</tbody>
-</table>
-
+            <p>onRequest方法参数为解析好的Request对象</p>
+            <ul>
+                <li>$request->post : $_POST</li>
+                <li>$request->get : $_GET</li>
+                <li>$request->cookie : $_COOKIES</li>
+                <li>$request->file $_FILES</li>
+            </ul>
+            <p>onRequest方法必须返回一个Response对象</p>
+            <ul>
+                <li>$response->body 返回的HTML内容</li>
+                <li>$response->head HTTP头信息</li>
+            </ul>
+            <h2>三、使用AppServer</h2>
+            <p>基于AppServer类开发，就必须遵循Swoole
+                MVC规范。具体可以查看examples/和apps/中的示例程序。 apps/目录中存放应用代码。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>目录</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>apps/controllers</td>
+                        <td>控制器代码</td>
+                    </tr>
+                    <tr>
+                        <td>apps/models</td>
+                        <td>数据模型代码</td>
+                    </tr>
+                    <tr>
+                        <td>apps/teamplets</td>
+                        <td>模板文件</td>
+                    </tr>
+                    <tr>
+                        <td>apps/config</td>
+                        <td>配置文件</td>
+                    </tr>
+                </tbody>
+            </table>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

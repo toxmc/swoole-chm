@@ -1,42 +1,38 @@
 <html>
-
 <head>
   <title>SWOOLE_KEEP建立TCP长连接</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>SWOOLE_KEEP建立TCP长连接</h1>
-                        <p>swoole_client支持在php-fpm/apache中创建一个TCP长连接到服务器端。使用方法：</p>
-
-<pre class="brush: php;">$client = new swoole_client(SWOOLE_SOCK_TCP | SWOOLE_KEEP);
-$client-&gt;connect('127.0.0.1', 9501);
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>SWOOLE_KEEP建立TCP长连接</h1>
+            <p>swoole_client支持在php-fpm/apache中创建一个TCP长连接到服务器端。使用方法：</p>
+            <pre class="brush: php;">$client = new swoole_client(SWOOLE_SOCK_TCP | SWOOLE_KEEP);
+$client->connect('127.0.0.1', 9501);
 </pre>
-
-<p>启用SWOOLE_KEEP选项后，一个请求结束PHP不会关闭socket，下一次再进行connect时会自动复用上次创建的连接。如果执行connect发现连接已经被服务器关闭，那么connect会重新创建新的连接。</p>
-
-<h2>SWOOLE_KEEP的优势</h2>
-
-<ul>
-<li>TCP长连接可以减少connect 3次握手/close 4次挥手带来的额外IO消耗</li>
-<li>降低服务器端close/connect次数</li>
-</ul>
-
+            <p>启用SWOOLE_KEEP选项后，一个请求结束PHP不会关闭socket，下一次再进行connect时会自动复用上次创建的连接。如果执行connect发现连接已经被服务器关闭，那么connect会重新创建新的连接。</p>
+            <h2>SWOOLE_KEEP的优势</h2>
+            <ul>
+                <li>TCP长连接可以减少connect 3次握手/close 4次挥手带来的额外IO消耗</li>
+                <li>降低服务器端close/connect次数</li>
+            </ul>
         </article>
-<hr>
-
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

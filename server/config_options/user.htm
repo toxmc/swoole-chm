@@ -1,26 +1,30 @@
 <html>
-
 <head>
   <title>user</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" /> 
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
 <body style='text-justify-trim:punctuation'>
-
 <div class="wiki_content">
         <article >
                         <h1>user</h1>
                         <p>设置worker/task子进程的所属用户。服务器如果需要监听1024以下的端口，必须有root权限。但程序运行在root用户下，代码中一旦有漏洞，攻击者就可以以root的方式执行远程指令，风险很大。配置了user项之后，可以让主进程运行在root权限下，子进程运行在普通用户权限下。</p>
 
-<pre class="brush: php;">$serv-&gt;set(array('user' =&gt; 'apache'));
+<pre class="brush: php;">$serv->set(array('user' => 'apache'));
 </pre>
-
 <blockquote>
   <p>此配置在swoole-1.7.9以上版本可用<br />
   仅在使用root用户启动时有效</p>
@@ -29,9 +33,6 @@
 [2015-05-27 11:51:56 *31187.1]	WARN	swWorker_onStart: get user [xxx] info failed. Error: Success[0].</p>
         </article>
 <hr>
-
 </div>
-
 </body>
-
 </html>

@@ -1,60 +1,66 @@
 <html>
-
 <head>
-  <title>swoole_client::connect</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <title>swoole_client::connect</title>
+    <meta http-equiv=Content-Type content="text/html; charset=gbk">
+    <meta name="GENERATOR" content="Macrobject Word-2-CHM">
+    <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+    <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_client->connect</h1>
+            <p>连接到远程服务器，函数原型：</p>
 
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_client->connect</h1>
-                        <p>连接到远程服务器，函数原型：</p>
-
-<pre class="brush: php;">bool $swoole_client-&gt;connect(string $host, int $port, float $timeout = 0.1, int $flag = 0)
+            <pre class="brush: php;">bool $swoole_client->connect(string $host, int $port, float $timeout = 0.1, int $flag = 0)
 </pre>
 
-<p>connect方法接受4个参数：</p>
+            <p>connect方法接受4个参数：</p>
 
-<ul>
-<li>$host是远程服务器的地址</li>
-<li>$port是远程服务器端口</li>
-<li>$timeout是网络IO的超时，单位是s，支持浮点数。默认为0.1s，即100ms</li>
-<li>$flag参数在UDP类型时表示是否启用udp_connect<br />
-设定此选项后将绑定$host与$port，此UDP将会丢弃非指定host/port的数据包。</li>
-<li>$flag参数在TCP类型,$flag=1表示设置为非阻塞socket，connect会立即返回。如果将$flag设置为1，那么在send/recv前必须使用swoole_client_select来检测是否完成了连接</li>
-</ul>
+            <ul>
+                <li>$host是远程服务器的地址</li>
+                <li>$port是远程服务器端口</li>
+                <li>$timeout是网络IO的超时，单位是s，支持浮点数。默认为0.1s，即100ms</li>
+                <li>$flag参数在UDP类型时表示是否启用udp_connect<br />
+                    设定此选项后将绑定$host与$port，此UDP将会丢弃非指定host/port的数据包。
+                </li>
+                <li>$flag参数在TCP类型,$flag=1表示设置为非阻塞socket，connect会立即返回。如果将$flag设置为1，那么在send/recv前必须使用swoole_client_select来检测是否完成了连接</li>
+            </ul>
 
-<h2>同步模式</h2>
+            <h2>同步模式</h2>
 
-<p>connect方法会阻塞，直到连接成功并返回true。这时候就可以向服务器端发送数据或者收取数据了。</p>
+            <p>connect方法会阻塞，直到连接成功并返回true。这时候就可以向服务器端发送数据或者收取数据了。</p>
 
-<pre class="brush: php;">if ($cli-&gt;connect('127.0.0.1', 9501)) {
-      $cli-&gt;send("data");
+            <pre class="brush: php;">if ($cli->connect('127.0.0.1', 9501)) {
+      $cli->send("data");
 } else {
       echo "connect failed.";
 }
 </pre>
 
-<p>如果连接失败，会返回false</p>
+            <p>如果连接失败，会返回false</p>
 
-<h2>异步模式</h2>
+            <h2>异步模式</h2>
 
-<p>connect会立即返回true。但实际上连接并未建立。所以不能在connect后使用send/recv。通过isConnected()判断也是false。</p>
+            <p>connect会立即返回true。但实际上连接并未建立。所以不能在connect后使用send/recv。通过isConnected()判断也是false。</p>
 
-<p>当连接成功后，系统会自动回调onConnect。这时才可以使用send/recv。</p>
+            <p>当连接成功后，系统会自动回调onConnect。这时才可以使用send/recv。</p>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

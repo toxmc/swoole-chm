@@ -1,41 +1,41 @@
 <html>
-
 <head>
   <title>swoole_client->sock</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_client->sock</h1>
+            <p>类型为int。sock属性是此socket的文件描述符。在PHP代码中可以使用</p>
 
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_client->sock</h1>
-                        <p>类型为int。sock属性是此socket的文件描述符。在PHP代码中可以使用</p>
-
-<pre class="brush: php;">$sock = fopen("php://fd/".$swoole_client-&gt;sock); 
+            <pre class="brush: php;">$sock = fopen("php://fd/".$swoole_client-&gt;sock); 
 </pre>
-
-<p><strong>注意：$client->sock属性值，仅在$client->connect后才能取到。在未连接服务器之前，此属性的值为null。</strong></p>
-
-<p>将swoole_client的socket转换成一个stream socket。可以调用fread/fwrite/fclose等函数进程操作。</p>
-
-<blockquote>
-  <p>swoole_server中的$fd不能用此方法转换，因为$fd只是一个数字，$fd文件描述符属于主进程</p>
-</blockquote>
-
-<p>$swoole_client->sock可以转换成int作为数组的key.</p>
-
+            <p>
+                <strong>注意：$client->sock属性值，仅在$client->connect后才能取到。在未连接服务器之前，此属性的值为null。</strong>
+            </p>
+            <p>将swoole_client的socket转换成一个stream
+                socket。可以调用fread/fwrite/fclose等函数进程操作。</p>
+            <blockquote>
+                <p>swoole_server中的$fd不能用此方法转换，因为$fd只是一个数字，$fd文件描述符属于主进程</p>
+            </blockquote>
+            <p>$swoole_client->sock可以转换成int作为数组的key.</p>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

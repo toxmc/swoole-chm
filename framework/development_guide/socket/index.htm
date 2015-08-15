@@ -1,75 +1,67 @@
 <html>
-
 <head>
   <title>swoole框架 - Socket网络开发</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../../public/css/code.css" type="text/css" />
   <link rel="stylesheet" href="../../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>Socket网络开发</h1>
-                        <p>Swoole提供了底层的网络socket服务器实现。普通用户只需要实现协议或基于现有的协议进行二次开发。</p>
-
-<h2>底层Driver</h2>
-
-<ul>
-<li>BlockTCP 阻塞的tcp/udp server, 请求按顺序执行，必须处理完一个请求才能继续处理新的请求。</li>
-<li>SelectTCP 使用select做IO复用的异步非阻塞 server，可以同时维持多个TCP连接。select最大只能维持1024个连接，并且性能会随着连接数量增多而下降</li>
-<li>EventTCP 使用libevent做IO复用的异步非阻塞Server，可以同时维持大量TCP连接，性能不会随连接增多而下降</li>
-<li>Server 使用Swoole扩展作为底层的网络驱动，推荐使用</li>
-</ul>
-
-<blockquote>
-  <p>BlockTCP和SelectTCP可用于Windows</p>
-</blockquote>
-
-<h2>协议Protocol</h2>
-
-<p>Protocol决定应用层如何处理数据，如何回应客户端。开发者可以基于Swoole提供的Protocol之上进行开发，也可以自行实现Protocol
-Swoole框架自带的Protocol有：</p>
-
-<ul>
-<li>HttpServer 是http协议的实现，提供web server的功能</li>
-<li>WebSocket 是websocket协议的实现</li>
-<li>AppServer 是Web应用服务器的实现</li>
-<li>SOAServer 是SOA协议的实现，（SOA不是标准协议）</li>
-</ul>
-
-<h2>运行Server</h2>
-
-<p>在你的脚本中只需要选择一种合适的Driver，构造一个Protocol对象。并调用Driver的setProtocol方法，组装到Drvier中即可，最后调用Driver的run方法进入网络事件循环即可。</p>
-
-<p>test.php</p>
-
-<pre class="brush: php;">require __DIR__ . '/../libs/lib_config.php';
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>Socket网络开发</h1>
+            <p>Swoole提供了底层的网络socket服务器实现。普通用户只需要实现协议或基于现有的协议进行二次开发。</p>
+            <h2>底层Driver</h2>
+            <ul>
+                <li>BlockTCP 阻塞的tcp/udp server,
+                    请求按顺序执行，必须处理完一个请求才能继续处理新的请求。</li>
+                <li>SelectTCP 使用select做IO复用的异步非阻塞
+                    server，可以同时维持多个TCP连接。select最大只能维持1024个连接，并且性能会随着连接数量增多而下降</li>
+                <li>EventTCP
+                    使用libevent做IO复用的异步非阻塞Server，可以同时维持大量TCP连接，性能不会随连接增多而下降</li>
+                <li>Server 使用Swoole扩展作为底层的网络驱动，推荐使用</li>
+            </ul>
+            <blockquote>
+                <p>BlockTCP和SelectTCP可用于Windows</p>
+            </blockquote>
+            <h2>协议Protocol</h2>
+            <p>Protocol决定应用层如何处理数据，如何回应客户端。开发者可以基于Swoole提供的Protocol之上进行开发，也可以自行实现Protocol
+                Swoole框架自带的Protocol有：</p>
+            <ul>
+                <li>HttpServer 是http协议的实现，提供web server的功能</li>
+                <li>WebSocket 是websocket协议的实现</li>
+                <li>AppServer 是Web应用服务器的实现</li>
+                <li>SOAServer 是SOA协议的实现，（SOA不是标准协议）</li>
+            </ul>
+            <h2>运行Server</h2>
+            <p>在你的脚本中只需要选择一种合适的Driver，构造一个Protocol对象。并调用Driver的setProtocol方法，组装到Drvier中即可，最后调用Driver的run方法进入网络事件循环即可。</p>
+            <p>test.php</p>
+            <pre class="brush: php;">require __DIR__ . '/../libs/lib_config.php';
 $AppSvr = new Swoole\Network\Protocol\HttpServer();
 
-$AppSvr-&gt;setDocumentRoot(WEBPATH);
-$AppSvr-&gt;setLogger(new \Swoole\Log\EchoLog(true)); //Logger
+$AppSvr->setDocumentRoot(WEBPATH);
+$AppSvr->setLogger(new \Swoole\Log\EchoLog(true)); //Logger
 
 
 $server = new \Swoole\Network\SelectTCP('0.0.0.0', 8888); //这里选择了selectTCP驱动
-$server-&gt;setProtocol($AppSvr); //组装协议
+$server->setProtocol($AppSvr); //组装协议
 
-$server-&gt;run(array('worker_num' =&gt; 1, 'max_request' =&gt; 5000)); //运行
+$server->run(array('worker_num' => 1, 'max_request' => 5000)); //运行
 </pre>
-
-<pre class="brush: php;">php test.php
+            <pre class="brush: php;">php test.php
 </pre>
-
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

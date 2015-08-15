@@ -1,43 +1,41 @@
 <html>
-
 <head>
   <title>swoole_client_select</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_client_select</h1>
-                        <p>swoole_client的并行处理中用了select来做IO事件循环。</p>
-
-<p>函数原型：</p>
-
-<pre class="brush: php;">int swoole_client_select(array &amp;$read, array &amp;$write, array &amp;$error, float $timeout);
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_client_select</h1>
+            <p>swoole_client的并行处理中用了select来做IO事件循环。</p>
+            <p>函数原型：</p>
+            <pre class="brush: php;">int swoole_client_select(array &amp;$read, array &amp;$write, array &amp;$error, float $timeout);
 </pre>
-
-<p>swoole_client_select接受4个参数，$read,$write,$error分别是可读/可写/错误的文件描述符。<br />
-这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。<br />
-$timeout参数是select的超时时间，单位为秒，接受浮点数。</p>
-
-<p>调用成功后，会返回事件的数量，并修改$read/$write/$error数组。使用foreach遍历数组，然后执行$item->recv/$item->send来收发数据。或者调用$item->close()或unset($item)来关闭socket。</p>
-
-<blockquote>
-  <p>此函数适用于Apache/PHP-fpm环境</p>
-</blockquote>
-
+            <p>
+                swoole_client_select接受4个参数，$read,$write,$error分别是可读/可写/错误的文件描述符。<br />
+                这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。<br />
+                $timeout参数是select的超时时间，单位为秒，接受浮点数。
+            </p>
+            <p>调用成功后，会返回事件的数量，并修改$read/$write/$error数组。使用foreach遍历数组，然后执行$item->recv/$item->send来收发数据。或者调用$item->close()或unset($item)来关闭socket。</p>
+            <blockquote>
+                <p>此函数适用于Apache/PHP-fpm环境</p>
+            </blockquote>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

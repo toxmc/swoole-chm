@@ -1,62 +1,73 @@
 <html>
-
 <head>
   <title>swoole_server::tick</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content">
+    <div class="wiki_content">
 
-        <article >
-                        <h1>swoole_server->tick</h1>
-                        <p>tick定时器，可以自定义回调函数。此函数是<a href="../../AsyncIO/Asyn_millisecond_timer/swoole_timer_tick.htm">swoole_timer_tick</a>的别名。</p>
+        <article>
+            <h1>swoole_server->tick</h1>
+            <p>
+                tick定时器，可以自定义回调函数。此函数是<a
+                    href="../../AsyncIO/Asyn_millisecond_timer/swoole_timer_tick.htm">swoole_timer_tick</a>的别名。
+            </p>
 
-<blockquote>
-  <p>worker进程结束运行后，所有定时器都会自动销毁</p>
-</blockquote>
+            <blockquote>
+                <p>worker进程结束运行后，所有定时器都会自动销毁</p>
+            </blockquote>
 
-<p>在onReceive使用tick示例：</p>
+            <p>在onReceive使用tick示例：</p>
 
-<pre class="brush: php;">function onReceive($server, $fd, $from_id, $data) {
-    $server-&gt;tick(1000, function() use ($server, $fd) {
-        $server-&gt;send($fd, "hello world");
+            <pre class="brush: php;">function onReceive($server, $fd, $from_id, $data) {
+    $server->tick(1000, function() use ($server, $fd) {
+        $server->send($fd, "hello world");
     });
 }
 </pre>
 
 
-<ul>
-<li>tick不能用于task进程否则会报 Fatal error: swoole_server::tick(): cannot use async-io in task process. </li>
-</ul>
+            <ul>
+                <li>tick不能用于task进程否则会报 Fatal error:
+                    swoole_server::tick(): cannot use async-io in task
+                    process.</li>
+            </ul>
 
-<p>tick示例：</p>
-<pre class="brush: php;">swoole_timer_tick(2000, function($id) {
+            <p>tick示例：</p>
+            <pre class="brush: php;">swoole_timer_tick(2000, function($id) {
     echo "tick-1 2000ms\n";
     var_dump($id);
 });
 </pre>
 
-<pre class="brush: php;">swoole_timer_tick(2000, function($id, $params) {
+            <pre class="brush: php;">swoole_timer_tick(2000, function($id, $params) {
     echo "tick-2 2000ms\n";
     var_dump($id, $params);
     swoole_timer_clear($id);
 }, "i am params");
 </pre>
-<ul>
-<li>展示通过参数传值</li>
-</ul>
+            <ul>
+                <li>展示通过参数传值</li>
+            </ul>
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

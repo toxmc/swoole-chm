@@ -1,45 +1,44 @@
 <html>
-
 <head>
   <title>swoole框架 - 数据库ORM接口</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>数据库ORM接口</h1>
+            <p>可以使用createModel('ModelName')->get($id)和createModel('ModelName')->all来生成数据的ORM封装对象。</p>
+            <pre class="brush: php;">$content = $model->get(1);   //这里返回的是一个Record对象
+$content->title = 'hello world';  //Update操作
+$content->save();                 //保存操作，这时会执行SQL语句
+echo $content->addtime;           //输入值
+$content->delete();                 //删除此条数据
 
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>数据库ORM接口</h1>
-                        <p>可以使用createModel('ModelName')->get($id)和createModel('ModelName')->all来生成数据的ORM封装对象。</p>
-
-<pre class="brush: php;">$content = $model-&gt;get(1);   //这里返回的是一个Record对象
-$content-&gt;title = 'hello world';  //Update操作
-$content-&gt;save();                 //保存操作，这时会执行SQL语句
-echo $content-&gt;addtime;           //输入值
-$content-&gt;delete();                 //删除此条数据
-
-$all = $model-&gt;all();        //这里返回一个RecordSet对象
-$all-&gt;filter('userid=2');    //增加一些限定条件，避免读取全部的数据库内容
+$all = $model->all();        //这里返回一个RecordSet对象
+$all->filter('userid=2');    //增加一些限定条件，避免读取全部的数据库内容
 
 //遍历符合条件的所有数据库记录
 foreach($all as $obj)
 {
-    $obj-&gt;title = 'hello';
-    echo $obj-&gt;content;
+    $obj->title = 'hello';
+    echo $obj->content;
 }
 </pre>
-
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

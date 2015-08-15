@@ -46,6 +46,10 @@
                 </OBJECT>
                 <UL>
                     <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="1.7.19">
+                      <param name="Local" value="rumen\version\1-7-19.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="1.7.18">
                       <param name="Local" value="rumen\version\1-7-18.htm">
                     </OBJECT>
@@ -1393,10 +1397,6 @@
             </OBJECT>
             <UL>
                 <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="安装Swoole框架和扩展">
-                  <param name="Local" value="framework\development_guide\install-swoole.htm">
-                </OBJECT>
-                <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="数据库Model类">
                   <param name="Local" value="framework\development_guide\model\index.htm">
                 </OBJECT>
@@ -1451,10 +1451,6 @@
                     </OBJECT>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="数据库ORM接口">
-                  <param name="Local" value="framework\development_guide\orm.htm">
-                </OBJECT>
-                <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="Socket网络开发">
                   <param name="Local" value="framework\development_guide\socket\index.htm">
                 </OBJECT>
@@ -1480,6 +1476,14 @@
                       <param name="Local" value="framework\development_guide\socket\apache+swoole.htm">
                     </OBJECT>
                 </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="安装Swoole框架和扩展">
+                  <param name="Local" value="framework\development_guide\install-swoole.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="数据库ORM接口">
+                  <param name="Local" value="framework\development_guide\orm.htm">
+                </OBJECT>
                 <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="控制器Controller">
                   <param name="Local" value="framework\development_guide\controller.htm">

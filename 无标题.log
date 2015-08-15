@@ -1,14 +1,16 @@
 Microsoft HTML Help Compiler 4.74.8702
 
-Compiling f:\swoole-chm\swoole-chm\swoole.chm
+Compiling g:\swoole-chm\swoole.chm
 
+HHC3004: Warning: useQueue.htm : The HTML tag "$worker_num; $i++){    $process = new swoole_p..." is not a valid HTML tag (it does not begin with an alphanumeric character).
+HHC3004: Warning: useQueue.htm : The HTML tag "$worker_num; $i++){    $ret = swoole_process::..." is not a valid HTML tag (it does not begin with an alphanumeric character).
 
-Compile time: 0 minutes, 3 seconds
-365	Topics
-1,470	Local links
+Compile time: 0 minutes, 2 seconds
+366	Topics
+1,474	Local links
 20	Internet links
 2	Graphics
 
 
-Created f:\swoole-chm\swoole-chm\swoole.chm, 457,653 bytes
-Compression decreased file by 992,287 bytes.
+Created g:\swoole-chm\swoole.chm, 428,703 bytes
+Compression decreased file by 791,260 bytes.

@@ -1,43 +1,52 @@
 <html>
-
 <head>
   <title>swoole_server::after</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content">
+    <div class="wiki_content">
 
-        <article >
-                        <h1>swoole_server->after</h1>
-                        <p>在指定的时间后执行函数，需要swoole-1.7.7以上版本。</p>
+        <article>
+            <h1>swoole_server->after</h1>
+            <p>在指定的时间后执行函数，需要swoole-1.7.7以上版本。</p>
 
-<pre class="brush: php;">swoole_server-&gt;after(int $after_time_ms, mixed $callback_function);
+            <pre class="brush: php;">swoole_server->after(int $after_time_ms, mixed $callback_function);
 </pre>
 
-<p>swoole_server::after函数是一个一次性定时器，执行完成后就会销毁。</p>
+            <p>swoole_server::after函数是一个一次性定时器，执行完成后就会销毁。</p>
 
-<ul>
-<li>$after_time_ms 指定时间，单位为毫秒</li>
-<li>$callback_function 时间到期后所执行的函数，必须是可以调用的。callback函数不接受任何参数</li>
-</ul>
+            <ul>
+                <li>$after_time_ms 指定时间，单位为毫秒</li>
+                <li>$callback_function
+                    时间到期后所执行的函数，必须是可以调用的。callback函数不接受任何参数</li>
+            </ul>
 
-<blockquote>
-  <p>$after_time_ms 最大不得超过 86400000<br />
-  此方法是swoole_timer_after函数的别名</p>
-</blockquote>
+            <blockquote>
+                <p>
+                    $after_time_ms 最大不得超过 86400000<br />
+                    此方法是swoole_timer_after函数的别名
+                </p>
+            </blockquote>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

@@ -1,41 +1,41 @@
 <html>
-
 <head>
   <title>swoole_process::wait</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_process::wait</h1>
-                        <p>回收结束运行的子进程。</p>
-
-<pre class="brush: php;">array swoole_process::wait(bool $blocking = true);
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_process::wait</h1>
+            <p>回收结束运行的子进程。</p>
+            <pre class="brush: php;">array swoole_process::wait(bool $blocking = true);
 </pre>
-
-<ul>
-<li>$blocking 参数可以指定是否阻塞等待，默认为阻塞</li>
-<li>操作成功会返回返回一个数组包含子进程的PID和退出状态码，如array('code' => 0, 'pid' => 15001)，失败返回false</li>
-</ul>
-
-<blockquote>
-  <p>子进程结束必须要执行wait进行回收，否则子进程会变成僵尸进程<br />
-  $blocking 仅在1.7.10以上版本可用</p>
-</blockquote>
-
+            <ul>
+                <li>$blocking 参数可以指定是否阻塞等待，默认为阻塞</li>
+                <li>操作成功会返回返回一个数组包含子进程的PID和退出状态码，如array('code' =>
+                    0, 'pid' => 15001)，失败返回false</li>
+            </ul>
+            <blockquote>
+                <p>
+                    子进程结束必须要执行wait进行回收，否则子进程会变成僵尸进程<br /> $blocking
+                    仅在1.7.10以上版本可用
+                </p>
+            </blockquote>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

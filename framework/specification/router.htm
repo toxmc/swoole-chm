@@ -1,39 +1,36 @@
 <html>
-
 <head>
   <title>swoole框架 - 自定义路由</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>自定义路由</h1>
-                        <p>在Swoole::$php->runMVC() 调用之前可以修改默认的路由函数。</p>
-
-<pre class="brush: php;">Swoole::$php-&gt;router(function(){
-    return array('controller' =&gt; 'YourController', 'view' =&gt; 'YourView');
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>自定义路由</h1>
+            <p>在Swoole::$php->runMVC() 调用之前可以修改默认的路由函数。</p>
+            <pre class="brush: php;">Swoole::$php->router(function(){
+    return array('controller' => 'YourController', 'view' => 'YourView');
 });
-Swoole::$php-&gt;runMVC();
+Swoole::$php->runMVC();
 </pre>
-
-<p>设置后将使用制定的函数作为路由，路由函数务必要返回一个数组，包含控制器和视图的名称。</p>
-
-<pre class="brush: php;"> array('controller' =&gt; 'YourController', 'view' =&gt; 'YourView');
+            <p>设置后将使用制定的函数作为路由，路由函数务必要返回一个数组，包含控制器和视图的名称。</p>
+            <pre class="brush: php;"> array('controller' => 'YourController', 'view' => 'YourView');
 </pre>
-
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

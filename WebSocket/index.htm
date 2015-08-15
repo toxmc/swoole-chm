@@ -1,48 +1,48 @@
 <html>
-
 <head>
   <title>Swoole - WebSocket</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>WebSocket</h1>
+            <p>swoole-1.7.9
+                增加了内置的websocket服务器支持，通过几行PHP代码就可以写出一个异步非阻塞多进程的WebSocket服务器。</p>
+            <p>swoole_websocket_server 继承自
+                swoole_http_server，如果设置了onRequest回调，websocket服务器也可以同时作为http服务器。</p>
+            <pre class="brush: php;">$server = new swoole_websocket_server("0.0.0.0", 9501);
 
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-         <article >
-                        <h1>WebSocket</h1>
-                        <p>swoole-1.7.9 增加了内置的websocket服务器支持，通过几行PHP代码就可以写出一个异步非阻塞多进程的WebSocket服务器。</p>
-
-<p>swoole_websocket_server 继承自 swoole_http_server，如果设置了onRequest回调，websocket服务器也可以同时作为http服务器。</p>
-
-<pre class="brush: php;">$server = new swoole_websocket_server("0.0.0.0", 9501);
-
-$server-&gt;on('open', function (swoole_websocket_server $server, $request) {
-    echo "server: handshake success with fd{$request-&gt;fd}\n";
+$server->on('open', function (swoole_websocket_server $server, $request) {
+    echo "server: handshake success with fd{$request->fd}\n";
 });
 
-$server-&gt;on('message', function (swoole_websocket_server $server, $frame) {
-    echo "receive from {$frame-&gt;fd}:{$frame-&gt;data},opcode:{$frame-&gt;opcode},fin:{$frame-&gt;finish}\n";
-    $server-&gt;push($frame-&gt;fd, "this is server");
+$server->on('message', function (swoole_websocket_server $server, $frame) {
+    echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
+    $server->push($frame->fd, "this is server");
 });
 
-$server-&gt;on('close', function ($ser, $fd) {
+$server->on('close', function ($ser, $fd) {
     echo "client {$fd} closed\n";
 });
 
-$server-&gt;start();
+$server->start();
 </pre>
-
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

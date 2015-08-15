@@ -1,72 +1,80 @@
 <html>
-
 <head>
   <title>swoole_server::reload</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content">
-        <article >
-                        <h1>swoole_server->reload</h1>
-                        <p>重启所有worker进程。</p>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_server->reload</h1>
+            <p>重启所有worker进程。</p>
 
-<pre class="brush: php;">bool swoole_server-&gt;reload()
+            <pre class="brush: php;">bool swoole_server-&gt;reload()
 </pre>
 
-<p>一台繁忙的后端服务器随时都在处理请求，如果管理员通过kill进程方式来终止/重启服务器程序，可能导致刚好代码执行到一半终止。
-这种情况下会产生数据的不一致。如交易系统中，支付逻辑的下一段是发货，假设在支付逻辑之后进程被终止了。会导致用户支付了货币，但并没有发货，后果非常严重。</p>
+            <p>一台繁忙的后端服务器随时都在处理请求，如果管理员通过kill进程方式来终止/重启服务器程序，可能导致刚好代码执行到一半终止。
+                这种情况下会产生数据的不一致。如交易系统中，支付逻辑的下一段是发货，假设在支付逻辑之后进程被终止了。会导致用户支付了货币，但并没有发货，后果非常严重。</p>
 
-<p>Swoole提供了柔性终止/重启的机制，管理员只需要向SwooleServer发送特定的信号，Server的worker进程可以安全的结束。</p>
+            <p>Swoole提供了柔性终止/重启的机制，管理员只需要向SwooleServer发送特定的信号，Server的worker进程可以安全的结束。</p>
 
-<ul>
-<li>SIGTERM: 向主进程发送此信号服务器将安全终止</li>
-<li>在PHP代码中可以调用$serv->shutdown()完成此操作</li>
-<li>SIGUSR1: 向管理进程发送SIGUSR1信号，将平稳地restart所有worker进程</li>
-<li>在PHP代码中可以调用$serv->reload()完成此操作</li>
-<li>swoole的reload有保护机制，当一次reload正在进行时，收到新的重启信号会丢弃</li>
-</ul>
+            <ul>
+                <li>SIGTERM: 向主进程发送此信号服务器将安全终止</li>
+                <li>在PHP代码中可以调用$serv->shutdown()完成此操作</li>
+                <li>SIGUSR1: 向管理进程发送SIGUSR1信号，将平稳地restart所有worker进程</li>
+                <li>在PHP代码中可以调用$serv->reload()完成此操作</li>
+                <li>swoole的reload有保护机制，当一次reload正在进行时，收到新的重启信号会丢弃</li>
+            </ul>
 
-<pre class="brush: php;">#重启所有worker进程
+            <pre class="brush: php;">#重启所有worker进程
 kill -USR1 主进程PID
 </pre>
 
-<p>1.7.7版本增加了仅重启task_worker的功能。只需向服务器发送SIGUSR2即可。</p>
+            <p>1.7.7版本增加了仅重启task_worker的功能。只需向服务器发送SIGUSR2即可。</p>
 
-<pre class="brush: php;">#仅重启task进程
+            <pre class="brush: php;">#仅重启task进程
 kill -USR2 主进程PID
 </pre>
 
-<blockquote>
-  <p>平滑重启只对onWorkerStart或onReceive等在Worker进程中include/require的PHP文件有效，Server启动前就已经include/require的PHP文件，不能通过平滑重启重新加载<br />
-  对于Server的配置即$serv->set()中传入的参数设置，必须关闭/重启整个Server才可以重新加载<br />
-  Server可以监听一个内网端口，然后可以接收远程的控制命令，去重启所有worker</p>
-</blockquote>
-<h2>APC/OpCache</h2>
+            <blockquote>
+                <p>
+                    平滑重启只对onWorkerStart或onReceive等在Worker进程中include/require的PHP文件有效，Server启动前就已经include/require的PHP文件，不能通过平滑重启重新加载<br />
+                    对于Server的配置即$serv->set()中传入的参数设置，必须关闭/重启整个Server才可以重新加载<br />
+                    Server可以监听一个内网端口，然后可以接收远程的控制命令，去重启所有worker
+                </p>
+            </blockquote>
+            <h2>APC/OpCache</h2>
 
-<p>如果PHP开启了APC/OpCache，reload重载入时会受到影响，有2种解决方案</p>
+            <p>如果PHP开启了APC/OpCache，reload重载入时会受到影响，有2种解决方案</p>
 
-<ul>
-<li>打开APC/OpCache的stat检测，如果发现文件更新APC/OpCache会自动更新OpCode</li>
-<li>在onWorkerStart中执行apc_clear_cache或opcache_reset刷新OpCode缓存</li>
-</ul>
-<h2>参考</h2>
+            <ul>
+                <li>打开APC/OpCache的stat检测，如果发现文件更新APC/OpCache会自动更新OpCode</li>
+                <li>在onWorkerStart中执行apc_clear_cache或opcache_reset刷新OpCode缓存</li>
+            </ul>
+            <h2>参考</h2>
 
-<ul>
-<li><a href="../../other/linux_signal_list.htm">附录：Linux信号列表</a></li>
-</ul>
+            <ul>
+                <li><a href="../../other/linux_signal_list.htm">附录：Linux信号列表</a></li>
+            </ul>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <title>异步毫秒定时器</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
@@ -8,33 +7,23 @@
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-  
-  
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>异步毫秒定时器</h1>
-                        <p>swoole_server中已经提供了定时器的API，如果是在客户端程序中，也想使用毫秒定时器。可以用swoole提供的swoole_timer模块。</p>
-
-<p>swoole_timer与PHP本身的pcntl_alarm是不同的。pcntl_alarm是基于时钟信号 + PHP tick函数实现,有4个缺陷：</p>
-
-<ul>
-<li>最大仅支持到秒，而swoole_timer可以到毫秒级别</li>
-<li>不支持同时设定多个定时器程序</li>
-<li>pcntl_alarm依赖declare(ticks = 1)性能很差</li>
-<li>无法用于异步IO，只支持同步方式</li>
-</ul>
-
-<p>swoole_timer是基于timerfd+epoll实现的异步毫秒定时器，可完美的运行在EventLoop中，与swoole_client/swoole_event等模块可以无缝结合。</p>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>异步毫秒定时器</h1>
+            <p>swoole_server中已经提供了定时器的API，如果是在客户端程序中，也想使用毫秒定时器。可以用swoole提供的swoole_timer模块。</p>
+            <p>swoole_timer与PHP本身的pcntl_alarm是不同的。pcntl_alarm是基于时钟信号
+                + PHP tick函数实现,有4个缺陷：</p>
+            <ul>
+                <li>最大仅支持到秒，而swoole_timer可以到毫秒级别</li>
+                <li>不支持同时设定多个定时器程序</li>
+                <li>pcntl_alarm依赖declare(ticks = 1)性能很差</li>
+                <li>无法用于异步IO，只支持同步方式</li>
+            </ul>
+            <p>swoole_timer是基于timerfd+epoll实现的异步毫秒定时器，可完美的运行在EventLoop中，与swoole_client/swoole_event等模块可以无缝结合。</p>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

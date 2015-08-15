@@ -19,13 +19,13 @@
   background-color: white !important;
 }
 .syntaxhighlighter .line.alt1 {
-  background-color: white !important;
+  /*background-color: white !important;*/
 }
 .syntaxhighlighter .line.alt2 {
-  background-color: white !important;
+  background-color: #f5f5f5 !important;
 }
 .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
-  background-color: white !important;
+  background-color: #f5f5f5 !important;
   /*background-color: #e0e0e0 !important;*/
 }
 .syntaxhighlighter .line.highlighted.number {
@@ -117,5 +117,19 @@
 .syntaxhighlighter .keyword {
   font-weight: bold !important;
 }
+.syntaxhighlighter{ margin:10px 0;}
 
 textarea {width:800px; padding:10px; height:200px;}
+.code {
+	background-color: #f5f5f5;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    color: #333333;
+    display: block;
+    font-size: 13px;
+    line-height: 1.42857;
+    padding: 9.5px;
+    word-break: break-all;
+    word-wrap: break-word;
+    width: 800px;
+}

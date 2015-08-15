@@ -1,51 +1,57 @@
 <html>
-
 <head>
   <title>swoole_server::heartbeat</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
   <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+    </script>
 </head>
 
-<body style='text-justify-trim:punctuation'>
+<body style='text-justify-trim: punctuation'>
 
-<div class="wiki_content">
-        <article >
-                        <h1>swoole_server->heartbeat</h1>
-                        <p>检测服务器所有连接，并找出已经超过约定时间的连接。如果指定if_close_connection，则自动关闭超时的连接。未指定仅返回连接的fd数组。</p>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_server->heartbeat</h1>
+            <p>检测服务器所有连接，并找出已经超过约定时间的连接。如果指定if_close_connection，则自动关闭超时的连接。未指定仅返回连接的fd数组。</p>
 
-<blockquote>
-  <p>需要swoole-1.6.10 以上版本</p>
-</blockquote>
+            <blockquote>
+                <p>需要swoole-1.6.10 以上版本</p>
+            </blockquote>
 
-<p>函数原型：</p>
+            <p>函数原型：</p>
 
-<pre class="brush: php;">array swoole_server::heartbeat(bool $if_close_connection = true);
+            <pre class="brush: php;">array swoole_server::heartbeat(bool $if_close_connection = true);
 </pre>
 
-<ul>
-<li>$if_close_connection是否关闭超时的连接，默认为true</li>
-<li>调用成功将返回一个连续数组，元素是已关闭的$fd。</li>
-<li>调用失败返回false</li>
-</ul>
+            <ul>
+                <li>$if_close_connection是否关闭超时的连接，默认为true</li>
+                <li>调用成功将返回一个连续数组，元素是已关闭的$fd。</li>
+                <li>调用失败返回false</li>
+            </ul>
 
-<blockquote>
-  <p>$if_close_connection 在1.7.4+可用</p>
-</blockquote>
+            <blockquote>
+                <p>$if_close_connection 在1.7.4+可用</p>
+            </blockquote>
 
-<p>示例：</p>
+            <p>示例：</p>
 
-<pre class="brush: php;">$closeFdArr = $serv-&gt;heartbeat();
+            <pre class="brush: php;">$closeFdArr = $serv->heartbeat();
 </pre>
 
         </article>
-<hr>
+        <hr>
 
-</div>
+    </div>
 
 </body>
 

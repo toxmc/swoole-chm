@@ -16,33 +16,23 @@
         SyntaxHighlighter.all();
     </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_process->start</h1>
-                        <p>执行fork系统调用，启动进程。</p>
-
-<pre class="brush: php;">int swoole_process->start();
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_process->start</h1>
+            <p>执行fork系统调用，启动进程。</p>
+            <pre class="brush: php;">int swoole_process->start();
 </pre>
-
-<p>创建成功返回子进程的PID，创建失败返回false。可使用swoole_errno和swoole_strerror得到错误码和错误信息。</p>
-
-<ul>
-<li>$process->pid 属性为子进程的PID  </li>
-<li>$process->pipe 属性为管道的文件描述符</li>
-</ul>
-
-<blockquote>
-  <p>执行后子进程会保持父进程的内存和资源，如父进程内创建了一个redis连接，那么在子进程会保留此对象，所有操作都是对同一个连接进行的。</p>
-</blockquote>
-
+            <p>创建成功返回子进程的PID，创建失败返回false。可使用swoole_errno和swoole_strerror得到错误码和错误信息。</p>
+            <ul>
+                <li>$process->pid 属性为子进程的PID</li>
+                <li>$process->pipe 属性为管道的文件描述符</li>
+            </ul>
+            <blockquote>
+                <p>执行后子进程会保持父进程的内存和资源，如父进程内创建了一个redis连接，那么在子进程会保留此对象，所有操作都是对同一个连接进行的。</p>
+            </blockquote>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

@@ -16,9 +16,7 @@
         SyntaxHighlighter.all();
     </script>
 </head>
-
 <body style='text-justify-trim: punctuation'>
-
     <div class="wiki_content">
         <article>
             <h1>swoole_process->push</h1>
@@ -29,15 +27,13 @@
                 <li>$data要投递的数据，长度受限与操作系统内核参数的限制。默认为8192，最大不超过65536</li>
                 <li>操作失败会返回false，成功返回true</li>
             </ul>
-
             <p>示例</p>
-
-            <pre class="brush: php;">
+            <pre>
 &lt;?php
 $workers = [];
 $worker_num = 2;
 
-for($i = 0; $i &lt; $worker_num; $i++)
+for($i = $worker_num; $i > 0; $i--)
 {
     $process = new swoole_process('callback_function', false, false);
     $process->useQueue();
@@ -63,7 +59,7 @@ foreach($workers as $pid => $process)
     $process->push("hello worker[$pid]\n");
 }
 
-for($i = 0; $i &lt; $worker_num; $i++)
+for($i = $worker_num; $i > 0; $i--)
 {
     $ret = swoole_process::wait();
     $pid = $ret['pid'];
@@ -71,12 +67,8 @@ for($i = 0; $i &lt; $worker_num; $i++)
     echo "Worker Exit, PID=".$pid.PHP_EOL;
 }
 </pre>
-
         </article>
         <hr>
-
     </div>
-
 </body>
-
 </html>

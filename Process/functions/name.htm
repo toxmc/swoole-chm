@@ -16,28 +16,22 @@
         SyntaxHighlighter.all();
     </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>swoole_process->name</h1>
-                        <p>修改进程名称。此函数是swoole_set_process_name的别名。</p>
-
-<pre class="brush: php;">bool swoole_process::name(string $new_process_name);
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_process->name</h1>
+            <p>修改进程名称。此函数是swoole_set_process_name的别名。</p>
+            <pre class="brush: php;">bool swoole_process::name(string $new_process_name);
 $process->name("php server.php: worker");
 </pre>
-
-<blockquote>
-  <p>此方法在swoole-1.7.9以上版本可用<br />
-  name方法应当在start之后的子进程回调函数中使用</p>
-</blockquote>
-
+            <blockquote>
+                <p>
+                    此方法在swoole-1.7.9以上版本可用<br />
+                    name方法应当在start之后的子进程回调函数中使用
+                </p>
+            </blockquote>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

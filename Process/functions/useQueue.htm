@@ -16,31 +16,30 @@
         SyntaxHighlighter.all();
     </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_process->useQueue</h1>
-                        <p>启用消息队列作为进程间通信。useQueue方法接受2个可选参数。</p>
-
-<pre class="brush: php;">bool swoole_process->useQueue(int $msgkey = 0, int $mode = 1);
-</pre>
-
-<ul>
-<li>$msgkey是消息队列的key，默认会使用ftok(<strong>FILE</strong>)</li>
-<li>$mode通信模式，默认为2，表示争抢模式，所有创建的子进程都会从队列中取数据</li>
-<li>如果创建消息队列失败，会返回false。可使用swoole_strerror(swoole_errno()) 得到错误码和错误信息。</li>
-</ul>
-                        <p>例子</p>
-
-<pre class="brush: php;">
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_process->useQueue</h1>
+            <p>启用消息队列作为进程间通信。useQueue方法接受2个可选参数。</p>
+            <pre>
+bool swoole_process->useQueue (int $msgkey = 0, int $mode = 1);
+            </pre>
+            <ul>
+                <li>$msgkey是消息队列的key，默认会使用ftok(<strong>FILE</strong>)
+                </li>
+                <li>$mode通信模式，默认为2，表示争抢模式，所有创建的子进程都会从队列中取数据</li>
+                <li>如果创建消息队列失败，会返回false。可使用swoole_strerror(swoole_errno())
+                    得到错误码和错误信息。</li>
+            </ul>
+            <p>例子</p>
+            <pre>
 &lt;?php
 $workers = [];
 $worker_num = 2;
-for($i = 0; $i < $worker_num; $i++)
+for($i = $worker_num; $i > 0; $i--)
 {
     $process = new swoole_process('callback_function', false, false);
+    //使用消息队列
     $process->useQueue();
     $pid = $process->start();
     $workers[$pid] = $process;
@@ -68,7 +67,7 @@ while(true)
     $process->push("hello worker[$pid]\n");
     sleep(1);
 }
-for($i = 0; $i < $worker_num; $i++)
+for($i = $worker_num; $i > 0; $i--)
 {
     $ret = swoole_process::wait();
     $pid = $ret['pid'];
@@ -76,17 +75,14 @@ for($i = 0; $i < $worker_num; $i++)
     echo "Worker Exit, PID=".$pid.PHP_EOL;
 }
 </pre>
-
-<blockquote>
-  <p>使用模式2后，创建的子进程无法进行单独通信，比如发给特定子进程。<br />
-  $process对象并未执行start，也可以执行push/pop向队列推送/提取数据</p>
-</blockquote>
-
+            <blockquote>
+                <p>
+                    使用模式2后，创建的子进程无法进行单独通信，比如发给特定子进程。<br />
+                    $process对象并未执行start，也可以执行push/pop向队列推送/提取数据
+                </p>
+            </blockquote>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

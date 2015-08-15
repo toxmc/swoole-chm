@@ -16,24 +16,21 @@
         SyntaxHighlighter.all();
     </script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_process->read</h1>
-                        <p>从管道中读取数据。</p>
-
-<pre class="brush: php;">int swoole_process->read(int $buffer_size=8192);
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_process->read</h1>
+            <p>从管道中读取数据。</p>
+            <pre class="brush: php;">int swoole_process->read(int $buffer_size=8192);
 </pre>
-
-<ul>
-<li>$buffer_size是缓冲区的大小，默认为8192，最大不超过64K</li>
-<li>这里是同步阻塞读取的，可以使用<a href="../../AsyncIO/EventLoop/swoole_event_add.htm">swoole_event_add</a>将管道加入到事件循环中，变为异步模式</li>
-</ul>
-
-<p>示例：</p>
-<pre class="brush: php;">function callback_function_async(swoole_process $worker)
+            <ul>
+                <li>$buffer_size是缓冲区的大小，默认为8192，最大不超过64K</li>
+                <li>这里是同步阻塞读取的，可以使用<a
+                    href="../../AsyncIO/EventLoop/swoole_event_add.htm">swoole_event_add</a>将管道加入到事件循环中，变为异步模式
+                </li>
+            </ul>
+            <p>示例：</p>
+            <pre class="brush: php;">function callback_function_async(swoole_process $worker)
 {
     $GLOBALS['worker'] = $worker;
     swoole_event_add($worker->pipe, function($pipe) {
@@ -47,11 +44,8 @@
     });
 }
 </pre>
-
         </article>
-<hr>
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

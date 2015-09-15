@@ -1,40 +1,38 @@
 <html>
-
 <head>
-  <title>swoole编译安装 - 常见问题</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>swoole编译安装 - 常见问题</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>常见问题</h1>
-                        <h2>swoole与phpdaemon/react有何不同</h2>
-
-<p>swoole是完全使用C语言编写，多线程epoll，作为PHP扩展运行的。
-phpdaemon/react都是基于libevent扩展使用php开发，以脚本方式执行。
-swoole中提供的多线程Reactor，异步MySQL，毫秒定时器，异步文件读写、异步DNS查询，在PHP生态圈中是独一无二的。</p>
-
-<h2>Linux内核问题</h2>
-
-<p>swoole建议使用Linux2.6.32+，低于此版本的系统有很多特性会不支持。swoole会启用兼容的代码来实现特性，性能较差，而且缺少维护。可能会产生问题，仅供开发使用。</p>
-
-<h2>Swoole的性能如何</h2>
-
-<p>swoole使C语言开发，性能接近nginx。这里有一个echo server的测试。可以作为参考：<a href="../../server/stress_test/1.htm">Nginx/Golang/Swoole/Node.js的性能对比</a></p>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>常见问题</h1>
+            <hr>
+            <h2>swoole与phpdaemon/react有何不同</h2>
+            <p>swoole是完全使用C语言编写，多线程epoll，作为PHP扩展运行的。
+                phpdaemon/react都是基于libevent扩展使用php开发，以脚本方式执行。
+                swoole中提供的多线程Reactor，异步MySQL，毫秒定时器，异步文件读写、异步DNS查询，在PHP生态圈中是独一无二的。</p>
+            <h2>Linux内核问题</h2>
+            <p>swoole建议使用Linux2.6.32+，低于此版本的系统有很多特性会不支持。swoole会启用兼容的代码来实现特性，性能较差，而且缺少维护。可能会产生问题，仅供开发使用。</p>
+            <h2>Swoole的性能如何</h2>
+            <p>
+                swoole使C语言开发，性能接近nginx。这里有一个echo server的测试。可以作为参考：<a
+                    href="../../server/stress_test/1.htm">Nginx/Golang/Swoole/Node.js的性能对比</a>
+            </p>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

@@ -1,51 +1,50 @@
 <html>
-
 <head>
-  <title>版本更新记录 - 1.7.18</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>版本更新记录 - 1.7.18</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
         <article>
-                       <h1>1.7.18</h1>
-                        <h2>主要更新</h2>
-<ul>
-<li>增加<a href="../../server/callback_function/onPacket.htm">onPacket</a>事件回调函数，使UDP包与TCP分离</li>
-<li>修复EOF协议处理时发生错误的问题</li>
-<li>兼容PHP7版本</li>
-<li>修复swoole_http_response->header导致内存泄漏的问题</li>
-<li>长度检测协议允许0长度无包体的请求</li>
-<li>swoole_table支持有符号整数</li>
-<li>支持REUSEPORT特性，短连接TCP服务性能提升200%（仅支持Linux 3.9.0或更高版本）</li>
-<li>修复swoole_client/swoole_timer内存泄漏问题</li>
-<li>增加<a href="../../server/config_options/enable_unsafe_event.htm">enable_unsafe_event</a>配置，允许在dispatch_mode=1/3时开启Connect/Close事件</li>
-<li>增加<a href="../../Process/functions/setaffinity.htm">swoole_process::setaffinity</a>方法用于设置CPU亲和性</li>
-<li>swoole_client->set增加socket_buffer_size配置</li>
-<li>增加<a href="../../server/functions/exist.htm">swoole_server->exist</a>方法，用于检测$fd对应的TCP客户端连接是否存在</li>
-</ul>
-
-<h2>废弃特性</h2>
-
-<ul>
-<li>函数风格的API即将移除</li>
-<li>swoole_server->handler方法即将移除</li>
-<li>addtimer/deltimer/swoole_timer_add/swoole_timer_del接口即将移除，请使用tick/after定时器</li>
-</ul>
-
+            <h1>1.7.18</h1>
+            <hr>
+            <h2>主要更新</h2>
+            <ul>
+                <li>增加<a
+                    href="../../server/callback_function/onPacket.htm">onPacket</a>事件回调函数，使UDP包与TCP分离
+                </li>
+                <li>修复EOF协议处理时发生错误的问题</li>
+                <li>兼容PHP7版本</li>
+                <li>修复swoole_http_response->header导致内存泄漏的问题</li>
+                <li>长度检测协议允许0长度无包体的请求</li>
+                <li>swoole_table支持有符号整数</li>
+                <li>支持REUSEPORT特性，短连接TCP服务性能提升200%（仅支持Linux
+                    3.9.0或更高版本）</li>
+                <li>修复swoole_client/swoole_timer内存泄漏问题</li>
+                <li>增加<a
+                    href="../../server/config_options/enable_unsafe_event.htm">enable_unsafe_event</a>配置，允许在dispatch_mode=1/3时开启Connect/Close事件
+                </li>
+                <li>增加<a
+                    href="../../Process/functions/setaffinity.htm">swoole_process::setaffinity</a>方法用于设置CPU亲和性
+                </li>
+                <li>swoole_client->set增加socket_buffer_size配置</li>
+                <li>增加<a href="../../server/functions/exist.htm">swoole_server->exist</a>方法，用于检测$fd对应的TCP客户端连接是否存在
+                </li>
+            </ul>
+            <h2>废弃特性</h2>
+            <ul>
+                <li>函数风格的API即将移除</li>
+                <li>swoole_server->handler方法即将移除</li>
+                <li>addtimer/deltimer/swoole_timer_add/swoole_timer_del接口即将移除，请使用tick/after定时器</li>
+            </ul>
         </article>
-
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

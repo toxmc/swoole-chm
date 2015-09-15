@@ -1,42 +1,37 @@
 <html>
-
 <head>
-  <title>在phpinfo中有在php-m中没有</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>在phpinfo中有在php-m中没有</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>在phpinfo中有在php-m中没有</h1>
-                        <p>编译安装完swoole后，在php-fpm/apache的phpinfo页面中有，在命令行的php -m中没有。原因可能是cli/php-fpm/apache使用不同的php.ini配置</p>
-
-<h2>一、确认php.ini的位置</h2>
-
-<p>cli命令行下</p>
-
-<pre class="brush: php;">php -i|grep php.ini
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>在phpinfo中有在php-m中没有</h1>
+            <hr>
+            <p>编译安装完swoole后，在php-fpm/apache的phpinfo页面中有，在命令行的php
+                -m中没有。原因可能是cli/php-fpm/apache使用不同的php.ini配置</p>
+            <h2>一、确认php.ini的位置</h2>
+            <p>cli命令行下</p>
+            <pre class="brush: php;">php -i|grep php.ini
 </pre>
-
-<p>php-fpm/apache，查看phpinfo页码找到php.ini的绝对路径。</p>
-
-<h2>二、查看对应php.ini是否有extension=swoole.so</h2>
-
-<pre class="brush: php;">cat /usr/local/lib/php.ini | grep swoole.so
+            <p>php-fpm/apache，查看phpinfo页码找到php.ini的绝对路径。</p>
+            <h2>二、查看对应php.ini是否有extension=swoole.so</h2>
+            <pre class="brush: php;">cat /usr/local/lib/php.ini | grep swoole.so
 </pre>
-
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

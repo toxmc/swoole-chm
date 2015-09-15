@@ -1,42 +1,35 @@
 <html>
-
 <head>
-  <title>版本更新记录 - 1.7.13</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>版本更新记录 - 1.7.13</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>1.7.13</h1>
-                        <ul>
-<li>服务器session_list尺寸调整为1M</li>
-<li>connection_info中的from_fd, from_port 修改为 server_fd, server_port</li>
-<li>服务器只在监听多个端口，connection_info返回 server_fd, server_port</li>
-<li>connection_info增加对IPv6 TCP协议的支持</li>
-<li>connection_info增加socket_type项表示客户端的类型  </li>
-<li>优化Http服务器性能</li>
-<li>优化WebSocket服务器性能</li>
-<li>修复文件描述符过多后Accept发生死循环的BUG</li>
-<li>修复reload期间某个worker进程退出导致管理进程死循环的BUG</li>
-<li>增加swoole_client->getsockname用于获取本地socket的ip和port</li>
-<li>增加swoole_client->getpeername用于获取远程对端socket的ip和port</li>
-<li>增加swoole_client->sendto可向任意UDP服务器发送数据包</li>
-</ul>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>1.7.13</h1>
+            <hr>
+            <ul>
+                <li>服务器session_list尺寸调整为1M</li>
+                <li>connection_info中的from_fd, from_port 修改为
+                    server_fd, server_port</li>
+                <li>服务器只在监听多个端口，connection_info返回 server_fd,
+                    server_port</li>
+                <li>connection_info增加对IPv6 TCP协议的支持</li>
+                <li>connection_info增加socket_type项表示客户端的类型</li>
+                <li>优化Http服务器性能</li>
+                <li>优化WebSocket服务器性能</li>
+                <li>修复文件描述符过多后Accept发生死循环的BUG</li>
+                <li>修复reload期间某个worker进程退出导致管理进程死循环的BUG</li>
+                <li>增加swoole_client->getsockname用于获取本地socket的ip和port</li>
+                <li>增加swoole_client->getpeername用于获取远程对端socket的ip和port</li>
+                <li>增加swoole_client->sendto可向任意UDP服务器发送数据包</li>
+            </ul>
         </article>
-
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

@@ -1,43 +1,33 @@
 <html>
-
 <head>
-  <title>版本更新记录 - 1.7.17</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>版本更新记录 - 1.7.17</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-
-        <article >
-                        <h1>1.7.17</h1>
-                        <ul>
-<li>使用pthread_barrier_wait代替sleep加快程序启动速度</li>
-<li>修复swoole_client异步模式下send数据不完整的BUG</li>
-<li>移除task_dispatch_mode配置项</li>
-<li>默认task进程的max_request改为0,不自动退出进程</li>
-<li>Http服务器上传文件使用mktemp系统调用</li>
-<li>修复EOF_check特性导致主进程coredump的问题</li>
-<li>增加pipe_buffer_size配置项，用于调整管道通信的缓存区尺寸</li>
-<li>管道内存缓存区默认尺寸调整为32M</li>
-<li>Http服务器Header最大长度由128调整为8192</li>
-<li>修复swoole_process->pop发生错误的问题</li>
-<li>修复taskwait接口在MacOS/CygWin环境下超时的问题</li>
-<li>增加swoole_table->exist方法</li>
-</ul>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>1.7.17</h1>
+            <hr>
+            <ul>
+                <li>使用pthread_barrier_wait代替sleep加快程序启动速度</li>
+                <li>修复swoole_client异步模式下send数据不完整的BUG</li>
+                <li>移除task_dispatch_mode配置项</li>
+                <li>默认task进程的max_request改为0,不自动退出进程</li>
+                <li>Http服务器上传文件使用mktemp系统调用</li>
+                <li>修复EOF_check特性导致主进程coredump的问题</li>
+                <li>增加pipe_buffer_size配置项，用于调整管道通信的缓存区尺寸</li>
+                <li>管道内存缓存区默认尺寸调整为32M</li>
+                <li>Http服务器Header最大长度由128调整为8192</li>
+                <li>修复swoole_process->pop发生错误的问题</li>
+                <li>修复taskwait接口在MacOS/CygWin环境下超时的问题</li>
+                <li>增加swoole_table->exist方法</li>
+            </ul>
         </article>
-
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>创建Web服务器</title>
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>创建Web服务器</h1>
+            <hr>
+            <h2>程序代码</h2>
+            <p>http_server.php</p>
+            <pre  class="brush: php;">
+$http = new swoole_http_server("0.0.0.0", 9501);
+
+$http-&gt;on('request', function ($request, $response) {
+    var_dump($request-&gt;get, $request-&gt;post);
+    $response-&gt;header("Content-Type", "text/html; charset=utf-8");
+    $response-&gt;end("&lt;h1&gt;Hello Swoole. #".rand(1000, 9999)."&lt;/h1&gt;");
+});
+
+$http-&gt;start();
+            </pre>
+            <p>
+                Http服务器只需要关注请求响应即可，所以只需要监听一个
+                <code>onRequest</code>
+                事件。当有新的Http请求进入就会触发此事件。事件回调函数有2个参数，一个是$request对象，包含了请求的相关信息，如GET/POST请求的数据。
+            </p>
+            <p>另外一个是response对象，对request的响应可以通过操作response对象来完成。$response->end()方法表示输出一段HTML内容，并结束此请求。</p>
+            <ul>
+                <li><code>0.0.0.0</code>
+                    表示监听所有IP地址，一台服务器可能同时有多个IP，如<code>127.0.0.1</code>本地回环IP、<code>192.168.1.100</code>局域网IP、<code>210.127.20.2</code>
+                    外网IP，这里也可以单独指定监听一个IP</li>
+                <li><code>9501</code> 监听的端口，如果被占用程序会抛出致命错误，中断执行。</li>
+            </ul>
+            <h2>启动服务</h2>
+            <pre  class="brush: php;">php http_server.php
+            </pre>
+            <ul>
+                <li>可以打开浏览器，访问<code>http://127.0.0.1:9501</code>查看程序的结果。
+                </li>
+                <li>也可以使用apache <code>ab</code>工具对服务器进行压力测试
+                </li>
+            </ul>
+        </article>
+        <hr />
+    </div>
+</body>
+</html>

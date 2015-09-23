@@ -1,46 +1,35 @@
 <html>
 <head>
-  <title>swoole_server::sendwait</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
+<title>swoole_server::sendwait</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
 </head>
-
 <body style='text-justify-trim: punctuation'>
-
     <div class="wiki_content">
-
         <article>
             <h1>swoole_server->sendwait</h1>
+            <hr>
             <p>阻塞地向客户端发送数据。</p>
-
             <p>有一些特殊的场景，Server需要连续向客户端发送数据，而swoole_server->send数据发送接口是纯异步的，大量数据发送会导致内存发送队列塞满。</p>
-
             <p>使用swoole_server->sendwait就可以解决此问题，swoole_server->sendwait会阻塞等待连接可写。直到数据发送完毕才会返回。</p>
-
             <pre class="brush: php;">bool swoole_server->sendwait(int $fd, string $send_data);
 </pre>
-
             <blockquote>
                 <p>sendwait目前仅可用于SWOOLE_BASE模式</p>
             </blockquote>
-
         </article>
         <hr>
-
     </div>
-
 </body>
-
 </html>

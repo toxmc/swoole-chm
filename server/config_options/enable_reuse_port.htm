@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>enable_unsafe_event</title>
+<title>enable_reuse_port</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
 <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -10,13 +10,18 @@
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
         <article>
-            <h1>enable_unsafe_event</h1>
+            <h1>enable_reuse_port</h1>
             <hr>
-            <p>swoole在配置dispatch_mode=1或3后，因为系统无法保证onConnect/onReceive/onClose的顺序，默认关闭了onConnect/onClose事件。</p>
-            <p>如果应用程序需要onConnect/onClose事件，并且能接受顺序问题可能带来的安全风险，可以通过设置
-                enable_unsafe_event = true，启用onConnect/onClose事件</p>
+            <p>设置端口重用，此参数用于优化TCP连接的Accept性能，启用端口重用后多个进程可以同时进行Accept操作。</p>
+            <ul>
+                <li>enable_reuse_port = true 打开端口重用</li>
+                <li>enable_reuse_port = false 关闭端口重用</li>
+            </ul>
             <blockquote>
-                <p>enable_unsafe_event配置在1.7.18以上版本可用</p>
+                <p>
+                    仅在Linux-3.9.0以上版本的内核可用<br />
+                    启用端口重用后可以重复启动同一个端口的Server程序
+                </p>
             </blockquote>
         </article>
         <hr>

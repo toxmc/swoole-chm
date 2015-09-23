@@ -1,69 +1,55 @@
 <html>
 <head>
-  <title>swoole_set_process_name</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
+<title>swoole_set_process_name</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
 </head>
-
 <body style='text-justify-trim: punctuation'>
-
     <div class="wiki_content">
-
         <article>
             <h1>swoole_set_process_name</h1>
+            <hr>
             <p>用于设置进程的名称。修改进程名称后，通过ps命令看到的将不再是php
                 your_file.php。而是设定的字符串。 此函数接受一个字符串参数。
                 此函数与PHP5.5提供的cli_set_process_title功能是相同的。但swoole_set_process_name可用于PHP5.2之上的任意版本。swoole_set_process_name兼容性比cli_set_process_title要差，如果存在cli_set_process_title函数则优先使用cli_set_process_title。</p>
-
             <pre class="brush: php;">void swoole_set_process_name(string $name);
 </pre>
-
             <p>示例代码：</p>
-
             <pre class="brush: php;">swoole_set_process_name("swoole server");
 var_dump($argv);
 sleep(1000);
 </pre>
-
             <blockquote>
                 <p>
                     swoole_set_process_name在1.6.3版本提供<br />
                     在onStart回调中执行此函数，将修改主进程的名称。在onWorkerStart中调用将修改worker子进程的名称。
                 </p>
             </blockquote>
-
             <h3>如何为Swoole Server重命名各个进程名称</h3>
-
             <ul>
                 <li>在swoole_server_create之前修改为manager进程名称</li>
                 <li>onStart调用时修改为主进程名称</li>
                 <li>onWorkerStart修改为worker进程名称</li>
             </ul>
-
             <blockquote>
                 <p>
                     1.6.12后增加了onManagerStart事件回调，可以在这里设置管理进程的名称<br />
                     有些低版本Linux内核不支持进程重命名
                 </p>
             </blockquote>
-
         </article>
         <hr>
-
     </div>
-
 </body>
-
 </html>

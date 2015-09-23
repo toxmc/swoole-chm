@@ -1,32 +1,28 @@
 <html>
 <head>
-  <title>swoole_server::send</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
+<title>swoole_server::send</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>>
 </head>
-
 <body style='text-justify-trim: punctuation'>
-
     <div class="wiki_content">
         <article>
             <h1>swoole_server->send</h1>
+            <hr>
             <p>向客户端发送数据，函数原型：</p>
-
             <pre class="brush: php;">bool swoole_server->send(int $fd, string $data, int $from_id = 0);
 </pre>
-
             <ul>
                 <li>$data，发送的数据。TCP协议最大不得超过2M，UDP协议不得超过64K</li>
                 <li>发送成功会返回true，如果连接已被关闭或发送失败会返回false</li>
@@ -60,20 +56,15 @@ $serv->on('close', function ($serv, $fd, $from_id) {
 });
 $serv->start();
             </pre>
-
             <h2>TCP服务器</h2>
-
             <ul>
                 <li>send操作具有原子性，多个进程同时调用send向同一个连接发送数据，不会发生数据混杂</li>
                 <li>如果要发送超过2M的数据，可以将数据写入临时文件，然后通过sendfile接口进行发送</li>
             </ul>
-
             <blockquote>
                 <p>swoole-1.6以上版本不需要$from_id</p>
             </blockquote>
-
             <h2>UDP服务器</h2>
-
             <ul>
                 <li>send操作会直接在worker进程内发送数据包，不会再经过主进程转发</li>
                 <li>使用fd保存客户端IP，from_id保存from_fd和port</li>
@@ -81,12 +72,8 @@ $serv->start();
                 <li>如果向其他UDP客户端发送数据，必须要传入from_id</li>
                 <li>在外网服务中发送超过64K的数据会分成多个传输单元进行发送，如果其中一个单元丢包，会导致整个包被丢弃。所以外网服务，建议发送1.5K以下的数据包</li>
             </ul>
-
         </article>
         <hr>
-
     </div>
-
 </body>
-
 </html>

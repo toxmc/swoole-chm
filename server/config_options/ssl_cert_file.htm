@@ -1,30 +1,39 @@
 <html>
 <head>
-  <title>ssl_cert_file</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
+<title>ssl_cert_file</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
 </head>
-
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
         <article>
             <h1>ssl_cert_file</h1>
+            <hr>
             <p>设置SSL隧道加密，设置值为一个文件名字符串，制定cert证书和key的路径。</p>
             <pre class="brush: php;">'ssl_cert_file' => '/config/ssl.crt',
-'ssl_key_file' => '/config//ssl.key',
+'ssl_key_file' => '/config/ssl.key',
 </pre>
+            <blockquote>
+                <p>使用SSL必须在编译swoole时加入--enable-openssl选项</p>
+            </blockquote>
+            <pre class="brush: php;">$serv = new swoole_server('0.0.0.0', 9501, SWOOLE_PROCESS, SWOOLE_SOCK_TCP | SWOOLE_SSL);
+$serv-&gt;set(array(
+    'ssl_cert_file' =&gt; __DIR__.'/config/ssl.crt',
+    'ssl_key_file' =&gt; __DIR__.'/config/ssl.key',
+));
+            </pre>
         </article>
         <hr>
     </div>

@@ -1,34 +1,26 @@
 <html>
-
 <head>
-  <title>task_max_request</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>task_max_request</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>task_max_request</h1>
-                        <p>设置task进程的最大任务数。一个task进程在处理完超过此数值的任务后将自动退出。这个参数是为了防止PHP进程内存溢出。如果不希望进程自动退出可以设置为0。</p>
-
-<blockquote>
-  <p>task_max_request默认为5000，受swoole_config.h的SW_MAX_REQUEST宏控制<br />
-  1.7.17以上版本默认值调整为0，不会主动退出进程</p>
-</blockquote>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>task_max_request</h1>
+            <hr>
+            <p>设置task进程的最大任务数。一个task进程在处理完超过此数值的任务后将自动退出。这个参数是为了防止PHP进程内存溢出。如果不希望进程自动退出可以设置为0。</p>
+            <blockquote>
+                <p>
+                    task_max_request默认为5000，受swoole_config.h的SW_MAX_REQUEST宏控制<br />
+                    1.7.17以上版本默认值调整为0，不会主动退出进程
+                </p>
+            </blockquote>
         </article>
-<hr>
-
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

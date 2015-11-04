@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>swoole_client::onConnect</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>onConnect</h1>
+            <hr>
+            <p>客户端连接服务器成功后会回调此函数。</p>
+            <pre class="brush: php;">function onConnect(swoole_client $client)
+            </pre>
+            <ul>
+                <li>TCP客户端必须设置onConnect回调</li>
+                <li>UDP客户端可选设置onConnect，socket创建成功会立即回调onConnect</li>
+            </ul>
+        </article>
+        <hr>
+    </div>
+</body>
+</html>

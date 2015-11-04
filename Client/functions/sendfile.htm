@@ -1,39 +1,34 @@
 <html>
 <head>
-  <title>swoole_client::sendfile</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
+<title>swoole_client::sendfile</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    SyntaxHighlighter.all();
+</script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>swoole_client->sendfile</h1>
-                        <p>发送文件到服务器，本函数是基于sendfile操作系统调用的。在swoole-1.7.5以上版本可用。</p>
-
-<pre class="brush: php;">bool swoole_client->sendfile(string $filename)
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_client->sendfile</h1>
+            <hr>
+            <p>发送文件到服务器，本函数是基于sendfile操作系统调用的。在swoole-1.7.5以上版本可用。</p>
+            <pre class="brush: php;">bool swoole_client->sendfile(string $filename)
 </pre>
-
-<ul>
-<li>$filename指定要发送文件的路径</li>
-<li>如果传入的文件不存在，将返回false</li>
-</ul>
-                        <p>例子：</p>
-
-<pre class="brush: php;">
+            <ul>
+                <li>$filename指定要发送文件的路径</li>
+                <li>如果传入的文件不存在，将返回false</li>
+            </ul>
+            <p>例子：</p>
+            <pre class="brush: php;">
 &lt;?php
 $client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC); //异步非阻塞
 $client->set(array(
@@ -60,14 +55,14 @@ $client->timer = swoole_timer_after(1000, function () use ($client) {
 });
 echo "connect to 127.0.0.1:9501\n";
 </pre>
-
-<blockquote>
-  <p>如果是同步client，sendfile会一直阻塞直到整个文件发送完毕或者发生致命错误<br />
-  如果是异步client，sendfile会异步发送，当发生致命错误时会回调onError</p>
-</blockquote>
-
+            <blockquote>
+                <p>
+                    如果是同步client，sendfile会一直阻塞直到整个文件发送完毕或者发生致命错误<br />
+                    如果是异步client，sendfile会异步发送，当发生致命错误时会回调onError
+                </p>
+            </blockquote>
         </article>
-<hr>
-</div>
+        <hr>
+    </div>
 </body>
 </html>

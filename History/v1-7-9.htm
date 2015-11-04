@@ -1,40 +1,32 @@
 <html>
-
 <head>
   <title>v1.7.9</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-      <article >
-                        <h1>1.7.9</h1>
-                        <ul>
-<li>增加内置WebSocket协议支持</li>
-<li>swoole_process在构造之后就可以访问到pipe的值</li>
-<li>增加swoole_process::signal/swoole_async_signal用于异步信号</li>
-<li>增加swoole_server->addProcess，可以添加用户定义的子进程到Server</li>
-<li>增加swoole_process::name方法</li>
-<li>增加swoole_server::listen方法</li>
-<li>增加swoole_server::sendMessage和onPipeMessage用于操作底层管道通信</li>
-<li>增加swoole_event_write函数</li>
-<li>增加swoole_process->close方法</li>
-<li>增加user/group配置项，可以修改工作进程的用户和组</li>
-<li>swoole_server的task/finish方法可以直接发送任意PHP变量，扩展内对非字符类型自行串化/反串化</li>
-</ul>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>1.7.9</h1>
+            <hr>
+            <ul>
+                <li>增加内置WebSocket协议支持</li>
+                <li>swoole_process在构造之后就可以访问到pipe的值</li>
+                <li>增加swoole_process::signal/swoole_async_signal用于异步信号</li>
+                <li>增加swoole_server->addProcess，可以添加用户定义的子进程到Server</li>
+                <li>增加swoole_process::name方法</li>
+                <li>增加swoole_server::listen方法</li>
+                <li>增加swoole_server::sendMessage和onPipeMessage用于操作底层管道通信</li>
+                <li>增加swoole_event_write函数</li>
+                <li>增加swoole_process->close方法</li>
+                <li>增加user/group配置项，可以修改工作进程的用户和组</li>
+                <li>swoole_server的task/finish方法可以直接发送任意PHP变量，扩展内对非字符类型自行串化/反串化</li>
+            </ul>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

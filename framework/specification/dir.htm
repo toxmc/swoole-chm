@@ -1,58 +1,53 @@
 <html>
-
 <head>
-  <title>swoole框架 - 目录规范</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>swoole框架 - 目录规范</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>目录规范</h1>
-                        <p>假设根目录为$ROOT。</p>
-
-<h2>$ROOT/apps</h2>
-
-<p>应用程序代码，此目录中的代码是公用的，包括类，配置，模板，控制器，Model等。此目录不得放置静态文件，如js, css, jpg, html等，必须全部为.php文件。此目录不允许http直接访问。</p>
-
-<ul>
-<li><strong><em>$ROOT/apps/controllers</em></strong>  Web应用的控制器类代码</li>
-<li><strong><em>$ROOT/apps/models</em></strong> 数据模型封装类代码</li>
-<li><strong><em>$ROOT/apps/configs</em></strong> 配置文件，通过$php->config['db']['master'] 这样来访问</li>
-<li><strong><em>$ROOT/apps/classes</em></strong> 类库，这里存放所有用户定义的类，必须符合psr-0规范，文件名必须为 {类名}.php，顶层命名空间必须为App。</li>
-<li><strong><em>$ROOT/apps/templates</em></strong> 模板文件目录</li>
-</ul>
-
-<blockquote>
-  <p>命名空间：如 new App\Hello\Test 类，会映射到 $ROOT/apps/classes/Hello/Test.php<br />
-  配置文件：如 $php->config['db']['master'] 或 Swoole::getInstance()->config['db']['master'] 会映射到$ROOT/apps/configs/db.php文件，db.php中必须返回数组，key为master。<br />
-  数据模型：model('UserInfo')或者$php->model->UserInfo 会映射到$ROOT/apps/models/UserInfo.php</p>
-</blockquote>
-
-<h2>$ROOT/static</h2>
-
-<p>静态文件目录，比如js, css, jpg, html等。此目录允许http直接访问。</p>
-
-<h2>$ROOT/index.php</h2>
-
-<p>web网站单一入口文件，可直接放到根目录，或者单独建立目录存放，如$ROOT/webroot/index.php</p>
-
-<h2>$ROOT/server.php</h2>
-
-<p>服务器程序启动入口。</p>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>目录规范</h1>
+            <hr>
+            <p>假设根目录为$ROOT。</p>
+            <h2>$ROOT/apps</h2>
+            <p>应用程序代码，此目录中的代码是公用的，包括类，配置，模板，控制器，Model等。此目录不得放置静态文件，如js,
+                css, jpg, html等，必须全部为.php文件。此目录不允许http直接访问。</p>
+            <ul>
+                <li><strong><em>$ROOT/apps/controllers</em></strong>
+                    Web应用的控制器类代码</li>
+                <li><strong><em>$ROOT/apps/models</em></strong>
+                    数据模型封装类代码</li>
+                <li><strong><em>$ROOT/apps/configs</em></strong>
+                    配置文件，通过$php->config['db']['master'] 这样来访问</li>
+                <li><strong><em>$ROOT/apps/classes</em></strong>
+                    类库，这里存放所有用户定义的类，必须符合psr-0规范，文件名必须为
+                    {类名}.php，顶层命名空间必须为App。</li>
+                <li><strong><em>$ROOT/apps/templates</em></strong>
+                    模板文件目录</li>
+            </ul>
+            <blockquote>
+                <p>
+                    命名空间：如 new App\Hello\Test 类，会映射到
+                    $ROOT/apps/classes/Hello/Test.php<br /> 配置文件：如
+                    $php->config['db']['master'] 或
+                    Swoole::getInstance()->config['db']['master']
+                    会映射到$ROOT/apps/configs/db.php文件，db.php中必须返回数组，key为master。<br />
+                    数据模型：model('UserInfo')或者$php->model->UserInfo
+                    会映射到$ROOT/apps/models/UserInfo.php
+                </p>
+            </blockquote>
+            <h2>$ROOT/static</h2>
+            <p>静态文件目录，比如js, css, jpg, html等。此目录允许http直接访问。</p>
+            <h2>$ROOT/index.php</h2>
+            <p>web网站单一入口文件，可直接放到根目录，或者单独建立目录存放，如$ROOT/webroot/index.php</p>
+            <h2>$ROOT/server.php</h2>
+            <p>服务器程序启动入口。</p>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

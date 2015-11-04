@@ -1,32 +1,22 @@
 <html>
-
 <head>
-  <title>为什么不要send完后立即close</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<title>为什么不要send完后立即close</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-         <article >
-                        <h1>为什么不要send完后立即close</h1>
-                        <p>send完后立即close就是不安全的，无论是服务器端还是客户端。</p>
-
-<p>send这个操作，只是将数据放到了socket缓存区。究竟操作系统有没有发送成功，对方服务器是否收到，服务器端程序是否处理，都不没办法确切保证。</p>
-
-<p>这个逻辑和电话沟通是一个道理，A告诉B一个事情，A说完了就挂掉电话。那么B听到没有，A是不知道的。如果A说完事情，B说好，然后B挂掉电话，就绝对是安全的。</p>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>为什么不要send完后立即close</h1>
+            <hr>
+            <p>send完后立即close就是不安全的，无论是服务器端还是客户端。</p>
+            <p>send这个操作，只是将数据放到了socket缓存区。究竟操作系统有没有发送成功，对方服务器是否收到，服务器端程序是否处理，都不没办法确切保证。</p>
+            <p>这个逻辑和电话沟通是一个道理，A告诉B一个事情，A说完了就挂掉电话。那么B听到没有，A是不知道的。如果A说完事情，B说好，然后B挂掉电话，就绝对是安全的。</p>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

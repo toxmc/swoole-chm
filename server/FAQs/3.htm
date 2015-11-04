@@ -1,36 +1,30 @@
 <html>
-
 <head>
-  <title>swoole_server中内存管理机制</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-</head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-        <article >
-                        <h1>swoole_server中内存管理机制</h1>
-                        <p>swoole_server启动后内存管理的底层原理与普通php-cli程序一致。具体请参考Zend VM内存管理方面的文章。</p>
-
-<ul>
-<li>在事件回调函数返回后，所有局部对象和变量会全部回收，不需要unset。如果变量是一个资源类型，那么对应的资源也会被PHP底层释放。</li>
-<li>全局变量和对象，类静态变量，保存在swoole_server对象上的变量不会被释放。需要程序员自行处理这些变量和对象的销毁工作</li>
-<li>在事件回调函数中需要特别注意非局部变量的array类型值，某些操作如  TestClass::$array[] = "string" 可能会造成内存泄漏，严重时可能发生爆内存，必要时应当注意清理大数组。</li>
-<li>在事件回调函数中，非局部变量的字符串进行拼接操作是必须小心内存泄漏，如 TestClass::$buffer .= $data，可能会有内存泄漏，严重时可能发生爆内存。</li>
-<li>当Worker进程/Task进程结束运行时，比如设置了max_request，达到任务上限后进程自动退出。该进程的所有变量/对象/资源均会被释放回收。</li>
-</ul>
-
+<title>swoole_server中内存管理机制</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_server中内存管理机制</h1>
+            <hr>
+            <p>swoole_server启动后内存管理的底层原理与普通php-cli程序一致。具体请参考Zend
+                VM内存管理方面的文章。</p>
+            <ul>
+                <li>在事件回调函数返回后，所有局部对象和变量会全部回收，不需要unset。如果变量是一个资源类型，那么对应的资源也会被PHP底层释放。</li>
+                <li>全局变量和对象，类静态变量，保存在swoole_server对象上的变量不会被释放。需要程序员自行处理这些变量和对象的销毁工作</li>
+                <li>在事件回调函数中需要特别注意非局部变量的array类型值，某些操作如
+                    TestClass::$array[] = "string"
+                    可能会造成内存泄漏，严重时可能发生爆内存，必要时应当注意清理大数组。</li>
+                <li>在事件回调函数中，非局部变量的字符串进行拼接操作是必须小心内存泄漏，如
+                    TestClass::$buffer .= $data，可能会有内存泄漏，严重时可能发生爆内存。</li>
+                <li>当Worker进程/Task进程结束运行时，比如设置了max_request，达到任务上限后进程自动退出。该进程的所有变量/对象/资源均会被释放回收。</li>
+            </ul>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

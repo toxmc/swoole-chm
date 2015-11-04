@@ -1,54 +1,46 @@
 <html>
 <head>
-  <title>swoole_client::recv</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
+<title>swoole_client::recv</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    SyntaxHighlighter.all();
+</script>
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-       <article >
-                        <h1>swoole_client->recv</h1>
-                        <p>recv方法用于从服务器端接收数据。接受2个参数。函数原型为：</p>
-
-<pre class="brush: php;">string $swoole_client->recv(int $size = 65535, bool $waitall = 0);
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>swoole_client->recv</h1>
+            <hr>
+            <p>recv方法用于从服务器端接收数据。接受2个参数。函数原型为：</p>
+            <pre class="brush: php;">string $swoole_client->recv(int $size = 65535, bool $waitall = 0);
 </pre>
-
-<ul>
-<li>$size：接收数据的最大长度  </li>
-<li>$waitall: 是否等待所有数据到达后返回</li>
-</ul>
-
-<blockquote>
-  <p>如果设定了$waitall就必须设定准确的$size，否则会一直等待，直到接收的数据长度达到$size<br />
-  如果设置了错误的$size，会导致recv超时，返回 <strong>false</strong></p>
-</blockquote>
-
-<ul>
-<li>成功收到数据返回字符串</li>
-<li>连接关闭返回空字符串</li>
-<li>失败返回 <strong>false</strong>，并设置$swoole_client->errCode属性</li>
-</ul>
-
+            <ul>
+                <li>$size：接收数据的最大长度</li>
+                <li>$waitall: 是否等待所有数据到达后返回</li>
+            </ul>
+            <blockquote>
+                <p>
+                    如果设定了$waitall就必须设定准确的$size，否则会一直等待，直到接收的数据长度达到$size<br />
+                    如果设置了错误的$size，会导致recv超时，返回 <strong>false</strong>
+                </p>
+            </blockquote>
+            <ul>
+                <li>成功收到数据返回字符串</li>
+                <li>连接关闭返回空字符串</li>
+                <li>失败返回 <strong>false</strong>，并设置$swoole_client->errCode属性
+                </li>
+            </ul>
         </article>
-<hr>
-
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

@@ -1,52 +1,43 @@
 <html>
 <head>
-  <title>swoole_client::__construct</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
+<title>swoole_client::__construct</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
 </head>
-
 <body style='text-justify-trim: punctuation'>
-
     <div class="wiki_content">
         <article>
             <h1>swoole_client::__construct</h1>
+            <hr>
             <p>函数原型：</p>
-
             <pre class="brush: php;">swoole_client->__construct(int $sock_type, int $is_sync = SWOOLE_SOCK_SYNC, string $key);
 </pre>
-
             <p>
                 可以使用swoole提供的宏来之指定类型，请参考 <a
                     href="../../server/constants.htm">swoole常量定义</a>
             </p>
-
             <ul>
                 <li>$sock_type表示socket的类型，如TCP/UDP</li>
                 <li>$is_sync表示同步阻塞还是异步非阻塞，默认为同步阻塞</li>
                 <li>$key用于长连接的Key，默认使用IP:PORT作为key。相同key的连接会被复用</li>
             </ul>
-
             <p>
                 <strong>在php-fpm/apache中创建长连接：</strong>
             </p>
-
             <pre class="brush: php;">$cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
 </pre>
-
             <p>加入SWOOLE_KEEP标志后，创建的TCP连接在PHP请求结束或者调用$cli->close时并不会关闭。下一次执行connect调用时会复用上一次创建的连接。长连接保存的方式默认是以ServerHost:ServerPort为key的。可以再第3个参数内指定key。</p>
-
             <blockquote>
                 <p>
                     swoole_client在unset时会自动调用close方法关闭socket<br />
@@ -54,16 +45,10 @@
                     SWOOLE_KEEP长连接模式在1.6.12后可用，长连接的$key参数在1.7.5后增加
                 </p>
             </blockquote>
-
             <p>swoole_server可以用任何语言编写的 socket
                 client来连接。同样swoole_client也可以去连接任何语言编写的socket server。</p>
-
         </article>
         <hr>
-
-
     </div>
-
 </body>
-
 </html>

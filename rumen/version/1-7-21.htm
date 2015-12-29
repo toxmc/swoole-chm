@@ -10,7 +10,7 @@
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
         <article>
-            <h1>1.7.21（开发中）</h1>
+            <h1>1.7.21</h1>
             <hr>
             <ul>
                 <li>修复swoole_client同步模式在服务器主动关闭时发生内存泄漏的问题</li>
@@ -22,6 +22,7 @@
                 <li>修复MIPS平台编译错误的问题</li>
                 <li>修复UDP大包在dispatch_mode=1/3时Worker进程发生死锁的问题</li>
                 <li>增加swoole_client->sleep/wakeup方法，用于暂停/恢复数据接收事件</li>
+                <li>修复UDP大包中间数据异常问题（重要BUG）</li>
             </ul>
         </article>
         <hr>

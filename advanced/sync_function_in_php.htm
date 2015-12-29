@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>PHP中那些函数是同步阻塞的</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>PHP中那些函数是同步阻塞的</h1>
+            <hr>
+            <h2>同步阻塞函数</h2>
+            <ul>
+            <li>mysql、mysqli、pdo以及其他DB操作函数</li>
+            <li>sleep、usleep</li>
+            <li>curl</li>
+            <li>stream、socket扩展的函数</li>
+            <li>swoole_client同步模式</li>
+            <li>memcache、redis扩展函数</li>
+            <li>file_get_contents/fread等文件读取函数</li>
+            <li>swoole_server->taskwait</li>
+            <li>swoole_server->sendwait</li>
+            </ul>
+            
+            <blockquote>
+              <p>swoole_server的PHP代码中有上述函数，Server就是同步服务器<br />
+              代码中没有上述函数就是异步服务器</p>
+            </blockquote>
+            
+            <h2>异步非阻塞函数</h2>
+            
+            <ul>
+            <li>swoole_client异步模式</li>
+            <li>mysql-async库</li>
+            <li>redis-async库</li>
+            <li>swoole_timer_tick/swoole_timer_after</li>
+            <li>swoole_event系列函数</li>
+            <li>swoole_table/swoole_atomic/swoole_buffer</li>
+            <li>swoole_server->task/finish函数</li>
+            </ul>
+        </article>
+        <hr>
+    </div>
+</body>
+</html>

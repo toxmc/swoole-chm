@@ -25,10 +25,11 @@
             <ul>
                 <li>请下载releases版本的swoole，直接从github主干上拉取最新代码可能会编译不过
                 </li>
-                <li>如果当前用户不是root，可能没有php目录的写权限，安装时需要sudo或者su</li>
-                <li>如果是在git分支上直接git pull更新代码，重新编译前务必要执行make clean</li>
+                <li>如果当前用户不是root，可能没有php目录的写权限，安装时需要<b>sudo</b>或者<b>su</b></li>
+                <li>如果是在git分支上直接<b>git pull</b>更新代码，重新编译前务必要执行<b>make clean</b></li>
             </ul>
             <h2>安装准备</h2>
+            <hr>
             <p>安装swoole前必须保证系统已经安装了下列软件</p>
             <pre class="brush: php;">php-5.3.10 或更高版本
 gcc-4.4 或更高版本
@@ -36,6 +37,7 @@ make
 autoconf
 </pre>
             <h2>下载地址</h2>
+            <hr>
             <ul>
                 <li><a
                     href="https://github.com/swoole/swoole-src/releases">https://github.com/swoole/swoole-src/releases</a></li>
@@ -50,16 +52,17 @@ make
 sudo make install
 </pre>
             <h2>PECL</h2>
+            <hr>
             <p>swoole项目已收录到PHP官方扩展库，除了手工下载编译外，还可以通过PHP官方提供的pecl命令，一键下载安装swoole</p>
             <pre class="brush: php;">pecl install swoole
 </pre>
             <h2>配置php.ini</h2>
+            <hr>
             <p>编译安装成功后，修改php.ini加入</p>
             <pre class="brush: php;">extension=swoole.so
 </pre>
-            <p>通过php
-                -m或phpinfo()来查看是否成功加载了swoole，如果没有可能是php.ini的路径不对，可以使用php
-                -i |grep php.ini 来定位到php.ini的绝对路径。</p>
+            <p>通过<b>php -m</b> 或 <b>phpinfo()</b>来查看是否成功加载了swoole，如果没有可能是php.ini的路径不对，可以使用<br>
+            <b>php -i | grep php.ini</b> 来定位到php.ini的绝对路径。</p>
         </article>
         <hr>
     </div>

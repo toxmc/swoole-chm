@@ -21,20 +21,16 @@
             <h1>编译参数</h1>
             <hr>
             <p>这里是./configure编译配置的额外参数，用于开启某些特性</p>
-            <h2>--enable-msgqueue</h2>
-            <p>使用消息队列作为IPC通信方式，消息队列的好处是buffer区域可以很大，另外dispatch_mode=3时，消息队列天然支持争抢。</p>
-            <blockquote>
-                <p>
-                    使用消息队列作为IPC时，worker进程内将无法使用异步，包括异步swoole_client，task/finish，swoole_event_add，swoole_timer_add<br />
-                    1.7.5+已经移除了此编译选项，改为由swoole_server->set动态设置开启
-                </p>
-            </blockquote>
             <h2>--enable-swoole-debug</h2>
             <p>打开调试日志，开启此选项后swoole将打印各类细节的调试日志。生产环境不要启用。</p>
             <h2>--enable-sockets</h2>
             <p>增加对sockets资源的支持，依赖sockets扩展。开启此参数，swoole_event_add就可以添加sockets扩展创建的连接到swoole的事件循环中。</p>
             <h2>--enable-async-mysql</h2>
-            <p>增加异步mysql支持， 依赖mysqli和mysqlnd</p>
+            <p>增加异步mysql支持， 依赖<code>mysqli<code>和</code>mysqlnd</code></p>
+            <h2>--enable-async-redis</h2>
+            <p>增加异步Redis客户端支持， 依赖<code>hiredis</code>库</p>
+            <h2>--enable-async-httpclient</h2>
+            <p>增加异步<code>Http</code>和<code>WebSocket</code>客户端支持</p>
             <h2>--enable-ringbuffer</h2>
             <p>开启RingBuffer内存池</p>
             <blockquote>

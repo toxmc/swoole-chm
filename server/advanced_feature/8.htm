@@ -23,7 +23,7 @@
             <h1>捕获Server运行期致命错误</h1>
             <p>Server运行期一旦发生致命错误，那客户端连接将无法得到回应。如Web服务器，如果有致命错误应当向客户端发送Http
                 500 错误信息。</p>
-            <p>在PHP中可以通过register_shutdown_function + error_get_last
+            <p>在PHP中可以通过<code>register_shutdown_function</code>+<code>error_get_last</code>
                 2个函数来捕获致命错误，并将错误信息发送给客户端连接。具体代码示例如下：</p>
             <pre class="brush: php;">register_shutdown_function('handleFatal');
 function handleFatal()

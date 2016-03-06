@@ -29,10 +29,11 @@
                     task_worker_num - 1)</li>
             </ul>
             <blockquote>
-                <p>
-                    sendMessage接口在swoole-1.7.9以上版本可用<br />
+                <code>
+                    sendMessage接口在swoole-1.7.9以上版本可用<br>
+                    MacOS/FreeBSD下超过2K就会使用临时文件存储<br>
                     使用sendMessage必须注册onPipeMessage事件回调函数
-                </p>
+                </code>
             </blockquote>
             <h2>实例</h2>
             <pre class="brush: php;">

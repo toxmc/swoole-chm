@@ -93,10 +93,14 @@ $serv->start();
             <blockquote>
                 <p>
                     $dst_worker_id在1.6.11+后可用，默认为随机投递<br />
+                    $task_id是从0-42亿的整数，在当前进程内是唯一的<br>
                     task方法不能在task进程中调用
                 </p>
             </blockquote>
-            <p>此功能用于将慢速的任务异步地去执行，比如一个聊天室服务器，可以用它来进行发送广播。当任务完成时，在task进程中调用$serv->finish("finish")告诉worker进程此任务已完成。当然swoole_server->finish是可选的。</p>
+            <p>
+            此功能用于将慢速的任务异步地去执行，比如一个聊天室服务器，可以用它来进行发送广播。
+            当任务完成时，在task进程中调用<code>$serv->finish("finish")</code>
+            告诉worker进程此任务已完成。当然<code>swoole_server->finish</code>是可选的。</p>
             <blockquote>
                 <p>
                     AsyncTask功能在1.6.4版本增加，默认不启动task功能，需要在手工设置task_worker_num来启动此功能<br />
@@ -107,7 +111,7 @@ $serv->start();
             </blockquote>
             <h2>注意事项</h2>
             <ul>
-                <li>使用swoole_server_task必须为Server设置onTask回调，否则swoole_server->start会失败,onFinish回调可选，task任务完成后调用onFinish回调</li>
+                <li>使用swoole_server_task必须为Server设置onTask回调，否则<code>swoole_server->start</code>会失败,onFinish回调可选，task任务完成后调用onFinish回调</li>
                 <li>task操作的次数必须小于onTask处理速度，如果投递容量超过处理能力，task会塞满缓存区，导致worker进程发生阻塞。worker进程将无法接收新的请求</li>
             </ul>
         </article>

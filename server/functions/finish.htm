@@ -21,11 +21,14 @@
             <h1>swoole_server->finish</h1>
             <hr>
             <p>此函数用于在task进程中通知worker进程，投递的任务已完成。此函数可以传递结果数据给worker进程。</p>
-            <pre class="brush: php;">$serv->finish("response");
-</pre>
+            <pre class="brush: php;">$serv->finish("response");</pre>
             <p>
                 <strong>使用swoole_server::finish函数必须为Server设置onFinish回调函数。此函数只可用于task进程的onTask回调中</strong>
             </p>
+            <ul>
+              <li>finish方法可以连续多次调用，Worker进程会多次触发<code>onFinish</code>事件</li>
+              <li>在<code>onTask</code>回调函数中调用过<code>finish</code>方法后，return数据依然会触发<code>onFinish</code>事件</li>
+            </ul>
             <blockquote>
                 <p>
                     swoole_server::finish是可选的。如果worker进程不关心任务执行的结果，不需要调用此函数<br />

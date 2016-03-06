@@ -21,6 +21,12 @@
             <h1>swoole_server->connection_info</h1>
             <hr>
             <p>swoole_server->connection_info 函数用来获取连接的信息</p>
+            <pre class="brush: php;">function swoole_server-&gt;connection_info(int $fd, int $from_id, bool $ignore_close = false)</pre>
+            <ul>
+                <li>如果传入的fd存在，将会返回一个数组</li>
+                <li>连接不存在或已关闭，返回false</li>
+                <li>第3个参数设置为true，即使连接关闭也会返回连接的信息</li>
+            </ul>
             <blockquote>
                 <p>
                     需要swoole-1.5.8以上版本<br /> connect_time, last_time
@@ -28,10 +34,6 @@
                     connection_info可用于UDP服务器，但需要传入from_id参数
                 </p>
             </blockquote>
-            <ul>
-                <li>如果传入的fd存在，将会返回一个数组</li>
-                <li>连接不存在或已关闭，返回false</li>
-            </ul>
             <pre class="brush: php;">$fdinfo = $serv->connection_info($fd);
 var_dump($fdinfo);
 array(5) {

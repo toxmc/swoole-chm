@@ -21,16 +21,17 @@
             <h1>swoole_server->close</h1>
             <hr>
             <p>关闭客户端连接，函数原型：</p>
-            <pre class="brush: php;">bool swoole_server->close(int $fd, int $from_id = 0);
+            <pre class="brush: php;">bool swoole_server->close(int $fd, bool $reset = false);
 </pre>
             <blockquote>
-                <p>swoole-1.6以上版本不需要$from_id
-                    swoole-1.5.8以下的版本，务必要传入正确的$from_id，否则可能会导致连接泄露</p>
+                <code>swoole-1.8.0或更高版本可以使用设置$reset方法</code>
             </blockquote>
-            <p>
-                操作成功返回true，失败返回false.<br />
-                Server主动close连接，也一样会触发onClose事件。不要在close之后写清理逻辑。应当放置到onClose回调中处理。
-            </p>
+            <ul>
+                <li>操作成功返回true，失败返回false.</li>
+                <li>Server主动close连接，也一样会触发onClose事件。</li>
+                <li>不要在close之后写清理逻辑。应当放置到onClose回调中处理。</li>
+                <li>$reset设置为true会强制关闭连接，丢弃发送队列中的数据</li>
+            </ul>
             <p>例子：</p>
             <pre class="brush: php;">
 &lt;?php

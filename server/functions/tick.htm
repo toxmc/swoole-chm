@@ -25,7 +25,12 @@
                     href="../../AsyncIO/Asyn_millisecond_timer/swoole_timer_tick.htm">swoole_timer_tick</a>的别名。
             </p>
             <blockquote>
-                <p>worker进程结束运行后，所有定时器都会自动销毁</p>
+                <p>
+                <code>
+                worker进程结束运行后，所有定时器都会自动销毁<br>
+                tick/after定时器不能在swoole_server->start之前使用
+                </code>
+                </p>
             </blockquote>
             <p>在onReceive使用tick示例：</p>
             <pre class="brush: php;">function onReceive($server, $fd, $from_id, $data) {
@@ -34,11 +39,24 @@
     });
 }
 </pre>
+            <h2>在onWorkerStart中使用</h2>
             <ul>
-                <li>tick不能用于task进程否则会报 Fatal error:
-                    swoole_server::tick(): cannot use async-io in task
-                    process.</li>
+                <li>task进程不能使用<code>tick/after</code>定时器，所以需要使用$serv->taskworker进行判断，
+                                                否则会报 Fatal error: swoole_server::tick(): cannot use async-io in task process. </li>
+                <li>task进程可以使用<code>addtimer</code>间隔定时器</li>
             </ul>
+            <pre class="brush: php;">function onWorkerStart(swoole_server $serv, $worker_id)
+{
+    if (!$serv-&gt;taskworker) {
+        $serv-&gt;tick(1000, function ($id) {
+            var_dump($id);
+        });
+    }
+    else
+    {
+        $serv-&gt;addtimer(1000);
+    }
+}</pre>
             <p>tick示例：</p>
             <pre class="brush: php;">swoole_timer_tick(2000, function($id) {
     echo "tick-1 2000ms\n";

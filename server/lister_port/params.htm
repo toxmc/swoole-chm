@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>可选参数</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>可选参数</h1>
+            <hr>
+            <p>监听端口调用<code>set</code>方法只能设置一些特定的参数，无法修改全局的Server设置。</p>
+            <h2>可用的参数列表</h2>
+            <ul>
+                <li>socket参数，如backlog、TCP_KEEPALIVE、open_tcp_nodelay、tcp_defer_accept等</li>
+                <li>协议相关，如open_length_check、open_eof_check、package_length_type等</li>
+                <li>SSL证书相关，如ssl_cert_file、ssl_key_file等</li>
+            </ul>
+            <h2>不可用的参数列表</h2>
+            <ul>
+                <li>worker_num、task_worker_num、reactor_num</li>
+                <li>dispatch_mode、task_ipc_num</li>
+                <li>heartbeart_check</li>
+                <li>log_file</li>
+                <li>user/group/chroot</li>
+                <li>open_cpu_affinity</li>
+                <li>max_request/task_max_request</li>
+            </ul>
+        </article>
+        <hr>
+    </div>
+</body>
+</html>

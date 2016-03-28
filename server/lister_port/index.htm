@@ -1,0 +1,99 @@
+<html>
+<head>
+<title>监听端口</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+	SyntaxHighlighter.defaults['gutter'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>监听端口</h1>
+            <hr>
+            <p>
+                <code>Swoole-1.8.0</code>新增了对
+                <code>多端口混合协议</code>的支持。
+                <code>Server</code> 可以监听多个端口，每个端口都可以设置不同的协议处理方式(set)和回调函数(on)。
+                <code>SSL/TLS</code>传输加密也可以只对特定的端口启用。
+            </p>
+            <ul>
+                <li>未设置协议处理选项的监听端口，默认使用无协议模式</li>
+                <li>未设置回调函数的监听端口，使用<code>$server</code>对象的回调函数</li>
+                <li>监听端口返回的对象类型为<code>swoole_server_port</code></li>
+                <li>不同监听端口的回调函数，仍然是相同的Worker进程空间内执行</li>
+            </ul>
+            <h2>监听新端口</h2>
+            <pre class="brush: php;">$port1 = $server-&gt;listen("127.0.0.1", 9501, SWOOLE_SOCK_TCP);
+$port2 = $server-&gt;listen("127.0.0.1", 9502, SWOOLE_SOCK_UDP);
+$port3 = $server-&gt;listen("127.0.0.1", 9502, SWOOLE_SOCK_TCP | SWOOLE_SSL);
+            </pre>
+            <h2>设置网络协议</h2>
+            <pre class="brush: php;">$port1-&gt;set(
+    'open_length_check' =&gt; true,
+    'package_length_type' =&gt; 'N',
+    'package_length_offset' =&gt; 0,
+    'package_max_length' =&gt; 800000,
+);
+
+$port3-&gt;set(
+    'open_eof_split' =&gt; true,
+    'package_eof' =&gt; "\r\n",
+    'ssl_cert_file' =&gt; 'ssl.cert',
+    'ssl_key_file' =&gt; 'ssl.key',
+);
+            </pre>
+            <h2>设置回调函数</h2>
+            <pre class="brush: php;">$port1-&gt;on('connect', function ($serv, $fd){
+    echo "Client:Connect.\n";
+});
+
+$port1-&gt;on('receive', function ($serv, $fd, $from_id, $data) {
+    $serv-&gt;send($fd, 'Swoole: '.$data);
+    $serv-&gt;close($fd);
+});
+
+$port1-&gt;on('close', function ($serv, $fd) {
+    echo "Client: Close.\n";
+});
+
+$port2-&gt;on('packet', function ($serv, $data, $addr) {
+    var_dump($data, $addr);
+});
+            </pre>
+            <h2>Http/WebSocket</h2>
+            <p>
+                <code>swoole_http_server</code>
+                和
+                <code>swoole_websocket_server</code>
+                因为是使用继承子类实现的，无法使用
+                <code>listen</code>
+                创建
+                <code>Http/WebSocket</code>
+                服务器。如果服务器的主要功能为
+                <code>RPC</code>
+                ，但希望提供一个简单的Web管理界面。
+            </p>
+            <p>
+                在这样的场景中，可以先创建
+                <code>Http/WebSocket</code>
+                服务器，然后再进行
+                <code>listen</code>
+                监听
+                <code>RPC服务器</code>
+                的端口。
+            </p>
+        </article>
+        <hr>
+    </div>
+</body>
+</html>

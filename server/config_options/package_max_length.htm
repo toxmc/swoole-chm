@@ -20,6 +20,9 @@
                 <li>open_http_protocol，GET请求最大允许8K，而且无法修改配置。POST请求会检测Content-Length，如果Content-Length超过package_max_length，将直接丢弃此数据，发送http
                     400错误，并关闭连接</li>
             </ul>
+            <blockquote>
+            <p>此参数不宜设置过大，否则会占用很大的内存</p>
+            </blockquote>
         </article>
         <hr>
     </div>

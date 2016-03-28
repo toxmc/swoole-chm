@@ -21,10 +21,10 @@
     <div class="wiki_content">
         <article>
             <h1>onShutdown</h1>
+            <hr>
             <p>此事件在Server结束时发生，，函数原型</p>
 
-            <pre class="brush: php;">void onShutdown(resource $server);
-</pre>
+            <pre class="brush: php;">function onShutdown(swoole_server $server);</pre>
             <p>在此之前Swoole Server已进行了如下操作</p>
             <ul>
                 <li>已关闭所有线程</li>
@@ -33,18 +33,15 @@
                 <li>已关闭主Rector</li>
             </ul>
             <p>例子</p>
-            <pre class="brush: php;">
-                $serv->on('Shutdown', 'my_onShutdown');
-                function my_onShutdown($serv)
-                {
-                    echo "Server: onShutdown\n";
-                }
-            </pre>
+            <pre class="brush: php;">$serv->on('Shutdown', 'my_onShutdown');
+function my_onShutdown($serv){
+    echo "Server: onShutdown\n";
+}</pre>
             <blockquote>
                 <p>
-                    强制kill进程不会回调onShutdown，如kill -9<br /> 需要使用kill
-                    -15来发送SIGTREM信号到主进程才能按照正常的流程终止
-                </p>
+                                                强制kill进程不会回调onShutdown，如<code>kill -9</code>需要使用<code>kill-15</code>
+                                                来发送<code>SIGTREM</code>信号到主进程才能按照正常的流程终止
+               </p>
             </blockquote>
         </article>
         <hr>

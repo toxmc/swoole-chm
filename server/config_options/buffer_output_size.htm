@@ -20,22 +20,38 @@
         <article>
             <h1>buffer_output_size</h1>
             <hr>
+            <p>配置发送缓存区尺寸。</p>
+            <pre><code>$server-&gt;set(array(
+    'buffer_output_size' =&gt; 32 * 1024 *1024, //必须为数字
+))</code></pre>
             <p>此配置影响swoole 2个方面</p>
             <h2>数据发送缓存区</h2>
             <p>调整连接发送缓存区的大小。TCP通信有拥塞控制机制，服务器向客户端发送大量数据时，并不能立即发出。这时发送的数据会存放在服务器端的内存缓存区内。此参数可以调整内存缓存区的大小。</p>
             <p>如果发送数据过多，客户端阻塞，数据占满缓存区后Server会报如下错误信息：</p>
-            <pre class="brush: php;">swFactoryProcess_finish: send failed, session#1 output buffer has been overflowed.
-</pre>
-            <h2>swoole_server->send大小</h2>
-            <p>调用 swoole_server->send，
-                swoole_http_server->end/write，swoole_websocket_server->push
-                时，最大发送的数据不得超过 buffer_output_size 配置。</p>
+            <pre><code>swFactoryProcess_finish: send failed, session#1 output buffer has been overflowed.</code></pre>
             <blockquote>
                 <p>
-                    buffer_output_size默认为2M，缓存区塞满后send将会失败<br />
-                    注意此函数不应当调整过大，避免拥塞的数据过多，导致吃光机器内存<br />
-                    开启大量worker进程时，将会占用worker_num * buffer_output_size
-                    字节的内存
+                                            发送缓冲区塞满导致<code>send</code>
+                                            失败，只会影响当前的客户端，其他客户端不受影响<br />
+                                            服务器有大量TCP连接时，最差的情况下将会占用<code>serv-&gt;max_connection *buffer_output_size</code>
+                                            字节的内存
+                </p>
+            </blockquote>
+            <p>
+                <strong>尤其是外围通信的服务器程序，网络通信较慢，如果持续连续发送数据，缓冲区很快就会塞满。发送的数据会全部堆积在Server的内存里。因此此类应用应当从设计上考虑到网络的传输能力，先将消息存入磁盘，等客户端通知服务器已接受完毕后，再发送新的数据。</strong>
+            </p>
+            <p>如视频直播服务，A用户带宽是
+                100M，1秒内发送10M的数据是完全可以的。B用户带宽只有1M，如果1秒内发送10M的数据，B用户可能需要100秒才能接收完毕。这时数据会全部堆积在服务器内存中。</p>
+            <p>可以根据数据内容的类型，进行不同的处理。如果是可丢弃的内容，如视频直播等业务，网络差的情况下丢弃一些数据帧完全可以接受。如果内容是不可丢失的，如微信消息，可以先存储到服务器的磁盘中，按照100条消息为一组。当用户接受完这一组消息后，再从磁盘中取出下一组消息发送到客户端。</p>
+            <h2>单次发送的最大尺寸</h2>
+            <p>调用<code>swoole_server-&gt;send</code>，<code>swoole_http_server-&gt;end/write</code>，
+            <code>swoole_websocket_server-&gt;push</code>时，单次最大发送的数据不得超过<code>buffer_output_size</code> 配置。
+            </p>
+            <blockquote>
+                <p>
+                   buffer_output_size默认为2M，缓存区塞满后send将会失败<br />
+                                                注意此函数不应当调整过大，避免拥塞的数据过多，导致吃光机器内存<br />
+                                                开启大量worker进程时，将会占用<code>worker_num * buffer_output_size</code>字节的内存
                 </p>
             </blockquote>
         </article>

@@ -20,7 +20,7 @@
         <article>
             <h1>swoole_server::$worker_id</h1>
             <hr>
-            <p>得到当前Worker进程的编号。</p>
+            <p>得到当前Worker进程的编号，包括Task进程。</p>
             <pre class="brush: php;">int $server->worker_id;
 </pre>
             <p>例子：（运用$worker_id,在$worker_id=0的时候添加一个定时器）</p>

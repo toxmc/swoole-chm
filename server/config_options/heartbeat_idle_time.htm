@@ -27,7 +27,10 @@ array(
     'heartbeat_check_interval' => 60,
 );
 </pre>
-            <p>表示每60秒遍历一次，一个连接如果600秒内未向服务器发送任何数据，此连接将被强制关闭。</p>
+            <ul>
+                <li>表示每60秒遍历一次，一个连接如果600秒内未向服务器发送任何数据，此连接将被强制关闭。</li>
+                <li>启用<code>heartbeat_idle_time</code>后，服务器并不会主动向客户端发送数据包</li>
+            </ul>
         </article>
         <hr>
     </div>

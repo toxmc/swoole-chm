@@ -21,9 +21,9 @@
     <div class="wiki_content">
         <article>
             <h1>onStart</h1>
+            <hr>
             <p>Server启动在主进程的主线程回调此函数，函数原型</p>
-            <pre class="brush: php;">void onStart(resource $server);
-</pre>
+            <pre class="brush: php;">function onStart(swoole_server $server);</pre>
 
             <p>在此事件之前Swoole Server已进行了如下操作</p>
 

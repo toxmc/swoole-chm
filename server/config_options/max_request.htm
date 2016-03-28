@@ -13,6 +13,7 @@
             <h1>max_request</h1>
             <hr>
             <p>设置worker进程的最大任务数。一个worker进程在处理完超过此数值的任务后将自动退出。这个参数是为了防止PHP进程内存溢出。</p>
+            <pre><code>注意：max_request只能用于同步阻塞的服...Server不应当设置max_request </code></pre>
             <blockquote>
                 <p>
                     如果不希望进程自动退出可以设置为0<br />

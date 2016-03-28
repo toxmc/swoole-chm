@@ -16,20 +16,15 @@
         SyntaxHighlighter.all();
     </script>
 </head>
-
 <body style='text-justify-trim: punctuation'>
-
     <div class="wiki_content">
         <article>
             <h1>onTimer</h1>
+            <hr>
             <p>定时器触发，函数原型为</p>
+            <pre class="brush: php;">function onTimer(swoole_server $server, int $interval);</pre>
 
-            <pre class="brush: php;">void onTimer(resource $server, int $interval);
-</pre>
-
-            <p>
-                $interval是定时器时间间隔，根据$interval的值来区分是哪个定时器触发的。这里的定时器是由<br />$serv->addtimer来添加的，是固定间隔循环触发的。
-            </p>
+            <p>$interval是定时器时间间隔，根据$interval的值来区分是哪个定时器触发的。这里的定时器是由<br />$serv->addtimer来添加的，是固定间隔循环触发的。</p>
             <p>例子：</p>
 
             <pre class="brush: php;">
@@ -47,9 +42,6 @@
 
         </article>
         <hr>
-
     </div>
-
 </body>
-
 </html>

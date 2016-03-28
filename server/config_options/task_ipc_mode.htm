@@ -14,13 +14,17 @@
             <hr>
             <p>设置task进程与worker进程之间通信的方式。</p>
             <ul>
-                <li>1, 使用unix socket通信</li>
+                <li>1, 使用unix socket通信，默认模式</li>
                 <li>2, 使用消息队列通信</li>
                 <li>3, 使用消息队列通信，并设置为争抢模式</li>
             </ul>
             <blockquote>
                 <p>设置为3后，task/taskwait将无法指定目标进程ID</p>
             </blockquote>
+            <p>
+                                        模式2和模式3的不同之处是，模式2支持定向投递，<code>$serv->task($data, $task_worker_id)</code>
+                                        可以指定投递到哪个task进程。模式3是完全争...k_worker_id，在模式3下也是无效的。
+            </p>
         </article>
         <hr>
     </div>

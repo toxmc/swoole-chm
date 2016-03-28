@@ -21,10 +21,11 @@
             <h1>cpu_affinity_ignore</h1>
             <hr>
             <p>IO密集型程序中，所有网络中断都是用CPU0来处理，如果网络IO很重，CPU0负载过高会导致网络中断无法及时处理，那网络收发包的能力就会下降。</p>
+            <p>如果不设置此选项，swoole将会使用全部CPU核，底层根据reactor_id或worker_id与CPU核数取模来设置CPU绑定。</p>
             <blockquote>
                 <p>
-                    网卡多队列会缓解网络中断的压力<br />
-                    此选项必须与open_cpu_affinity同时设置才会生效
+                                                如果内核与网卡有多队列特性，网络中断会分布到多核，可以缓解网络中断的压力<br />
+                                                此选项必须与open_cpu_affinity同时设置才会生效
                 </p>
             </blockquote>
             <pre class="brush: php;">

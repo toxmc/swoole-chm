@@ -2,7 +2,6 @@
 <head>
   <title>onPipeMessage</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -21,10 +20,9 @@
     <div class="wiki_content">
         <article>
             <h1>onPipeMessage</h1>
+            <hr>
             <p>当工作进程收到由sendMessage发送的管道消息时会触发onPipeMessage事件。worker/task进程都可能会触发onPipeMessage事件。函数原型：</p>
-
-            <pre class="brush: php;">void onPipeMessage(swoole_server $server, int $from_worker_id, string $message);
-</pre>
+            <pre class="brush: php;">function onPipeMessage(swoole_server $server, int $from_worker_id, string $message);</pre>
             <blockquote>
                 <p>onPipeMessage在swoole-1.7.9以上版本可用</p>
             </blockquote>

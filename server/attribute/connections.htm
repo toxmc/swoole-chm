@@ -20,8 +20,10 @@
         <article>
             <h1>swoole_server::$connections</h1>
             <hr>
-            <p>TCP连接迭代器，可以使用foreach遍历服务器当前所有的连接，此属性的功能与<br>
-            swoole_server->connnection_list是一致的，但是更加友好。遍历的元素为单个连接的fd。</p>
+            <p>TCP连接迭代器，可以使用<code>foreach</code>遍历服务器当前所有的连接，此属性的功能与<br>
+            <code>swoole_server->connnection_list</code>是一致的，但是更加友好。遍历的元素为单个连接的fd。</p>
+            <p>注意<code>$connections</code>属性是一个迭代器对象，不是PHP数组，所以不能用<code>var_dump</code>或者数组下标来访问，
+            只能通过<code>foreach</code>进行遍历操作。</p>
             <pre class="brush: php;">foreach($server->connections as $fd)
 {
     $server->send($fd, "hello");

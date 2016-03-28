@@ -22,20 +22,22 @@
     <div class="wiki_content">
         <article>
             <h1>onWorkerStart</h1>
+            <hr>
             <p>此事件在worker进程/task进程启动时发生。这里创建的对象可以在进程生命周期内使用。原型：</p>
 
-            <pre class="brush: php;">void onWorkerStart(resource $server, int $worker_id);
-</pre>
+            <pre class="brush: php;">function onWorkerStart(swoole_server $server, int $worker_id);</pre>
             <blockquote>
                 <p>
-                    swoole1.6.11之后task_worker中也会触发onWorkerStart<br />
-                    发生PHP致命错误或者代码中主动调用exit时，Worker/Task进程会退出，管理进程会重新创建新的进程<br />
+                    swoole1.6.11之后task_worker中也会触发onWorkerStart<br/>
+	                                        发生PHP致命错误或者代码中主动调用exit时，Worker/Task进程会退出，管理进程会重新创建新的进程<br/>
                     onWorkerStart/onStart是并发执行的，没有先后顺序
                 </p>
             </blockquote>
 
-            <p>通过$worker_id参数的值来，判断worker是普通worker还是task_worker。$worker_id>=
-                $serv->setting['worker_num'] 时表示这个进程是task_worker。</p>
+            <p>
+                                        通过$worker_id参数的值来，判断worker是普通worker还是task_worker。
+                <code>$worker_id >= $serv->setting['worker_num']</code>时表示这个进程是task_worker.
+            </p>
 
             <p>下面的示例用于为task_worker和worker进程重命名。</p>
 

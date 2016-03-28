@@ -2,7 +2,6 @@
 <head>
   <title>onReceive</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -19,21 +18,21 @@
 
 <body style='text-justify-trim:punctuation'>
 <div class="wiki_content">
-        <article >
-                        <h1>onReceive</h1>
-                        <p>接收到数据时回调此函数，发生在worker进程中。函数原型：</p>
-
-<pre class="brush: php;">void onReceive(resource $server, int $fd, int $from_id, string $data);
-</pre>
+<article>
+<h1>onReceive</h1>
+<hr>
+<p>接收到数据时回调此函数，发生在worker进程中。函数原型：</p>
+<pre class="brush: php;">function onReceive(swoole_server $server, int $fd, int $from_id, string $data);</pre>
 
 <ul>
-<li>$server，swoole_server对象</li>
-<li>$fd，TCP客户端连接的文件描述符</li>
-<li>$from_id，TCP连接所在的Reactor线程ID</li>
-<li>$data，收到的数据内容，可能是文本或者二进制内容</li>
+    <li>$server，swoole_server对象</li>
+    <li>$fd，TCP客户端连接的文件描述符</li>
+    <li>$from_id，TCP连接所在的Reactor线程ID</li>
+    <li>$data，收到的数据内容，可能是文本或者二进制内容</li>
 </ul>
-            <p>例子：</p>
-            <pre class="brush: php;">
+
+<p>例子：</p>
+<pre class="brush: php;">
 &lt;?php
 $serv = new swoole_server("127.0.0.1", 9501);
 $serv->set(array(
@@ -52,10 +51,13 @@ $serv->on('close', function ($serv, $fd) {
 });
 $serv->start();
 </pre>
-<blockquote>
-  <p>未开启swoole的自动协议选项，onReceive回调函数单次收到的数据最大为64K<br />
-  Swoole支持二进制格式，$data可能是二进制数据</p>
-</blockquote>
+
+<ul>
+    <li>关于$fd和$from_id<a href="../../server/advanced_feature/2.htm">详细的解释</a></li>
+    <li>未开启swoole的自动协议选项，onReceive回调函数单次收到的数据最大为64K</li>
+    <li>Swoole支持二进制格式，$data可能是二进制数据</li>
+</ul>
+
 <h2>协议相关说明</h2>
 <ul>
 <li>UDP协议，onReceive可以保证总是收到一个完整的包，最大长度不超过64K</li>
@@ -65,7 +67,7 @@ $serv->start();
 </ul>
 
 <blockquote>
-  <p>如果开启了eof_check/length_check/http_protocol，$data的长度可能会超过64K，但最大不超过$server->setting['package_max_length']</p>
+  <p>如果开启了<code>eof_check/length_check/http_protocol</code>，$data的长度可能会超过64K，但最大不超过<code>$server->setting['package_max_length']</code></p>
 </blockquote>
 
 <h2>关于TCP协议下包完整性</h2>
@@ -84,7 +86,7 @@ $serv->start();
 
 <p>如果是请求应答式的服务，无需考虑粘包问题。原因是客户端在发起一次请求后，必须等到服务器端返回当前请求的响应数据，才会发起第二次请求，不会同时发送2个请求。</p>
 
-        </article>
+</article>
 <hr>
 </div>
 </body>

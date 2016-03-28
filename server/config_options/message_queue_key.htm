@@ -22,7 +22,7 @@
             </ul>
             <p>recv/send数据队列在server结束后，会自动销毁。task队列在server结束后不会销毁，重新启动程序后，task进程仍然会接着处理队列中的任务。</p>
             <blockquote>
-                <p>1.7.8以前的版本，KEY会+serv->master_pid。增加pid是为了防止服务器程序重启，导致复用上一次的消息队列数据，读取到错误的数据</p>
+                <p>1.7.8以前的版本，KEY会+<code>serv->master_pid</code>。增加pid是为了防止服务器程序重启，导致复用上一次的消息队列数据，读取到错误的数据</p>
             </blockquote>
         </article>
         <hr>

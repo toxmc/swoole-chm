@@ -24,6 +24,15 @@
             <pre class="brush: php;">
                 tcp_defer_accept => 5
             </pre>
+            <p>启用tcp_defer_accept特性后，accept和onConnect对应的时间会发生变化。如果设置为5秒：</p>
+            <ul>
+                <li>客户端连接到服务器后不会立即触发accept</li>
+                <li>在5秒内客户端发送数据，此时会同时顺序触发accept/onConnect/onReceive</li>
+                <li>在5秒内客户端没有发送任何数据，此时会触发accept/onConnect</li>
+            </ul>
+            <blockquote>
+                <p>tcp_defer_accept的可以提高Accept操作的效率</p>
+            </blockquote>
         </article>
         <hr>
     </div>

@@ -2,7 +2,6 @@
 <head>
   <title>onConnect</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -21,9 +20,9 @@
     <div class="wiki_content">
         <article>
             <h1>onConnect</h1>
+            <hr>
             <p>有新的连接进入时，在worker进程中回调。函数原型：</p>
-            <pre class="brush: php;">void onConnect(resource $server, int $fd, int $from_id);
-</pre>
+            <pre class="brush: php;">function onConnect(swoole_server $server, int $fd, int $from_id);</pre>
             <ul>
                 <li>$server是swoole的资源对象</li>
                 <li>$fd是连接的文件描述符，发送数据/关闭连接时需要此参数</li>
@@ -50,18 +49,13 @@ $serv->on('close', function ($serv, $fd) {
 $serv->start();
 </pre>
 
-            <blockquote>
-                <p>
-                    onConnect/onClose这2个回调发生在worker进程内，而不是主进程。<br />
-                    UDP协议下只有onReceive事件，没有onConnect/onClose事件
-                </p>
-            </blockquote>
-
+            <ul>
+                <li>关于$fd和$from_id<a href="../../server/advanced_feature/2.htm">详细的解释</a></li>
+                <li>onConnect/onClose这2个回调发生在worker进程内，而不是主进程。</li>
+                <li>UDP协议下只有onReceive事件，没有onConnect/onClose事件</li>
+            </ul>
             <h2>dispatch_mode = 1/3</h2>
-
-            <p>在1.7.15以上版本中，当设置dispatch_mode =
-                1/3时会自动去掉onConnect/onClose事件回调。原因是：</p>
-
+            <p>在1.7.15以上版本中，当设置dispatch_mode =1/3时会自动去掉onConnect/onClose事件回调。原因是：</p>
             <ul>
                 <li>在此模式下onConnect/onReceive/onClose可能会被投递到不同的进程。连接相关的PHP对象数据，无法实现在onConnect回调初始化数据，onClose清理数据</li>
                 <li>onConnect/onReceive/onClose 3种事件可能会并发执行，可能会带来异常</li>

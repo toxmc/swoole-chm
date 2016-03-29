@@ -32,8 +32,9 @@
             <p>父进程与新进程之间可以通过可以通过标准输入输出进行通信，必须启用标准输入输出重定向。</p>
             <blockquote>
                 <p>
-                    由于exec系统调用会使用指定的程序覆盖当前程序，子进程需要读写标准输出与父进程进行通信<br />
-                    如果未指定redirect_stdin_stdout = true，执行exec后子进程与父进程无法通信
+                $execfile必须使用绝对路径，否则会报文件不存在错误<br>
+                                        由于exec系统调用会使用指定的程序覆盖当前程序，子进程需要读写标准输出与父进程进行通信<br />
+                                        如果未指定redirect_stdin_stdout = true，执行exec后子进程与父进程无法通信
                 </p>
             </blockquote>
         </article>

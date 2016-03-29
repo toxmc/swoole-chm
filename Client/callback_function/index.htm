@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>client - 鍥炶皟鍑芥暟</title>
+<title>client - 回调函数</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
 <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -10,7 +10,14 @@
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
         <article>
-            <h1>鍥炶皟鍑芥暟</h1>
+            <h1>回调函数</h1>
+            <hr>
+            <h2>UDP客户端</h2>
+            <p>UDP没有连接和关闭的概念，因此</p>
+            <ul>
+                <li><code>onConnect</code>事件会在UDP客户端创建后立即执行</li>
+                <li><code>onClose</code>事件会在UDP客户端<code>close</code>时立即执行</li>
+            </ul>
         </article>
         <hr>
     </div>

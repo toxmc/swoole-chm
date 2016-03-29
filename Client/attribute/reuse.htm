@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>swoole_process::setaffinity</title>
+<title>swoole_client->reuse</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
 <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -15,26 +15,27 @@
     SyntaxHighlighter.all();
 </script>
 </head>
+
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
         <article>
-            <h1>swoole_process::setaffinity</h1>
-            <hr>
-            <p>设置CPU亲和性，可以将进程绑定到特定的CPU核上。</p>
-            <pre class="brush: php;">function swoole_process::setaffinity(array $cpu_set);</pre>
-            <ul>
-                <li>接受一个数组参数表示绑定哪些CPU核，如array(0,2,3)表示绑定CPU0/CPU2/CPU3</li>
-                <li>成功返回true，失败返回false</li>
-            </ul>
+            <h1>swoole_client->reuse</h1>
+            <p>类型: boolean，表示此连接是新创建的还是复用已存在的。与<code>SWOOLE_KEEP</code>配合使用。</p>
             <blockquote>
-                <ul>
-                    <li>$cpu_set内的元素不能超过CPU核数</li>
-                    <li>CPU-ID不得超过（CPU核数 - 1）</li>
-                    <li>使用SWOOLE_CPU_NUM常量可以得到当前服务器的CPU核数</li>
-                    <li>setaffinity函数在1.7.18以上版本可用</li>
-                </ul>
+                <p>1.8.0或更高版本可用</p>
             </blockquote>
-            <p>此函数的作用是让进程只在某几个CPU核上运行，让出某些CPU资源执行更重要的程序。</p>
+            <h2>使用场景</h2>
+            <p><code>WebSocket</code>客户端与服务器建立连接后需要进行握手，如果连接是复用的，那就不需要再次进行握手，直接发送
+                <code>WebSocket</code> 数据帧即可。</p>
+            <pre class="brush: php;">if ($client-&gt;reuse)
+{
+    $client-&gt;send($data);
+}
+else
+{
+    $client-&gt;doHandShake();
+    $client-&gt;send($data);
+}</pre>
         </article>
         <hr>
     </div>

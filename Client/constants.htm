@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>swoole_client - 常量</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../public/styles/shThemeDefault.css" type="text/css" />
+<script type="text/javascript" src="../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+        SyntaxHighlighter.defaults['gutter'] = false;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+</script>
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>常量</h1>
+            <hr>
+            <h2>swoole_client::MSG_WAITALL</h2>
+            <p>用于swoole_client->recv方法的第二个参数，阻塞等待直到收到指定长度的数据后返回。</p>
+            <pre>$client-&gt;recv(8192, swoole_client::MSG_PEEK | swoole_client::MSG_DONTWAIT);</pre>
+            <h2>swoole_client::MSG_DONTWAIT</h2>
+            <p>非阻塞接收数据，无论是否有数据都会立即返回。</p>
+            <h2>swoole_client::MSG_PEEK</h2>
+            <p>窥视socket缓存区中的数据。设置MSG_PEEK参数后，recv读取数据不会修改指针，因此下一次调用recv仍然会从上一次的位置起返回数据。</p>
+            <h2>swoole_client::MSG_OOB</h2>
+            <p>读取带外数据。</p>
+            <hr>
+        </article>
+    </div>
+</body>
+</html>

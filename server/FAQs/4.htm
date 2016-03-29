@@ -23,6 +23,22 @@
                 </li>
                 <li>本页面所述信息对使用pcntl_fork的程序同样有效</li>
             </ul>
+            <h2>示例</h2>
+<pre>$serv = new swoole_server("0.0.0.0", 9502);
+//必须在onWorkerStart回调中创建redis/mysql连接
+$serv-&gt;on('workerstart', function($serv, $id) {
+    $redis = new redis;
+    $redis-&gt;connect('127.0.0.1', 6379);
+    $serv-&gt;redis = $redis;
+});
+
+$serv-&gt;on('receive', function (swoole_server $serv, $fd, $from_id, $data) { 
+    $value = $serv-&gt;redis-&gt;get("key");
+    $serv-&gt;send($fd, "Swoole: ".$value);
+});
+
+$serv-&gt;start();
+</pre>
         </article>
         <hr>
     </div>

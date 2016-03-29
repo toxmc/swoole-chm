@@ -1,42 +1,28 @@
 <html>
-
 <head>
   <title>TCP-Keepalive死连接检测</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-
-<body style='text-justify-trim:punctuation'>
-
-<div class="wiki_content">
-      <article >
-                        <h1>TCP-Keepalive死连接检测</h1>
-                        <p>在TCP中有一个Keep-Alive的机制可以检测死连接，应用层如果对于死链接周期不敏感或者没有实现心跳机制，可以使用操作系统提供的keepalive机制来踢掉死链接。
-在server_swoole_set中增加open_tcp_keepalive=>1表示启用tcp keepalive。
-另外，有3个选项可以对keepalive的细节进行调整。</p>
-
-<h2>tcp_keepidle</h2>
-
-<p>单位秒，连接在n秒内没有数据请求，将开始对此连接进行探测。</p>
-
-<h2>tcp_keepcount</h2>
-
-<p>探测的次数，超过次数后将close此连接。</p>
-
-<h2>tcp_keepinterval</h2>
-
-<p>探测的间隔时间，单位秒。</p>
-
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>TCP-Keepalive死连接检测</h1>
+            <hr>
+            <p>在TCP中有一个Keep-Alive的机制可以检测死连接，应用层如果对于死链接周期不敏感或者没有实现心跳机制，可以使用操作系统提供的keepalive机制来踢掉死链接。
+                在server_swoole_set中增加open_tcp_keepalive=>1表示启用tcp
+                keepalive。 另外，有3个选项可以对keepalive的细节进行调整。</p>
+            <h2>tcp_keepidle</h2>
+            <p>单位秒，连接在n秒内没有数据请求，将开始对此连接进行探测。</p>
+            <h2>tcp_keepcount</h2>
+            <p>探测的次数，超过次数后将close此连接。</p>
+            <h2>tcp_keepinterval</h2>
+            <p>探测的间隔时间，单位秒。</p>
         </article>
-<hr>
-
-</div>
-
+        <hr>
+    </div>
 </body>
-
 </html>

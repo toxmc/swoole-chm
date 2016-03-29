@@ -72,25 +72,17 @@ $port2-&gt;on('packet', function ($serv, $data, $addr) {
             </pre>
             <h2>Http/WebSocket</h2>
             <p>
-                <code>swoole_http_server</code>
-                和
-                <code>swoole_websocket_server</code>
-                因为是使用继承子类实现的，无法使用
-                <code>listen</code>
-                创建
-                <code>Http/WebSocket</code>
-                服务器。如果服务器的主要功能为
-                <code>RPC</code>
-                ，但希望提供一个简单的Web管理界面。
+                <code>swoole_http_server</code>和
+                <code>swoole_websocket_server</code>因为是使用继承子类实现的，无法使用
+                <code>listen</code>创建
+                <code>Http/WebSocket</code>服务器。如果服务器的主要功能为
+                <code>RPC</code>，但希望提供一个简单的Web管理界面。
             </p>
             <p>
-                在这样的场景中，可以先创建
-                <code>Http/WebSocket</code>
-                服务器，然后再进行
-                <code>listen</code>
-                监听
-                <code>RPC服务器</code>
-                的端口。
+                                        在这样的场景中，可以先创建
+                <code>Http/WebSocket</code>服务器，然后再进行
+                <code>listen</code>监听
+                <code>RPC服务器</code>的端口。
             </p>
         </article>
         <hr>

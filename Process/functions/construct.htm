@@ -32,12 +32,15 @@
                     如果子进程内没有进程间通信，可以设置为false</li>
             </ul>
             <blockquote>
-                <p>$process对象在销毁时会自动关闭管道，但不会影响子进程的运行</p>
+                <ul>
+                    <li>$process对象在销毁时会自动关闭管道，子进程内如果监听了管道会收到CLOSE事件</li>
+                    <li>1.7.22或更高版本允许设置管道的类型，默认为SOCK_STREAM流式</li>
+                    <li>参数$create_pipe为2时，管道类型将设置为SOCK_DGRAM</li>
+                </ul>
             </blockquote>
             <h2>在子进程中创建swoole_server</h2>
             <p>可以在swoole_process创建的子进程中swoole_server服务器程序，但为了安全必须在$process->start创建进程后，调用$worker->exec执行server的代码。</p>
-            <pre class="brush: php;">
-&lt;?php
+            <pre class="brush: php;">&lt;?php
 $process = new swoole_process('callback_function', true);
 $pid = $process->start();
 

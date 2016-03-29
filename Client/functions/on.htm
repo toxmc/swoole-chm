@@ -21,28 +21,23 @@
             <h1>swoole_client->on</h1>
             <hr>
             <p>注册异步事件回调函数，调用on方法会使当前的socket变成非阻塞的。</p>
-            <pre class="brush: php;">int swoole_client::on(string $event, mixed $callback);
-</pre>
+            <pre class="brush: php;">int swoole_client::on(string $event, mixed $callback);</pre>
             <p>
-                参数1为事件类型，支持connect/error/receive/close 4种。<br />
-                参数2为回调函数，可以是函数名字符串、匿名函数、类静态方法、对象方法。
+                                        参数1为事件类型，支持connect/error/receive/close 4种。<br />
+                                        参数2为回调函数，可以是函数名字符串、匿名函数、类静态方法、对象方法。
             </p>
             <blockquote>
-                <p>
-                    调用swoole_client->close()时会自动退出事件循环<br />
-                    on方法也可以用在UDP协议上，需要v1.6.3以上版本，UDP协议的connect事件在执行完connect方法后立即被回调
-                    udp没有close事件
-                </p>
+                <ul>
+                    <li>调用swoole_client->close()时会自动退出事件循环</li>
+                    <li>on方法也可以用在UDP协议上，需要v1.6.3以上版本，UDP协议的connect事件在执行完connect方法后立即被回调udp没有close事件</li>
+                    <li>同步阻塞客户端一定不要使用on方法</li>
+                </ul>
             </blockquote>
             <h2>v1.6.10</h2>
-            <p>
-                从1.6.10开始，onReceive不再需要调用一次$client->recv()来接收数据，onReceive回调函数的第二个参数就是
-                收到的数据了。<br />
-                另外onClose事件，也无需调用$client->close()，swoole内核会自动执行close。
-            </p>
+            <p>从1.6.10开始，onReceive不再需要调用一次$client->recv()来接收数据，onReceive回调函数的第二个参数就是收到的数据了。<br />
+                                        另外onClose事件，也无需调用$client->close()，swoole内核会自动执行close。</p>
             <p>示例：</p>
             <pre class="brush: php;">$client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_ASYNC); //异步非阻塞
-
 $client->on("connect", function($cli) {
     $cli->send("hello world\n");
 });

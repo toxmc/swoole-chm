@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>swoole_client::onError</title>
+<title>swoole_client::onClose</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
 <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -18,11 +18,13 @@
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
         <article>
-            <h1>onError</h1>
+            <h1>onClose</h1>
             <hr>
-            <p>连接服务器失败时会回调此函数。</p>
-            <pre class="brush: php;">function onError(swoole_client $client)</pre>
-            <code>UDP客户端没有onError回调</code>
+            <p>连接被关闭时回调此函数。</p>
+            <pre class="brush: php;">function onClose(swoole_client $client)</pre>
+            <ul>
+                <li>Server端关闭或Client端主动关闭，都会触发onClose事件</li>
+            </ul>
         </article>
         <hr>
     </div>

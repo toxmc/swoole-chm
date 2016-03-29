@@ -25,9 +25,8 @@
 </pre>
             <ul>
                 <li>$buffer_size是缓冲区的大小，默认为8192，最大不超过64K</li>
-                <li>这里是同步阻塞读取的，可以使用<a
-                    href="../../AsyncIO/EventLoop/swoole_event_add.htm">swoole_event_add</a>将管道加入到事件循环中，变为异步模式
-                </li>
+                <li>默认read操作为流式的，write/read的大小并不一致</li>
+                <li>这里是同步阻塞读取的，可以使用<a href="../../AsyncIO/EventLoop/swoole_event_add.htm">swoole_event_add</a>将管道加入到事件循环中，变为异步模式</li>
             </ul>
             <p>示例：</p>
             <pre class="brush: php;">function callback_function_async(swoole_process $worker)

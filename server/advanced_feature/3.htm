@@ -2,7 +2,6 @@
 <head>
   <title>Buffer和EOF_Check的使用</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -21,6 +20,7 @@
     <div class="wiki_content">
         <article>
             <h1>Buffer和EOF_Check的使用</h1>
+            <hr>
             <p>在外网通信时，有些客户端发送数据的速度较慢，每次只能发送一小段数据。这样onReceive到的数据就不是一个完整的包。
                 还有些客户端是逐字节发送数据的，如果每次回调onReceive会拖慢整个系统。</p>
 

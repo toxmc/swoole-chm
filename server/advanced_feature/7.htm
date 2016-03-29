@@ -2,7 +2,6 @@
 <head>
   <title>多端口监听的使用</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -21,6 +20,7 @@
     <div class="wiki_content">
         <article>
             <h1>多端口监听的使用</h1>
+            <hr>
             <p>Swoole提供了多端口监听的机制，这样可以同时监听UDP和TCP，同时监听内网地址和外网地址。内网地址和端口用于管理，外网地址用于对外服务。</p>
 
             <pre class="brush: php;">$serv = new swoole_server("0.0.0.0", 9501);

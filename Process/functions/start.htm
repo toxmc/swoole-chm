@@ -31,6 +31,53 @@
             <blockquote>
                 <p>执行后子进程会保持父进程的内存和资源，如父进程内创建了一个redis连接，那么在子进程会保留此对象，所有操作都是对同一个连接进行的。</p>
             </blockquote>
+            <h2>注意事项</h2>
+            <p>因为子进程会继承父进程的内存和IO句柄，所以如果父进程要创建多个子进程，务必要等待创建完毕后再使用
+                <code>swoole_event_add</code>/<code>异步swoole_client</code>/<code>定时器</code>/<code>信号</code>等异步IO函数。
+            </p>
+            <p>错误的代码</p>
+            <pre class="brush: php;">$workers = [];
+$worker_num = 3;//创建的进程数
+
+for($i=0;$i&lt;$worker_num ; $i++){
+    $process = new swoole_process('process');
+    $pid = $process-&gt;start();
+    $workers[$pid] = $process;
+    //子进程也会包含此事件
+    swoole_event_add($process-&gt;pipe, function ($pipe) use($process){
+    $data = $process-&gt;read();
+        echo "RECV: " . $data.PHP_EOL;
+    });
+}
+
+
+function process(swoole_process $process){// 第一个处理
+    $process-&gt;write($process-&gt;pid);
+    echo $process-&gt;pid,"\t",$process-&gt;callback .PHP_EOL;
+}</pre>
+            <p>正确的代码：</p>
+            <pre class="brush: php;">$workers = [];
+$worker_num = 3;//创建的进程数
+
+for($i=0;$i&lt;$worker_num ; $i++){
+    $process = new swoole_process('process');
+    $pid = $process-&gt;start();
+    $workers[$pid] = $process;
+}
+
+foreach($workers as $process){
+    //子进程也会包含此事件
+    swoole_event_add($process-&gt;pipe, function ($pipe) use($process){
+    $data = $process-&gt;read();
+        echo "RECV: " . $data.PHP_EOL;
+    });
+}
+
+function process(swoole_process $process){// 第一个处理
+    $process-&gt;write($process-&gt;pid);
+    echo $process-&gt;pid,"\t",$process-&gt;callback .PHP_EOL;
+}
+            </pre>
         </article>
         <hr>
     </div>

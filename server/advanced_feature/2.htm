@@ -2,7 +2,6 @@
 <head>
   <title>回调函数中的from_id和fd</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
   <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -21,19 +20,24 @@
     <div class="wiki_content">
         <article>
             <h1>回调函数中的from_id和fd</h1>
+            <hr>
             <p>回调函数中经常看到它。</p>
             <ul>
                 <li>from_id是来自于哪个reactor线程</li>
-                <li>fd是tcp连接的文件描述符</li>
+                <li>fd是tcp连接的文件描述符，在swoole_server中是客户端的唯一标识符</li>
+                <li>fd是复用的，当连接关闭后fd会被新进入的连接复用</li>
+                <li>正在维持的TCP连接fd不会被复用</li>
             </ul>
 
-            <p>调用swoole_server->send/swoole_server->close函数需要传入$fd参数才能被正确的处理。如果业务中需要发送广播，需要用apc/redis/memcache/swoole_table将fd的值保存起来。</p>
+            <p>调用<code>swoole_server->send</code>/<code>swoole_server->close</code>函数需要传入$fd参数才能被正确的处理。
+                                     如果业务中需要发送广播，需要用apc/redis/memcache/swoole_table将fd的值保存起来。</p>
 
             <blockquote>
-                <p>
-                    1.6.0以上版本不再需要from_id参数，swoole本身提供了ConnectionList可以查询到当前所有的fd和对应from_id<br />
-                    1.7.10以上版本，fd不再是文件描述符。fd是一个自增数字，范围是 1 ～ 1600万
-                </p>
+                <ul>
+                    <li>1.6.0以上版本不再需要from_id参数，swoole本身提供了ConnectionList可以查询到当前所有的fd和对应from_id</li>
+                    <li>1.7.10以上版本，fd不再是文件描述符。fd是一个自增数字，范围是 1 ～ 1600万</li>
+                    <li>fd超过1600万后会自动从1开始进行复用</li>
+                </ul>
             </blockquote>
 
             <pre class="brush: php;">function my_onReceive($serv, $fd, $from_id, $data)  {
@@ -44,6 +48,12 @@
     $serv->close($fd); 
 }
 </pre>
+            <h2>$fd为什么使用整形</h2>
+            <p>$fd 使用整形而不是使用对象，主要原因是swoole是多进程的模型，在Worker进程/Task进程中随时可能要访问某一个客户端连接，
+                                        如果使用对象，那就需要进行Serialize/Unserialize。增加了额外的性能开销。$fd如果是整数那就可以直接存储传输被使用。</p>
+            <p>在PHP层可以也客户端连接可以封装成对象。面向对象的好处是可读性更好，对连接的操作可以封装到方法中。如</p>
+            <pre class="brush: php;">$connection-&gt;send($data);
+$connection-&gt;close();</pre>
         </article>
         <hr>
     </div>

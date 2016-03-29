@@ -29,10 +29,11 @@
 });
 </pre>
             <blockquote>
-                <p>
-                    swoole_server中不能设置SIGTERM和SIGALAM信号<br />
-                    swoole_process::signal在swoole-1.7.9以上版本可用
-                </p>
+                <ul>
+                    <li>swoole_server中不能设置SIGTERM和SIGALAM信号</li>
+                    <li>swoole_process::signal在swoole-1.7.9以上版本可用</li>
+                    <li>信号移除特性仅在1.7.21或更高版本可用</li>
+                </ul>
             </blockquote>
         </article>
         <hr>

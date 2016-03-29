@@ -21,17 +21,21 @@
             <h1>swoole_client->recv</h1>
             <hr>
             <p>recv方法用于从服务器端接收数据。接受2个参数。函数原型为：</p>
-            <pre class="brush: php;">string $swoole_client->recv(int $size = 65535, bool $waitall = 0);
+            <pre class="brush: php;">//低于1.7.22
+string $swoole_client->recv(int $size = 65535, bool $waitall = 0);
+//1.7.22或更高
+string $swoole_client->recv(int $size = 65535, int $flags = 0);
 </pre>
             <ul>
                 <li>$size：接收数据的最大长度</li>
                 <li>$waitall: 是否等待所有数据到达后返回</li>
             </ul>
             <blockquote>
-                <p>
-                    如果设定了$waitall就必须设定准确的$size，否则会一直等待，直到接收的数据长度达到$size<br />
-                    如果设置了错误的$size，会导致recv超时，返回 <strong>false</strong>
-                </p>
+                <ul>
+                   <li>如果设定了$waitall就必须设定准确的$size，否则会一直等待，直到接收的数据长度达到$size</li>
+                   <li>当$waitall=true时，$size最大为64K</li>
+                   <li>如果设置了错误的$size，会导致recv超时，返回 <strong>false</strong></li>
+                </ul>
             </blockquote>
             <ul>
                 <li>成功收到数据返回字符串</li>
@@ -39,6 +43,15 @@
                 <li>失败返回 <strong>false</strong>，并设置$swoole_client->errCode属性
                 </li>
             </ul>
+            <h2>EOF/Length</h2>
+            <p>客户端启用了EOF/Length检测后，无需设置$size和$waitall参数。扩展层会返回完整的数据包或者返回false。</p>
+            <h2>Flags</h2>
+            <p>
+                1.7.22版本后，第二个
+                <code>$waitall</code>参数修改为
+                <code>$flags</code> ，可以接收一些特殊的SOCKET接收设置。为了兼容旧的接口，如果$flags=1则表示 $flags =swoole_client::MSG_WAITALL
+            </p>
+            <pre>$client-&gt;recv(8192, swoole_client::MSG_PEEK | swoole_client::MSG_WAITALL);</pre>
         </article>
         <hr>
     </div>

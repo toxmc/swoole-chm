@@ -21,20 +21,27 @@
             <h1>swoole_process::wait</h1>
             <hr>
             <p>回收结束运行的子进程。</p>
-            <pre class="brush: php;">array swoole_process::wait(bool $blocking = true);
-</pre>
+            <pre class="brush: php;">array swoole_process::wait(bool $blocking = true);</pre>
             <ul>
                 <li>$blocking 参数可以指定是否阻塞等待，默认为阻塞</li>
-                <li>操作成功会返回返回一个数组包含子进程的PID和退出状态码，如array('code' =>
-                    0, 'pid' => 15001)，失败返回false</li>
+                <li>操作成功会返回返回一个数组包含子进程的PID和退出状态码，如array('code' =>0, 'pid' => 15001)</li>
+                <li>失败返回false</li>
             </ul>
             <blockquote>
-                <p>
-                    子进程结束必须要执行wait进行回收，否则子进程会变成僵尸进程<br /> $blocking
-                    仅在1.7.10以上版本可用
-                </p>
+                <p>子进程结束必须要执行wait进行回收，否则子进程会变成僵尸进程<br />$blocking 仅在1.7.10以上版本可用</p>
             </blockquote>
         </article>
+        <h2>在异步信号回调中执行wait</h2>
+        <pre>swoole_process::signal(SIGCHLD, function($sig) {
+  //必须为false，非阻塞模式
+  while($ret =  swoole_process::wait(false)) {
+      echo "PID={$ret['pid']}\n";
+  }
+});</pre>
+        <ul>
+            <li>信号发生时可能同时有多个子进程退出</li>
+            <li>必须循环执行wait直到返回false</li>
+        </ul>
         <hr>
     </div>
 </body>

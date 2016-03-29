@@ -37,6 +37,28 @@
     'package_max_length'    => 2000000,  //协议最大长度
 ));
 </pre>
+<h2>Socket缓存区尺寸</h2>
+
+<pre class="brush: php;">$client-&gt;set(array(
+    'socket_buffer_size'     =&gt; 1024*1024*2, //2M缓存区
+));</pre>
+
+<h2>关闭Nagle合并算法</h2>
+
+<pre class="brush: php;">$client-&gt;set(array(
+    'open_tcp_nodelay'     =&gt;  true,
+));</pre>
+
+<h2>SSL/TLS证书</h2>
+
+<pre class="brush: php;">$client-&gt;set(array(
+    'ssl_cert_file'     =&gt;  $your_ssl_cert_file_path,
+    'ssl_key_file'     =&gt;  $your_ssl_key_file_path,
+));</pre>
+
+<blockquote>
+  <p>swoole-1.7.21或更高版本可用</p>
+</blockquote>
             <h2>使用说明</h2>
             <ul>
                 <li>目前支持open_length_check和open_eof_check2种自动协议处理功能，参考swoole_server中的配置选项

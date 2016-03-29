@@ -21,9 +21,7 @@
             <h1>swoole_process->useQueue</h1>
             <hr>
             <p>启用消息队列作为进程间通信。useQueue方法接受2个可选参数。</p>
-            <pre>
-bool swoole_process->useQueue (int $msgkey = 0, int $mode = 1);
-            </pre>
+            <pre>bool swoole_process->useQueue (int $msgkey = 0, int $mode = 1);</pre>
             <ul>
                 <li>$msgkey是消息队列的key，默认会使用ftok(<strong>FILE</strong>)
                 </li>
@@ -76,10 +74,11 @@ for($i = $worker_num; $i > 0; $i--)
 }
 </pre>
             <blockquote>
-                <p>
-                    使用模式2后，创建的子进程无法进行单独通信，比如发给特定子进程。<br />
-                    $process对象并未执行start，也可以执行push/pop向队列推送/提取数据
-                </p>
+                <ul>
+                    <li>使用模式2后，创建的子进程无法进行单独通信，比如发给特定子进程。</li>
+                    <li>$process对象并未执行start，也可以执行push/pop向队列推送/提取数据</li>
+                    <li>消息队列通信方式与管道不可公用。消息队列不支持EventLoop，使用消息队列后只能使用同步阻塞模式</li>
+                </ul>
             </blockquote>
         </article>
         <hr>

@@ -29,6 +29,7 @@
                 <li>失败返回<strong>false</strong>，并设置$swoole_client->errCode
                 </li>
             </ul>
+            <p>异步模式下如果SOCKET缓存区已满，Swoole的处理逻辑请参考<a href="../../AsyncIO/EventLoop/swoole_event_write.htm">swoole_event_write</a></p>
             <blockquote>
                 <p>如果未执行connect，调用send会触发PHP警告</p>
             </blockquote>

@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Atomic</title>
+<title>swoole_redis->on</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
 <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -17,27 +17,20 @@
 </head>
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
-        <article class="markdown-body entry-content">
-            <h1>Atomic</h1>
+        <article>
+            <h1>swoole_redis->on</h1>
             <hr>
-            <p>swoole_atomic是swoole扩展提供的原子计数操作类，可以方便整数的无锁原子增减。</p>
-            <ul>
-                <li>swoole_atomic使用共享内存，可以在不同的进程之间操作计数</li>
-                <li>swoole_atomic基于gcc提供的CPU原子指令，无需加锁</li>
-                <li>swoole_atomic在服务器程序中必须在swoole_server->start前创建才能在Worker进程中使用</li>
-            </ul>
-            <blockquote>
-                <p>swoole_atomic在1.7.19以上版本可用</p>
-            </blockquote>
-            <h2>使用示例</h2>
-            <hr>
-<pre class="brush: php;">$atomic = new swoole_atomic(123);
-echo $atomic->add(12)."\n";
-echo $atomic->sub(11)."\n";
-echo $atomic->cmpset(122, 999)."\n";
-echo $atomic->cmpset(124, 999)."\n";
-echo $atomic->get()."\n";
-</pre>
+            <p>注册事件回调函数。</p>
+            <pre>function swoole_redis-&gt;on(string $event_name, callable $callback);</pre>
+            <p>目前<code>swoole_redis</code>支持2种事件回调函数。<code>on</code>方法必须在<code>connect</code>前被调用。</p>
+            <h2>onClose</h2>
+            <p>当Redis服务器主动关闭连接或者客户端主动调用close关闭连接时，会触发<code>onClose</code>事件。</p>
+            <pre>function onClose(swoole_redis $redis);
+            </pre>
+            <h2>onMessage</h2>
+            <p>当客户端收到来自服务器的订阅消息时触发onMessage事件。</p>
+            <pre>function onMessage(swoole_redis $redis, array $message);
+            </pre>
         </article>
         <hr>
     </div>

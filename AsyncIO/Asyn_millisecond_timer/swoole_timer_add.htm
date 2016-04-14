@@ -30,13 +30,11 @@ swoole_timer_add(3000, function($interval) {
             <ul>
                 <li>$interval为定时器间隔，单位是毫秒，不能存在同样时间间隔的2个定时器</li>
                 <li>$callback为定时器的事件回调函数</li>
+                <li>需要swoole-1.6.12+</li>
+                <li>swoole_server中不可使用</li>
+                <li>1.8.0以上版本移除此定时器，请使用swoole_timer_tick</li>
+                <li>定时器必须在全异步模式下才能使用，同步阻塞的代码中不要使用</li>
             </ul>
-            <blockquote>
-                <p>
-                    需要swoole-1.6.12+<br /> swoole_server中不可使用<br />
-                    定时器必须在全异步模式下才能使用，同步阻塞的代码中不要使用
-                </p>
-            </blockquote>
         </article>
         <hr>
     </div>

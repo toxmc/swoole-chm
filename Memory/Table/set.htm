@@ -34,10 +34,22 @@
                     set/get/del 是自带行锁，所以不需要调用lock加锁
                 </p>
             </blockquote>
-            <pre class="brush: php;">$table->set('tianfenghan@qq.com', array('id' => 145, 'name' => 'rango', 'num' => 3.1415));
+<pre class="brush: php;">$table->set('tianfenghan@qq.com', array('id' => 145, 'name' => 'rango', 'num' => 3.1415));
 $table->set('350749960@qq.com', array('id' => 358, 'name' => "Rango1234", 'num' => 3.1415));
 $table->set('hello@qq.com', array('id' => 189, 'name' => 'rango3', 'num' => 3.1415));
 </pre>
+
+            <h2>设置超过最大长度字符串</h2>
+            <hr>
+            <p>如果传入字符串长度超过了列定义时设定的最大尺寸，底层会自动截断。</p>
+            <p>示例：</p>
+<pre class="brush: php;">$table-&gt;column('str_value', swoole_table::TYPE_STRING, 5);
+$table-&gt;set('hello', array('str_value' =&gt; 'world 123456789'));
+</pre>
+            <ul>
+                <li>自定定义<code>str_value</code>列最大尺寸为5字节，但<code>set</code>设置了超过5字节的字符串</li>
+                <li>底层会自动截取5字节的数据，最终<code>str_value</code>的值为<code>world</code></li>
+            </ul>
         </article>
         <hr>
     </div>

@@ -14,6 +14,7 @@
             <hr>
             <p>swoole_table一个基于共享内存和锁实现的超高性能，并发数据结构。用于解决多进程/多线程数据共享和同步加锁问题。</p>
             <h2>swoole_table的优势</h2>
+            <hr>
             <ul>
                 <li>性能强悍，单线程每秒可读写50万次。8核机器8线程可以支持每秒并发读写400万次</li>
                 <li>无需加锁，swoole_table内置行锁自选锁，所有操作均是多线程/多进程安全。用户层完全不需要考虑数据同步问题。</li>
@@ -21,15 +22,22 @@
             </ul>
             <blockquote>
                 <p>swoole_table使用行锁，而不是全局锁，仅当2个进程在同一CPU时间，并发读取同一条数据才会进行发生抢锁</p>
+                <p>swoole_table模块目前为实验性质，不建议在生产环境使用。请使用成熟的方案Redis/Apc/Yac作为数据共享层。</p>
             </blockquote>
-            <pre class="brush: php;">swoole_table模块在版本1.7.16已能稳定运行，建议在生产环境中可以尝试使用。也可使用成熟的方案Redis/Apc/Yac作为数据共享层。
-</pre>
             <blockquote>
-                <p>
-                    swoole_table在1.7.5版本后可用<br />
-                    swoole_table-0.1版本，单进程压测每秒可读写50W次左右
-                </p>
+                <ul>
+                    <li>swoole_table在1.7.5版本后可用</li>
+                    <li>swoole_table-0.1版本，单进程压测每秒可读写50W次左右</li>
+                </ul>
             </blockquote>
+            <h2>遍历Table</h2>
+            <hr>
+            <p>swoole_table类实现了迭代器和Countable接口，可以使用foreach进行遍历，使用count计算当前行数。</p>
+            <pre class="brush: php;">foreach($table as $row)
+{
+    var_dump($row);
+}
+echo count($table);</pre>
         </article>
         <hr>
     </div>

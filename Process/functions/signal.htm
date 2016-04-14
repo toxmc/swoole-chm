@@ -23,6 +23,11 @@
             <p>设置异步信号监听。</p>
             <pre class="brush: php;">bool swoole_process::signal(int $signo, mixed $callback);
 </pre>
+            <ul>
+                <li>此方法基于signalfd和eventloop是异步IO，不能用于同步程序中</li>
+                <li>同步阻塞的程序可以使用pcntl扩展提供的pcntl_signal</li>
+                <li>$callback如果为null，表示移除信号监听</li>
+            </ul>
             <p>使用举例：</p>
             <pre class="brush: php;">swoole_process::signal(SIGTERM, function($signo) {
      echo "shutdown.";

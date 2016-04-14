@@ -21,10 +21,10 @@
             <h1>swoole_timer_clear</h1>
             <hr>
             <p>使用定时器ID来删除定时器。</p>
-            <pre class="brush: php;">bool swoole_timer_clear(int $timer_id)
-</pre>
+            <pre class="brush: php;">bool swoole_timer_clear(int $timer_id)</pre>
             <ul>
                 <li>$timer_id，定时器ID，调用swoole_timer_add/swoole_timer_after后会返回一个整数的ID。</li>
+                <li>swoole_timer_clear不能用于清除其他进程的定时器</li>
             </ul>
         </article>
         <hr>

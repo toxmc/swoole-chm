@@ -32,11 +32,22 @@ swoole_event_add($data, function($fp) {
 swoole_event_write($fp, $data);
 </pre>
             <blockquote>
-                <p>
-                    swoole_event_write调用之前，必须在将socket加入event_loop，否则会发生错误<br />
-                    此函数在swoole-1.7.9以上版本可用
-                </p>
+                <ul>
+                    <li>swoole_event_write不能用于SSL/TLS等有隧道加密的stream/sockets资源</li>
+                    <li>swoole_event_write调用之前，必须在将socket加入event_loop，否则会发生错误</li>
+                    <li>此函数在swoole-1.7.9以上版本可用</li>
+                </ul>
             </blockquote>
+            <h2>SOCKET缓存区已满后，Swoole的底层逻辑</h2>
+            <hr>
+            <p>持续写入SOCKET如果对端读取不够快，那SOCKET缓存区会塞满。swoole底层会将数据存到内存缓存区中，直到可写事件触发再写入SOCKET。</p>
+            <ul>
+                <li>内存缓存区尺寸可以在通过修改<code>php.ini</code> 中的 <code>swoole.socket_buffer_size</code>项进行配置，默认为8M</li>
+                <li>也可以使用<code>swoole_async_set</code>方法动态设置内存缓存区尺寸</li>
+            </ul>
+            <p>如果内存缓存区也被写满了，此时swoole底层会抛出<code>pipe buffer overflow, reactor will block.</code>错误，并进入阻塞等待。</p>
+            <p>如果调用端希望不要阻塞，直接返回错误，可以使用<code>swoole_async_set</code>
+            设置<code>socket_dontwait</code> 为<code>true</code>，write将不会阻塞而是直接返回<code>false</code></p>
         </article>
         <hr>
     </div>

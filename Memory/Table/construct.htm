@@ -21,12 +21,13 @@
             <h1>swoole_table->__construct</h1>
             <hr>
             <p>创建内存表。</p>
-            <pre class="brush: php;">swoole_table->__construct(int $size)
-</pre>
+            <pre class="brush: php;">swoole_table->__construct(int $size)</pre>
             <ul>
                 <li>创建对象后会创建一个Mutex锁</li>
                 <li>$table->lock() / $table->unlock()在创建后即可使用</li>
                 <li>$size参数指定表格的最大行数，必须为2的指数，如1024,8192,65536等</li>
+                <li>table占用的内存总数为 (行尺寸$size) * (1.2预留20%作为hash冲突) * (列尺寸)，如果机器内存不足table会创建失败</li>
+                <li>set操作能存储的最大行数与$size无关，如$size为1024实际可存储的行数小于1024</li>
             </ul>
             <blockquote>
                 <p>

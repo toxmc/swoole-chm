@@ -23,11 +23,12 @@
             </ul>
             <h2>swoole_process提供了如下特性：</h2>
             <ul>
-                <li>swoole_process提供了基于unixsock的进程间通信，使用很简单只需调用recv/send即可</li>
+                <li>swoole_process提供了基于unixsock的进程间通信，使用很简单只需调用write/read或者push/pop即可</li>
                 <li>swoole_process支持重定向标准输入和输出，在子进程内echo不会打印屏幕，而是写入管道，读键盘输入可以重定向为管道读取数据</li>
                 <li>swoole_process允许用于fpm/apache的Web请求中</li>
                 <li>配合swoole_event模块，创建的PHP子进程可以异步的事件驱动模式</li>
-                <li>swoole_process提供了exec接口，创建的进程可以执行其他程序，与原PHP父进程之间可以方便的通信swoole_process可以安全地用于fpm/apache环境下</li>
+                <li>swoole_process提供了exec接口，创建的进程可以执行其他程序，与原PHP父进程之间可以方便的通信</li>
+                <li>swoole_process可以安全地用于fpm/apache环境下</li>
             </ul>
             <code>在php-fpm中使用swoole_process，子进程内不得echo，否则会出现错误</code>
         </article>

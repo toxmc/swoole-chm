@@ -33,7 +33,7 @@ string $swoole_client->recv(int $size = 65535, int $flags = 0);
             <blockquote>
                 <ul>
                    <li>如果设定了$waitall就必须设定准确的$size，否则会一直等待，直到接收的数据长度达到$size</li>
-                   <li>当$waitall=true时，$size最大为64K</li>
+                   <li>未设置$waitall=true时，$size最大为64K</li>
                    <li>如果设置了错误的$size，会导致recv超时，返回 <strong>false</strong></li>
                 </ul>
             </blockquote>

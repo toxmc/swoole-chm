@@ -13,10 +13,14 @@
             <h1>Buffer</h1>
             <hr>
             <p>swoole1.7.5提供了一个swoole_buffer类，让PHP开发者可以像C一样直接读写内存，提升程序的性能，又不用担心内存越界。swoole_buffer会检测offset。</p>
+            <ul>
+                <li>swoole_buffer申请的内存并非共享内存，所以无法在多个进程间被共享</li>
+            </ul>
             <h2>属性列表</h2>
             <ul>
                 <li>swoole_buffer->$length，当前数据的长度</li>
                 <li>swoole_buffer->$capacity，当前缓存区的容量</li>
+                <li>swoole_buffer申请的内存并非共享内存，所以无法在多个进程间被共享</li>
             </ul>
         </article>
         <hr>

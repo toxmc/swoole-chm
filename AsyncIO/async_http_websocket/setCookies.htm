@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Atomic</title>
+<title>swoole_http_client->setCookies</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
 <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -17,27 +17,16 @@
 </head>
 <body style='text-justify-trim: punctuation'>
     <div class="wiki_content">
-        <article class="markdown-body entry-content">
-            <h1>Atomic</h1>
+        <article>
+            <h1>swoole_http_client->setCookies</h1>
             <hr>
-            <p>swoole_atomic是swoole扩展提供的原子计数操作类，可以方便整数的无锁原子增减。</p>
+            <p>设置Cookie</p>
+            <pre class="brush: php;">function swoole_http_client->setCookies(array $cookies);</pre>
             <ul>
-                <li>swoole_atomic使用共享内存，可以在不同的进程之间操作计数</li>
-                <li>swoole_atomic基于gcc提供的CPU原子指令，无需加锁</li>
-                <li>swoole_atomic在服务器程序中必须在swoole_server->start前创建才能在Worker进程中使用</li>
+                <li>$cookies 设置COOKIE，必须为键值对应数组</li>
+                <li>设置COOKIE后在客户端对象存活期间会持续保存</li>
+                <li>服务器端主动设置的COOKIE会合并到<code>cookies</code>数组中，可读取<code>$client-&gt;cookies</code>属性获得当前Http客户端的COOKIE信息</li>
             </ul>
-            <blockquote>
-                <p>swoole_atomic在1.7.19以上版本可用</p>
-            </blockquote>
-            <h2>使用示例</h2>
-            <hr>
-<pre class="brush: php;">$atomic = new swoole_atomic(123);
-echo $atomic->add(12)."\n";
-echo $atomic->sub(11)."\n";
-echo $atomic->cmpset(122, 999)."\n";
-echo $atomic->cmpset(124, 999)."\n";
-echo $atomic->get()."\n";
-</pre>
         </article>
         <hr>
     </div>

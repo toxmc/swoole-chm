@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>异步Http/WebSocket客户端</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+            <h1>异步Http/WebSocket客户端</h1>
+            <hr>
+            <p>Swoole-1.8.0版本增加了对异步<code>Http/WebSocket</code>客户端的支持。底层是用纯C编写，拥有超高的性能。</p>
+            <blockquote>
+                <p>异步HTTP客户端目前仍在实验阶段，请谨慎使用</p>
+            </blockquote>
+            <h2>启用Http客户端</h2>
+            <hr>
+            <ul>
+                <li>需要在编译swoole时增加<code>--enable-async-httpclient</code>来开启此功能。</li>
+                <li>swoole_http_client不依赖任何第三方库</li>
+                <li>支持<code>Http-Chunk</code>、<code>Keep-Alive</code>特性，暂不支持<code>form-data</code>格式</li>
+                <li>Http协议版本为<code>HTTP/1.1</code></li>
+                <li><code>gzip</code>压缩格式支持需要依赖<code>zlib</code>库</li>
+            </ul>
+            <h2>构造方法</h2>
+            <hr>
+            <pre>function swoole_http_client-&gt;__construct(string $ip, int port, bool $ssl = false);</pre>
+            <ul>
+                <li>$ip 目标服务器的IP地址，可使用<code>swoole_async_dns_lookup</code>查询域名对应的IP地址</li>
+                <li>$port 目标服务器的端口，一般<code>http</code>为<code>80</code>，<code>https</code>为<code>443</code></li>
+                <li>$ssl 是否启用<code>SSL/TLS</code>隧道加密，如果目标服务器是<code>https</code>必须设置<code>$ssl</code>参数为<code>true</code></li>
+            </ul>
+        </article>
+        <hr>
+    </div>
+</body>
+</html>

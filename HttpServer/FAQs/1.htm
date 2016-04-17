@@ -32,6 +32,18 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, array('test' => str_repeat('a', 800000)));//POST数据
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 </pre>
+
+            <h2>其他客户端</h2>
+            <hr>
+            <p>如果客户端是其他语言编写的，无法修改客户端去掉100-continue，那么还有2个方案可以解决此问题。</p>
+            <ul>
+            <li>使用Nginx做前端代理，由Nginx处理100-Continue</li>
+            <li>重新编译Swoole启用100-Continue的支持，需要手工修改swoole_config.h，找到SW_HTTP_100_CONTINUE，去掉注释，执行make clean &amp;&amp; make install</li>
+            </ul>
+            
+            <blockquote>
+              <p>启用100-CONTINUE后会额外消耗服务器的CPU资源</p>
+            </blockquote>
         </article>
         <hr>
     </div>

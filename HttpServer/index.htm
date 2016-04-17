@@ -28,13 +28,31 @@ $http->on('request', function ($request, $response) {
 $http->start();
 </pre>
             <blockquote>
-                <p>swoole_http_server对Http协议的支持并不完整，建议仅作为应用服务器。并且在前端增加Nginx作为代理</p>
+                <code>swoole_http_server对Http协议的支持并不完整，建议仅作为应用服务器。并且在前端增加Nginx作为代理</code>
             </blockquote>
             <p>通过使用apache bench工具进行压力测试，在Inter Core-I5 4核 +
                 8G内存的普通PC机器上，swoole_http_server可以达到近11万QPS。远远超过php-fpm，golang自带http服务器，node.js自带http服务器。性能几乎接近与Nginx的静态文件处理。</p>
-            <pre class="brush: php;">ab -c 200 -n 200000 -k http://127.0.0.1:9501
+            <pre class="brush: php;">ab -c 200 -n 200000 -k http://127.0.0.1:9501</pre>
+            
+            <h2>使用Http2协议</h2>
+            <hr>
+            <ul>
+                <li>需要依赖<code>nghttp2</code>库，<a href="https://github.com/tatsuhiro-t/nghttp2">下载nghttp2</a>后编译安装</li>
+                <li>使用<code>Http2</code>协议必须开启<code>openssl</code></li>
+                <li>需要高版本<code>openssl</code>必须支持<code>TLS1.2</code>、<code>ALPN</code>、<code>NPN</code></li>
+            </ul>
+            
+            <pre>./configure --enable-openssl --enable-http2</pre>
+            <p>设置http服务器的<code>open_http2_protocol</code>为<code>true</code></p>
+            
+            <pre class="brush: php;">$serv-&gt;set([
+    'ssl_cert_file' =&gt; $ssl_dir . '/ssl.crt',
+    'ssl_key_file' =&gt; $ssl_dir . '/ssl.key',
+    'open_http2_protocol' =&gt; true,
+]);
 </pre>
             <h2>nginx+swoole配置</h2>
+            <hr>
             <pre class="brush: php;">server {
     root /data/wwwroot/;
     server_name local.swoole.com;

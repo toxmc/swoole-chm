@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>v1.7.16</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article class="markdown-body entry-content">
+            <h1>1.7.16</h1>
+            <hr>
+            <ul>
+                <li>修复swoole_server->addtimer与tick定时器冲突的BUG</li>
+                <li>增加server统计项request_count和worker_request_count</li>
+                <li>移除swoole底层对对象资源属性的依赖，直接读取指针，提升性能</li>
+                <li>解决心跳线程无法强制杀掉遗留连接的问题</li>
+                <li>增加server的连接迭代器，可以使用foreach遍历服务器的所有连接</li>
+                <li>增加客户端自动协议处理的支持，可以使用open_eof_split/open_length_check配置</li>
+                <li>增加SWOOLE_PACKET标志位用于支持TCP透传模式</li>
+                <li>优化dispatch_mode=3模式，提升任务分配的效率</li>
+                <li>增加http服务器multipart-form和上传文件的支持</li>
+                <li>修复task_max_request参数失效的问题</li>
+                <li>增加http服务器请求的query_string</li>
+            </ul>
+        </article>
+        <hr>
+    </div>
+</body>
+</html>

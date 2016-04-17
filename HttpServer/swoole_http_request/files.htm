@@ -40,6 +40,7 @@
             <p>如果要丢弃上传文件，请使用unlink函数删除掉上传的文件，否则会导致文件泄漏。</p>
             <blockquote>
                 <p>在1.7.16以上版本可用</p>
+                <p>上传的临时文件在调用$response->end后，会自动删除</p>
             </blockquote>
         </article>
         <hr>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>使用tcmalloc提升swoole内存分配性能</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+</head>
+<body style='text-justify-trim: punctuation'>
+    <div class="wiki_content">
+        <article>
+        <h1>使用tcmalloc提升swoole内存分配性能</h1>
+        <hr>
+        <h2>关于tcmalloc</h2>
+
+        <p><code>TCMalloc (google-perftools)</code>是用于优化C/C++写的多线程应用，比glibc的malloc快。这个模块可以用来让Swoole服务器程序在高并发下内存占用更加稳定。</p>
+        <p><code>TCMalloc</code>使用也非常简单，仅需在编译时连接到应用程序中，它会自动替换掉glibc的malloc函数。</p>
+        
+        <h2>安装libunwind</h2>
+        <p>下载地址：<a href="http://ftp.twaren.net/Unix/NonGNU//libunwind/libunwind-0.99-beta.tar.gz">http://ftp.twaren.net/Unix/NonGNU//libunwind/libunwind-0.99-beta.tar.gz</a></p>
+        <p>编译安装</p>
+        <pre>./configure  CFLAGS=-U_FORTRIFY_SOURCE
+sudo make -j install</pre>
+
+        <h2>安装tcmalloc</h2>
+        <ul>
+        <li>GITHUB主页：<a href="https://github.com/gperftools/gperftools">https://github.com/gperftools/gperftools</a></li>
+        <li>下载地址<a href="https://codeload.github.com/gperftools/gperftools/tar.gz/gperftools-2.4">https://codeload.github.com/gperftools/gperftools/tar.gz/gperftools-2.4</a></li>
+        </ul>
+        <pre>./configure --enable-frame-pointers
+sudo make -j install
+sudo ldconfig
+</pre>
+        <h2>开启tcmalloc</h2>
+        <p><strong>1.7.x版本手工修改Makefile文件</strong>
+        进入<code>swoole-src</code>目录修改<code>Makefile</code>文件，在<code>SWOOLE_SHARED_LIBADD</code>尾部追加<code>-ltcmalloc</code>，然后重新编译安装swoole，即可使用<code>tcmalloc</code>优化内存分配的性能。</p>
+        <p><strong>1.8.0或更高版本</strong>
+        编译参数增加<code>--enable-tcmalloc</code></p>
+        </article>
+        <hr>
+    </div>
+</body>
+</html>

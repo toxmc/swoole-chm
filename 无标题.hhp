@@ -50,12 +50,6 @@ rumen\changjian_wenti\10.htm
 server\advanced_feature\10.htm
 advanced\100_available.htm
 server\advanced_feature\11.htm
-rumen\version\1-7-12.htm
-rumen\version\1-7-13.htm
-rumen\version\1-7-14.htm
-rumen\version\1-7-15.htm
-rumen\version\1-7-16.htm
-rumen\version\1-7-17.htm
 Client\parallel\2.htm
 server\advanced_feature\2.htm
 server\FAQs\2.htm
@@ -73,7 +67,6 @@ server\advanced_feature\9.htm
 advanced\achieve.htm
 server\functions\addListener.htm
 server\functions\addProcess.htm
-server\functions\addtimer.htm
 server\functions\after.htm
 Memory\Buffer\append.htm
 server\config_options\backlog.htm
@@ -110,7 +103,6 @@ Process\functions\daemon.htm
 server\config_options\daemonize.htm
 Memory\Table\decr.htm
 Memory\Table\del.htm
-server\functions\deltimer.htm
 server\config_options\dispatch_mode.htm
 HttpServer\swoole_http_response\end.htm
 Client\attribute\errCode.htm
@@ -125,7 +117,6 @@ Client\functions\getpeername.htm
 Client\functions\getsockname.htm
 server\config_options\group.htm
 HttpServer\swoole_http_response\gzip.htm
-server\functions\handler.htm
 HttpServer\swoole_http_request\header.htm
 HttpServer\swoole_http_response\header.htm
 server\functions\heartbeat.htm

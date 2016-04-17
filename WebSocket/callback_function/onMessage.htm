@@ -21,21 +21,18 @@
             <h1>onMessage</h1>
             <hr>
             <p>当服务器收到来自客户端的数据帧时会回调此函数。</p>
-            <pre class="brush: php;">function onMessage(swoole_server $server, swoole_websocket_frame $frame)
-</pre>
+            <pre class="brush: php;">function onMessage(swoole_server $server, swoole_websocket_frame $frame)</pre>
             <ul>
                 <li>$frame 是swoole_websocket_frame对象，包含了客户端发来的数据帧信息</li>
+                <li>onMessage回调必须被设置，未设置服务器将无法启动</li>
             </ul>
             <h2>swoole_websocket_frame</h2>
             <p>共有4个属性，分别是</p>
             <ul>
-                <li>$frame->fd，客户端的socket
-                    id，使用$server->push推送数据时需要用到</li>
+                <li>$frame->fd，客户端的socket id，使用$server->push推送数据时需要用到</li>
                 <li>$frame->data，数据内容，可以是文本内容也可以是二进制数据，可以通过opcode的值来判断</li>
-                <li>$frame->opcode，WebSocket的OpCode类型，可以参考WebSocket协议标准文档
-                </li>
-                <li>$frame->finish，
-                    表示数据帧是否完整，一个WebSocket请求可能会分成多个数据帧进行发送</li>
+                <li>$frame->opcode，WebSocket的OpCode类型，可以参考WebSocket协议标准文档</li>
+                <li>$frame->finish，表示数据帧是否完整，一个WebSocket请求可能会分成多个数据帧进行发送</li>
             </ul>
             <blockquote>
                 <p>$data 如果是文本类型，编码格式必然是UTF-8，这是WebSocket协议规定的</p>

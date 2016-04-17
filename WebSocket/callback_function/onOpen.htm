@@ -21,11 +21,11 @@
             <h1>onOpen</h1>
             <hr>
             <p>当WebSocket客户端与服务器建立连接并完成握手后会回调此函数。</p>
-            <pre class="brush: php;">function onOpen(swoole_websocket_server $svr, swoole_http_request $req);
-</pre>
+            <pre class="brush: php;">function onOpen(swoole_websocket_server $svr, swoole_http_request $req);</pre>
             <ul>
                 <li>$req 是一个Http请求对象，包含了客户端发来的握手请求信息</li>
                 <li>onOpen事件函数中可以调用push向客户端发送数据或者调用close关闭连接</li>
+                <li>onOpen事件回调是可选的</li>
             </ul>
         </article>
         <hr>

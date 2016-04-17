@@ -20,14 +20,14 @@
         <article>
             <h1>swoole_http_request->rawContent</h1>
             <hr>
-            <p>获取原始的POST包体，用于非application/x-www-form-urlencoded格式的Http
-                POST请求。</p>
+            <p>获取原始的POST包体，用于非application/x-www-form-urlencoded格式的Http POST请求。</p>
             <pre class="brush: php;">string swoole_http_request->rawContent();
 </pre>
             <ul>
                 <li>返回原始POST数据，此函数等同于PHP的fopen('php://input')</li>
                 <li>标准POST格式，无法调用此函数</li>
             </ul>
+            <p>有些情况下服务器不需要解析Http POST请求参数，1.7.18以上版本增加了http_parse_post配置，可以关闭POST数据解析。</p>
         </article>
         <hr>
     </div>

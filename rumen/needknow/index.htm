@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>编程须知</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>编程须知</h1>
+				<p>
+					这个频道内会详细介绍异步编程与同步编程的不同之处以及需要注意的事项。
+				</p>
+
+				<h2>注意事项</h2>
+
+				<ul>
+					<li>不要在代码中执行 <code> sleep </code>以及其他睡眠函数，这样会导致整个进程阻塞</li>
+					<li><code> exit/die </code>是危险的，会导致worker进程退出</li>
+					<li>可通过 <code> register_shutdown_function </code>来捕获致命错误，在进程异常退出时做一些请求工作，具体参看<a href="../../server/advanced_feature/8.htm">捕获Server运行期致命错误</a></li>
+					<li>PHP代码中如果有异常抛出，必须在回调函数中进行 <code> try/catch </code>捕获异常，否则会导致工作进程退出</li>
+					<li>swoole不支持 <code> set_exception_handler </code>，必须使用 <code> try/catch </code>方式处理异常</li>
+					<li>Worker进程不得共用同一个 <code> Redis </code>或 <code> MySQL </code>等网络服务客户端，Redis/MySQL创建连接的相关代码可以放到 <code> onWorkerStart </code>回调函数中，具体参考<a href="../../server/FAQs/4.htm">是否可以共用1个redis或mysql连接</a></li>
+				</ul>
+
+				<h2>类/函数重复定义</h2>
+
+				<p>
+					新手非常容易犯这个错误，由于swoole是常驻内存的，所以加载类/函数定义的文件后不会释放。因此引入类/函数的php文件时必须要使用
+					<code> include_once </code>
+					或
+					<code> require_once </code>
+					，否会发生
+					<code> cannot redeclare function/class </code>
+					的致命错误。
+				</p>
+
+				<h2>内存管理</h2>
+
+				<p>
+					PHP守护进程与普通Web程序的变量生命周期、内存管理方式完全不同。请参考 <a href="../../server/FAQs/3.htm">swoole_server内存管理</a> 页面。<strong>编写 <code> swoole_server </code>或其他常驻进程时需要特别注意。</strong>
+				</p>
+
+				<h2>进程隔离</h2>
+
+				<p>
+					进程隔离也是很多新手经常遇到的问题。修改了全局变量的值，为什么不生效，原因就是全局变量在不同的进程，内存空间是隔离的，所以无效。所以使用swoole开发Server程序需要了解
+					<code> 进程隔离 </code>
+					问题。
+				</p>
+
+				<ul>
+					<li>不同的进程中PHP变量不是共享，即使是全局变量，在A进程内修改了它的值，在B进程内是无效的</li>
+					<li>如果需要在不同的Worker进程内共享数据，可以用 <code> Redis </code>、 <code> MySQL </code>、 <code> 文件 </code>、 <code> Swoole\Table </code>、 <code> APCu </code>、 <code> shmget </code>等工具实现</li>
+					<li>不同进程的文件句柄是隔离的，所以在A进程创建的Socket连接或打开的文件，在B进程内是无效，即使是将它的fd发送到B进程也是不可用的</li>
+				</ul>
+			</article>
+		</div>
+	</body>
+</html>

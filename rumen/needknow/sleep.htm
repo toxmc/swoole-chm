@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>sleep/usleep的影响</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>sleep/usleep的影响</h1>
+				<p>
+					在异步IO的程序中，<strong>不得使用sleep/usleep/time_sleep_until/time_nanosleep</strong>。（下文中使用sleep泛指所有睡眠函数）
+				</p>
+
+				<ul>
+					<li>sleep函数会使进程陷入睡眠阻塞</li>
+					<li>直到指定的时间后操作系统才会重新唤醒当前的进程</li>
+					<li>sleep过程中，只有信号可以打断</li>
+					<li>由于swoole的信号处理是基于signalfd实现的，所以即使发送信号也无法中断sleep</li>
+				</ul>
+
+				<p>
+					swoole提供的<code>swoole_event_add</code>、<code>swoole_timer_tick</code>、<code>swoole_timer_after</code>、<code>swoole_process::signal</code>、<code>异步swoole_client</code> 在进程sleep后会停止工作。<code>swoole_server</code>也无法再处理新的请求。
+				</p>
+
+				<h2>实例程序</h2>
+				<pre class="brush: php;">$serv = new swoole_server("127.0.0.1", 9501);
+$serv-&gt;on('receive', function ($serv, $fd, $from_id, $data) {
+    sleep(100);
+    $serv-&gt;send($fd, 'Swoole: '.$data);
+});
+$serv-&gt;start();
+</pre>
+				
+
+
+				<p>
+					onReceive事件中执行了sleep函数，server在100秒内无法再收到任何客户端请求。
+				</p>
+
+			</article>
+		</div>
+	</body>
+</html>

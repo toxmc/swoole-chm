@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>网络通信协议设计</title>
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -14,11 +14,10 @@
 	SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
     <article>
         <h1>网络通信协议设计</h1>
-        <hr>
         <h2>为什么需要通信协议</h2>
         <p>TCP协议在底层机制上解决了UDP协议的顺序和丢包重传问题。但相比UDP又带来了新的问题，TCP协议是流式的，数据包没有边界。应用程序使用TCP通信就会面临这些难题。</p>
         <p>因为TCP通信是流式的，在接收1个大数据包时，可能会被拆分成多个数据包发送。多次Send底层也可能会合并成一次进行发送。这里就需要2个操作来解决：</p>
@@ -100,7 +99,6 @@ $client-&gt;set(array(
 ));
         </pre>
     </article>
-    <hr>
     </div>
 </body>
 </html>

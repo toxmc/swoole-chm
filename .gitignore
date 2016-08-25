@@ -1,5 +1,6 @@
 *.buildpath
 *.project
+*.metadata
 *.prefs
 .settings/org.eclipse.wst.common.project.facet.core.xml
 swoole.chw

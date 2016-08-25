@@ -1,6 +1,7 @@
 <html>
 	<head>
-		<title>设置定时器</title>
+		<title>while循环的影响</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -17,28 +18,31 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>设置定时器</h1>
+				<h1>while循环的影响</h1>
 				<p>
-					swoole提供了类似JavaScript的setInterval/setTimeout异步高精度定时器，粒度为毫秒级。使用也非常简单。
+					异步程序如果遇到死循环，事件将无法触发。异步IO程序使用<code>Reactor模型</code>，运行过程中必须在<code>reactor-&gt;wait</code>处轮询。如果遇到死循环，那么程序的控制权就在while中了，<code>reactor</code>无法得到控制权，无法检测事件，所以IO事件回调函数也将无法触发。
 				</p>
-				<h2>程序代码</h2>
-				<pre  class="brush: php;"> //每隔2000ms触发一次
-swoole_timer_tick(2000, function ($timer_id) {
-    echo "tick-2000ms\n";
-});
 
-//3000秒后执行此函数
-swoole_timer_after(3000, function () {
-    echo "after 3000ms.\n"
+				<blockquote>
+					<p>
+						密集运算的代码不是阻塞
+					</p>
+				</blockquote>
+
+				<h2>实例程序</h2>
+				<pre class="brush:php;">$serv = new swoole_server("127.0.0.1", 9501);
+$serv-&gt;on('receive', function ($serv, $fd, $from_id, $data) {
+    while(1)
+    {
+        $i ++;
+    }
+    $serv-&gt;send($fd, 'Swoole: '.$data);
 });
-            </pre>
-				<ul>
-					<li>swoole_timer_tick函数就相当于setInterval，是持续触发的</li>
-					<li>swoole_timer_after函数相当于setTimeout，仅在约定的时间触发一次</li>
-					<li>swoole_timer_tick/swoole_timer_after函数会返回一个整数，表示定时器的ID</li>
-					<li>可以使用 <code>
-							swoole_timer_clear</code> 清除此定时器，参数为定时器ID </li>
-				</ul>
+$serv-&gt;start();
+</pre>
+				<p>
+					onReceive事件中执行了死循环，server在无法再收到任何客户端请求，必须等待循环结束才能继续处理新的事件。
+				</p>
 			</article>
 		</div>
 	</body>

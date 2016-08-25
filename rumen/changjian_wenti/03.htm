@@ -1,26 +1,26 @@
 <html>
-<head>
-<title>Connection refused是怎么回事</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>Connection refused是怎么回事</h1>
-            <hr>
-            <p>telnet 127.0.0.1 9501 时发生Connection
-                refused，这表示服务器未监听此端口。</p>
-            <ul>
-                <li>检查程序是否执行成功: ps aux</li>
-                <li>检查端口是否在监听: netstat -lp</li>
-                <li>查看网络通信通信过程是否正常: tcpdump traceroute</li>
-            </ul>
-        </article>
-        <hr>
-    </div>
-</body>
+	<head>
+		<title>Connection refused是怎么回事</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body style='text-justify-trim: punctuation'>
+		<div class="wiki_content">
+			<article>
+				<h1>Connection refused是怎么回事</h1>
+				<p>
+					telnet 127.0.0.1 9501 时发生Connection
+					refused，这表示服务器未监听此端口。
+				</p>
+				<ul>
+					<li>检查程序是否执行成功: ps aux</li>
+					<li>检查端口是否在监听: netstat -lp</li>
+					<li>查看网络通信通信过程是否正常: tcpdump traceroute</li>
+				</ul>
+			</article>
+		</div>
+	</body>
 </html>

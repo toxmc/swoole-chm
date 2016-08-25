@@ -1,27 +1,28 @@
 <html>
-<head>
-<title>创建同步TCP客户端</title>
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
-<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-	SyntaxHighlighter.defaults['gutter'] = false;
-	SyntaxHighlighter.defaults['toolbar'] = false;
-	SyntaxHighlighter.all();
-</script>
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>创建同步TCP客户端</h1>
-            <hr>
-            <h2>程序代码</h2>
-            <p>client.php</p>
-            <pre class="brush: php;">$client = new swoole_client(SWOOLE_SOCK_TCP);
+	<head>
+		<title>创建同步TCP客户端</title>
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>创建同步TCP客户端</h1>
+				<h2>程序代码</h2>
+				<p>
+					client.php
+				</p>
+				<pre class="brush: php;">$client = new swoole_client(SWOOLE_SOCK_TCP);
 
 //连接到服务器
 if (!$client-&gt;connect('127.0.0.1', 9501, 0.5))
@@ -42,27 +43,30 @@ if (!$data)
 //关闭连接
 $client-&gt;close();
             </pre>
-            <p>
-                创建一个TCP的同步客户端，此客户端可以用于连接到我们第一个示例的TCP服务器。向服务器端发送一个
-                <code>hello world</code>
-                字符串，服务器会返回一个
-                <code>Server: hello world</code>
-                字符串。
-            </p>
-            <p>这个客户端是同步阻塞的，connect/send/recv
-                会等待IO完成后再返回。同步阻塞操作并不消耗CPU资源，IO操作未完成当前进程会自动转入sleep模式，当IO完成后操作系统会唤醒当前进程，继续向下执行代码。</p>
-            <ul>
-                <li>如果建立连接到服务器需要100ms，那么$client->connect就会耗时100ms，因为TCP需要进行3次握手，所以connect至少需要3次网络通信。</li>
-                <li>在发送少量数据时<code>$client-&gt;send</code>都是可以立即返回的。发送大量数据时，socket缓存区可能会塞满，send操作会阻塞。
-                </li>
-                <li>recv操作会阻塞等待服务器返回数据，recv耗时等于服务器处理时间+网络传输耗时之合。</li>
-            </ul>
-            <h2>执行程序</h2>
-            <pre class="brush: php;">php client.php
+				<p>
+					创建一个TCP的同步客户端，此客户端可以用于连接到我们第一个示例的TCP服务器。向服务器端发送一个
+					<code>
+						hello world</code>
+					字符串，服务器会返回一个
+					<code>
+						Server: hello world</code>
+					字符串。
+				</p>
+				<p>
+					这个客户端是同步阻塞的，connect/send/recv
+					会等待IO完成后再返回。同步阻塞操作并不消耗CPU资源，IO操作未完成当前进程会自动转入sleep模式，当IO完成后操作系统会唤醒当前进程，继续向下执行代码。
+				</p>
+				<ul>
+					<li>如果建立连接到服务器需要100ms，那么$client->connect就会耗时100ms，因为TCP需要进行3次握手，所以connect至少需要3次网络通信。</li>
+					<li>在发送少量数据时<code>
+							$client-&gt;send</code>都是可以立即返回的。发送大量数据时，socket缓存区可能会塞满，send操作会阻塞。 </li>
+					<li>recv操作会阻塞等待服务器返回数据，recv耗时等于服务器处理时间+网络传输耗时之合。</li>
+				</ul>
+				<h2>执行程序</h2>
+				<pre class="brush: php;">php client.php
 Server: hello world
             </pre>
-        </article>
-        <hr>
-    </div>
-</body>
+			</article>
+		</div>
+	</body>
 </html>

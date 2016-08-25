@@ -24,6 +24,7 @@ section,
 summary {
   display: block;
 }
+article {border-bottom: solid 1px #EEE; padding-bottom: 10px;}
 
 audio,
 canvas,
@@ -254,7 +255,11 @@ table {
     margin: 2cm .5cm;
   }
   p,
-  h2,
+  h2 {
+    font-size: 2em;
+    
+  }
+  h2{border-bottom: 1px solid #eee; padding-bottom:5px;}
   h3 {
     orphans: 3;
     widows: 3;
@@ -498,14 +503,14 @@ h6 {
   margin-bottom: 10px;
 }
 
-h1,
-.h1 {
+h1,.h1 {
   font-size: 36px;
+  border-bottom: solid 1px #CCC; padding-bottom: 10px;
 }
 
-h2,
-.h2 {
+h2,.h2 {
   font-size: 30px;
+  border-bottom: solid 1px #EEE; padding-bottom: 10px;
 }
 
 h3,

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>swoole_server::defer</title>
+		<title>swoole_server::stop</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -18,19 +18,20 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>swoole_server->defer</h1>
+				<h1>swoole_server->stop</h1>
 				<p>
-					延后执行一个PHP函数。Swoole底层会在
-					<code>EventLoop</code> 循环完成后执行此函数。此函数的目的是为了让一些PHP代码延后执行，程序优先处理IO事件。
+					使当前worker进程停止运行，并立即触发<code>onWorkerStop</code>回调函数。
 				</p>
-				<pre class="brush: php;">function swoole_server-&gt;defer(callable $callback);
-            </pre>
+				<pre class="brush:php;">function swoole_server-&gt;stop();</pre>
 				<ul>
-					<li>defer函数的别名是<code>swoole_event_defer</code></li>
-					<li>$callback为可执行的函数变量，可以是字符串、数组、匿名函数</li>
+					<li>使用此函数代替<code>exit/die</code>结束Worker进程的生命周期</li>
+					<li>如果要结束其他Worker进程，可以使用<code>swoole_process::kill($worker_pid)</code></li>
 				</ul>
+
 				<blockquote>
-					<code>defer函数在swoole-1.8.0或更高版本可用</code>
+					<p>
+						此方法在<code>1.8.2</code>或更高版本可用
+					</p>
 				</blockquote>
 			</article>
 		</div>

@@ -2,7 +2,7 @@
 <head>
 <title>swoole_server::sendfile</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,10 @@
 	SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_server->sendfile</h1>
-            <hr>
             <p>发送文件到TCP客户端连接。使用示例：</p>
             <pre class="brush: php;">bool swoole_server->sendfile(int $fd, string $filename);
 $serv->sendfile($fd, __DIR__.'/test.jpg');
@@ -63,7 +62,6 @@ $serv->start();
                 <code>此函数与swoole_server->send都是向客户端发送数据，不同的是sendfile的数据来自于指定的文件。</code>
             </blockquote>
         </article>
-        <hr>
     </div>
 </body>
 </html>

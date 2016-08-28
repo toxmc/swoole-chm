@@ -1,42 +1,45 @@
 <html>
-<head>
-<title>swoole_server::bind</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
-<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-	SyntaxHighlighter.defaults['gutter'] = false;
-	SyntaxHighlighter.defaults['toolbar'] = false;
-	SyntaxHighlighter.all();
-</script>
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>swoole_server->bind</h1>
-            <hr>
-            <p>将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程。</p>
-            <p>在默认的dispatch_mode=2设置下，server会按照socket
-                fd来分配连接数据到不同的worker。因为fd是不稳定的，一个客户端断开后重新连接，fd会发生改变。这样这个客户端的数据就会被分配到别的Worker。使用bind之后就可以按照用户定义的ID进行分配。即使断线重连，相同uid的TCP连接数据会被分配相同的Worker进程。</p>
-            <pre class="brush: php;">bool swoole_server::bind(int $fd, int $uid)
+	<head>
+		<title>swoole_server::bind</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_server->bind</h1>
+				<p>
+					将连接绑定一个用户定义的ID，可以设置dispatch_mode=5设置已此ID值进行hash固定分配。可以保证某一个UID的连接全部会分配到同一个Worker进程。
+				</p>
+				<p>
+					在默认的dispatch_mode=2设置下，server会按照socket
+					fd来分配连接数据到不同的worker。因为fd是不稳定的，一个客户端断开后重新连接，fd会发生改变。这样这个客户端的数据就会被分配到别的Worker。使用bind之后就可以按照用户定义的ID进行分配。即使断线重连，相同uid的TCP连接数据会被分配相同的Worker进程。
+				</p>
+				<pre class="brush: php;">bool swoole_server::bind(int $fd, int $uid)
 </pre>
-            <ul>
-                <li>$fd 连接的文件描述符</li>
-                <li>$uid 指定UID</li>
-            </ul>
-            <blockquote>
-                <p>
-                    同一个连接只能被bind一次，如果已经绑定了uid，再次调用bind会返回false<br />
-                    可以使用$serv->connection_info($fd) 查看连接所绑定uid的值
-                </p>
-            </blockquote>
-        </article>
-        <hr>
-    </div>
-</body>
+				<ul>
+					<li>$fd 连接的文件描述符</li>
+					<li>$uid 指定UID</li>
+				</ul>
+				<blockquote>
+					<p>
+						同一个连接只能被bind一次，如果已经绑定了uid，再次调用bind会返回false
+						<br />
+						可以使用$serv->connection_info($fd) 查看连接所绑定uid的值
+					</p>
+				</blockquote>
+			</article>
+		</div>
+	</body>
 </html>

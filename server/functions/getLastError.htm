@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>swoole_server::defer</title>
+		<title>swoole_server::getLastError</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -14,24 +14,29 @@
 			SyntaxHighlighter.defaults['toolbar'] = false;
 			SyntaxHighlighter.all();
 		</script>
+		>
 	</head>
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>swoole_server->defer</h1>
+				<h1>swoole_server->getLastError</h1>
 				<p>
-					延后执行一个PHP函数。Swoole底层会在
-					<code>EventLoop</code> 循环完成后执行此函数。此函数的目的是为了让一些PHP代码延后执行，程序优先处理IO事件。
+					获取最近一次操作错误的错误码。业务代码中可以根据错误码类型执行不同的逻辑。
 				</p>
-				<pre class="brush: php;">function swoole_server-&gt;defer(callable $callback);
-            </pre>
+				<pre class="brush:php;">function swoole_server->getLastError()</pre>
 				<ul>
-					<li>defer函数的别名是<code>swoole_event_defer</code></li>
-					<li>$callback为可执行的函数变量，可以是字符串、数组、匿名函数</li>
+					<li>返回一个整型数字错误码</li>
 				</ul>
-				<blockquote>
-					<code>defer函数在swoole-1.8.0或更高版本可用</code>
-				</blockquote>
+
+				<h2>常见发送失败错误</h2>
+				<ul>
+					<li>1001 连接已经被Server端关闭了，出现这个错误一般是代码中已经执行了<code>$serv->close()</code>关闭了某个连接，但仍然调用<code>$serv->send()</code>向这个连接发送数据</li>
+					<li>1002 连接已被Client端关闭了，Socket已关闭无法发送数据到对端</li>
+					<li>1003 正在执行close，<code>onClose</code>回调函数中不得使用<code>$serv->send()</code></li>
+					<li>1004 连接已关闭</li>
+					<li>1005 连接不存在，传入<code>$fd</code> 可能是错误的</li>
+					<li>1008 发送缓存区已满无法执行<code>send</code>操作，出现这个错误表示这个连接的对端无法及时收数据导致发送缓存区已塞满</li>
+				</ul>
 			</article>
 		</div>
 	</body>

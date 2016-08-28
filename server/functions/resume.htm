@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>swoole_server::defer</title>
+		<title>swoole_server::resume</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -18,20 +18,21 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>swoole_server->defer</h1>
+				<h1>swoole_server->resume</h1>
 				<p>
-					延后执行一个PHP函数。Swoole底层会在
-					<code>EventLoop</code> 循环完成后执行此函数。此函数的目的是为了让一些PHP代码延后执行，程序优先处理IO事件。
+					恢复数据接收。与<code>pause</code>方法成对使用
 				</p>
-				<pre class="brush: php;">function swoole_server-&gt;defer(callable $callback);
-            </pre>
+				<pre class="brush: php;">function swoole_server->resume(int $fd);</pre>
 				<ul>
-					<li>defer函数的别名是<code>swoole_event_defer</code></li>
-					<li>$callback为可执行的函数变量，可以是字符串、数组、匿名函数</li>
+					<li>$fd为连接的文件描述符</li>
+					<li>调用此函数后会将连接重新加入到EventLoop中，继续接收客户端数据</li>
 				</ul>
 				<blockquote>
-					<code>defer函数在swoole-1.8.0或更高版本可用</code>
+					<p>
+						resume方法仅可用于BASE模式
+					</p>
 				</blockquote>
+
 			</article>
 		</div>
 	</body>

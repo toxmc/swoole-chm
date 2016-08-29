@@ -1,32 +1,40 @@
 <html>
-<head>
-<title>task_ipc_mode</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>task_ipc_mode</h1>
-            <hr>
-            <p>设置task进程与worker进程之间通信的方式。</p>
-            <ul>
-                <li>1, 使用unix socket通信，默认模式</li>
-                <li>2, 使用消息队列通信</li>
-                <li>3, 使用消息队列通信，并设置为争抢模式</li>
-            </ul>
-            <blockquote>
-                <p>设置为3后，task/taskwait将无法指定目标进程ID</p>
-            </blockquote>
-            <p>
-                                        模式2和模式3的不同之处是，模式2支持定向投递，<code>$serv->task($data, $task_worker_id)</code>
-                                        可以指定投递到哪个task进程。模式3是完全争...k_worker_id，在模式3下也是无效的。
-            </p>
-        </article>
-        <hr>
-    </div>
-</body>
+	<head>
+		<title>task_ipc_mode</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>task_ipc_mode</h1>
+				<p>
+					设置task进程与worker进程之间通信的方式。
+				</p>
+				<ul>
+					<li>1, 使用unix socket通信，默认模式</li>
+					<li>2, 使用消息队列通信</li>
+					<li>3, 使用消息队列通信，并设置为争抢模式</li>
+				</ul>
+				<p>
+					模式2和模式3的不同之处是，模式2支持定向投递，<code>$serv->task($data, $task_worker_id)</code>
+					可以指定投递到哪个task进程。模式3是完全争抢模式，task进程会争抢队列，将无法使用定向投递，即使指定了$task_worker_id，在模式3下也是无效的。
+				</p>
+				<blockquote>
+					<p>
+						设置为3后，task/taskwait将无法指定目标进程ID
+					</p>
+				</blockquote>
+				<h2>消息队列模式</h2>
+				<ul>
+					<li>消息队列模式使用操作系统提供的内存队列存储数据</li>
+					<li><code>swoole_server</code>程序的工作进程终止后，消息队列中的数据不会删除，因此进程重启后仍然能取到数据</li>
+					<li>可使用<code>ipcrm -q 消息队列ID</code>手工删除消息队列数据</li>
+				</ul>
+			</article>
+		</div>
+	</body>
 </html>

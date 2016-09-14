@@ -1,8 +1,7 @@
 <html>
 	<head>
-		<title>ssl_method</title>
+		<title>enable_delay_receive</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
-		<meta name="GENERATOR" content="Macrobject Word-2-CHM">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
@@ -19,18 +18,31 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>ssl_method</h1>
+				<h1>enable_delay_receive</h1>
 				<p>
-					设置OpenSSL隧道加密的算法。Server与Client使用的算法必须一致，否则SSL/TLS握手会失败，连接会被切断。
-					默认算法为 SWOOLE_SSLv23_METHOD
+					设置此选项为<code>true</code>后，accept客户端连接后将不会自动加入EventLoop，仅触发<code>onConnect</code>回调。
+					worker进程可以调用<code>$serv->confirm($fd)</code>对连接进行确认，此时才会将fd加入EventLoop开始进行数据收发，
+					也可以调用<code>$serv->close($fd)</code>关闭此连接。
 				</p>
-				<pre class="brush: php;">$server->set(array(
-    'ssl_method' => SWOOLE_SSLv3_CLIENT_METHOD,
+
+				<p>
+					实例：
+				</p>
+				<pre class="brush:php;">//开启enable_delay_receive选项
+$serv->set(array(
+    'enable_delay_receive' => true,
 ));
-            </pre>
+
+$serv->on("Connect", function ($serv, $fd, $reactorId) {
+    $serv->after(2000, function() use ($serv) {
+        //确认连接，开始接收数据
+        $serv->confirm($fd);
+    });
+});
+</pre>
 				<blockquote>
 					<p>
-						此配置在1.7.20或更高版本可用支持的类型请参考 <a href="../constants.htm">预定义常量</a>
+						enable_delay_receive在1.8.8或更高版本可用
 					</p>
 				</blockquote>
 			</article>

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>enable_reuse_port</title>
+		<title>socket_buffer_size</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -10,19 +10,13 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>enable_reuse_port</h1>
+				<h1>socket_buffer_size</h1>
 				<p>
-					设置端口重用，此参数用于优化TCP连接的Accept性能，启用端口重用后多个进程可以同时进行Accept操作。
+					配置客户端连接的缓存区长度。从1.8.8版本开始swoole底层对于缓存区控制的参数分离成<code>buffer_output_size</code>和<code>socket_buffer_size</code>两项配置。
 				</p>
-				<ul>
-					<li>enable_reuse_port = true 打开端口重用</li>
-					<li>enable_reuse_port = false 关闭端口重用</li>
-				</ul>
-				<blockquote>
-					<p>
-						仅在Linux-3.9.0以上版本的内核可用，启用端口重用后可以重复启动同一个端口的Server程序
-					</p>
-				</blockquote>
+				<p>
+					参数<code>buffer_output_size</code>。<code>socket_buffer_size</code>用于设置客户端连接最大允许占用内存数量。
+				</p>
 			</article>
 		</div>
 	</body>

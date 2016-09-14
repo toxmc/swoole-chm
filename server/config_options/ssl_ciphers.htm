@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>enable_reuse_port</title>
+		<title>ssl_ciphers</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -10,19 +10,14 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>enable_reuse_port</h1>
+				<h1>ssl_ciphers</h1>
 				<p>
-					设置端口重用，此参数用于优化TCP连接的Accept性能，启用端口重用后多个进程可以同时进行Accept操作。
+					配置SSL加密套件，默认使用<code>EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH</code>
 				</p>
 				<ul>
-					<li>enable_reuse_port = true 打开端口重用</li>
-					<li>enable_reuse_port = false 关闭端口重用</li>
+					<li>某些低版本浏览器可能不支持默认的加密套件，可设置为空字符串兼容低版本浏览器</li>
+					<li>启用http2协议后，Chrome/Firefox等浏览器要求必须使用高强度加密套件</li>
 				</ul>
-				<blockquote>
-					<p>
-						仅在Linux-3.9.0以上版本的内核可用，启用端口重用后可以重复启动同一个端口的Server程序
-					</p>
-				</blockquote>
 			</article>
 		</div>
 	</body>

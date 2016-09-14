@@ -1,26 +1,28 @@
 <html>
-<head>
-<title>daemonize</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>daemonize</h1>
-            <hr>
-            <p>守护进程化。设置daemonize =>
-                1时，程序将转入后台作为守护进程运行。长时间运行的服务器端程序必须启用此项。</p>
-            <p>如果不启用守护进程，当ssh终端退出后，程序将被终止运行。</p>
-            <ul>
-                <li>启用守护进程后，标准输入和输出会被重定向到 log_file</li>
-                <li>如果未设置log_file，将重定向到 /dev/null，所有打印屏幕的信息都会被丢弃</li>
-            </ul>
-        </article>
-        <hr>
-    </div>
-</body>
+	<head>
+		<title>daemonize</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>daemonize</h1>
+				<p>
+					守护进程化。设置daemonize =>
+					1时，程序将转入后台作为守护进程运行。长时间运行的服务器端程序必须启用此项。
+				</p>
+				<p>
+					如果不启用守护进程，当ssh终端退出后，程序将被终止运行。
+				</p>
+				<ul>
+					<li>启用守护进程后，标准输入和输出会被重定向到 log_file</li>
+					<li>如果未设置log_file，将重定向到 /dev/null，所有打印屏幕的信息都会被丢弃</li>
+				</ul>
+			</article>
+		</div>
+	</body>
 </html>

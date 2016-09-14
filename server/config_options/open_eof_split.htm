@@ -1,24 +1,28 @@
 <html>
-<head>
-<title>open_eof_split</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>open_eof_split</h1>
-            <hr>
-            <p>启用EOF自动分包。当设置open_eof_check后，底层检测数据是否以特定的字符串结尾来进行数据缓冲。但默认只截取收到数据的末尾部分做对比。这时候可能会产生多条数据合并在一个包内。</p>
-            <p>启用open_eof_split参数后，底层会从数据包中间查找EOF，并拆分数据包。onReceive每次仅收到一个以EOF字串结尾的数据包。</p>
-            <blockquote>
-                <p>open_eof_split在1.7.15以上版本可用</p>
-            </blockquote>
-        </article>
-        <hr>
-    </div>
-</body>
+	<head>
+		<title>open_eof_split</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>open_eof_split</h1>
+				<p>
+					启用EOF自动分包。当设置open_eof_check后，底层检测数据是否以特定的字符串结尾来进行数据缓冲。但默认只截取收到数据的末尾部分做对比。这时候可能会产生多条数据合并在一个包内。
+				</p>
+				<p>
+					启用open_eof_split参数后，底层会从数据包中间查找EOF，并拆分数据包。onReceive每次仅收到一个以EOF字串结尾的数据包。
+				</p>
+				<blockquote>
+					<p>
+						open_eof_split在1.7.15以上版本可用
+					</p>
+				</blockquote>
+			</article>
+		</div>
+	</body>
 </html>

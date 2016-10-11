@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>HttpServer</h1>
-            <hr>
+            
             <p>swoole-1.7.7增加了内置Http服务器的支持，通过几行代码即可写出一个异步非阻塞多进程的Http服务器。</p>
             <pre class="brush: php;">$http = new swoole_http_server("127.0.0.1", 9501);
 $http->on('request', function ($request, $response) {
@@ -35,7 +35,7 @@ $http->start();
             <pre class="brush: php;">ab -c 200 -n 200000 -k http://127.0.0.1:9501</pre>
             
             <h2>使用Http2协议</h2>
-            <hr>
+            
             <ul>
                 <li>需要依赖<code>nghttp2</code>库，<a href="https://github.com/tatsuhiro-t/nghttp2">下载nghttp2</a>后编译安装</li>
                 <li>使用<code>Http2</code>协议必须开启<code>openssl</code></li>
@@ -52,7 +52,7 @@ $http->start();
 ]);
 </pre>
             <h2>nginx+swoole配置</h2>
-            <hr>
+            
             <pre class="brush: php;">server {
     root /data/wwwroot/;
     server_name local.swoole.com;
@@ -67,7 +67,7 @@ $http->start();
 }
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

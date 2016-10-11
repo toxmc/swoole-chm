@@ -2,16 +2,16 @@
 <head>
 <title>是否可以共用1个redis或mysql连接</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>是否可以共用1个redis或mysql连接</h1>
-            <hr>
+            
             <p>绝对不可以。必须每个进程单独创建redis/mysql连接，其他的存储客户端同样也是如此。原因是如果共用1个连接，
 那么返回的结果无法保证被哪个进程处理。持有连接的进程理论上都可以对这个连接进行读写，这样数据就发生错乱了。</p>
             <p>
@@ -40,7 +40,7 @@ $serv-&gt;on('receive', function (swoole_server $serv, $fd, $from_id, $data) {
 $serv-&gt;start();
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

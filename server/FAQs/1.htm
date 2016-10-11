@@ -2,16 +2,16 @@
 <head>
 <title>为什么不要send完后立即close</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>为什么不要send完后立即close</h1>
-            <hr>
+            
             <p>send完后立即close就是不安全的，无论是服务器端还是客户端。</p>
             <p>send这个操作，只是将数据放到了socket缓存区。究竟操作系统有没有发送成功，对方服务器是否收到，服务器端程序是否处理，都不没办法确切保证。</p>
             <blockquote>
@@ -32,7 +32,7 @@
                 <li>l_onoff !=0，l_linger > 0， closes时不会立刻返回，内核会延迟一段时间，这个时间就由l_linger的值来决定。如果超时时间到达之前，发送完未发送的数据(包括FIN包)并得到另一端的确认，close会返回正确，socket描述符优雅性退出。否则close会直接返回错误值，未发送数据丢失，socket描述符被强制性退出。如果socket描述符被设置为非堵塞型，则close会直接返回值。</li>
             </ul>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

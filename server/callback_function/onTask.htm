@@ -1,42 +1,42 @@
 <html>
-<head>
-  <title>onTask</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
-</head>
+	<head>
+		<title>onTask</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
 
-<body style='text-justify-trim:punctuation'>
+	<body>
 
-<div class="wiki_content">
-<article >
-<h1>onTask</h1>
-<hr>
-<p>在task_worker进程内被调用。worker进程可以使用swoole_server_task函数向task_worker进程投递新的任务。</p>
+		<div class="wiki_content">
+			<article >
+				<h1>onTask</h1>
+				<p>
+					在task_worker进程内被调用。worker进程可以使用swoole_server_task函数向task_worker进程投递新的任务。
+				</p>
+				<pre class="brush: php;">function onTask((swoole_server $serv, int $task_id, int $from_id, string $data));</pre>
+				
+				<ul>
+					<li>$task_id是任务ID，由swoole扩展内自动生成，用于区分不同的任务。<strong>$task_id和$from_id组合起来才是全局唯一的，不同的worker进程投递的任务ID可能会有相同</strong></li>
+					<li>$from_id来自于哪个worker进程</li>
+					<li>$data 是任务的内容</li>
+				</ul>
 
-<pre class="brush: php;">function onTask((swoole_server $serv, int $task_id, int $from_id, string $data));</pre>
-
-<ul>
-    <li>$task_id是任务ID，由swoole扩展内自动生成，用于区分不同的任务。<strong>$task_id和$from_id组合起来才是全局唯一的，不同的worker进程投递的任务ID可能会有相同</strong></li>
-    <li>$from_id来自于哪个worker进程</li>
-    <li>$data 是任务的内容</li>
-</ul>
-
-<p>例子：</p>
-<pre class="brush: php;">
-&lt;?php
-/**
+				<p>
+					例子：
+				</p>
+				<pre class="brush: php;">/**
  * This script is forked from db_pool.php
  * you can test like this,
  * /usr/local/php/bin/php bench.php -n 1000 -c 100 -s tcp://127.0.0.1:9508 -f short_tcp / long_tcp
@@ -113,19 +113,25 @@ $serv->on('Receive', 'onReceive');
 $serv->on('Task', 'onTask');
 $serv->on('Finish', 'onFinish');
 $serv->start();
-</pre>
+</pre>				
 
-<blockquote>
-  <p>1.7.2以前的版本，<strong>$data的长度最大不得超过8K，此参数受SW_BUFFER_SIZE宏控制</strong><br />
-  1.7.2以上的版本，$data的长度不受限制，如果超过SW_BUFFER_SIZE，将自动写入临时文件</p>
-</blockquote>
+				<blockquote>
+					<p>
+						1.7.2以前的版本，<strong>$data的长度最大不得超过8K，此参数受SW_BUFFER_SIZE宏控制</strong>
+						<br />
+						1.7.2以上的版本，$data的长度不受限制，如果超过SW_BUFFER_SIZE，将自动写入临时文件
+					</p>
+				</blockquote>
 
-<h2>返回执行结果到worker进程</h2>
-<p>1.7.2以上的版本，在onTask函数中 return字符串，表示将此内容返回给worker进程。worker进程中会触发onFinish函数，表示投递的task已完成。</p>
-<p>1.7.2以前的版本，需要调用swoole_server->finish()函数将结果返回给worker进程</p>
+				<h2>返回执行结果到worker进程</h2>
+				<p>
+					1.7.2以上的版本，在onTask函数中 return字符串，表示将此内容返回给worker进程。worker进程中会触发onFinish函数，表示投递的task已完成。
+				</p>
+				<p>
+					1.7.2以前的版本，需要调用swoole_server->finish()函数将结果返回给worker进程
+				</p>
 
-</article>
-<hr>
-</div>
-</body>
+			</article>
+		</div>
+	</body>
 </html>

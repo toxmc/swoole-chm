@@ -2,7 +2,7 @@
 <head>
 <title>swoole框架 - 自定义路由</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>自定义路由</h1>
-            <hr>
+            
             <p>在Swoole::$php->runMVC() 调用之前可以修改默认的路由函数。</p>
             <pre class="brush: php;">Swoole::$php->router(function(){
     return array('controller' => 'YourController', 'view' => 'YourView');
@@ -30,7 +30,7 @@ Swoole::$php->runMVC();
             <pre class="brush: php;"> array('controller' => 'YourController', 'view' => 'YourView');
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

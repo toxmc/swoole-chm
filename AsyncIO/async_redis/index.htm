@@ -2,23 +2,23 @@
 <head>
 <title>异步Redis客户端</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>异步Redis客户端</h1>
-            <hr>
+            
             <p>
                 <code>Swoole-1.8.0</code>版本增加了对异步Redis客户端的支持，基于redis官方提供的
                 <a href="https://github.com/redis/hiredis">hiredis</a>库实现。Swoole提供了
                 <code>__call</code>魔术方法，来映射绝大部分Redis指令。
             </p>
             <h2>编译安装hiredis</h2>
-            <hr>
+            
             <p>使用Redis客户端，需要安装hiredis库。下载<code>hiredis</code>源码后，执行</p>
             <pre>make -j
 sudo make install
@@ -28,7 +28,7 @@ sudo ldconfig
                 <li>hiredis下载地址：<a href="https://github.com/redis/hiredis/releases">https://github.com/redis/hiredis/releases</a></li>
             </ul>
             <h2>启用异步Redis客户端</h2>
-            <hr>
+            
             <p>编译swoole是，在<code>configure</code>指令中加入<code>--enable-async-redis</code></p>
             <pre>./configure --enable-async-redis
 make clean
@@ -36,7 +36,7 @@ make -j
 sudo make install
             </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

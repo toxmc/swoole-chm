@@ -16,11 +16,11 @@
         SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>常量</h1>
-            <hr>
+            
             <h2>swoole_client::MSG_WAITALL</h2>
             <p>用于swoole_client->recv方法的第二个参数，阻塞等待直到收到指定长度的数据后返回。</p>
             <pre>$client-&gt;recv(8192, swoole_client::MSG_PEEK | swoole_client::MSG_DONTWAIT);</pre>
@@ -30,7 +30,7 @@
             <p>窥视socket缓存区中的数据。设置MSG_PEEK参数后，recv读取数据不会修改指针，因此下一次调用recv仍然会从上一次的位置起返回数据。</p>
             <h2>swoole_client::MSG_OOB</h2>
             <p>读取带外数据。</p>
-            <hr>
+            
         </article>
     </div>
 </body>

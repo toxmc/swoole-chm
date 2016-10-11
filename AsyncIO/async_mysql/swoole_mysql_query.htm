@@ -2,7 +2,7 @@
 <head>
 <title>swoole_mysql_query</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_mysql_query</h1>
-            <hr>
+            
             <p>
                 异步地执行一条SQL语言，需要依赖MySQLi和mysqlnd扩展。此函数是swoole底层提供的真异步函数。解决了PHP官方
                 <code>mysqli-&gt;reap_async_query</code>
@@ -34,7 +34,7 @@
                 <code>swoole_mysql_query</code>借助swoole提供的Epoll接口异步读取MySQL服务器的<code>RecordSet</code>，整个过程没有任何阻塞。
             </p>
             <h2>函数原型</h2>
-            <hr>
+            
             <pre class="brush: php;">function swoole_mysql_query(mysqli $link, string $sql, callable $callback);</pre>
             <ul>
                 <li>$link为已连接的mysqli对象</li>
@@ -46,7 +46,7 @@
                 <p>swoole_mysql_query需要swoole-1.8.0或更高版本，并且仅可用于CLI命令行环境</p>
             </blockquote>
             <h2>回调函数</h2>
-            <hr>
+            
             <pre class="brush: php;">function onSQLReady(mysqli $link, mixed $result);</pre>
             <ul>
                 <li>执行失败，<code>$result</code>为<code>false</code>，读取<code>$link</code>对象的<code>_error</code>属性获得错误信息，<code>_errno</code>属性获得错误码</li>
@@ -55,7 +55,7 @@
                 </li>
             </ul>
             <h2>使用示例</h2>
-            <hr>
+            
             <pre class="brush: php;">$db = new mysqli;
 
 $db-&gt;connect('127.0.0.1', 'root', 'root', 'test');
@@ -87,7 +87,7 @@ swoole_mysql_query($db, $sql, function(mysqli $db, $r) {
 });
             </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

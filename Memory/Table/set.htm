@@ -2,7 +2,7 @@
 <head>
 <title>swoole_table::set</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_table->set</h1>
-            <hr>
+            
             <p>设置行的数据，swoole_table使用key-value的方式来访问数据。</p>
             <pre class="brush: php;">swoole_table->set(string $key, array $array)
 </pre>
@@ -40,7 +40,7 @@ $table->set('hello@qq.com', array('id' => 189, 'name' => 'rango3', 'num' => 3.14
 </pre>
 
             <h2>设置超过最大长度字符串</h2>
-            <hr>
+            
             <p>如果传入字符串长度超过了列定义时设定的最大尺寸，底层会自动截断。</p>
             <p>示例：</p>
 <pre class="brush: php;">$table-&gt;column('str_value', swoole_table::TYPE_STRING, 5);
@@ -51,7 +51,7 @@ $table-&gt;set('hello', array('str_value' =&gt; 'world 123456789'));
                 <li>底层会自动截取5字节的数据，最终<code>str_value</code>的值为<code>world</code></li>
             </ul>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>在php-fpm或apache中使用swoole</h1>
-            <hr>
+            
             <p>swoole扩展中swoole_server只能在cli模式下使用，在其他模式下会抛出致命错误。
                 而swoole_client和swoole_event是可以用在php-fpm或apache+mod_php5中的。</p>
             <p>需要注意的是使用swoole_client异步和swoole_event，在所有数据收到并处理完后，一定要执行$client->close()、swoole_event_del或swoole_event_exit，否则swoole无法得知什么时候要停止epoll
@@ -61,7 +61,7 @@ echo "connect to 127.0.0.1:9501";
 //swoole_event_wait();
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

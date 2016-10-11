@@ -2,7 +2,7 @@
 <head>
 <title>swoole_client::connect</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_client->connect</h1>
-            <hr>
+            
             <p>连接到远程服务器，函数原型：</p>
             <pre class="brush: php;">bool $swoole_client->connect(string $host, int $port, float $timeout = 0.1, int $flag = 0)
 </pre>
@@ -46,7 +46,7 @@
             <p>connect会立即返回true。但实际上连接并未建立。所以不能在connect后使用send/recv。通过isConnected()判断也是false。</p>
             <p>当连接成功后，系统会自动回调onConnect。这时才可以使用send/recv。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

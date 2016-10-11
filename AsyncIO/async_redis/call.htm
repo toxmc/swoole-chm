@@ -2,7 +2,7 @@
 <head>
 <title>swoole_redis->__call</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_redis->__call</h1>
-            <hr>
+            
             <p>魔术方法，方法名会映射为Redis指令，参数作为Redis指令的参数。</p>
             <h2>函数原型</h2>
             <pre class="brush: php;">function swoole_redis-&gt;__call(string $command, array $params);</pre>
@@ -28,7 +28,7 @@
                 <li>$params的最后一个参数必须为可执行的函数，其他参数必须为字符串</li>
             </ul>
             <h2>订阅/发布消息</h2>
-            <hr>
+            
             <p>Redis服务器除了作为内存存储之外，还可以作为一个消息通道服务器。SwooleRedis客户端也支持了Redis的订阅/发布消息指令。</p>
             <p>与普通的存储指令不同，消息订阅/发布指令不是请求响应式的。</p>
             <ul>
@@ -57,7 +57,7 @@ $client-&gt;connect('127.0.0.1', 6379, function (swoole_redis $client, $result) 
 });
             </pre>
             <h2>回调函数</h2>
-            <hr>
+            
             <pre>function onReceive(swoole_redis $redis, bool $result);</pre>
             <ul>
                 <li>$redis: redis连接对象</li>
@@ -66,13 +66,13 @@ $client-&gt;connect('127.0.0.1', 6379, function (swoole_redis $client, $result) 
                 <li>执行成功，返回数据结果，可能是字符串、数组或true</li>
             </ul>
             <h2>使用示例</h2>
-            <hr>
+            
             <pre class="brush: php;">$client-&gt;get('key', function (swoole_redis $client, $result) {
     var_dump($result);
 });
             </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

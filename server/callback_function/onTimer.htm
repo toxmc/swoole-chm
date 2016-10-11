@@ -1,47 +1,52 @@
 <html>
-<head>
-  <title>onTimer</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>onTimer</h1>
-            <hr>
-            <p>定时器触发，函数原型为</p>
-            <pre class="brush: php;">function onTimer(swoole_server $server, int $interval);</pre>
-
-            <p>$interval是定时器时间间隔，根据$interval的值来区分是哪个定时器触发的。这里的定时器是由<br />$serv->addtimer来添加的，是固定间隔循环触发的。</p>
-            <p>例子：</p>
-
-            <pre class="brush: php;">
+	<head>
+		<title>onTimer</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>onTimer</h1>
+				<p>
+					定时器触发，函数原型为
+				</p>
+				<pre class="brush: php;">function onTimer(swoole_server $server, int $interval);</pre>				
+				<p>
+					$interval是定时器时间间隔，根据$interval的值来区分是哪个定时器触发的。这里的定时器是由
+					<br />
+					$serv->addtimer来添加的，是固定间隔循环触发的。
+				</p>
+				<p>
+					例子：
+				</p>
+				<pre class="brush: php;">
             $serv->on('timer', function($serv, $interval) {
                     echo "onTimer: $interval\n";
             });
             </pre>
 
-            <blockquote>
-                <p>
-                    onTimer中执行时间过长，会导致下一次定时延缓触发。如设定1秒的定时器，1秒后会触发onTimer，onTimer函数用时1.5s，那么第二次触发onTimer的时间为第3秒。中间第2秒的定时器会被丢弃<br />
-                    onTimer回调函数如果要执行一个耗时操作，最好是使用$serv->task投递到task进程池中执行
-                </p>
-            </blockquote>
+				<blockquote>
+					<p>
+						onTimer中执行时间过长，会导致下一次定时延缓触发。如设定1秒的定时器，1秒后会触发onTimer，onTimer函数用时1.5s，那么第二次触发onTimer的时间为第3秒。中间第2秒的定时器会被丢弃
+						<br />
+						onTimer回调函数如果要执行一个耗时操作，最好是使用$serv->task投递到task进程池中执行
+					</p>
+				</blockquote>
 
-        </article>
-        <hr>
-    </div>
-</body>
+			</article>
+		</div>
+	</body>
 </html>

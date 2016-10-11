@@ -2,7 +2,7 @@
 <head>
 <title>swoole_event_write</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_event_write</h1>
-            <hr>
+            
             <p>用于PHP自带stream/sockets扩展创建的socket，使用fwrite/socket_send等函数向对端发送数据。当发送的数据量较大，socket写缓存区已满，就会发送阻塞等待或者返回EAGAIN错误。</p>
             <p>swoole_event_write函数可以将stream/sockets资源的数据发送变成异步的，当缓冲区满了或者返回EAGAIN，swoole底层会将数据加入到发送队列，并监听可写。socket可写时swoole底层会自动写入。</p>
             <pre class="brush: php;">$fp = stream_socket_client('tcp://127.0.0.1:9501');
@@ -39,7 +39,7 @@ swoole_event_write($fp, $data);
                 </ul>
             </blockquote>
             <h2>SOCKET缓存区已满后，Swoole的底层逻辑</h2>
-            <hr>
+            
             <p>持续写入SOCKET如果对端读取不够快，那SOCKET缓存区会塞满。swoole底层会将数据存到内存缓存区中，直到可写事件触发再写入SOCKET。</p>
             <ul>
                 <li>内存缓存区尺寸可以在通过修改<code>php.ini</code> 中的 <code>swoole.socket_buffer_size</code>项进行配置，默认为8M</li>
@@ -49,7 +49,7 @@ swoole_event_write($fp, $data);
             <p>如果调用端希望不要阻塞，直接返回错误，可以使用<code>swoole_async_set</code>
             设置<code>socket_dontwait</code> 为<code>true</code>，write将不会阻塞而是直接返回<code>false</code></p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

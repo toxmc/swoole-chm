@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>Process</h1>
-            <hr>
+            
             <p>swoole-1.7.2增加了一个进程管理模块，用来替代PHP的pcntl扩展。</p>
             <h2>PHP自带的pcntl，存在很多不足，如</h2>
             <ul>
@@ -32,7 +32,7 @@
             </ul>
             <code>在php-fpm中使用swoole_process，子进程内不得echo，否则会出现错误</code>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

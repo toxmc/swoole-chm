@@ -467,7 +467,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -504,23 +504,23 @@ h6 {
 }
 
 h1,.h1 {
-  font-size: 36px;
+  font-size: 30px;
   border-bottom: solid 1px #CCC; padding-bottom: 10px;
 }
 
 h2,.h2 {
-  font-size: 30px;
+  font-size: 24px;
   border-bottom: solid 1px #EEE; padding-bottom: 10px;
 }
 
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 h5,
@@ -651,9 +651,9 @@ blockquote {
 }
 
 blockquote p {
-  font-size: 17.5px;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 1.25;
+  line-height: 22px;
 }
 
 blockquote p:last-child {
@@ -6807,4 +6807,9 @@ td.visible-print {
   td.hidden-print {
     display: none !important;
   }
+}
+blockquote {
+    border-left: 4px solid green;
+    padding: 0 15px;
+    color: green;
 }

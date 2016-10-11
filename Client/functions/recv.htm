@@ -2,7 +2,7 @@
 <head>
 <title>swoole_client::recv</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_client->recv</h1>
-            <hr>
+            
             <p>recv方法用于从服务器端接收数据。接受2个参数。函数原型为：</p>
             <pre class="brush: php;">//低于1.7.22
 string $swoole_client->recv(int $size = 65535, bool $waitall = 0);
@@ -53,7 +53,7 @@ string $swoole_client->recv(int $size = 65535, int $flags = 0);
             </p>
             <pre>$client-&gt;recv(8192, swoole_client::MSG_PEEK | swoole_client::MSG_WAITALL);</pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

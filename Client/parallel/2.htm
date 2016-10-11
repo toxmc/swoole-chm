@@ -2,7 +2,7 @@
 <head>
 <title>SWOOLE_KEEP建立TCP长连接</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -16,11 +16,11 @@
 </script>
 </head>
 
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>SWOOLE_KEEP建立TCP长连接</h1>
-            <hr>
+            
             <p>swoole_client支持在php-fpm/apache中创建一个TCP长连接到服务器端。使用方法：</p>
             <pre class="brush: php;">$client = new swoole_client(SWOOLE_SOCK_TCP | SWOOLE_KEEP);
 $client->connect('127.0.0.1', 9501);
@@ -32,7 +32,7 @@ $client->connect('127.0.0.1', 9501);
                 <li>降低服务器端close/connect次数</li>
             </ul>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

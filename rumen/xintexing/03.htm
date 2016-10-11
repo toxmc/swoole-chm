@@ -2,7 +2,7 @@
 <head>
 <title>1.7.3 onTask直接return取代finish函数</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>    
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>1.7.3 onTask直接return取代finish函数</h1>
-            <hr>
+            
             <p>1.7.3之后，task/finish可以支持超大包了。发送的数据不再限制为8192。</p>
             <p>另外swoole_server->finish函数已经废弃，采用直接在onTask回调函数中return字符串的方式。</p>
             <pre class="brush: php;">
@@ -31,7 +31,7 @@
             }
             </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

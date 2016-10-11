@@ -15,11 +15,11 @@
 	SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_server->handler</h1>
-            <hr>
+            
             <p>设置Server的事件回调函数，原型：</p>
             <pre class="brush: php;">bool swoole_server->handler(string $event_name, mixed $event_callback_function);
 bool swoole_server_handler(swoole_server $serv, string $event_name, mixed $event_callback_function);
@@ -51,7 +51,7 @@ $serv->handler('onStart', 'myClass::onStart');
             </blockquote>
             <code>警告：此方法在1.8.0版本中移除 </code>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

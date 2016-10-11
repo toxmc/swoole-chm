@@ -22,8 +22,8 @@
 				<p>
 					配置发送缓存区尺寸。
 				</p>
-				<pre><code>$server-&gt;set(array(
-    'buffer_output_size' =&gt; 32 * 1024 *1024, //必须为数字
+				<pre><code>$server->set(array(
+    'buffer_output_size' => 32 * 1024 *1024, //必须为数字
 ))</code></pre>
 				<p>
 					此配置影响swoole 2个方面
@@ -41,7 +41,7 @@
 						发送缓冲区塞满导致<code>send</code>
 						失败，只会影响当前的客户端，其他客户端不受影响
 						<br />
-						服务器有大量TCP连接时，最差的情况下将会占用<code>serv-&gt;max_connection *buffer_output_size</code>
+						服务器有大量TCP连接时，最差的情况下将会占用<code>serv->max_connection *buffer_output_size</code>
 						字节的内存
 					</p>
 				</blockquote>
@@ -57,7 +57,7 @@
 				</p>
 				<h2>单次发送的最大尺寸</h2>
 				<p>
-					调用<code>swoole_server-&gt;send</code>，<code>swoole_http_server-&gt;end/write</code>， <code>swoole_websocket_server-&gt;push</code>时，单次最大发送的数据不得超过<code>buffer_output_size</code> 配置。
+					调用<code>swoole_server->send</code>，<code>swoole_http_server->end/write</code>， <code>swoole_websocket_server->push</code>时，单次最大发送的数据不得超过<code>buffer_output_size</code> 配置。
 				</p>
 				<blockquote>
 					<p>

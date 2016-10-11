@@ -2,7 +2,7 @@
 <head>
 <title>swoole_http_client->upgrade</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_http_client->upgrade</h1>
-            <hr>
+            
             <p>发起WebSocket握手请求，并将连接升级为WebSocket。</p>
             <pre class="brush: php;">function swoole_http_client->upgrade(string $path, callable $callback);</pre>
             <ul>
@@ -28,7 +28,7 @@
                 <li>使用<code>Upgrade</code>方法必须设置<code>onMessage</code>回调函数</li>
             </ul>
             <h2>使用实例</h2>
-            <hr>
+            
             <pre class="brush: php;">$cli = new swoole_http_client('127.0.0.1', 9501);
 
 $cli-&gt;on('message', function ($_cli, $frame) {
@@ -41,7 +41,7 @@ $cli-&gt;upgrade('/', function ($cli) {
 });
 </pre>
             <h2>onMessage回调</h2>
-            <hr>
+            
             <pre class="brush: php;">function onMessage(swoole_http_client $client, swoole_websocket_frame $frame);</pre>
             <ul>
                 <li>$client 客户端对象，可调用<code>push</code>方法向服务器发送数据</li>
@@ -49,7 +49,7 @@ $cli-&gt;upgrade('/', function ($cli) {
             </ul>
 
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

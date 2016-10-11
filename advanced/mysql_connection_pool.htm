@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>MySQL的连接池、异步、断线重连</h1>
-            <hr>
+            
             <h2>MySQL长连接</h2>
             <p>MySQL短连接每次请求操作数据库都需要建立与MySQL服务器建立TCP连接，这是需要时间开销的。TCP连接需要3次网络通信。这样就增加了一定的延时和额外的IO消耗。请求结束后会关闭MySQL连接，还会发生3/4次网络通信。</p>
             <blockquote>
@@ -75,7 +75,7 @@
                 </p>
             </blockquote>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <head>
 <title>TCP客户端异步连接</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>TCP客户端异步连接</h1>
-            <hr>
+            
             <p>通过使用on方法注册异步回调函数。多个swoole_client可以嵌套回调。异步模式仅可用于cli模式，如在swoole_process或swoole_server中。</p>
             <p>示例：</p>
             <pre class="brush: php;">&lt;?php
@@ -48,7 +48,7 @@ $client->on("error", function($cli){
 $client->connect('127.0.0.1', 9501, 0.5);
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

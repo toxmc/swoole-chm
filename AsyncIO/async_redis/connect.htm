@@ -2,7 +2,7 @@
 <head>
 <title>swoole_redis->connect</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,14 +15,14 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_redis->connect</h1>
-            <hr>
+            
             <p>连接到Redis服务器</p>
             <h2>函数原型</h2>
-            <hr>
+            
             <pre class="brush: php;">function swoole_redis-&gt;connect(string $host, int $port, callable $callback);</pre>
             <ul>
                 <li>$host: Redis服务器的主机IP</li>
@@ -30,7 +30,7 @@
                 <li>$callback: 连接成功后回调的函数</li>
             </ul>
             <h2>回调函数</h2>
-            <hr>
+            
             <pre class="brush: php;">function onConnect(swoole_redis $redis, bool $result);</pre>
             <ul>
                 <li>$redis: redis连接对象</li>
@@ -39,7 +39,7 @@
             </ul>
             <p>连接成功后就可以执行Redis指令了。</p>
             <h2>使用示例</h2>
-            <hr>
+            
             <pre class="brush: php;">$client = new swoole_redis;
 $client-&gt;connect('127.0.0.1', 6379, function (swoole_redis $client, $result) {
     if ($result === false) {
@@ -52,7 +52,7 @@ $client-&gt;connect('127.0.0.1', 6379, function (swoole_redis $client, $result) 
 });
             </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

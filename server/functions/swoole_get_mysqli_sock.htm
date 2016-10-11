@@ -2,7 +2,7 @@
 <head>
 <title>swoole_get_mysqli_sock</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
 	SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_get_mysqli_sock</h1>
-            <hr>
+            
             <p>用于获取MySQLi的socket文件描述符。可将mysql的socket增加到swoole中，执行异步MySQL查询。</p>
             <pre class="brush: php;">int swoole_get_mysqli_sock(mysqli $db)
 </pre>
@@ -56,7 +56,7 @@ $db->query("select * from test", MYSQLI_ASYNC);
             <h2>异步并行MySQL是否只用1个连接即可？</h2>
             <p>这是错误的理解，即使是异步MySQL也需要一个连接池。正如上一条信息所示，并发SQL必须有多个连接。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

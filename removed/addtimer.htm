@@ -15,11 +15,11 @@
 	SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_server->addtimer</h1>
-            <hr>
+            
             <p>设置定时器。1.6.12版本前此函数不能用在消息队列模式下，1.6.12后消息队列IPC模式也可以使用定时器。</p>
             <pre class="brush: php;">bool swoole_server->addtimer(int $interval);
 bool swoole_server_addtimer(swoole_server $serv, int $interval);
@@ -55,7 +55,7 @@ function my_OnTimer($serv, $interval)
 </pre>
 <code>在版本1.8.0中已移除</code>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

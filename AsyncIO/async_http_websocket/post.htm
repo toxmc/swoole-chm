@@ -2,7 +2,7 @@
 <head>
 <title>swoole_http_client->post</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_http_client->post</h1>
-            <hr>
+            
             <p>发起POST请求，函数原型：</p>
             <pre class="brush: php;">function swoole_http_client->post(string $path, mixed $data, callable $callback);</pre>
             <ul>
@@ -29,7 +29,7 @@
                 <li>使用post会忽略<code>setMethod</code>设置的请求方法，强制使用<code>POST</code></li>
             </ul>
             <h2>使用实例</h2>
-            <hr>
+            
             <pre class="brush: php;">$cli = new swoole_http_client('127.0.0.1', 80); 
 $cli-&gt;post('/post.php', array("a" =&gt; '1234', 'b' =&gt; '456'), function ($cli) {
     echo "Length: " . strlen($cli-&gt;body) . "\n";
@@ -37,7 +37,7 @@ $cli-&gt;post('/post.php', array("a" =&gt; '1234', 'b' =&gt; '456'), function ($
 });
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

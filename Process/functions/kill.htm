@@ -2,7 +2,7 @@
 <head>
 <title>swoole_process::kill</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_process::kill</h1>
-            <hr>
+            
             <p>向子进程发送信号</p>
             <pre class="brush: php;">int swoole_process::kill($pid, $signo = SIGTERM);
 </pre>
@@ -31,7 +31,7 @@
             <p>子进程退出后，父进程务必要执行swoole_process::wait进行回收，否则这个子进程就会变为僵尸进程（孤儿进程）。会浪费操作系统的进程资源。</p>
             <p>父进程可以设置SIGCHLD信号，收到信号后执行swoole_process::wait回收退出的子进程。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

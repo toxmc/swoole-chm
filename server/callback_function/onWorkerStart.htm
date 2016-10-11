@@ -1,47 +1,51 @@
 <html>
-<head>
-  <title>onWorkerStart</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <meta name="GENERATOR" content="Macrobject Word-2-CHM">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
-</head>
+	<head>
+		<title>onWorkerStart</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
 
-<body style='text-justify-trim: punctuation'>
+	<body>
 
-    <div class="wiki_content">
-        <article>
-            <h1>onWorkerStart</h1>
-            <hr>
-            <p>此事件在worker进程/task进程启动时发生。这里创建的对象可以在进程生命周期内使用。原型：</p>
+		<div class="wiki_content">
+			<article>
+				<h1>onWorkerStart</h1>
+				<p>
+					此事件在worker进程/task进程启动时发生。这里创建的对象可以在进程生命周期内使用。原型：
+				</p>
+				<pre class="brush: php;">function onWorkerStart(swoole_server $server, int $worker_id);</pre>
 
-            <pre class="brush: php;">function onWorkerStart(swoole_server $server, int $worker_id);</pre>
-            <blockquote>
-                <p>
-                    swoole1.6.11之后task_worker中也会触发onWorkerStart<br/>
-	                                        发生PHP致命错误或者代码中主动调用exit时，Worker/Task进程会退出，管理进程会重新创建新的进程<br/>
-                    onWorkerStart/onStart是并发执行的，没有先后顺序
-                </p>
-            </blockquote>
+				<blockquote>
+					<p>
+						swoole1.6.11之后task_worker中也会触发onWorkerStart
+						<br/>
+						发生PHP致命错误或者代码中主动调用exit时，Worker/Task进程会退出，管理进程会重新创建新的进程
+						<br/>
+						onWorkerStart/onStart是并发执行的，没有先后顺序
+					</p>
+				</blockquote>
 
-            <p>
-                                        通过$worker_id参数的值来，判断worker是普通worker还是task_worker。
-                <code>$worker_id >= $serv->setting['worker_num']</code>时表示这个进程是task_worker.
-            </p>
+				<p>
+					通过$worker_id参数的值来，判断worker是普通worker还是task_worker。
+					<code>$worker_id >= $serv->setting['worker_num']</code>时表示这个进程是task_worker.
+				</p>
 
-            <p>下面的示例用于为task_worker和worker进程重命名。</p>
-
-            <pre class="brush: php;">$serv->on('WorkerStart', function ($serv, $worker_id){
+				<p>
+					下面的示例用于为task_worker和worker进程重命名。
+				</p>
+				<pre class="brush: php;">$serv->on('WorkerStart', function ($serv, $worker_id){
     global $argv;
     if($worker_id >= $serv->setting['worker_num']) {
         swoole_set_process_name("php {$argv[0]} task worker");
@@ -51,22 +55,23 @@
 });
 </pre>
 
-            <p>如果想使用swoole_server_reload实现代码重载入，必须在workerStart中require你的业务文件，而不是在文件头部。在onWorkerStart调用之前已包含的文件，不会重新载入代码。</p>
+				<p>
+					如果想使用swoole_server_reload实现代码重载入，必须在workerStart中require你的业务文件，而不是在文件头部。在onWorkerStart调用之前已包含的文件，不会重新载入代码。
+				</p>
 
-            <blockquote>
-                <p>
-                    可以将公用的，不易变的php文件放置到onWorkerStart之前。这样虽然不能重载入代码，但所有worker是共享的，不需要额外的内存来保存这些数据。<br />
-                    onWorkerStart之后的代码每个worker都需要在内存中保存一份
-                </p>
-            </blockquote>
+				<blockquote>
+					<p>
+						可以将公用的，不易变的php文件放置到onWorkerStart之前。这样虽然不能重载入代码，但所有worker是共享的，不需要额外的内存来保存这些数据。
+						<br />
+						onWorkerStart之后的代码每个worker都需要在内存中保存一份
+					</p>
+				</blockquote>
 
-            <ul>
-                <li>$worker_id是一个从0-$worker_num之间的数字，表示这个worker进程的ID</li>
-                <li>$worker_id和进程PID没有任何关系</li>
-            </ul>
-
-        </article>
-        <hr>
-    </div>
-</body>
+				<ul>
+					<li>$worker_id是一个从0-$worker_num之间的数字，表示这个worker进程的ID</li>
+					<li>$worker_id和进程PID没有任何关系</li>
+				</ul>
+			</article>
+		</div>
+	</body>
 </html>

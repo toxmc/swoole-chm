@@ -2,7 +2,7 @@
 <head>
 <title>如何在回调函数中访问外部的变量</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
 	SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>如何在回调函数中访问外部的变量</h1>
-            <hr>
+            
             <p>在swoole_server/swoole_client的事件回调函数中，需要读取调用外部的变量和对象，可以通过下面的几种方法实现。</p>
             <h2>一、事件回调函数改用对象+属性</h2>
             <pre class="brush: php;">class Server
@@ -85,7 +85,7 @@ $serv->on('receive', function($serv, $fd, $from_id, $data) use ($buffer) {
 });
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

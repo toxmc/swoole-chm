@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>TCP/UDP压测工具</h1>
-            <hr>
+            
             <p>swoole提供了一套TCP/UDP压测工具，代码在examples/bench/run.php中，基于swoole_client实现。与ab，http_bench等工具不同，bench.php是基于多进程实现并发测试的。
                 使用方法：</p>
             <pre class="brush: php;">php bench.php -c 100 -n 10000 -s tcp://127.0.0.1:9501 -f long_tcp
@@ -33,7 +33,7 @@ req per second: 63558 //qps，每秒处理的请求数
 one req use(ms):    0.015  //单个请求的平均时长，此结果目前不准确，请勿作为参考
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

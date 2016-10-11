@@ -1,37 +1,38 @@
 <html>
-<head>
-  <title>onConnect</title>
-  <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
-  <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-  <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-    <script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-    <script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-    <script type="text/javascript">
-        SyntaxHighlighter.defaults['gutter'] = false;
-        SyntaxHighlighter.defaults['toolbar'] = false;
-        SyntaxHighlighter.all();
-    </script>
-</head>
+	<head>
+		<title>onConnect</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
 
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>onConnect</h1>
-            <hr>
-            <p>有新的连接进入时，在worker进程中回调。函数原型：</p>
-            <pre class="brush: php;">function onConnect(swoole_server $server, int $fd, int $from_id);</pre>
-            <ul>
-                <li>$server是swoole的资源对象</li>
-                <li>$fd是连接的文件描述符，发送数据/关闭连接时需要此参数</li>
-                <li>$from_id来自那个Reactor线程</li>
-            </ul>
-            <p>例子：</p>
-            <pre class="brush: php;">
-&lt;?php
-$serv = new swoole_server("127.0.0.1", 9501);
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>onConnect</h1>
+				<p>
+					有新的连接进入时，在worker进程中回调。函数原型：
+				</p>
+				<pre class="brush: php;">function onConnect(swoole_server $server, int $fd, int $from_id);</pre>
+				<ul>
+					<li>$server是swoole的资源对象</li>
+					<li>$fd是连接的文件描述符，发送数据/关闭连接时需要此参数</li>
+					<li>$from_id来自那个Reactor线程</li>
+				</ul>
+				<p>
+					例子：
+				</p>
+				<pre class="brush: php;">$serv = new swoole_server("127.0.0.1", 9501);
 $serv->set(array(
     'worker_num' => 8,   //工作进程数量
     'daemonize' => true, //是否作为守护进程
@@ -47,21 +48,21 @@ $serv->on('close', function ($serv, $fd) {
     echo "Client: Close.\n";
 });
 $serv->start();
-</pre>
-
-            <ul>
-                <li>关于$fd和$from_id<a href="../../server/advanced_feature/2.htm">详细的解释</a></li>
-                <li>onConnect/onClose这2个回调发生在worker进程内，而不是主进程。</li>
-                <li>UDP协议下只有onReceive事件，没有onConnect/onClose事件</li>
-            </ul>
-            <h2>dispatch_mode = 1/3</h2>
-            <p>在1.7.15以上版本中，当设置dispatch_mode =1/3时会自动去掉onConnect/onClose事件回调。原因是：</p>
-            <ul>
-                <li>在此模式下onConnect/onReceive/onClose可能会被投递到不同的进程。连接相关的PHP对象数据，无法实现在onConnect回调初始化数据，onClose清理数据</li>
-                <li>onConnect/onReceive/onClose 3种事件可能会并发执行，可能会带来异常</li>
-            </ul>
-        </article>
-        <hr>
-    </div>
-</body>
+</pre>				
+				<ul>
+					<li>关于$fd和$from_id<a href="../../server/advanced_feature/2.htm">详细的解释</a></li>
+					<li>onConnect/onClose这2个回调发生在worker进程内，而不是主进程。</li>
+					<li>UDP协议下只有onReceive事件，没有onConnect/onClose事件</li>
+				</ul>
+				<h2>dispatch_mode = 1/3</h2>
+				<p>
+					在1.7.15以上版本中，当设置dispatch_mode =1/3时会自动去掉onConnect/onClose事件回调。原因是：
+				</p>
+				<ul>
+					<li>在此模式下onConnect/onReceive/onClose可能会被投递到不同的进程。连接相关的PHP对象数据，无法实现在onConnect回调初始化数据，onClose清理数据</li>
+					<li>onConnect/onReceive/onClose 3种事件可能会并发执行，可能会带来异常</li>
+				</ul>
+			</article>
+		</div>
+	</body>
 </html>

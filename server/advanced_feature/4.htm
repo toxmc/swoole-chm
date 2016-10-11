@@ -2,16 +2,16 @@
 <head>
   <title>Worker与Reactor通信模式</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>Worker与Reactor通信模式</h1>
-            <hr>
+            
             <p>worker进程如何与reactor进程通信，Swoole提供了3种方式。通过swoole_server_set参数中修改dispatch_mode的值来配置。</p>
             <h2>轮询模式：dispatch_mode = 1</h2>
             <p>收到的请求数据包会轮询发到每个Worker进程。</p>
@@ -24,7 +24,7 @@
                 这个模式的缺点是，客户端连接对应的worker是随机的。不确定哪个worker会处理请求。无法保存连接状态。
                 当然也可以借助第三方库来实现保存连接状态和会话内容，比如apc/redis/memcache。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

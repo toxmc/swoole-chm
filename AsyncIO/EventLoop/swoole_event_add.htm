@@ -2,7 +2,7 @@
 <head>
 <title>swoole_event_add</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_event_add</h1>
-            <hr>
+            
             <p>swoole_event_add函数用于将一个socket加入到swoole的reactor事件监听中。此函数可以用在Server或Client模式下。
                 函数原型：</p>
             <pre class="brush: php;">bool swoole_event_add(int $sock, mixed $read_callback, mixed $write_callback = null, int $event_flag = null);
@@ -66,7 +66,7 @@ swoole_event_add(swoole_get_mysqli_sock($db2), function($db_sock) {
 echo "Finish\n";  //swoole_event_add不会阻塞进程，这行代码会顺序执行
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

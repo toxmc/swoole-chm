@@ -2,7 +2,7 @@
 <head>
 <title>Nginx/Golang/Swoole/Node.js的性能对比</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
 	SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>Nginx/Golang/Swoole/Node.js的性能对比</h1>
-            <hr>
+            
             <p>通过ab工具分别压测nginx swoole node.js golang的http
                 server，并观察结果。 web server都是输出一行It work!
                 硬件环境是一台8G/4核酷睿I5CPU的笔记本电脑，型号是Thinkpad T430.</p>
@@ -57,7 +57,7 @@ Node.js:    Requests per second:    6680.53 [#/sec] (mean)
                 <p>在最新的swoole-1.7.6+版本中，基准压力测试swoole无论是短连接还是长连接，均已超过了Golang。在下一个版本发布后，将会重新发布性能测试报告。</p>
             </blockquote>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

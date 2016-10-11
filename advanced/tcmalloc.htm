@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
         <h1>使用tcmalloc提升swoole内存分配性能</h1>
-        <hr>
+        
         <h2>关于tcmalloc</h2>
 
         <p><code>TCMalloc (google-perftools)</code>是用于优化C/C++写的多线程应用，比glibc的malloc快。这个模块可以用来让Swoole服务器程序在高并发下内存占用更加稳定。</p>
@@ -38,7 +38,7 @@ sudo ldconfig
         <p><strong>1.8.0或更高版本</strong>
         编译参数增加<code>--enable-tcmalloc</code></p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

@@ -16,11 +16,11 @@
         SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>Client</h1>
-            <hr>
+            
             <p>swoole_client提供了tcp/udp socket的客户端的封装代码，使用时仅需 new
                 swoole_client即可。 swoole的socket
                 client对比PHP提供的stream族函数有哪些好处：</p>
@@ -62,7 +62,7 @@ $client->on("close", function(swoole_client $cli){
 $client->connect('127.0.0.1', 9501);
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

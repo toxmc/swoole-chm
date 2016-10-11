@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>Nginx+Swoole服务器配置</h1>
-            <hr>
+            
             <p>nginx配置：</p>
             <pre class="brush: php;">server {
     listen  80;
@@ -35,7 +35,7 @@
 </pre>
             <p>9501就是swoole服务器监听的地址。root设置为静态文件的目录。当请求静态文件是由Nginx直接处理，当请求的文件不存在时，发送给Swoole服务器，来进行处理。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

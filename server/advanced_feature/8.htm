@@ -2,7 +2,7 @@
 <head>
   <title>捕获Server运行期致命错误</title>
   <meta http-equiv=Content-Type content="text/html; charset=gbk">
-  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+  <link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
   <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -16,11 +16,11 @@
     </script>
 </head>
 
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>捕获Server运行期致命错误</h1>
-            <hr>
+            
             <p>Server运行期一旦发生致命错误，那客户端连接将无法得到回应。如Web服务器，如果有致命错误应当向客户端发送Http 500 错误信息。</p>
             <p>在PHP中可以通过<code>register_shutdown_function</code>+<code>error_get_last</code>
                 2个函数来捕获致命错误，并将错误信息发送给客户端连接。具体代码示例如下：</p>
@@ -74,7 +74,7 @@ function handleFatal()
 }
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

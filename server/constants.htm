@@ -1,73 +1,65 @@
 <html>
-<head>
-<title>Swoole - 预定义常量</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
-</head>
-<body style='text-justify-trim: punctuation'>
-    <div class="wiki_content">
-        <article>
-            <h1>预定义常量</h1>
-            <hr>
-            <ul>
-                <li><p><strong>SWOOLE_VERSION</strong>当前Swoole的版本号，字符串类型，如1.6.0</p></li>
-                <li>
-                    <code>new swoole_server 构造函数参数</code>
-                    <ul>
-                        <li><strong>SWOOLE_BASE</strong>使用Base模式，业务代码在Reactor中直接执行</li>
-                        <li><strong>SWOOLE_THREAD</strong>使用线程模式，业务代码在Worker线程中执行</li>
-                        <li><strong>SWOOLE_PROCESS</strong>使用进程模式，业务代码在Worker进程中执行</li>
-                    </ul>
-                </li>
-                <li>
-                    <code>new swoole_client 构造函数参数</code>
-                    <ul>
-                        <li><strong>SWOOLE_SOCK_TCP</strong>创建tcp socket</li>
-                        <li><strong>SWOOLE_SOCK_TCP6</strong>创建tcp ipv6 socket</li>
-                        <li><strong>SWOOLE_SOCK_UDP</strong>创建udp socket</li>
-                        <li><strong>SWOOLE_SOCK_UDP6</strong>创建udp ipv6 socket</li>
-                        <li><strong>SWOOLE_SOCK_SYNC</strong>同步客户端</li>
-                        <li><strong>SWOOLE_SOCK_ASYNC</strong>异步客户端</li>
-                    </ul></li>
-                <li>
-                    <code>new swoole_lock构造函数参数</code>
-                    <ul>
-                        <li><strong>SWOOLE_FILELOCK</strong> 创建文件锁</li>
-                        <li><strong>SWOOLE_MUTEX</strong> 创建互斥锁</li>
-                        <li><strong>SWOOLE_RWLOCK</strong> 创建读写锁</li>
-                        <li><strong>SWOOLE_SPINLOCK</strong> 创建自旋锁</li>
-                        <li><strong>SWOOLE_SEM</strong> 创建信号量</li>
-                    </ul>
-                </li>
-                <li>
-                    <code>SSL加密方法</code>
-                    <ul>
-                        <li>SWOOLE_SSLv3_METHOD</li>
-                        <li>SWOOLE_SSLv3_SERVER_METHOD</li>
-                        <li>SWOOLE_SSLv3_CLIENT_METHOD</li>
-                        <li>SWOOLE_SSLv23_METHOD（默认加密方法）</li>
-                        <li>SWOOLE_SSLv23_SERVER_METHOD</li>
-                        <li>SWOOLE_SSLv23_CLIENT_METHOD</li>
-                        <li>SWOOLE_TLSv1_METHOD</li>
-                        <li>SWOOLE_TLSv1_SERVER_METHOD</li>
-                        <li>SWOOLE_TLSv1_CLIENT_METHOD</li>
-                        <li>SWOOLE_TLSv1_1_METHOD</li>
-                        <li>SWOOLE_TLSv1_1_SERVER_METHOD</li>
-                        <li>SWOOLE_TLSv1_1_CLIENT_METHOD</li>
-                        <li>SWOOLE_TLSv1_2_METHOD</li>
-                        <li>SWOOLE_TLSv1_2_SERVER_METHOD</li>
-                        <li>SWOOLE_TLSv1_2_CLIENT_METHOD</li>
-                        <li>SWOOLE_DTLSv1_METHOD</li>
-                        <li>SWOOLE_DTLSv1_SERVER_METHOD</li>
-                        <li>SWOOLE_DTLSv1_CLIENT_METHOD</li>
-                    </ul>
-                </li>
-            </ul>
-        </article>
-        <hr>
-    </div>
-</body>
+	<head>
+		<title>Swoole - 预定义常量</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk" />
+		<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+		<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>预定义常量</h1>
+				<ul>
+					<li>
+						<code>SWOOLE_VERSION当前Swoole的版本号，字符串类型，如1.6.0</code>
+					</li>
+					<li><code>new swoole_server 构造函数参数</code>
+						<ul>
+							<li><strong>SWOOLE_BASE</strong>使用Base模式，业务代码在Reactor中直接执行</li>
+							<li><strong>SWOOLE_PROCESS</strong>使用进程模式，业务代码在Worker进程中执行</li>
+						</ul></li>
+					<li><code>new swoole_client 构造函数参数</code>
+						<ul>
+							<li><strong>SWOOLE_SOCK_TCP</strong>创建tcp socket</li>
+							<li><strong>SWOOLE_SOCK_TCP6</strong>创建tcp ipv6 socket</li>
+							<li><strong>SWOOLE_SOCK_UDP</strong>创建udp socket</li>
+							<li><strong>SWOOLE_SOCK_UDP6</strong>创建udp ipv6 socket</li>
+							<li><strong>SWOOLE_SOCK_SYNC</strong>同步客户端</li>
+							<li><strong>SWOOLE_SOCK_ASYNC</strong>异步客户端</li>
+						</ul></li>
+					<li><code>new swoole_lock构造函数参数</code>
+						<ul>
+							<li><strong>SWOOLE_FILELOCK</strong> 创建文件锁</li>
+							<li><strong>SWOOLE_MUTEX</strong> 创建互斥锁</li>
+							<li><strong>SWOOLE_RWLOCK</strong> 创建读写锁</li>
+							<li><strong>SWOOLE_SPINLOCK</strong> 创建自旋锁</li>
+							<li><strong>SWOOLE_SEM</strong> 创建信号量</li>
+						</ul></li>
+					<li><code>SSL加密方法</code>
+						<ul>
+							<li>SWOOLE_SSLv3_METHOD</li>
+							<li>SWOOLE_SSLv3_SERVER_METHOD</li>
+							<li>SWOOLE_SSLv3_CLIENT_METHOD</li>
+							<li>SWOOLE_SSLv23_METHOD（默认加密方法）</li>
+							<li>SWOOLE_SSLv23_SERVER_METHOD</li>
+							<li>SWOOLE_SSLv23_CLIENT_METHOD</li>
+							<li>SWOOLE_TLSv1_METHOD</li>
+							<li>SWOOLE_TLSv1_SERVER_METHOD</li>
+							<li>SWOOLE_TLSv1_CLIENT_METHOD</li>
+							<li>SWOOLE_TLSv1_1_METHOD</li>
+							<li>SWOOLE_TLSv1_1_SERVER_METHOD</li>
+							<li>SWOOLE_TLSv1_1_CLIENT_METHOD</li>
+							<li>SWOOLE_TLSv1_2_METHOD</li>
+							<li>SWOOLE_TLSv1_2_SERVER_METHOD</li>
+							<li>SWOOLE_TLSv1_2_CLIENT_METHOD</li>
+							<li>SWOOLE_DTLSv1_METHOD</li>
+							<li>SWOOLE_DTLSv1_SERVER_METHOD</li>
+							<li>SWOOLE_DTLSv1_CLIENT_METHOD</li>
+						</ul></li>
+				</ul>
+			</article>
+		</div>
+	</body>
 </html>

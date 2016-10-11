@@ -2,16 +2,16 @@
 <head>
 <title>关于onConnect/onReceive/onClose顺序</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>关于onConnect/onReceive/onClose顺序</h1>
-            <hr>
+            
             <p>在swoole服务器程序中，如果不修改dispatch_mode选项。底层是可以保证同一个socket连接的onConnect/onReceive/onClose绝对有序。</p>
             <h2>onConnect</h2>
             <p>连接进入后首先从主进程Accept，然后通知到Worker进程。之后才会将socket加入事件循环，监听可写。所以当收到的数据到达之前，Worker进程一定会先收到onConnect指令。</p>
@@ -34,7 +34,7 @@
             <h2>管道塞满并启用缓存时</h2>
             <p>reactor和worker之间的管道如果发生塞满，这时会启用内存缓存队列。数据发送操作可能仍然在缓存队列中，并未发送到reactor线程。这是再发起close，那么关闭确认的消息也会加入缓存队列等待发送。所有指令都是有序的。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

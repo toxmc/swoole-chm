@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>WebSocket</h1>
-            <hr>
+            
             <p>Swoole框架提供了WebSocket协议的实现。具体代码可以参考
                 examples/websocket_server.php和examples/websocket_client.hml。</p>
             <h2>如何使用</h2>
@@ -32,7 +32,7 @@ $this->send($client_id, $response_string) //向某个客户端发送数据
 </pre>
             <p>如果你的代码中没有阻塞，建议使用Swoole扩展的SWOOLE_BASE模式，如果业务代码中存在阻塞操作，请使用SWOOLE_PROCESS模式，并根据实际处理时间，设置worker_num参数，启用多进程。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

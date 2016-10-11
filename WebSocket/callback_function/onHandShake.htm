@@ -2,7 +2,7 @@
 <head>
 <title>WebSocket::onHandShake</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>onHandShake</h1>
-            <hr>
+            
             <p>WebSocket建立连接后进行握手。WebSocket服务器已经内置了handshake，如果用户希望自己进行握手处理，可以设置onHandShake事件回调函数。</p>
             <pre class="brush: php;">function onHandShake(swoole_http_request $request, swoole_http_response $response);</pre>
             <ul>
@@ -33,7 +33,7 @@
               <p>1.8.1或更高版本可以使用<code>server-&gt;defer</code>调用<code>onOpen</code>逻辑</p>
             </blockquote>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

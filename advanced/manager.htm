@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>Manager进程</h1>
-            <hr>
+            
             <p>swoole中worker/task进程都是由Manager进程Fork并管理的。</p>
             <ul>
                 <li>子进程结束运行时，manager进程负责回收此子进程，避免成为僵尸进程。并创建新的子进程</li>
@@ -22,7 +22,7 @@
                 <p>为什么不是Master进程呢，主要原因是Master进程是多线程的，不能安全的执行fork操作。</p>
             </blockquote>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

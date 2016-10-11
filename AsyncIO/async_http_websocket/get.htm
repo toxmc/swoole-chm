@@ -2,7 +2,7 @@
 <head>
 <title>swoole_http_client->get</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_http_client->get</h1>
-            <hr>
+            
             <p>发起GET请求，函数原型：</p>
             <pre class="brush: php;">function swoole_http_client->get(string $path, callable $callback);</pre>
             <ul>
@@ -28,7 +28,7 @@
                 <li>使用get会忽略<code>setMethod</code>设置的请求方法，强制使用<code>GET</code></li>
             </ul>
             <h2>使用实例</h2>
-            <hr>
+            
 <pre class="brush: php;">$cli = new swoole_http_client('127.0.0.1', 80);
 $cli-&gt;setHeaders([
     'Host' =&gt; "localhost",
@@ -43,7 +43,7 @@ $cli-&gt;get('/index.php', function ($cli) {
 });
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

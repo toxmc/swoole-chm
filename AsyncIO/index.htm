@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>AsyncIO</h1>
-            <hr>
+            
             <p>swoole1.6.12后增加了异步文件读写，异步DNS等特性。自此建立了完整的异步并行API。</p>
             <ul>
                 <li>swoole_server的<code>Task进程</code>是同步阻塞的，没有<code>EventLoop</code>，因此无法使除定时器之外的用任何异步IO
@@ -50,7 +50,7 @@
 }
 </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <head>
 <title>1.7.3 固定包头+包体协议自动分包</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>    
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>1.7.3 固定包头+包体协议自动分包</h1>
-            <hr>
+            
             <p>swoole-1.7.3版本重构了length_check特性的代码，对于固定包头+包体格式的协议可以直接在master进程中进行分包和组包，worker进程中可以一次性收到一个完整的包。配合dispatch_mode
                 = 1或3，swoole提供了一个强大的半异步/半同步服务器模型。带来的好处是：</p>
             <ul>
@@ -49,7 +49,7 @@
             <p>dispatch_mode = 1 或 3
                 1：轮询分配，会逐个分配到所有worker，3：争抢分配，仅分配给空闲状态的worker</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>WebSocket</h1>
-            <hr>
+            
             <p>swoole-1.7.9 增加了内置的websocket服务器支持，通过几行PHP代码就可以写出一个异步非阻塞多进程的WebSocket服务器。</p>
             <pre class="brush: php;">$server = new swoole_websocket_server("0.0.0.0", 9501);
 
@@ -40,14 +40,14 @@ $server->start();
 </pre>
 
         <h2>onRequest回调</h2>
-        <hr>
+        
         <p>swoole_websocket_server 继承自 swoole_http_server</p>
         <ul>
             <li>设置了onRequest回调，websocket服务器也可以同时作为http服务器</li>
             <li>未设置onRequest回调，websocket服务器收到http请求后会返回<code>http 400</code>错误页面</li>
         </ul>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

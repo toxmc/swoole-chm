@@ -7,11 +7,11 @@
 <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>Task/Finish特性的用途</h1>
-            <hr>
+            
             <p>task模块用来做一些异步的慢速任务，比如webim中发广播，发送邮件等。</p>
             <ul>
                 <li>task进程必须是同步阻塞的</li>
@@ -22,7 +22,7 @@
             <p>而swoole不同，丢给task进程之后，worker进程可以继续处理新的数据请求。任务完成后会异步地通知worker进程告诉它此任务已经完成。</p>
             <p>当然task模块的作用还不仅如此，实现PHP的数据库连接池，异步队列等，还需要进一步挖掘。</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

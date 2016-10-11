@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>table($table_name)</h1>
-            <hr>
+            
             <p>使用数据库表名来创建一个Model，这个函数与model不同，它不需要apps/models/目录中有对应的PHP文件。直接可生成Model对象。</p>
             <pre class="brush: php;">$object = table('user_info');
 $object->get(10001);
@@ -29,7 +29,7 @@ $object->get(10001);
                 select * from user_info where id = 10001 limit 1
             </pre>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

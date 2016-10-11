@@ -7,20 +7,20 @@
 <link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>v1.7</h1>
-            <hr>
+            
             <h2>1.7.4-beta</h2>
-            <hr>
+            
             <ul>
                 <li>Task进程支持定时器</li>
                 <li>修复UDP发送错误的BUG</li>
                 <li>增加SSL-server的支持</li>
             </ul>
             <h2>1.7.4-alpha</h2>
-            <hr>
+            
             <ul>
                 <li>reload对task_worker有效</li>
                 <li>当管道写满是进行poll等待可写，而不是丢包</li>
@@ -28,7 +28,7 @@
                 <li>修复shutdown过程task_worker/manager非正常结束问题</li>
             </ul>
             <h2>1.7.3</h2>
-            <hr>
+            
             <ul>
                 <li>增加swoole_process->exec接口</li>
                 <li>修复连接后立即关闭的BUG</li>
@@ -37,7 +37,7 @@
                 <li>修复length_check错误问题</li>
             </ul>
             <h2>1.7.2</h2>
-            <hr>
+            
             <ul>
                 <li>增加swoole_process模块</li>
                 <li>支持标准输入输出重定向</li>
@@ -46,7 +46,7 @@
                 <li>修复心跳检测未关闭socket的BUG</li>
             </ul>
             <h2>1.7.1</h2>
-            <hr>
+            
             <ul>
                 <li>增加unix sock监听的支持</li>
                 <li>增加swoole_event_set函数</li>
@@ -55,7 +55,7 @@
                 <li>可动态配置IPC方式, 选择消息队列/UnixSock管道</li>
             </ul>
             <h2>1.7.0 &amp; 1.6.12</h2>
-            <hr>
+            
             <ul>
                 <li>reactor线程与writer线程合并</li>
                 <li>对send优化，加入out_buffer机制</li>
@@ -71,7 +71,7 @@
                 <li>增加signalfd的支持，使信号事件也加入到Reactor</li>
             </ul>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

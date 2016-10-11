@@ -2,7 +2,7 @@
 <head>
 <title>swoole_async_write</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_async_write</h1>
-            <hr>
+            
             <p>异步写文件，与swoole_async_writefile不同，write是分段读写的。不需要一次性将要写的内容放到内存里，所以只占用少量内存。swoole_async_write通过传入的offset参数来确定写入的位置。</p>
             <pre class="brush: php;">bool swoole_async_write(string $filename, string $content, int $offset = -1, mixed $callback = NULL);
 </pre>
@@ -27,7 +27,7 @@
                 <li>当offset为-1时表示追加写入到文件的末尾</li>
             </ul>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

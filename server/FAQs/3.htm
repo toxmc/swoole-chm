@@ -2,15 +2,15 @@
 <head>
 <title>swoole_server中内存管理机制</title>
 <meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 <link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>swoole_server中内存管理机制</h1>
-            <hr>
+            
             <p>swoole_server启动后内存管理的底层原理与普通php-cli程序一致。具体请参考Zend
                 VM内存管理方面的文章。</p>
             <ul>
@@ -24,7 +24,7 @@
                 <li>当Worker进程/Task进程结束运行时，比如设置了max_request，达到任务上限后进程自动退出。该进程的所有变量/对象/资源均会被释放回收。</li>
             </ul>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

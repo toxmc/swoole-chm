@@ -15,11 +15,11 @@
     SyntaxHighlighter.all();
 </script>
 </head>
-<body style='text-justify-trim: punctuation'>
+<body>
     <div class="wiki_content">
         <article>
             <h1>数据库Model类</h1>
-            <hr>
+            
             <p>model类必须继承自Swoole\Model，必须有一个公共属性$table，标识model对应的数据库表名。</p>
             <pre class="brush: php;">class Test extends Swoole\Model
 {
@@ -29,7 +29,7 @@
             <h2>可选属性</h2>
             <p>public $primary = "r_id"; 设置主键的字段名称，默认为'id'</p>
         </article>
-        <hr>
+        
     </div>
 </body>
 </html>

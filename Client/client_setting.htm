@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>配置选项</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<meta name="GENERATOR" content="Macrobject Word-2-CHM">
+		<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../public/styles/shThemeDefault.css" type="text/css" />
+		<script type="text/javascript" src="../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>配置选项</h1>
+				<p>
+					<code>Swoole\Client</code>和<code>Swoole\Http\Client</code>可以使用<code>set</code>方法设置一些选项，启用某些特性。
+				</p>
+
+				<h2>结束符检测</h2>
+				<pre class="brush:php;">$client->set(array(
+    'open_eof_check' => true,
+    'package_eof' => "\r\n\r\n",
+    'package_max_length' => 1024 * 1024 * 2,
+))
+</pre>				
+
+ <h2>长度检测</h2>
+				<pre class="brush:php;">$client->set(array(
+    'open_length_check'     => 1,
+    'package_length_type'   => 'N',
+    'package_length_offset' => 0,       //第N个字节是包长度的值
+    'package_body_offset'   => 4,       //第几个字节开始计算长度
+    'package_max_length'    => 2000000,  //协议最大长度
+));
+</pre>				
+
+ <h2>Socket缓存区尺寸</h2>
+				<pre class="brush:php;">$client->set(array(
+    'socket_buffer_size'     => 1024*1024*2, //2M缓存区
+));
+</pre>				
+				<blockquote>
+					<p>
+						包括socket底层操作系统缓存区、应用层接收数据内存缓存区、应用层发送数据内存缓冲区
+					</p>
+				</blockquote>
+
+				<h2>关闭Nagle合并算法</h2>
+				<pre class="brush:php;">$client->set(array(
+    'open_tcp_nodelay'     =>  true,
+));
+</pre>				
+
+ <h2>SSL/TLS证书</h2>
+				<pre class="brush:php;">$client->set(array(
+    'ssl_cert_file'     =>  $your_ssl_cert_file_path,
+    'ssl_key_file'     =>  $your_ssl_key_file_path,
+));
+</code></pre>
+				<blockquote>
+					<p>
+						swoole-1.7.21或更高版本可用
+					</p>
+				</blockquote>
+
+				<h2>绑定IP和端口</h2>
+
+				<ul>
+					<li>机器有多个网卡的情况下，设置<code>bind_address</code>参数可以强制客户端Socket绑定某个网络地址。</li>
+					<li>设置<code>bind_port</code>可以使客户端Socket使用固定的端口连接到外网服务器</li>
+				</ul>
+				<pre class="brush:php;">$client->set(array(
+    'bind_address'     =>  '192.168.1.100',
+    'bind_port'     =>  36002,
+));
+</pre>				
+
+				<blockquote>
+					<p>
+						swoole-1.8.5或更高版本可用
+					</p>
+				</blockquote>
+
+				<h2>Socks5代理设置</h2>
+				<pre class="brush:php;">$client->set(array(
+    'socks5_host'     =>  '192.168.1.100',
+    'socks5_port'     =>  1080,
+    'socks5_username' => 'username',
+    'socks5_password' => 'password',
+));
+</pre>
+				<ul>
+					<li>socks5_username、socks5_password为可选参数</li>
+				</ul>
+
+				<h2>使用说明</h2>
+
+				<ul>
+					<li>目前支持open_length_check和open_eof_check2种自动协议处理功能，参考swoole_server中的配置选项 </li>
+					<li>启用了自动协议后，同步阻塞客户端recv方法将不接受长度参数，每次必然返回一个完整的数据包 </li>
+					<li>启用了自动协议后，异步非阻塞客户端onReceive每次必然返回一个完整的数据包 </li>
+				</ul>
+			</article>
+		</div>
+	</body>
+</html>

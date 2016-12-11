@@ -31,12 +31,13 @@ swoole_event_add($data, function($fp) {
 
 swoole_event_write($fp, $data);
 </pre>
+            <ul>
+                <li>swoole_event_write不能用于SSL/TLS等有隧道加密的stream/sockets资源</li>
+                <li>swoole_event_write调用之前，必须在将socket加入event_loop，否则会发生错误</li>
+                <li>$data 发送数据的长度不得超过Socket缓存区尺寸</li>
+            </ul>
             <blockquote>
-                <ul>
-                    <li>swoole_event_write不能用于SSL/TLS等有隧道加密的stream/sockets资源</li>
-                    <li>swoole_event_write调用之前，必须在将socket加入event_loop，否则会发生错误</li>
-                    <li>此函数在swoole-1.7.9以上版本可用</li>
-                </ul>
+                <p>此函数在swoole-1.7.9以上版本可用</p>
             </blockquote>
             <h2>SOCKET缓存区已满后，Swoole的底层逻辑</h2>
             
@@ -49,7 +50,9 @@ swoole_event_write($fp, $data);
             <p>如果调用端希望不要阻塞，直接返回错误，可以使用<code>swoole_async_set</code>
             设置<code>socket_dontwait</code> 为<code>true</code>，write将不会阻塞而是直接返回<code>false</code></p>
         </article>
-        
+            <blockquote>
+                <p>缓存塞满返回false是原子操作，只会出现全部写入成功或者全部失败</p>
+            </blockquote>
     </div>
 </body>
 </html>

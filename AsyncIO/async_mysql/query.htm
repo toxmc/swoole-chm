@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>swoole_mysql::query</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+	            <h1>swoole_mysql->query</h1>
+	            <p>执行SQL查询。</p>
+				<pre class="brush:php;">function swoole_mysql->query($sql, callable $callback);</pre>
+				<ul>
+					<li>$sql为要执行的SQL语句</li>
+					<li>$callback执行成功后会回调此函数</li>
+					<li>每个MySQLi连接只能同时执行一条SQL，必须等待返回结果后才能执行下一条SQL</li>
+				</ul>
+	
+				<h2>回调函数</h2>
+				<pre class="brush:php;">function onSQLReady(swoole_mysqli $link, mixed $result);</pre>
+				<ul>
+					<li>执行失败，<code>$result</code>为<code>false</code>，读取<code>$link</code>对象的<code>error</code>属性获得错误信息，<code>errno</code>属性获得错误码</li>
+					<li>执行成功，SQL为非查询语句，<code>$result</code>为<code>true</code>，读取<code>$link</code>对象的<code>affected_rows</code>属性获得影响的行数，<code>insert_id</code>属性获得<code>Insert</code>操作的自增ID</li>
+					<li>执行成功，SQL为查询语句，<code>$result</code>为结果数组</li>
+				</ul>
+			</article>
+		</div>
+	</body>
+</html>

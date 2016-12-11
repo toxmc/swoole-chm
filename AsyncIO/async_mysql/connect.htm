@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>swoole_mysql::connect</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    SyntaxHighlighter.all();
+</script>
+</head>
+<body>
+    <div class="wiki_content">
+        <article>
+		<h1>swoole_mysql->connect</h1>
+        <p>异步连接到MySQL服务器。</p>
+
+		<pre class="brush:php;">function swoole_mysql->connect(array $serverConfig, callable $callback);</pre>
+
+		<ul>
+			<li>$serverConfig为MySQL服务器的配置，必须为关联索引数组</li>
+			<li>$callback连接完成后回调此函数</li>
+		</ul>
+
+		<h2>服务器配置</h2>
+
+<pre class="brush:php;">$server = array(
+    'host' => '192.168.56.102',
+    'user' => 'test',
+    'password' => 'test',
+    'database' => 'test',
+);
+</pre>
+		<ul>
+			<li><code>host</code>  MySQL服务器的主机地址，支持IPv6（<code>::1</code>）和UnixSocket（<code>unix:/tmp/mysql.sock</code>）</li>
+			<li><code>port</code> MySQL服务器监听的端口，选填默认为<code>3306</code></li>
+			<li><code>user</code> 用户名，必填</li>
+			<li><code>password</code> 密码，必填</li>
+			<li><code>database</code> 连接的数据库，必填</li>
+		</ul>
+
+		<h2>回调函数</h2>
+		<pre class="brush:php;">function onConnect(swoole_mysql $db, bool $result);</pre>
+		<ul>
+			<li>$db 为swoole_mysql对象</li>
+			<li>$result 连接是否成功，只有为true时才可以执行<code>query</code>查询</li>
+			<li>$result 为false，可以通过<code>connect_errno</code>和<code>connect_error</code>得到失败的错误码和错误信息</li>
+		</ul>
+        </article>
+    </div>
+</body>
+</html>

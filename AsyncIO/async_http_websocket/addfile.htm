@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>swoole_http_client::addFile</title>
+<meta http-equiv=Content-Type content="text/html; charset=gbk">
+<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">
+    SyntaxHighlighter.defaults['gutter'] = false;
+    SyntaxHighlighter.defaults['toolbar'] = false;
+    SyntaxHighlighter.all();
+</script>
+</head>
+<body>
+    <div class="wiki_content">
+        <article>
+	        <h1>swoole_http_client->addFile</h1>
+	        <p>添加POST文件。</p>
+			
+			<pre class="brush:php;">function swoole_http_client->addFile(string $path, string $name, string $filename = null, string $mimeType = null)
+</pre>
+			
+			<ul>
+				<li>$path 文件的路径，必选参数，不能为空文件或者不存在的文件</li>
+				<li>$name 表单的名称，必选参数，FILES参数中的key</li>
+				<li>$filename 文件名称，可选参数，默认为<code>basename($path)</code></li>
+				<li>$mimeType 文件的MIME格式，可选参数，底层会根据文件的扩展名自动推断</li>
+			</ul>
+			
+			<p>使用<code>addFile</code>只有POST的<code>Content-Type</code>将变更为<code>form-data</code>。<code>addFile</code>底层基于<code>sendfile</code>，可支持异步发送超大文件。</p>
+			
+			<blockquote>
+			  <p>addFile在1.8.9或更高版本可用</p>
+			</blockquote>
+			
+			<h2>使用示例</h2>
+			
+			<pre class="brush:php;">$cli = new swoole_http_client('127.0.0.1', 80);
+//post request
+$cli->setHeaders(['User-Agent' => "swoole"]);
+$cli->addFile(__DIR__.'/post.data', 'post');
+$cli->addFile(dirname(__DIR__).'/test.jpg', 'debug');
+$cli->post('/dump2.php', array("xxx" => 'abc', 'x2' => 'rango'), function ($cli) {
+    echo $cli->body;
+});
+</pre>
+        </article>
+        
+    </div>
+</body>
+</html>

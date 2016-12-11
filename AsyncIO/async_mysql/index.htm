@@ -1,24 +1,66 @@
 <html>
-<head>
-<title>异步MySQL客户端</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-</head>
-<body>
-    <div class="wiki_content">
-        <article>
-            <h1>异步MySQL客户端</h1>
-            
-            <ul>
-                <li>异步MySQL客户端依赖PHP的 <code>mysqlnd</code>和 <code>mysqli</code>2个扩展，
-                请使用<code>php -m</code>或<code>phpinfo</code>确认PHP是否有这2个扩展。</li>
-                <li>另外需要在编译swoole时制定<code>--enable-async-mysql</code></li>
-            </ul>
-        </article>
-        
-    </div>
-</body>
+	<head>
+		<title>异步MySQL客户端</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+		    SyntaxHighlighter.defaults['gutter'] = false;
+		    SyntaxHighlighter.defaults['toolbar'] = false;
+		    SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>异步MySQL客户端</h1>
+				<ul>
+					<li>异步MySQL客户端依赖PHP的 <code>mysqlnd</code> 和 <code>mysqli</code> 2个扩展，请使用<code>php -m</code>或<code>phpinfo</code>确认PHP是否有这2个扩展。</li>
+					<li>另外需要在编译swoole时制定<code>--enable-async-mysql</code></li>
+				</ul>
+
+				<blockquote>
+					<p>
+						1.8.6版本已移除对<code>mysqli</code>和<code>mysqlnd</code>扩展的依赖，并改为内置，无需额外的编译参数开启
+					</p>
+				</blockquote>
+
+				<h2>新版API</h2>
+				<pre class="brush:php;">$db = new swoole_mysql;
+$server = array(
+    'host' => '192.168.56.102',
+    'user' => 'test',
+    'password' => 'test',
+    'database' => 'test',
+);
+
+$db->connect($server, function ($db, $r) {
+    if ($r === false) {
+        var_dump($db->connect_errno, $db->connect_error);
+        die;
+    }
+    $sql = 'show tables';
+    $db->query($sql, function(swoole_mysql $db, $r) {
+        global $s;
+        if ($r === false)
+        {
+            var_dump($db->error, $db->errno);
+        }
+        elseif ($r === true )
+        {
+            var_dump($db->affected_rows, $db->insert_id);
+        }
+        var_dump($r);
+        $db->close();
+    });
+});
+</pre>
+			</article>
+		</div>
+	</body>
 </html>

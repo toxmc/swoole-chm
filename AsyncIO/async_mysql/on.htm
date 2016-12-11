@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>swoole_mysql::on</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_mysql->on</h1>
+				<p>设置事件回调函数。目前仅支持<code>onClose</code>事件回调。</p>
+				<pre class="brush:php;">function swoole_mysql->on($event_name, callable $callback);</pre>				
+
+ 				<h2>onClose事件</h2>
+				<p>当连接关闭时回调此函数。</p>
+				<pre class="brush:php;">$db->on('Close', function($db){
+    echo "MySQL connection is closed.\n";
+});
+</pre>
+			</article>
+		</div>
+	</body>
+</html>

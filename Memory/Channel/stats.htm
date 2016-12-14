@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>swoole_atomic::get</title>
+		<title>Channel::stats</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -17,17 +17,23 @@
 	</head>
 	<body>
 		<div class="wiki_content">
-			<article class="markdown-body entry-content">
-				<h1>swoole_atomic->get</h1>
-
+			<article>
+				<h1>Channel->stats</h1>
 				<p>
-					获取当前计数的值
+					获取通道的状态。函数原型：
 				</p>
-				<pre class="brush: php;">function swoole_atomic->get()
-</pre>
+				<pre class="brush:php;">function Channel->stats() : array;</pre>												
+
 				<ul>
-					<li>返回当前的数值</li>
+					<li>返回一个数组，包括2项信息</li>
+					<li>queue_num 通道中的元素数量</li>
+					<li>queue_bytes 通道当前占用的内存字节数</li>
 				</ul>
+				<pre class="brush:php;">array(
+  "queue_num" => 10,
+  "queue_bytes" => 161,
+);</pre>												
+
 			</article>
 
 		</div>

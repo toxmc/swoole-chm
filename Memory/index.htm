@@ -1,27 +1,37 @@
 <html>
-<head>
-<title>Swoole - Memory</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
-<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../public/styles/shThemeDefault.css" type="text/css"/>
-<script type="text/javascript" src="../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['gutter'] = false;
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
-</script>
-</head>
-<body>
-    <div class="wiki_content">
-        <article>
-            <h1>Memory</h1>
-            
-            <p>Lock示例：</p>
-            <pre class="brush: php;">$lock = new swoole_lock(SWOOLE_MUTEX);
+	<head>
+		<title>Swoole - Memory</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+		<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>Memory</h1>
+				<p>
+					Swoole提供了6个内存操作的模块，在多进程编程中可以帮助程序员实现一些特殊的需求。
+				</p>
+
+				<ul>
+					<li>Memory下的模块可以安全的用于异步非阻塞程序中，不存在任何IO消耗</li>
+					<li>所有模块均为多进程安全的，无需担心数据同步问题</li>
+					<li>Memory相关模块对象为有限资源，不可大量创建</li>
+				</ul>
+				<p>
+					Lock示例：
+				</p>
+				<pre class="brush: php;">$lock = new swoole_lock(SWOOLE_MUTEX);
 echo "[Master]create lock\n";
 $lock->lock();
 if(pcntl_fork() > 0) 
@@ -42,8 +52,10 @@ unset($lock);
 sleep(1);
 echo "[Master]exit\n";
 </pre>
-            <p>Buffer示例：</p>
-            <pre class="brush: php;">$buffer = new swoole_buffer;
+				<p>
+					Buffer示例：
+				</p>
+				<pre class="brush: php;">$buffer = new swoole_buffer;
 $buffer->append(str_repeat("A", 10));
 $buffer->append(str_repeat("B", 20));
 $buffer->append(str_repeat("C", 30));
@@ -58,8 +70,10 @@ echo $buffer->substr(0, 10, true)."\n";
 var_dump($buffer);
 sleep(1);
 </pre>
-            <p>Table示例：</p>
-            <pre class="brush: php;">$table = new swoole_table(1024);
+				<p>
+					Table示例：
+				</p>
+				<pre class="brush: php;">$table = new swoole_table(1024);
 $table->column('name', swoole_table::TYPE_STRING, 64);
 $table->column('id', swoole_table::TYPE_INT, 4);       //1,2,4,8
 $table->column('num', swoole_table::TYPE_FLOAT);
@@ -91,8 +105,8 @@ foreach($table as $value)
 }
 echo "======================= Total Elements: {$table->count()} ============================\n";
 </pre>
-        </article>
-        
-    </div>
-</body>
+			</article>
+
+		</div>
+	</body>
 </html>

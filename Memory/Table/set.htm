@@ -1,57 +1,65 @@
 <html>
-<head>
-<title>swoole_table::set</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['gutter'] = false;
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
-</script>
-</head>
-<body>
-    <div class="wiki_content">
-        <article>
-            <h1>swoole_table->set</h1>
-            
-            <p>设置行的数据，swoole_table使用key-value的方式来访问数据。</p>
-            <pre class="brush: php;">swoole_table->set(string $key, array $array)
+	<head>
+		<title>swoole_table::set</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_table->set</h1>
+
+				<p>
+					设置行的数据，swoole_table使用key-value的方式来访问数据。
+				</p>
+				<pre class="brush: php;">swoole_table->set(string $key, array $array)
 </pre>
-            <ul>
-                <li>$key，数据的key，相同的$key对应同一行数据，如果set同一个key，会覆盖上一次的数据</li>
-                <li>$value，必须是一个数组，必须与字段定义的$name完全相同</li>
-            </ul>
-            <blockquote>
-                <p>
-                    swoole_table->set() 可以设置全部字段的值，也可以只修改部分字段<br />
-                    swoole_table->set() 未设置前，该行数据的所有字段均为空<br />
-                    set/get/del 是自带行锁，所以不需要调用lock加锁
-                </p>
-            </blockquote>
-<pre class="brush: php;">$table->set('tianfenghan@qq.com', array('id' => 145, 'name' => 'rango', 'num' => 3.1415));
+				<ul>
+					<li>$key，数据的key，相同的$key对应同一行数据，如果set同一个key，会覆盖上一次的数据</li>
+					<li>$value，必须是一个数组，必须与字段定义的$name完全相同</li>
+				</ul>
+				<blockquote>
+					<p>
+						swoole_table->set() 可以设置全部字段的值，也可以只修改部分字段
+						<br />
+						swoole_table->set() 未设置前，该行数据的所有字段均为空
+						<br />
+						set/get/del 是自带行锁，所以不需要调用lock加锁
+					</p>
+				</blockquote>
+				<pre class="brush: php;">$table->set('tianfenghan@qq.com', array('id' => 145, 'name' => 'rango', 'num' => 3.1415));
 $table->set('350749960@qq.com', array('id' => 358, 'name' => "Rango1234", 'num' => 3.1415));
 $table->set('hello@qq.com', array('id' => 189, 'name' => 'rango3', 'num' => 3.1415));
-</pre>
+</pre>				
 
-            <h2>设置超过最大长度字符串</h2>
-            
-            <p>如果传入字符串长度超过了列定义时设定的最大尺寸，底层会自动截断。</p>
-            <p>示例：</p>
-<pre class="brush: php;">$table-&gt;column('str_value', swoole_table::TYPE_STRING, 5);
+ <h2>设置超过最大长度字符串</h2>
+
+				<p>
+					如果传入字符串长度超过了列定义时设定的最大尺寸，底层会自动截断。
+				</p>
+				<p>
+					示例：
+				</p>
+				<pre class="brush: php;">$table-&gt;column('str_value', swoole_table::TYPE_STRING, 5);
 $table-&gt;set('hello', array('str_value' =&gt; 'world 123456789'));
 </pre>
-            <ul>
-                <li>自定定义<code>str_value</code>列最大尺寸为5字节，但<code>set</code>设置了超过5字节的字符串</li>
-                <li>底层会自动截取5字节的数据，最终<code>str_value</code>的值为<code>world</code></li>
-            </ul>
-        </article>
-        
-    </div>
-</body>
+				<ul>
+					<li>自定定义<code>str_value</code>列最大尺寸为5字节，但<code>set</code>设置了超过5字节的字符串</li>
+					<li>底层会自动截取5字节的数据，最终<code>str_value</code>的值为<code>world</code></li>
+				</ul>
+			</article>
+
+		</div>
+	</body>
 </html>

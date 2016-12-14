@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>swoole_atomic::get</title>
+		<title>Channel::pop</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -17,17 +17,18 @@
 	</head>
 	<body>
 		<div class="wiki_content">
-			<article class="markdown-body entry-content">
-				<h1>swoole_atomic->get</h1>
-
+			<article>
+				<h1>Channel->pop</h1>
 				<p>
-					获取当前计数的值
+					弹出数据，函数原型：
 				</p>
-				<pre class="brush: php;">function swoole_atomic->get()
-</pre>
+				<pre class="brush:php;">function Channel->pop() : mixed;</pre>												
 				<ul>
-					<li>返回当前的数值</li>
+					<li>pop方法无需传入任何参数</li>
+					<li>当通道内有数据时自动将数据弹出并还原为PHP变量</li>
+					<li>当通道内没有任何数据时pop会失败并返回false</li>
 				</ul>
+
 			</article>
 
 		</div>

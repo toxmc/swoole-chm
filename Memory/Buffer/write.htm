@@ -1,39 +1,43 @@
 <html>
-<head>
-<title>swoole_buffer::write</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['gutter'] = false;
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
-</script>
-</head>
-<body>
-    <div class="wiki_content">
-        <article>
-            <h1>swoole_buffer::write</h1>
-            
-            <p>向缓存区的任意内存位置写数据。此函数可以直接写内存。所以使用务必要谨慎，否则可能会破坏现有数据。</p>
-            <pre class="brush: php;">swoole_buffer->write(int $offset, string $data)
+	<head>
+		<title>swoole_buffer::write</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_buffer->write</h1>
+
+				<p>
+					向缓存区的任意内存位置写数据。此函数可以直接写内存。所以使用务必要谨慎，否则可能会破坏现有数据。
+				</p>
+				<pre class="brush: php;">swoole_buffer->write(int $offset, string $data)
 </pre>
-            <ul>
-                <li>$offset 偏移量</li>
-                <li>$data 写入的数据</li>
-            </ul>
-            <blockquote>
-                <p>
-                    $data不能超过缓存区的最大尺寸。<br /> write方法不会自动扩容
-                </p>
-            </blockquote>
-        </article>
-        
-    </div>
-</body>
+				<ul>
+					<li>$offset 偏移量</li>
+					<li>$data 写入的数据</li>
+				</ul>
+				<blockquote>
+					<p>
+						$data不能超过缓存区的最大尺寸<br />
+						write方法不会自动扩容<br />
+						write方法不能实现字符串追加，请使用append
+					</p>	
+				</blockquote>
+			</article>
+
+		</div>
+	</body>
 </html>

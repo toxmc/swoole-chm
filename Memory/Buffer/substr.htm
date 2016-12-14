@@ -1,41 +1,44 @@
 <html>
-<head>
-<title>swoole_buffer::substr</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['gutter'] = false;
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
-</script>
-</head>
-<body>
-    <div class="wiki_content">
-        <article>
-            <h1>swoole_buffer::substr</h1>
-            
-            <p>从缓冲区中取出内容。</p>
-            <pre class="brush: php;">string swoole_buffer->substr(int $offset, int $length = -1, bool $remove = false);
+	<head>
+		<title>swoole_buffer::substr</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_buffer->substr</h1>
+
+				<p>
+					从缓冲区中取出内容。
+				</p>
+				<pre class="brush: php;">string swoole_buffer->substr(int $offset, int $length = -1, bool $remove = false);
 </pre>
-            <ul>
-                <li>$offset表示偏移量，如果为负数，表示倒数计算偏移量</li>
-                <li>$length表示读取数据的长度，默认为从$offset到整个缓存区末尾</li>
-                <li>$remove表示从缓冲区的头部将此数据移除。只有$offset = 0时此参数才有效</li>
-            </ul>
-            <blockquote>
-                <p>
-                    substr会复制一次内存<br />
-                    remove后内存并没有释放，只是底层进行了指针偏移。当销毁此对象时才会真正释放内存
-                </p>
-            </blockquote>
-        </article>
-        
-    </div>
-</body>
+				<ul>
+					<li>$offset表示偏移量，如果为负数，表示倒数计算偏移量</li>
+					<li>$length表示读取数据的长度，默认为从$offset到整个缓存区末尾</li>
+					<li>$remove表示从缓冲区的头部将此数据移除。只有$offset = 0时此参数才有效</li>
+				</ul>
+				<blockquote>
+					<p>
+						substr会复制一次内存
+						<br />
+						remove后内存并没有释放，只是底层进行了指针偏移。当销毁此对象时才会真正释放内存
+					</p>
+				</blockquote>
+			</article>
+
+		</div>
+	</body>
 </html>

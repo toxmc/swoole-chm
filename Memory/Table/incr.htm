@@ -1,40 +1,44 @@
 <html>
-<head>
-<title>swoole_table::incr</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['gutter'] = false;
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
-</script>
-</head>
-<body>
-    <div class="wiki_content">
-        <article>
-            <h1>swoole_table->incr</h1>
-            
-            <p>原子自增操作。</p>
-            <pre class="brush: php;">function swoole_table->incr(string $key, string $column, mixed $incrby = 1);
+	<head>
+		<title>swoole_table::incr</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_table->incr</h1>
+
+				<p>
+					原子自增操作。
+				</p>
+				<pre class="brush: php;">function swoole_table->incr(string $key, string $column, mixed $incrby = 1);
 </pre>
-            <ul>
-                <li>$key 指定数据的key，如果$key对应的行不存在，默认列的值为0</li>
-                <li>$column 指定列名，仅支持浮点型和整型字段</li>
-                <li>$incrby
-                    增量，默认为1。如果列为整形，$incrby必须为int型，如果列为浮点型，$incrby必须为float类型</li>
-                <li>失败返回false，成功返回最终的结果数值</li>
-            </ul>
-            <blockquote>
-                <p>swoole_table->incr在1.7.15以上版本可用</p>
-            </blockquote>
-        </article>
-        
-    </div>
-</body>
+				<ul>
+					<li>$key 指定数据的key，如果$key对应的行不存在，默认列的值为0</li>
+					<li>$column 指定列名，仅支持浮点型和整型字段</li>
+					<li>$incrby
+						增量，默认为1。如果列为整形，$incrby必须为int型，如果列为浮点型，$incrby必须为float类型</li>
+					<li>失败返回false，成功返回最终的结果数值</li>
+				</ul>
+				<blockquote>
+					<p>
+						swoole_table->incr在1.7.15以上版本可用
+					</p>
+				</blockquote>
+			</article>
+
+		</div>
+	</body>
 </html>

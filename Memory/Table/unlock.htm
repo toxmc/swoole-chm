@@ -1,31 +1,38 @@
 <html>
-<head>
-<title>swoole_table::unlock</title>
-<meta http-equiv=Content-Type content="text/html; charset=gbk">
-<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
-<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
-<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">
-    SyntaxHighlighter.defaults['gutter'] = false;
-    SyntaxHighlighter.defaults['toolbar'] = false;
-    SyntaxHighlighter.all();
-</script>
-</head>
-<body>
-    <div class="wiki_content">
-        <article>
-            <h1>swoole_table->unlock</h1>
-            
-            <p>释放锁。swoole_table底层使用Mutex，多次释放锁不会阻塞。</p>
-            <pre class="brush: php;">function swoole_table->unlock()
+	<head>
+		<title>swoole_table::unlock</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_table->unlock</h1>
+
+				<p>
+					释放锁。swoole_table底层使用Mutex，多次释放锁不会阻塞。
+				</p>
+				<pre class="brush: php;">function swoole_table->unlock()
 </pre>
-        </article>
-        
-    </div>
-</body>
+				<blockquote>
+					<p>
+						最新版本已移除<code>lock</code>和<code>unlock</code>方法，请使用<code>Swoole\Lock</code>来实现数据同步
+					</p>
+				</blockquote>
+			</article>
+
+		</div>
+	</body>
 </html>

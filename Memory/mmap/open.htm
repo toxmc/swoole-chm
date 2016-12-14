@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>swoole_mmap::open</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_mmap::open</h1>
+				<p>
+					创建文件内存映射，函数原型：
+				</p>
+				<pre class="brush:php;">function swoole_mmap::open($file, $size = -1, $offset = 0);
+</pre>
+				
+
+
+				<ul>
+					<li>$file 磁盘文件名称，必须是存在的文件，如果文件不存在将会创建失败。可以使用<code>file_put_contents</code>来初始化文件。</li>
+					<li>$size 映射操作，默认为整个文件的长度，操作系统会分配同等大小的内存。注意不要尝试将超过系统内存尺寸的文件进行映射</li>
+					<li>$offset 文件的映射起始位置，默认为0</li>
+					<li>执行成功将返回一个PHP的<code>stream</code>资源，可使用PHP提供的流式操作函数读写数据</li>
+				</ul>
+
+				<h2>操作内存</h2>
+
+				<ul>
+					<li>读取数据，<code>fread</code>、<code>fgets</code></li>
+					<li>写入数据，<code>fwrite</code>、<code>fputs</code></li>
+					<li>关闭内存映射，<code>fclose</code>，底层会自动执行<code>fflush</code>将数据同步到磁盘文件</li>
+					<li>同步数据，<code>fflush</code>将内存中的数据写入到磁盘</li>
+				</ul>
+
+				<h2>使用示例</h2>
+				<pre class="brush:php;">$file = __DIR__.'/data';
+$size = 8192;
+if (!is_file($file)) {
+    file_put_contents($file, str_repeat("\0", $size));
+}
+
+$fp = swoole\mmap::open($file, 8192);
+
+fwrite($fp, "hello world\n");
+fwrite($fp, "hello swoole\n");
+
+fflush($fp);
+fclose($fp);
+</pre>
+
+			</article>
+
+		</div>
+	</body>
+</html>

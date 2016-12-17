@@ -257,24 +257,19 @@ AsyncIO\Asyn_system_IO\swoole_async_readfile.htm
 AsyncIO\Asyn_system_IO\swoole_async_write.htm
 AsyncIO\Asyn_system_IO\swoole_async_writefile.htm
 Client\parallel\swoole_client_select.htm
-server\functions\swoole_errno.htm
 AsyncIO\EventLoop\swoole_event_add.htm
 AsyncIO\EventLoop\swoole_event_del.htm
 AsyncIO\EventLoop\swoole_event_exit.htm
 AsyncIO\EventLoop\swoole_event_set.htm
 AsyncIO\EventLoop\swoole_event_wait.htm
 AsyncIO\EventLoop\swoole_event_write.htm
-server\functions\swoole_get_local_ip.htm
 server\functions\swoole_get_mysqli_sock.htm
 other\swoole_home.htm
-server\functions\swoole_set_process_name.htm
-server\functions\swoole_strerror.htm
 AsyncIO\Asyn_millisecond_timer\swoole_timer_add.htm
 AsyncIO\Asyn_millisecond_timer\swoole_timer_after.htm
 AsyncIO\Asyn_millisecond_timer\swoole_timer_clear.htm
 AsyncIO\Asyn_millisecond_timer\swoole_timer_del.htm
 AsyncIO\Asyn_millisecond_timer\swoole_timer_tick.htm
-server\functions\swoole_version.htm
 server\functions\task.htm
 advanced\Task_Finish.htm
 server\config_options\task_ipc_mode.htm
@@ -313,7 +308,6 @@ server\attribute\worker_pid.htm
 HttpServer\swoole_http_response\write.htm
 Memory\Buffer\write.htm
 Process\functions\write.htm
-rumen\xiangguan_xiangmu.htm
 
 [ALIAS]
 #include contexts.ali

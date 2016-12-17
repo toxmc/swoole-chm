@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>v1.8.3</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+		<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article class="markdown-body entry-content">
+				<h1>1.8.3</h1>
+				<ul>
+					<li>增加<code>swoole_server->getLastError</code>方法，用于获取最近一次操作的错误码</li>
+					<li>增加Http2协议下对<code>COOKIE</code>的支持</li>
+					<li>增加Http2协议下对<code>form-data</code>的支持</li>
+					<li>修复<a href="https://github.com/swoole/swoole-src/issues/527">issue#527</a></li>
+					<li>修复<a href="https://github.com/swoole/swoole-src/issues/553">issue#553</a></li>
+					<li>修复<code>reactor_num</code>设置超过CPU核数时发生崩溃的问题</li>
+					<li>修复<code>Swoole\Client-&gt;on</code>设置的回调函数发生内存泄漏问题</li>
+					<li>修复打开文件未关闭并且<code>task_worker_num</code>设置过大超过256导致服务器程序崩溃</li>
+					<li>增加全异步服务器安全<code>reload</code>的支持</li>
+					<li>增加http客户端对<code>COOKIE</code>的支持</li>
+					<li>增加http客户端对<code>SSL/TLS</code>加密的支持</li>
+					<li>修复BASE模式下启用心跳检测检测后使用<code>swoole_client</code>出现异常的问题</li>
+				</ul>
+			</article>
+
+		</div>
+	</body>
+</html>

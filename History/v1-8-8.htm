@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>v1.8.8</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+		<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article class="markdown-body entry-content">
+				<h1>1.8.8</h1>
+				<ul>
+					<li>增加<code>Swoole\Server\Port->getSocket</code>方法，可获取监听端口的socket句柄</li>
+					<li>增加<code>Swoole\Server->getClientInfo()['close_errno']</code>属性，可获取连接关闭的错误码</li>
+					<li>修复<code>Swoole\Server->close</code>无法关闭未完成握手的SSL客户端连接的问题</li>
+					<li>修复<code>Swoole\Server->taskwait</code>在BASE模式下无法使用的问题</li>
+					<li>增加<code>Swoole\Event</code>命名空间与类风格的API</li>
+					<li>修复<code>Swoole\MySQL</code>客户端无法支持超过250字段查询语句的问题</li>
+					<li>增加<code>Swoole\MySQL</code>字符集设置支持</li>
+					<li>修复<code>Swoole\Server->task</code>第三参数传入Callback在PHP7下发生崩溃的问题</li>
+					<li>修复<code>Swoole\Http\Server</code>由于外部引用request对象后用户取消请求导致崩溃的问题</li>
+					<li>增加<code>Swoole\Server->taskWaitMulti</code>可以并发执行多个任务</li>
+					<li>修复<code>Swoole\Http\Client</code>的WebSocket客户端接收数据粘包的问题</li>
+					<li>增加<code>Swoole\Server\Port</code>对<code>Request</code>、<code>Open</code>、<code>HandShake</code>、<code>Message</code>回调函数设置支持</li>
+					<li>增加<code>Swoole\Client->getPeerCert</code>方法</li>
+					<li>增加<code>Swoole\Client->pause</code>和<code>Swoole\Client->resume</code></li>
+					<li>增加<code>Swoole\Http\Client</code>更多的客户端设置选项</li>
+					<li>修复<code>Swoole\Http\Request->files</code>在PHP7下为NULL时被外部引用发生崩溃的问题</li>
+				</ul>
+
+				<h2>并发Task特性</h2>
+
+				<p>
+					之前的版本<code>taskwait</code>只支持同时执行一个任务，在一些场景下需要同时并发执行多个Task，并返回结果集。最新的<code>1.8.8</code>版本增加了并发Task的支持，可以解决此类问题。
+				</p>
+				<pre class="brush:php;">$tasks[] = mt_rand(1000, 9999);
+$tasks[] = mt_rand(1000, 9999);
+//等待所有Task结果返回，超时为10s
+var_dump($tasks);
+$results = $serv->taskWaitMulti($tasks, 10.0);
+var_dump($results);
+</pre>
+
+			</article>
+
+		</div>
+	</body>
+</html>

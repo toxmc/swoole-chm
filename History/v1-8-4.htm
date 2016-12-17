@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>v1.8.4</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+		<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article class="markdown-body entry-content">
+				<h1>1.8.4</h1>
+				<ul>
+					<li>同步客户端禁止使用<code>Swoole\Client-&gt;on</code>注册异步回调函数</li>
+					<li>修复<code>Swoole\Http\Server</code>解析<code>form-data</code>格式数据发生错误的问题</li>
+					<li>修复<code>Swoole\Redis</code>回调函数内存泄漏问题</li>
+					<li>修复<code>swoole_mysql_query</code>回调函数内存泄漏问题</li>
+					<li>修复<a href="https://github.com/swoole/swoole-src/issues/585">Issue#585</a></li>
+					<li>修复<a href="https://github.com/swoole/swoole-src/issues/590">Issue#590</a></li>
+					<li>修复<code>Swoole\Http\Client</code>内存泄漏问题</li>
+					<li>修复<code>Swoole\Client</code>连接关闭时发生崩溃的问题</li>
+					<li>修复<code>Swoole\Client-&gt;onError</code>时未设置<code>errCode</code>的问题</li>
+					<li>修复<code>swoole_async_writefile</code>函数未设置回调函数发生coredump的问题</li>
+					<li>增加<code>Swoole\Client</code>对异步unixsock的支持</li>
+					<li>增加<code>Swoole\Http\Request</code>对高精度请求时间的支持</li>
+				</ul>
+			</article>
+
+		</div>
+	</body>
+</html>

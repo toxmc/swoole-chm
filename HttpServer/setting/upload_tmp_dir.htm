@@ -1,12 +1,12 @@
 <html>
 	<head>
-		<title>swoole_strerror</title>
+		<title>upload_tmp_dir</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
 		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
 		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
 		<script type="text/javascript">
@@ -18,13 +18,20 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>swoole_strerror</h1>
+				<h1>upload_tmp_dir</h1>
 
 				<p>
-					将标准的Unix Errno错误码转换成错误信息。函数原型：
+					设置上传文件的临时目录。
 				</p>
-				<pre class="brush: php;">string swoole_strerror(int $errno);
+				<pre class="brush: php;">$serv->set(array(
+    'upload_tmp_dir' => '/data/uploadfiles/',
+));
 </pre>
+				<blockquote>
+					<p>
+						目录最大长度不得超过220字节
+					</p>
+				</blockquote>
 			</article>
 
 		</div>

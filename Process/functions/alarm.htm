@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>swoole_process::alarm</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>swoole_process::alarm</h1>
+				<p>
+					高精度定时器，是操作系统<code>setitimer</code>系统调用的封装，可以设置微妙级别的定时器。定时器会触发信号，需要与<code>swoole_process::signal</code>或<code>pcntl_signal</code>配合使用。
+				</p>
+				<pre class="brush:php;">function swoole_process::alarm(int $interval_usec, int $type = ITIMER_REAL) : bool
+</pre>
+				
+
+
+				<ul>
+					<li>$interval_usec 定时器间隔时间，单位为微妙。如果为负数表示清除定时器</li>
+					<li>$type 定时器类型，0 表示为真实时间,触发<code>SIGALAM</code>信号，1 表示用户态CPU时间，触发<code>SIGVTALAM</code>信号，2 表示用户态+内核态时间，触发<code>SIGPROF</code>信号</li>
+					<li>设置成功返回true，失败返回false，可以使用<code>swoole_errno</code>得到错误码</li>
+				</ul>
+
+				<blockquote>
+					<p>
+						alarm不能和<code>Swoole\Timer</code>同时使用
+						<br />
+						alarm在1.8.13或更高版本可用
+					</p>
+				</blockquote>
+
+				<h2>使用实例</h2>
+				<pre class="brush:php;">swoole_process::signal(SIGALRM, function () {
+    static $i = 0;
+    echo "#{$i}\talarm\n";
+    $i++;
+    if ($i > 20) {
+        swoole_process::alarm(-1);
+    }
+});
+
+//100ms
+swoole_process::alarm(100 * 1000);
+</pre>
+
+			</article>
+
+		</div>
+	</body>
+</html>

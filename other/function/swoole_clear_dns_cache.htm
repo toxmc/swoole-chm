@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>swoole_strerror</title>
+		<title>swoole_clear_dns_cache</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
@@ -18,12 +18,12 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>swoole_strerror</h1>
+				<h1>swoole_clear_dns_cache</h1>
 
 				<p>
-					将标准的Unix Errno错误码转换成错误信息。函数原型：
+					清除swoole内置的DNS缓存，对<code>swoole_client</code>和<code>swoole_async_dns_lookup</code> 有效。
 				</p>
-				<pre class="brush: php;">string swoole_strerror(int $errno);
+				<pre class="brush: php;">function swoole_clear_dns_cache();
 </pre>
 			</article>
 

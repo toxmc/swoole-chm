@@ -1,12 +1,12 @@
 <html>
 	<head>
-		<title>swoole_strerror</title>
+		<title>http_parse_post</title>
 		<meta http-equiv=Content-Type content="text/html; charset=gbk">
 		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
 		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
-		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css"/>
 		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
 		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
 		<script type="text/javascript">
@@ -18,13 +18,20 @@
 	<body>
 		<div class="wiki_content">
 			<article>
-				<h1>swoole_strerror</h1>
+				<h1>http_parse_post</h1>
 
 				<p>
-					将标准的Unix Errno错误码转换成错误信息。函数原型：
+					设置POST消息解析开关，选项为<code>true</code>时自动将<code>Content-Type</code>为<code>x-www-form-urlencoded</code>的请求包体解析到POST数组。设置为<code>false</code>时将关闭POST解析。
 				</p>
-				<pre class="brush: php;">string swoole_strerror(int $errno);
+				<pre class="brush: php;">$serv->set(array(
+    'http_parse_post' =&gt; false,
+));
 </pre>
+				<blockquote>
+					<p>
+						目录最大长度不得超过220字节
+					</p>
+				</blockquote>
 			</article>
 
 		</div>

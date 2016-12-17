@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>v1.9.1</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../../public/css/Word2Chm.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../../public/styles/shThemeDefault.css" type="text/css" />
+		<script type="text/javascript" src="../../public/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../../public/scripts/shBrushPhp.js"></script>
+		<script type="text/javascript">
+			SyntaxHighlighter.defaults['gutter'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article>
+				<h1>1.9.1</h1>
+				<h2>主要更新内容</h2>
+
+				<ul>
+					<li>修复使用<code>addProcess</code>添加用户进程后无法正常shutdown的问题</li>
+					<li>异步读写文件函数<code>Async::writeFile</code>增加<code>FILE_APPEND</code>选项支持</li>
+					<li>异步读写文件函数在进行read、write时对文件加锁</li>
+					<li>修复<code>Async::write</code>函数未设置回调函数发生崩溃的问题</li>
+					<li>重构<code>Async::write</code>函数追加模式的实现，使用<code>O_APPEND</code></li>
+					<li>重构<code>reopen log file</code>特性，收到<code>SIGRTMIN</code>信号后重新打开日志文件并重定向标准输出</li>
+					<li>修复<code>Table</code>迭代器遗漏数据的问题</li>
+					<li>回调函数<code>onPacket</code>客户端信息参数增加服务器来源端口<code>server_port</code></li>
+					<li>回调函数<code>onReceive</code>和<code>connection_info</code>方法即将移除对UDP的支持，UDP端口使用这2个特性时会抛出<code>E_DEPRECATED</code>警告信息</li>
+					<li>服务器连接迭代器<code>Connection\Iterator</code>增加ArrayAccess接口</li>
+					<li><strong>修复<code>Server</code>在进程管道缓存区塞满后连续发送大数据导致死锁的问题（重要问题）</strong></li>
+					<li>修复PHP7下启用<code>opcache</code>导致崩溃的问题</li>
+					<li>修复<code>taskWaitMulti</code>在超时后无法返回执行成功任务结果的问题</li>
+					<li>定时器使用<code>MONOTONIC</code>单调时间，解决系统时间修改导致定时器错乱的问题</li>
+				</ul>
+
+				<h2>连接ArrayAccess用法</h2>
+				<pre class="brush:php;">$serv->on('connect', function ($serv, $fd, $reactor_id){
+    echo "IP Address: ".$serv->connections[$fd]['remote_ip']."\n";
+    if (isset($serv->connections[6])) {
+        echo "connection 6 is exists.\n";
+    }
+});
+</pre>
+
+			</article>
+		</div>
+	</body>
+</html>

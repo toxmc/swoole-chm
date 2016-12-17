@@ -83,21 +83,21 @@
                     </OBJECT>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="异步编程入门">
-                  <param name="Local" value="rumen\async\index.htm">
+                  <param name="Name" value="编程须知">
+                  <param name="Local" value="rumen\needknow\index.htm">
                 </OBJECT>
                 <UL>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="sleep/usleep的影响">
-                      <param name="Local" value="rumen\async\sleep.htm">
+                      <param name="Local" value="rumen\needknow\sleep.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="exit/die函数的影响">
-                      <param name="Local" value="rumen\async\exit.htm">
+                      <param name="Local" value="rumen\needknow\exit.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="while循环的影响">
-                      <param name="Local" value="rumen\async\while.htm">
+                      <param name="Local" value="rumen\needknow\while.htm">
                     </OBJECT>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
@@ -106,16 +106,36 @@
                 </OBJECT>
                 <UL>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.8.3">
-                      <param name="Local" value="rumen\version\1.8.3.htm">
+                      <param name="Name" value="2.0.1-Alpha">
+                      <param name="Local" value="rumen\version\2.0.1-Alpha.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.8.4">
-                      <param name="Local" value="rumen\version\1.8.4.htm">
+                      <param name="Name" value="v1.9.2">
+                      <param name="Local" value="rumen\version\v1-9-2.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="1.8.5（开发中）">
-                      <param name="Local" value="rumen\version\1.8.5.htm">
+                      <param name="Name" value="v1.9.1">
+                      <param name="Local" value="rumen\version\v1-9-1.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="v1.9.0">
+                      <param name="Local" value="rumen\version\v1-9-0.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="v1.8.13">
+                      <param name="Local" value="rumen\version\v1-8-13.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="v1.8.12">
+                      <param name="Local" value="rumen\version\v1-8-12.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="v1.8.11">
+                      <param name="Local" value="rumen\version\v1-8-11.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="v1.8.10">
+                      <param name="Local" value="rumen\version\1.8.10.htm">
                     </OBJECT>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
@@ -213,6 +233,24 @@
                       <param name="Name" value="学习Swoole需要掌握哪些基础知识">
                       <param name="Local" value="rumen\changjian_wenti\12.htm">
                     </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="同步阻塞与异步非阻塞适用场景">
+                      <param name="Local" value="rumen\changjian_wenti\13.htm">
+                    </OBJECT>
+                </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="周边相关项目">
+                  <param name="Local" value="rumen\open_source\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="框架">
+                      <param name="Local" value="rumen\open_source\framework.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="工具">
+                      <param name="Local" value="rumen\open_source\tool.htm">
+                    </OBJECT>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="开发者列表">
@@ -233,10 +271,6 @@
                 <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="内核参数调整">
                   <param name="Local" value="rumen\neihe_canshu.htm">
-                </OBJECT>
-                <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="周边相关项目">
-                  <param name="Local" value="rumen\xiangguan_xiangmu.htm">
                 </OBJECT>
             </UL>
             <LI><OBJECT type="text/sitemap">
@@ -280,6 +314,10 @@
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_server::reload">
                       <param name="Local" value="server\functions\reload.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_server::stop">
+                      <param name="Local" value="server\functions\stop.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_server::shutdown">
@@ -330,6 +368,14 @@
                       <param name="Local" value="server\functions\exist.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_server::pause">
+                      <param name="Local" value="server\functions\pause.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_server::resume">
+                      <param name="Local" value="server\functions\resume.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_server::connection_info">
                       <param name="Local" value="server\functions\connection_info.htm">
                     </OBJECT>
@@ -354,6 +400,10 @@
                       <param name="Local" value="server\functions\taskwait.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_server::taskWaitMulti">
+                      <param name="Local" value="server\functions\taskWaitMulti.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_server::finish">
                       <param name="Local" value="server\functions\finish.htm">
                     </OBJECT>
@@ -362,28 +412,8 @@
                       <param name="Local" value="server\functions\heartbeat.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_get_mysqli_sock">
-                      <param name="Local" value="server\functions\swoole_get_mysqli_sock.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_set_process_name">
-                      <param name="Local" value="server\functions\swoole_set_process_name.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_version">
-                      <param name="Local" value="server\functions\swoole_version.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_strerror">
-                      <param name="Local" value="server\functions\swoole_strerror.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_errno">
-                      <param name="Local" value="server\functions\swoole_errno.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_get_local_ip">
-                      <param name="Local" value="server\functions\swoole_get_local_ip.htm">
+                      <param name="Name" value="swoole_server::getLastError">
+                      <param name="Local" value="server\functions\getLastError.htm">
                     </OBJECT>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
@@ -456,10 +486,6 @@
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="task_tmpdir">
                       <param name="Local" value="server\config_options\task_tmpdir.htm">
-                    </OBJECT>
-                    <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="task_worker_max">
-                      <param name="Local" value="server\config_options\task_worker_max.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="dispatch_mode">
@@ -562,6 +588,10 @@
                       <param name="Local" value="server\config_options\buffer_output_size.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="socket_buffer_size">
+                      <param name="Local" value="server\config_options\socket_buffer_size.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="enable_unsafe_event">
                       <param name="Local" value="server\config_options\enable_unsafe_event.htm">
                     </OBJECT>
@@ -573,20 +603,28 @@
                       <param name="Name" value="enable_reuse_port">
                       <param name="Local" value="server\config_options\enable_reuse_port.htm">
                     </OBJECT>
-                </UL>
-                <LI><OBJECT type="text/sitemap">
-                  <param name="Name" value="监听端口">
-                  <param name="Local" value="server\lister_port\index.htm">
-                </OBJECT>
-                <UL>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="可选参数">
-                      <param name="Local" value="server\lister_port\params.htm">
+                      <param name="Name" value="ssl_ciphers">
+                      <param name="Local" value="server\config_options\ssl_ciphers.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="可选回调">
-                      <param name="Local" value="server\lister_port\callback.htm">
+                      <param name="Name" value="enable_delay_receive">
+                      <param name="Local" value="server\config_options\enable_delay_receive.htm">
                     </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="监听端口">
+                      <param name="Local" value="server\lister_port\index.htm">
+                    </OBJECT>
+                    <UL>
+                        <LI><OBJECT type="text/sitemap">
+                          <param name="Name" value="可选参数">
+                          <param name="Local" value="server\lister_port\params.htm">
+                        </OBJECT>
+                        <LI><OBJECT type="text/sitemap">
+                          <param name="Name" value="可选回调">
+                          <param name="Local" value="server\lister_port\callback.htm">
+                        </OBJECT>
+                    </UL>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="事件回调函数">
@@ -890,6 +928,10 @@
                   <param name="Name" value=" 常量">
                   <param name="Local" value="Client\constants.htm">
                 </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="配置选项">
+                  <param name="Local" value="Client\client_setting.htm">
+                </OBJECT>
             </UL>
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="Process">
@@ -930,6 +972,14 @@
                       <param name="Local" value="Process\functions\useQueue.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_process::statQueue">
+                      <param name="Local" value="Process\functions\statQueue.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_process::useQueue">
+                      <param name="Local" value="Process\functions\freeQueue.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_process::push">
                       <param name="Local" value="Process\functions\push.htm">
                     </OBJECT>
@@ -960,6 +1010,10 @@
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_process::signal">
                       <param name="Local" value="Process\functions\signal.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_process::alarm">
+                      <param name="Local" value="Process\functions\alarm.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_process::setaffinity">
@@ -1060,6 +1114,26 @@
                 </OBJECT>
                 <UL>
                     <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_mysql::construct">
+                      <param name="Local" value="AsyncIO\async_mysql\construct.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_mysql::connect">
+                      <param name="Local" value="AsyncIO\async_mysql\connect.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_mysql::on">
+                      <param name="Local" value="AsyncIO\async_mysql\on.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_mysql::query">
+                      <param name="Local" value="AsyncIO\async_mysql\query.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_mysql::close">
+                      <param name="Local" value="AsyncIO\async_mysql\close.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_get_mysqli_sock">
                       <param name="Local" value="AsyncIO\async_mysql\swoole_get_mysqli_sock.htm">
                     </OBJECT>
@@ -1074,19 +1148,19 @@
                 </OBJECT>
                 <UL>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_redis-">
+                      <param name="Name" value="swoole_redis::on">
                       <param name="Local" value="AsyncIO\async_redis\on.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_redis-">
+                      <param name="Name" value="swoole_redis::connect">
                       <param name="Local" value="AsyncIO\async_redis\connect.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_redis-">
+                      <param name="Name" value="swoole_redis::__call">
                       <param name="Local" value="AsyncIO\async_redis\call.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_redis-">
+                      <param name="Name" value="swoole_redis::close">
                       <param name="Local" value="AsyncIO\async_redis\close.htm">
                     </OBJECT>
                 </UL>
@@ -1096,31 +1170,35 @@
                 </OBJECT>
                 <UL>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_http_client-">
+                      <param name="Name" value="swoole_http_client::setMethod">
                       <param name="Local" value="AsyncIO\async_http_websocket\setMethod.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_http_client-">
+                      <param name="Name" value="swoole_http_client::setHeaders">
                       <param name="Local" value="AsyncIO\async_http_websocket\setHeaders.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_http_client-">
+                      <param name="Name" value="swoole_http_client::setCookies">
                       <param name="Local" value="AsyncIO\async_http_websocket\setCookies.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_http_client-">
+                      <param name="Name" value="swoole_http_client::setData">
                       <param name="Local" value="AsyncIO\async_http_websocket\setData.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_http_client-">
+                      <param name="Name" value="swoole_http_client::addFile">
+                      <param name="Local" value="AsyncIO\async_http_websocket\addfile.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_http_client::get">
                       <param name="Local" value="AsyncIO\async_http_websocket\get.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_http_client-">
+                      <param name="Name" value="swoole_http_client::post">
                       <param name="Local" value="AsyncIO\async_http_websocket\post.htm">
                     </OBJECT>
                     <LI><OBJECT type="text/sitemap">
-                      <param name="Name" value="swoole_http_client-">
+                      <param name="Name" value="swoole_http_client::upgrade">
                       <param name="Local" value="AsyncIO\async_http_websocket\upgrade.htm">
                     </OBJECT>
                 </UL>
@@ -1278,6 +1356,38 @@
                       <param name="Local" value="Memory\Atomic\cmpset.htm">
                     </OBJECT>
                 </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="mmap">
+                  <param name="Local" value="Memory\mmap\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_mmap::open">
+                      <param name="Local" value="Memory\mmap\open.htm">
+                    </OBJECT>
+                </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="Channel">
+                  <param name="Local" value="Memory\Channel\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Channel::__construct">
+                      <param name="Local" value="Memory\Channel\construct.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Channel::push">
+                      <param name="Local" value="Memory\Channel\push.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Channel::pop">
+                      <param name="Local" value="Memory\Channel\pop.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="Channel::stats">
+                      <param name="Local" value="Memory\Channel\stats.htm">
+                    </OBJECT>
+                </UL>
             </UL>
             <LI><OBJECT type="text/sitemap">
               <param name="Name" value="HttpServer">
@@ -1368,6 +1478,20 @@
                     <LI><OBJECT type="text/sitemap">
                       <param name="Name" value="swoole_http_response::end">
                       <param name="Local" value="HttpServer\swoole_http_response\end.htm">
+                    </OBJECT>
+                </UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="配置选项">
+                  <param name="Local" value="HttpServer\setting\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="upload_tmp_dir">
+                      <param name="Local" value="HttpServer\setting\upload_tmp_dir.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="http_parse_post">
+                      <param name="Local" value="HttpServer\setting\http_parse_post.htm">
                     </OBJECT>
                 </UL>
                 <LI><OBJECT type="text/sitemap">
@@ -1519,6 +1643,36 @@
             </OBJECT>
             <UL>
                 <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="函数列表">
+                  <param name="Local" value="other\function\index.htm">
+                </OBJECT>
+                <UL>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_set_process_name">
+                      <param name="Local" value="other\function\swoole_set_process_name.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_version">
+                      <param name="Local" value="other\function\swoole_version.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_strerror">
+                      <param name="Local" value="other\function\swoole_strerror.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_errno">
+                      <param name="Local" value="other\function\swoole_errno.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_get_local_ip">
+                      <param name="Local" value="other\function\swoole_get_local_ip.htm">
+                    </OBJECT>
+                    <LI><OBJECT type="text/sitemap">
+                      <param name="Name" value="swoole_clear_dns_cache">
+                      <param name="Local" value="other\function\swoole_clear_dns_cache.htm">
+                    </OBJECT>
+                </UL>
+                <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="Swoole社区">
                   <param name="Local" value="other\swoole_home.htm">
                 </OBJECT>
@@ -1574,6 +1728,34 @@
               <param name="Local" value="History\index.htm">
             </OBJECT>
             <UL>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="v1.8.9">
+                  <param name="Local" value="History\v1-8-9.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="v1.8.8">
+                  <param name="Local" value="History\v1-8-8.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="v1.8.7">
+                  <param name="Local" value="History\v1-8-7.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="v1.8.6">
+                  <param name="Local" value="History\v1-8-6.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="v1.8.5">
+                  <param name="Local" value="History\v1-8-5.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="v1.8.4">
+                  <param name="Local" value="History\v1-8-4.htm">
+                </OBJECT>
+                <LI><OBJECT type="text/sitemap">
+                  <param name="Name" value="v1.8.3">
+                  <param name="Local" value="History\v1-8-3.htm">
+                </OBJECT>
                 <LI><OBJECT type="text/sitemap">
                   <param name="Name" value="v1.8.2">
                   <param name="Local" value="History\v1-8-2.htm">

@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>v1.8.7</title>
+		<meta http-equiv=Content-Type content="text/html; charset=gbk">
+		<link rel="stylesheet" href="../public/css/Word2Chm.css" type="text/css">
+		<link rel="stylesheet" href="../public/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/noframe.css" type="text/css" />
+		<link rel="stylesheet" href="../public/css/bootstrap.css" type="text/css" />
+	</head>
+	<body>
+		<div class="wiki_content">
+			<article class="markdown-body entry-content">
+				<h1>1.8.7</h1>
+				<ul>
+					<li>修复<code>Swoole\Http\Server</code>在PHP7下崩溃的问题（zdata请求数据内存释放问题）</li>
+					<li>修复<code>Swoole\Http\Client</code>的WebSocket模块未设置<code>Header</code>发生崩溃的问题</li>
+					<li>修复<code>Swoole\MySQL</code>对unixsock服务器端主机地址解析错误的问题</li>
+					<li>修复<code>Swoole\Http\Client</code>在低于<code>Linux-2.6.18</code>版本内核发生崩溃的问题</li>
+					<li>修复<code>Swoole\MySQL</code>在PHP7下嵌套回调发生崩溃的问题</li>
+					<li>更新<code>Swoole\Server</code>最大监听端口数，由<code>128</code>调整为<code>60000</code></li>
+					<li>更新<code>Swoole\Server</code>主线程使用<code>epoll</code>或<code>kqueue</code></li>
+					<li>修复<code>swoole_async_dns_lookup</code>命中缓存时发生崩溃的问题</li>
+					<li>修复<code>Swoole\Table</code>迭代器在并发读写时发生数据读取错误的问题</li>
+					<li>修复<code>Swoole\Timer::after</code>接口初始化添加时执行顺序错乱问题</li>
+					<li>增加<code>Swoole\Timer::exists</code>接口用于查询定时器是否存在</li>
+					<li>修复<code>Swoole\WebSocket\Server::exist</code>方法用于判断其他TCP端口时总是返回<code>false</code>的问题</li>
+					<li>优化<code>Swoole\Server</code>关闭服务时Task进程的结束速度</li>
+				</ul>
+			</article>
+
+		</div>
+	</body>
+</html>

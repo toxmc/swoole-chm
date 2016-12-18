@@ -1,0 +1,5 @@
+*
+!*.chm
+!README.md
+!*.png
+!.gitignore
